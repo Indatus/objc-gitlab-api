@@ -8,6 +8,8 @@
 
 #import "GLNote.h"
 
+NSString *const GLUserEndpoint = @"/notes";
+
 @implementation GLNote
 
 @end

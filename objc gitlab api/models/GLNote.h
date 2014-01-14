@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+FOUNDATION_EXPORT NSString *const GLUserEndpoint;
+
 @class GLUser;
 
 @interface GLNote : NSObject
