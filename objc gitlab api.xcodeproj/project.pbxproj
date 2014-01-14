@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CF663E91885D494005BC2AC /* GLNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF663E81885D494005BC2AC /* GLNote.m */; };
 		5D4954EA1885CFDB00E162BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4954E91885CFDB00E162BB /* Foundation.framework */; };
 		5D4954F81885CFDB00E162BB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4954F71885CFDB00E162BB /* XCTest.framework */; };
 		5D4954F91885CFDB00E162BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4954E91885CFDB00E162BB /* Foundation.framework */; };
@@ -42,6 +43,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0CF663E71885D494005BC2AC /* GLNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLNote.h; sourceTree = "<group>"; };
+		0CF663E81885D494005BC2AC /* GLNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLNote.m; sourceTree = "<group>"; };
 		5D4954E61885CFDB00E162BB /* libobjc gitlab api.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libobjc gitlab api.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D4954E91885CFDB00E162BB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5D4954ED1885CFDB00E162BB /* objc gitlab api-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "objc gitlab api-Prefix.pch"; sourceTree = "<group>"; };
@@ -154,6 +157,8 @@
 				5D8590011885D11F00D04017 /* GLCommit.m */,
 				5D8590071885D62900D04017 /* GLMergeRequest.h */,
 				5D8590081885D62900D04017 /* GLMergeRequest.m */,
+				0CF663E71885D494005BC2AC /* GLNote.h */,
+				0CF663E81885D494005BC2AC /* GLNote.m */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -251,6 +256,7 @@
 				5D8590021885D11F00D04017 /* GLCommit.m in Sources */,
 				5D8590091885D62900D04017 /* GLMergeRequest.m in Sources */,
 				5D8590061885D1F000D04017 /* GLNetworkRunner.m in Sources */,
+				0CF663E91885D494005BC2AC /* GLNote.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
