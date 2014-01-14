@@ -30,5 +30,8 @@ FOUNDATION_EXPORT NSString *const GLProjectEndpoint;
 @property (nonatomic, copy) NSString *sshUrl;
 @property (nonatomic, strong) GLNamespace *namespace;
 
++ (GLProject *)getProject:(int64_t)projectId;
++ (NSArray *)getProjectsForNamespace:(GLNamespace *)glNamespace;
++ (NSArray *)getAllProjects;
 
 @end

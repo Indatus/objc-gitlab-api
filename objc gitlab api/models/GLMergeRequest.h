@@ -22,16 +22,12 @@ FOUNDATION_EXPORT NSString * const GLMergeRequestEndPoint;
 @property (nonatomic, assign, getter = isMerged) BOOL merged;
 @property (nonatomic, strong) GLUser *author;
 @property (nonatomic, strong) GLUser *assignee;
-
 // target_branch
 @property (nonatomic, copy) NSString *targetBranch;
-
 // source_branch
 @property (nonatomic, copy) NSString *sourceBranch;
-
 // project_id
 @property (nonatomic, assign) int64_t projectId;
-
 // source_project_id
 @property (nonatomic, assign) int64_t sourceProjectId;
 

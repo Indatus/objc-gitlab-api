@@ -14,18 +14,16 @@ FOUNDATION_EXPORT NSString * const GLCommitEndPoint;
 
 @property (nonatomic, copy) NSString *commitId;
 @property (nonatomic, copy) NSString *title;
-    
 // short_id
 @property (nonatomic, copy) NSString *shortId;
-    
 // author_name
 @property (nonatomic, copy) NSString *authorName;
-    
 // author_email
-@property (nonatomic, copy) NSString *authorEmail;
-    
+@property (nonatomic, copy) NSString *authorEmail;    
 // created_at
 @property (nonatomic, copy) NSDate *createdAd;
+
+
 
 
 @end

@@ -14,13 +14,10 @@
 @property (nonatomic, copy) NSString *name;
 @property (nonatomic, copy) NSString *path;
 @property (nonatomic, copy) NSString *description;
-
 // created_at
 @property (nonatomic, strong) NSDate *createdAt;
-
 // updated_at
 @property (nonatomic, strong) NSDate *updatedAt;
-
 // owner_id
 @property (nonatomic, assign) int64_t ownerId;
 

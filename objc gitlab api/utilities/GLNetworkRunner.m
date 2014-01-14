@@ -8,6 +8,13 @@
 
 #import "GLNetworkRunner.h"
 
+@interface GLNetworkRunner ()
+
+@end
+
 @implementation GLNetworkRunner
+
+
+
 
 @end

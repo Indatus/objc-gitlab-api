@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface GLNetworkRunner : NSObject
+@interface GLNetworkRunner : NSOperation
+
 
 @end
