@@ -15,14 +15,11 @@ FOUNDATION_EXPORT NSString *const GLUserEndpoint;
 @interface GLNote : NSObject
 
 // id
-@property (nonatomic, assign) int32_t noteId;
-// body
+@property (nonatomic, assign) int64_t noteId;
 @property (nonatomic, copy) NSString *body;
-// attachment
 @property (nonatomic, copy) NSString *attachment;
-// author
-@property (nonatomic, strong) GLUser *user;
+@property (nonatomic, strong) GLUser *author;
 // created_at
-@property (nonatomic, strong) NSDate *createdDate;
+@property (nonatomic, strong) NSDate *createdAt;
 
 @end
