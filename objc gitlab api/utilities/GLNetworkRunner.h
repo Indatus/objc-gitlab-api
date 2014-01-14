@@ -1,5 +1,5 @@
 //
-//  objc_gitlab_api.h
+//  GLNetworkRunner.h
 //  objc gitlab api
 //
 //  Created by Jon Staff on 1/14/14.
@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@interface objc_gitlab_api : NSObject
+@interface GLNetworkRunner : NSObject
 
 @end
