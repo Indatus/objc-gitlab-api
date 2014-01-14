@@ -16,6 +16,7 @@
 		5D4955061885CFDB00E162BB /* objc_gitlab_apiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4955051885CFDB00E162BB /* objc_gitlab_apiTests.m */; };
 		5D8590021885D11F00D04017 /* GLCommit.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8590011885D11F00D04017 /* GLCommit.m */; };
 		5D8590061885D1F000D04017 /* GLNetworkRunner.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8590051885D1F000D04017 /* GLNetworkRunner.m */; };
+		5D8590091885D62900D04017 /* GLMergeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D8590081885D62900D04017 /* GLMergeRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		5D8590011885D11F00D04017 /* GLCommit.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLCommit.m; sourceTree = "<group>"; };
 		5D8590041885D1F000D04017 /* GLNetworkRunner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLNetworkRunner.h; sourceTree = "<group>"; };
 		5D8590051885D1F000D04017 /* GLNetworkRunner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLNetworkRunner.m; sourceTree = "<group>"; };
+		5D8590071885D62900D04017 /* GLMergeRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMergeRequest.h; sourceTree = "<group>"; };
+		5D8590081885D62900D04017 /* GLMergeRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMergeRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,6 +152,8 @@
 			children = (
 				5D8590001885D11F00D04017 /* GLCommit.h */,
 				5D8590011885D11F00D04017 /* GLCommit.m */,
+				5D8590071885D62900D04017 /* GLMergeRequest.h */,
+				5D8590081885D62900D04017 /* GLMergeRequest.m */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D8590021885D11F00D04017 /* GLCommit.m in Sources */,
+				5D8590091885D62900D04017 /* GLMergeRequest.m in Sources */,
 				5D8590061885D1F000D04017 /* GLNetworkRunner.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
