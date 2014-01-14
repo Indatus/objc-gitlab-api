@@ -1,0 +1,424 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5D4954EA1885CFDB00E162BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4954E91885CFDB00E162BB /* Foundation.framework */; };
+		5D4954EF1885CFDB00E162BB /* objc_gitlab_api.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D4954EE1885CFDB00E162BB /* objc_gitlab_api.h */; };
+		5D4954F11885CFDB00E162BB /* objc_gitlab_api.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4954F01885CFDB00E162BB /* objc_gitlab_api.m */; };
+		5D4954F81885CFDB00E162BB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4954F71885CFDB00E162BB /* XCTest.framework */; };
+		5D4954F91885CFDB00E162BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4954E91885CFDB00E162BB /* Foundation.framework */; };
+		5D4954FB1885CFDB00E162BB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4954FA1885CFDB00E162BB /* UIKit.framework */; };
+		5D4954FE1885CFDB00E162BB /* libobjc gitlab api.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4954E61885CFDB00E162BB /* libobjc gitlab api.a */; };
+		5D4955041885CFDB00E162BB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 5D4955021885CFDB00E162BB /* InfoPlist.strings */; };
+		5D4955061885CFDB00E162BB /* objc_gitlab_apiTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D4955051885CFDB00E162BB /* objc_gitlab_apiTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5D4954FC1885CFDB00E162BB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 5D4954DE1885CFDB00E162BB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 5D4954E51885CFDB00E162BB;
+			remoteInfo = "objc gitlab api";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5D4954E41885CFDB00E162BB /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/$(PRODUCT_NAME)";
+			dstSubfolderSpec = 16;
+			files = (
+				5D4954EF1885CFDB00E162BB /* objc_gitlab_api.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		5D4954E61885CFDB00E162BB /* libobjc gitlab api.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libobjc gitlab api.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D4954E91885CFDB00E162BB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		5D4954ED1885CFDB00E162BB /* objc gitlab api-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "objc gitlab api-Prefix.pch"; sourceTree = "<group>"; };
+		5D4954EE1885CFDB00E162BB /* objc_gitlab_api.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = objc_gitlab_api.h; sourceTree = "<group>"; };
+		5D4954F01885CFDB00E162BB /* objc_gitlab_api.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = objc_gitlab_api.m; sourceTree = "<group>"; };
+		5D4954F61885CFDB00E162BB /* objc gitlab apiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "objc gitlab apiTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D4954F71885CFDB00E162BB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		5D4954FA1885CFDB00E162BB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		5D4955011885CFDB00E162BB /* objc gitlab apiTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "objc gitlab apiTests-Info.plist"; sourceTree = "<group>"; };
+		5D4955031885CFDB00E162BB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		5D4955051885CFDB00E162BB /* objc_gitlab_apiTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = objc_gitlab_apiTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5D4954E31885CFDB00E162BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D4954EA1885CFDB00E162BB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5D4954F31885CFDB00E162BB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D4954F81885CFDB00E162BB /* XCTest.framework in Frameworks */,
+				5D4954FE1885CFDB00E162BB /* libobjc gitlab api.a in Frameworks */,
+				5D4954FB1885CFDB00E162BB /* UIKit.framework in Frameworks */,
+				5D4954F91885CFDB00E162BB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		5D4954DD1885CFDB00E162BB = {
+			isa = PBXGroup;
+			children = (
+				5D4954EB1885CFDB00E162BB /* objc gitlab api */,
+				5D4954FF1885CFDB00E162BB /* objc gitlab apiTests */,
+				5D4954E81885CFDB00E162BB /* Frameworks */,
+				5D4954E71885CFDB00E162BB /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		5D4954E71885CFDB00E162BB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5D4954E61885CFDB00E162BB /* libobjc gitlab api.a */,
+				5D4954F61885CFDB00E162BB /* objc gitlab apiTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5D4954E81885CFDB00E162BB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				5D4954E91885CFDB00E162BB /* Foundation.framework */,
+				5D4954F71885CFDB00E162BB /* XCTest.framework */,
+				5D4954FA1885CFDB00E162BB /* UIKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5D4954EB1885CFDB00E162BB /* objc gitlab api */ = {
+			isa = PBXGroup;
+			children = (
+				5D4954EE1885CFDB00E162BB /* objc_gitlab_api.h */,
+				5D4954F01885CFDB00E162BB /* objc_gitlab_api.m */,
+				5D4954EC1885CFDB00E162BB /* Supporting Files */,
+			);
+			path = "objc gitlab api";
+			sourceTree = "<group>";
+		};
+		5D4954EC1885CFDB00E162BB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5D4954ED1885CFDB00E162BB /* objc gitlab api-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		5D4954FF1885CFDB00E162BB /* objc gitlab apiTests */ = {
+			isa = PBXGroup;
+			children = (
+				5D4955051885CFDB00E162BB /* objc_gitlab_apiTests.m */,
+				5D4955001885CFDB00E162BB /* Supporting Files */,
+			);
+			path = "objc gitlab apiTests";
+			sourceTree = "<group>";
+		};
+		5D4955001885CFDB00E162BB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				5D4955011885CFDB00E162BB /* objc gitlab apiTests-Info.plist */,
+				5D4955021885CFDB00E162BB /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5D4954E51885CFDB00E162BB /* objc gitlab api */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D4955091885CFDB00E162BB /* Build configuration list for PBXNativeTarget "objc gitlab api" */;
+			buildPhases = (
+				5D4954E21885CFDB00E162BB /* Sources */,
+				5D4954E31885CFDB00E162BB /* Frameworks */,
+				5D4954E41885CFDB00E162BB /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "objc gitlab api";
+			productName = "objc gitlab api";
+			productReference = 5D4954E61885CFDB00E162BB /* libobjc gitlab api.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		5D4954F51885CFDB00E162BB /* objc gitlab apiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D49550C1885CFDB00E162BB /* Build configuration list for PBXNativeTarget "objc gitlab apiTests" */;
+			buildPhases = (
+				5D4954F21885CFDB00E162BB /* Sources */,
+				5D4954F31885CFDB00E162BB /* Frameworks */,
+				5D4954F41885CFDB00E162BB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				5D4954FD1885CFDB00E162BB /* PBXTargetDependency */,
+			);
+			name = "objc gitlab apiTests";
+			productName = "objc gitlab apiTests";
+			productReference = 5D4954F61885CFDB00E162BB /* objc gitlab apiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5D4954DE1885CFDB00E162BB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = Indatus;
+			};
+			buildConfigurationList = 5D4954E11885CFDB00E162BB /* Build configuration list for PBXProject "objc gitlab api" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 5D4954DD1885CFDB00E162BB;
+			productRefGroup = 5D4954E71885CFDB00E162BB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5D4954E51885CFDB00E162BB /* objc gitlab api */,
+				5D4954F51885CFDB00E162BB /* objc gitlab apiTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5D4954F41885CFDB00E162BB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D4955041885CFDB00E162BB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5D4954E21885CFDB00E162BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D4954F11885CFDB00E162BB /* objc_gitlab_api.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		5D4954F21885CFDB00E162BB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D4955061885CFDB00E162BB /* objc_gitlab_apiTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		5D4954FD1885CFDB00E162BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 5D4954E51885CFDB00E162BB /* objc gitlab api */;
+			targetProxy = 5D4954FC1885CFDB00E162BB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		5D4955021885CFDB00E162BB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5D4955031885CFDB00E162BB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5D4955071885CFDB00E162BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		5D4955081885CFDB00E162BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5D49550A1885CFDB00E162BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/objc_gitlab_api.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "objc gitlab api/objc gitlab api-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		5D49550B1885CFDB00E162BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/objc_gitlab_api.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "objc gitlab api/objc gitlab api-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		5D49550D1885CFDB00E162BB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "objc gitlab api/objc gitlab api-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "objc gitlab apiTests/objc gitlab apiTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		5D49550E1885CFDB00E162BB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "objc gitlab api/objc gitlab api-Prefix.pch";
+				INFOPLIST_FILE = "objc gitlab apiTests/objc gitlab apiTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5D4954E11885CFDB00E162BB /* Build configuration list for PBXProject "objc gitlab api" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D4955071885CFDB00E162BB /* Debug */,
+				5D4955081885CFDB00E162BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5D4955091885CFDB00E162BB /* Build configuration list for PBXNativeTarget "objc gitlab api" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D49550A1885CFDB00E162BB /* Debug */,
+				5D49550B1885CFDB00E162BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		5D49550C1885CFDB00E162BB /* Build configuration list for PBXNativeTarget "objc gitlab apiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D49550D1885CFDB00E162BB /* Debug */,
+				5D49550E1885CFDB00E162BB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5D4954DE1885CFDB00E162BB /* Project object */;
+}
