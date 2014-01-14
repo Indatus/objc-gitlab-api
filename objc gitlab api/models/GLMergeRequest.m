@@ -8,6 +8,8 @@
 
 #import "GLMergeRequest.h"
 
+NSString * const GLMergeRequestEndPoint = @"/merge_requests";
+
 @implementation GLMergeRequest
 
 @end
