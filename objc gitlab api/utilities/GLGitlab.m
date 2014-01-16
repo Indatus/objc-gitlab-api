@@ -14,7 +14,16 @@
 
 @implementation GLGitlab
 
+static GLGitlab *_instance;
 
-
++ (GLGitlab *)sharedInstance
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        _instance = [[GLGitlab alloc] init];
+    });
+    
+    return _instance;
+}
 
 @end

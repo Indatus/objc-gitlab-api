@@ -11,4 +11,6 @@
 @interface GLGitlab : NSObject
 
 
++ (GLGitlab *)sharedInstance;
+
 @end
