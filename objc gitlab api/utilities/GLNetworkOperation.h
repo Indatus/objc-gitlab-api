@@ -13,9 +13,6 @@ typedef void (^GLNetworkOperationFailureBlock)(NSError *error, NSInteger httpSta
 
 @interface GLNetworkOperation : NSOperation <NSURLConnectionDataDelegate, NSURLConnectionDelegate>
 
-@property (nonatomic, copy) GLNetworkOperationSuccessBlock successBlock;
-@property (nonatomic, copy) GLNetworkOperationFailureBlock failureBlock;
-
 - (instancetype)initWithRequest:(NSURLRequest *)request
                         success:(GLNetworkOperationSuccessBlock)success
                         failure:(GLNetworkOperationFailureBlock)failure;
