@@ -13,14 +13,18 @@ FOUNDATION_EXPORT NSString * const GLMergeRequestEndPoint;
 @class GLUser;
 
 @interface GLMergeRequest : NSObject
-    
+
+// id
 @property (nonatomic, assign) int64_t mergeRequestId;
+// iid
 @property (nonatomic, assign) int64_t mergeRequestIid;
+// title
 @property (nonatomic, copy) NSString *title;
+// state
 @property (nonatomic, copy) NSString *state;
-@property (nonatomic, assign, getter = isClosed) BOOL closed;
-@property (nonatomic, assign, getter = isMerged) BOOL merged;
+// author
 @property (nonatomic, strong) GLUser *author;
+// assignee
 @property (nonatomic, strong) GLUser *assignee;
 // target_branch
 @property (nonatomic, copy) NSString *targetBranch;
@@ -28,7 +32,11 @@ FOUNDATION_EXPORT NSString * const GLMergeRequestEndPoint;
 @property (nonatomic, copy) NSString *sourceBranch;
 // project_id
 @property (nonatomic, assign) int64_t projectId;
-// source_project_id
-@property (nonatomic, assign) int64_t sourceProjectId;
+// upvotes
+@property (nonatomic, assign) int32_t upvotes;
+// downvotes
+@property (nonatomic, assign) int32_t downvotes;
+
+- (instancetype)initWithJSON:(NSDictionary *)json;
 
 @end

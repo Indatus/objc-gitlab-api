@@ -7,10 +7,17 @@
 //
 
 #import "GLUser.h"
-#import "GLNetworkOperation.h"
 
 NSString *const GLUserEndpoint = @"/users";
 
 @implementation GLUser
+
+- (instancetype)initWithJSON:(NSDictionary *)json
+{
+    if (self = [super init]) {
+        
+    }
+    return self;
+}
 
 @end

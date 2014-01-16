@@ -12,7 +12,9 @@ FOUNDATION_EXPORT NSString * const GLCommitEndPoint;
 
 @interface GLCommit : NSObject
 
+//id
 @property (nonatomic, copy) NSString *sha;
+//title
 @property (nonatomic, copy) NSString *title;
 // short_id
 @property (nonatomic, copy) NSString *shortId;
@@ -22,5 +24,7 @@ FOUNDATION_EXPORT NSString * const GLCommitEndPoint;
 @property (nonatomic, copy) NSString *authorEmail;    
 // created_at
 @property (nonatomic, copy) NSDate *createdAt;
+
+- (instancetype)initWithJSON:(NSDictionary *)json;
 
 @end
