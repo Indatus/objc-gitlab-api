@@ -24,4 +24,7 @@ FOUNDATION_EXPORT NSString *const GLUserEndpoint;
 @property (nonatomic, copy) NSString *state;
 @property (nonatomic, assign, getter = isBlocked) BOOL blocked;
 
++ (GLUser *)getUser:(int64_t)userId;
++ (NSArray *)getAllUsers;
+
 @end

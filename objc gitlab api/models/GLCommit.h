@@ -21,9 +21,11 @@ FOUNDATION_EXPORT NSString * const GLCommitEndPoint;
 // author_email
 @property (nonatomic, copy) NSString *authorEmail;    
 // created_at
-@property (nonatomic, copy) NSDate *createdAd;
+@property (nonatomic, copy) NSDate *createdAt;
 
-
-
++ (GLCommit *)getCommit:(NSString *)commitId;
++ (NSArray *)getCommitsAuthorName:(NSString *)authorName;
++ (NSArray *)getCommitsAuthorEmail:(NSString *)authorEmail;
++ (NSArray *)getAllCommits;
 
 @end

@@ -31,4 +31,9 @@ FOUNDATION_EXPORT NSString * const GLMergeRequestEndPoint;
 // source_project_id
 @property (nonatomic, assign) int64_t sourceProjectId;
 
++ (GLMergeRequest *)getMergeRequest:(int64_t)mergeRequestId;
++ (NSArray *)getMergeRequestsForAuthor:(GLUser *)author;
++ (NSArray *)getMergeRequestsForAssignee:(GLUser *)assignee;
++ (NSArray *)getAllMergeRequests;
+
 @end

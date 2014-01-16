@@ -21,4 +21,8 @@
 // owner_id
 @property (nonatomic, assign) int64_t ownerId;
 
++ (GLNamespace *)getNamespace:(int64_t)namespaceId;
++ (NSArray *)getNamespacesForOwnerId:(int64_t)ownerId;
++ (NSArray *)getAllNamespaces;
+
 @end

@@ -28,7 +28,7 @@ FOUNDATION_EXPORT NSString *const GLProjectEndpoint;
 @property (nonatomic, strong) NSDate *createdAt;
 // ssh_url_to_repo
 @property (nonatomic, copy) NSString *sshUrl;
-@property (nonatomic, strong) GLNamespace *namespace;
+@property (nonatomic, strong) GLNamespace *glNamespace;
 
 + (GLProject *)getProject:(int64_t)projectId;
 + (NSArray *)getProjectsForNamespace:(GLNamespace *)glNamespace;
