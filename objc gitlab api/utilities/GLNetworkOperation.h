@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 
 typedef void (^GLNetworkOperationSuccessBlock)(id responseObject);
-typedef void (^GLNetworkOperationFailureBlock)(NSError *error, int httpStatus, id response);
+typedef void (^GLNetworkOperationFailureBlock)(NSError *error, NSInteger httpStatus, NSData *responseData);
 
-@interface GLNetworkOperation : NSObject
+@interface GLNetworkOperation : NSOperation <NSURLConnectionDataDelegate, NSURLConnectionDelegate>
 
 @property (nonatomic, copy) GLNetworkOperationSuccessBlock successBlock;
 @property (nonatomic, copy) GLNetworkOperationFailureBlock failureBlock;
