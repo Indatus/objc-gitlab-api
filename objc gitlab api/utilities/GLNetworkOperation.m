@@ -10,9 +10,9 @@
 
 @interface GLNetworkOperation ()
 
-@property (nonatomic, retain) NSURLConnection *connection;
-@property (nonatomic, retain) NSHTTPURLResponse *response;
-@property (nonatomic, retain) NSMutableData *responseData;
+@property (nonatomic, strong) NSURLConnection *connection;
+@property (nonatomic, strong) NSHTTPURLResponse *response;
+@property (nonatomic, strong) NSMutableData *responseData;
 @property (nonatomic) BOOL isExecuting;
 @property (nonatomic) BOOL isConcurrent;
 @property (nonatomic) BOOL isFinished;

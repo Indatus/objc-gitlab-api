@@ -7,24 +7,10 @@
 //
 
 #import "GLUser.h"
+#import "GLNetworkOperation.h"
 
 NSString *const GLUserEndpoint = @"/users";
 
 @implementation GLUser
 
 @end
-
-/*
-
- private Integer _id;
- private String _username;
- private String _email;
- private String _name;
- private String _skype;
- private String _linkedin;
- private String _twitter;
- private String _provider;
- private String _state;
- private boolean _blocked;
-
-*/

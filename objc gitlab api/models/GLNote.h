@@ -22,8 +22,4 @@ FOUNDATION_EXPORT NSString *const GLUserEndpoint;
 // created_at
 @property (nonatomic, strong) NSDate *createdAt;
 
-+ (GLNote *)getNote:(int64_t)noteId;
-+ (NSArray *)getNotesForAuthor:(GLUser *)author;
-+ (NSArray *)getAllNotes;
-
 @end

@@ -12,7 +12,7 @@ FOUNDATION_EXPORT NSString * const GLCommitEndPoint;
 
 @interface GLCommit : NSObject
 
-@property (nonatomic, copy) NSString *commitId;
+@property (nonatomic, copy) NSString *sha;
 @property (nonatomic, copy) NSString *title;
 // short_id
 @property (nonatomic, copy) NSString *shortId;
@@ -22,10 +22,5 @@ FOUNDATION_EXPORT NSString * const GLCommitEndPoint;
 @property (nonatomic, copy) NSString *authorEmail;    
 // created_at
 @property (nonatomic, copy) NSDate *createdAt;
-
-+ (GLCommit *)getCommit:(NSString *)commitId;
-+ (NSArray *)getCommitsAuthorName:(NSString *)authorName;
-+ (NSArray *)getCommitsAuthorEmail:(NSString *)authorEmail;
-+ (NSArray *)getAllCommits;
 
 @end
