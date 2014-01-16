@@ -10,24 +10,53 @@
 
 FOUNDATION_EXPORT NSString *const GLProjectEndpoint;
 
-@class GLNamespace;
+@class GLNamespace, GLUser;
 
 @interface GLProject : NSObject
 
+// id
 @property (nonatomic, assign) int64_t projectId;
-@property (nonatomic, copy) NSString *name;
+// description
 @property (nonatomic, copy) NSString *description;
+// default branch
 @property (nonatomic, copy) NSString *defaultBranch;
+// public
 @property (nonatomic, assign, getter=isPublicProject) BOOL publicProject;
-@property (nonatomic, copy) NSString *path;
-@property (nonatomic, copy) NSString *pathWithNamespace;
-@property (nonatomic, assign, getter=areIssuesEnabled) BOOL issuesEnabled;
-@property (nonatomic, assign, getter=areMergeRequestsEnabled) BOOL mergeRequestsEnabled;
-@property (nonatomic, assign, getter=isWallEnabled) BOOL wallEnabled;
-@property (nonatomic, assign, getter=isWikiEnabled) BOOL wikiEnabled;
-@property (nonatomic, strong) NSDate *createdAt;
+// visibility_level
+@property (nonatomic, assign) int32_t visibilityLevel;
 // ssh_url_to_repo
 @property (nonatomic, copy) NSString *sshUrl;
+// http_url_to_repo
+@property (nonatomic, copy) NSString *httpUrl;
+// web_url
+@property (nonatomic, copy) NSString *webUrl;
+// owner
+@property (nonatomic, strong) GLUser *owner;
+// name
+@property (nonatomic, copy) NSString *name;
+// name_with_namespace
+@property (nonatomic, copy) NSString *nameWithNamespace;
+// path
+@property (nonatomic, copy) NSString *path;
+// path_with_namespace
+@property (nonatomic, copy) NSString *pathWithNamespace;
+// issues_enabled
+@property (nonatomic, assign, getter=areIssuesEnabled) BOOL issuesEnabled;
+// merge_requests_enabled
+@property (nonatomic, assign, getter=areMergeRequestsEnabled) BOOL mergeRequestsEnabled;
+// wall_enabled
+@property (nonatomic, assign, getter=isWallEnabled) BOOL wallEnabled;
+// wiki_enabled
+@property (nonatomic, assign, getter=isWikiEnabled) BOOL wikiEnabled;
+// snippets_enabled
+@property (nonatomic, assign, getter=areSnippetsEnabled) BOOL snippetsEnabled;
+// created_at
+@property (nonatomic, strong) NSDate *createdAt;
+// last_activity_at
+@property (nonatomic, strong) NSDate *lastActivityAt;
+// namespace
 @property (nonatomic, strong) GLNamespace *glNamespace;
+
+- (instancetype)initWithJSON:(NSDictionary *)json;
 
 @end

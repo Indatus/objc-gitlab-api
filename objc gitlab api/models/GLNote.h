@@ -16,10 +16,15 @@ FOUNDATION_EXPORT NSString *const GLUserEndpoint;
 
 // id
 @property (nonatomic, assign) int64_t noteId;
+// body
 @property (nonatomic, copy) NSString *body;
+// attachment
 @property (nonatomic, copy) NSString *attachment;
+// author
 @property (nonatomic, strong) GLUser *author;
 // created_at
 @property (nonatomic, strong) NSDate *createdAt;
+
+- (instancetype)initWithJSON:(NSDictionary *)json;
 
 @end
