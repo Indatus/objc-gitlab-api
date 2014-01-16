@@ -21,25 +21,28 @@
 
 @implementation GLNetworkOperation
 
-- (instancetype)initWithRequest:(NSURLRequest *)request
+- (instancetype)initWithRequest:(NSURLRequest *)request success:(GLNetworkOperationSuccessBlock)success failure:(GLNetworkOperationFailureBlock)failure
 {
     if ((self = [super init])) {
         _connection = [[NSURLConnection alloc] initWithRequest:request
                                                       delegate:self
                                               startImmediately:NO];
+        _successBlock = [success copy];
+        _failureBlock = [failure copy];
     }
     
     return self;
 }
 
 - (instancetype)initWithUrl:(NSURL *)url method:(NSString *)method params:(NSDictionary *)params
+                    success:(GLNetworkOperationSuccessBlock)success failure:(GLNetworkOperationFailureBlock)failure
 {
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = method;
     request.HTTPBody = [NSJSONSerialization dataWithJSONObject:params
                                                        options:0
                                                          error:nil];
-    return [[GLNetworkOperation alloc] initWithRequest:request];
+    return [[GLNetworkOperation alloc] initWithRequest:request success:success failure:failure];
 }
 
 - (void)start
