@@ -10,6 +10,8 @@
 
 @interface GLNetworkOperation ()
 
+@property (nonatomic, copy) GLNetworkOperationSuccessBlock successBlock;
+@property (nonatomic, copy) GLNetworkOperationFailureBlock failureBlock;
 @property (nonatomic, strong) NSURLConnection *connection;
 @property (nonatomic, strong) NSHTTPURLResponse *response;
 @property (nonatomic, strong) NSMutableData *responseData;
