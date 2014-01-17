@@ -50,4 +50,91 @@ NSString * const kKeyAdmin = @"is_admin";
     return self;
 }
 
+- (BOOL)isEqual:(id)object
+{
+    if (self == object) {
+        return YES;
+    }
+    
+    if (![object isKindOfClass:[self class]]) {
+        return NO;
+    }
+    
+    return [self isEqualToUser:object];
+}
+
+- (BOOL)isEqualToUser:(GLUser *)other
+{
+    if (_userId != other.userId) {
+        return NO;
+    }
+    
+    if (![_username isEqualToString:other.username]) {
+        return NO;
+    }
+    
+    if (![_email isEqualToString:other.email]) {
+        return NO;
+    }
+    
+    if (![_name isEqualToString:other.name]) {
+        return NO;
+    }
+    
+    if (![_skype isEqualToString:other.skype]) {
+        return NO;
+    }
+    
+    if (![_linkedin isEqualToString:other.linkedin]) {
+        return NO;
+    }
+    
+    if (![_twitter isEqualToString:other.twitter]) {
+        return NO;
+    }
+    
+    if (![_provider isEqualToString:other.provider]) {
+        return NO;
+    }
+    
+    if (![_state isEqualToString:other.state]) {
+        return NO;
+    }
+    
+    if (![_createdAt isEqualToDate:other.createdAt]) {
+        return NO;
+    }
+    
+    if (![_bio isEqualToString:other.bio]) {
+        return NO;
+    }
+
+    if (![_externUid isEqualToString:other.externUid]) {
+        return NO;
+    }
+    
+    if (_themeId != other.themeId) {
+        return NO;
+    }
+    
+    if (_colorSchemeId != other.colorSchemeId) {
+        return NO;
+    }
+    
+    if (_admin != other.isAdmin) {
+        return NO;
+    }
+    
+    return YES;
+}
+
+- (NSUInteger)hash
+{
+    NSUInteger usernameHash = [_username hash];
+    NSUInteger emailHash = [_email hash];
+    NSUInteger userIdHash = _userId;
+    
+    return usernameHash ^ emailHash ^ userIdHash;
+}
+
 @end
