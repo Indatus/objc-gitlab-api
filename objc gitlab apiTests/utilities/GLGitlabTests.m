@@ -1,18 +1,18 @@
 //
-//  objc_gitlab_apiTests.m
-//  objc gitlab apiTests
+//  GLGitlabTests.m
+//  objc gitlab api
 //
-//  Created by Jon Staff on 1/14/14.
+//  Created by Jeff Trespalacios on 1/17/14.
 //  Copyright (c) 2014 Indatus. All rights reserved.
 //
 
 #import <XCTest/XCTest.h>
 
-@interface objc_gitlab_apiTests : XCTestCase
+@interface GLGitlabTests : XCTestCase
 
 @end
 
-@implementation objc_gitlab_apiTests
+@implementation GLGitlabTests
 
 - (void)setUp
 {
