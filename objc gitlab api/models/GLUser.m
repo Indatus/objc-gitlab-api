@@ -7,6 +7,7 @@
 //
 
 #import "GLUser.h"
+#import "GLGitlab.h"
 
 NSString * const GLUserEndpoint = @"/users";
 
@@ -19,7 +20,7 @@ NSString * const kKeyLinkedin = @"linkedin";
 NSString * const kKeyTwitter = @"twitter";
 NSString * const kKeyProvider = @"provider";
 NSString * const kKeyState = @"state";
-NSString * const kKeyCreatedAd = @"created_at";
+NSString * const kKeyCreatedAt = @"created_at";
 NSString * const kKeyBio = @"bio";
 NSString * const kKeyExternUid = @"extern_uid";
 NSString * const kKeyThemeId = @"theme_id";
@@ -40,8 +41,8 @@ NSString * const kKeyAdmin = @"is_admin";
         _linkedin = json[kKeyLinkedin] == null ? nil : json[kKeyLinkedin];
         _twitter = json[kKeyTwitter]  == null ? nil : json[kKeyTwitter];
         _provider = json[kKeyProvider] == null ? nil : json[kKeyProvider];
-        _state = json[kKeyState] == null ? nil : json[kKeyState];;
-        // TODO: date
+        _state = json[kKeyState] == null ? nil : json[kKeyState];
+        _createdAt = [[[GLGitlab sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
         _bio = json[kKeyBio] == null ? nil : json[kKeyBio];
         _externUid = json[kKeyExternUid] == null ? nil : json[kKeyExternUid];
         _themeId = [json[kKeyThemeId] intValue];
@@ -78,39 +79,64 @@ NSString * const kKeyAdmin = @"is_admin";
         return NO;
     }
     
-    if (![_name isEqualToString:other.name]) {
+    if ((!_name && other.name) || (_name && !other.name)) {
+        return NO;
+    }
+    else if (_name && other.name && ![_name isEqualToString:other.name]) {
         return NO;
     }
     
-    if (![_skype isEqualToString:other.skype]) {
+    if ((!_skype && other.skype) || (_skype && !other.skype)) {
+        return NO;
+    }
+    else if (_skype && other.skype && ![_skype isEqualToString:other.skype]) {
         return NO;
     }
     
-    if (![_linkedin isEqualToString:other.linkedin]) {
+    if ((!_linkedin && other.linkedin) || (_linkedin && !other.linkedin)) {
+        return NO;
+    }
+    else if (_linkedin && other.linkedin && ![_linkedin isEqualToString:other.linkedin]) {
         return NO;
     }
     
-    if (![_twitter isEqualToString:other.twitter]) {
+    if ((!_twitter && other.twitter) || (_twitter && !other.twitter)) {
+        return NO;
+    }
+    else if (_twitter && other.twitter && ![_twitter isEqualToString:other.twitter]) {
         return NO;
     }
     
-    if (![_provider isEqualToString:other.provider]) {
+    if ((!_provider && other.provider) || (_provider && !other.provider)) {
+        return NO;
+    }
+    else if (_provider && other.provider && ![_provider isEqualToString:other.provider]) {
         return NO;
     }
     
-    if (![_state isEqualToString:other.state]) {
+    if ((!_state && other.state) || (_state && !other.state)) {
+        return NO;
+    }
+    else if (_state && other.state && ![_state isEqualToString:other.state]) {
         return NO;
     }
     
-    if (![_createdAt isEqualToDate:other.createdAt]) {
+    
+    if (_createdAt && other.createdAt && ![_createdAt isEqualToDate:other.createdAt]) {
         return NO;
     }
     
-    if (![_bio isEqualToString:other.bio]) {
+    if ((!_bio && other.bio) || (_bio && !other.bio)) {
         return NO;
     }
-
-    if (![_externUid isEqualToString:other.externUid]) {
+    else if (_bio && other.bio && ![_bio isEqualToString:other.bio]) {
+        return NO;
+    }
+    
+    if ((!_externUid && other.externUid) || (_externUid && !other.externUid)) {
+        return NO;
+    }
+    else if (_externUid && other.externUid && ![_externUid isEqualToString:other.externUid]) {
         return NO;
     }
     
