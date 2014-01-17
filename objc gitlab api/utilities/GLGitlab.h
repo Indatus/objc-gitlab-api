@@ -15,6 +15,7 @@ typedef void (^GLGitlabFailureBlock)(NSError *error);
 
 + (GLGitlab *)sharedInstance;
 
+- (NSDateFormatter *)gitLabDateFormatter;
 - (void)loginToHost:(NSString *)host username:(NSString *)username password:(NSString *)password success:(GLGitlabSuccessBlock)successBlock failure:(GLGitlabFailureBlock)failureBlock;
 
 @end

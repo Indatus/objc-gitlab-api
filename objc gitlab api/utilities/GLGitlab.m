@@ -30,6 +30,11 @@ static GLGitlab *_instance;
     return _instance;
 }
 
+- (NSDateFormatter *)gitLabDateFormatter
+{
+    return nil;
+}
+
 - (void)loginToHost:(NSString *)host username:(NSString *)username password:(NSString *)password success:(GLGitlabSuccessBlock)successBlock failure:(GLGitlabFailureBlock)failureBlock
 {
 
