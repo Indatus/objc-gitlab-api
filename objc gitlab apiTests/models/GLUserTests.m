@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "GLGitlab.h"
 #import "GLUser.h"
 
 static NSString *const kUserLoginResponseString = @"{ \"id\": 1, \"username\": \"john_smith\", \"email\": \"john@example.com\", \"name\": \"John Smith\", \"private_token\": \"dd34asd13as\", \"blocked\": false, \"created_at\": \"2012-05-23T08:00:58Z\", \"bio\": null, \"skype\": \"jsmith\", \"linkedin\": \"jsmith\", \"twitter\": \"jsmithy\", \"dark_scheme\": false, \"theme_id\": 1, \"is_admin\": false, \"can_create_group\" : true, \"can_create_team\" : true, \"can_create_project\" : true }";
@@ -31,6 +32,7 @@ static NSString *const kUserLoginResponseString = @"{ \"id\": 1, \"username\": \
 
 - (void)testUserLoginDataJsonInitializer
 {
+    NSDateFormatter *formatter = [[GLGitlab sharedInstance] gitLabDateFormatter];
     GLUser *knownUser = [[GLUser alloc] init];
     knownUser.userId = 1;
     knownUser.username = @"john_smith";
@@ -40,6 +42,7 @@ static NSString *const kUserLoginResponseString = @"{ \"id\": 1, \"username\": \
     knownUser.linkedin = @"jsmith";
     knownUser.twitter = @"jsmithy";
     knownUser.themeId = 1;
+    knownUser.createdAt = [formatter dateFromString:@"2012-05-23T08:00:58Z"];
     
     NSData *loginData = [kUserLoginResponseString dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary *loginJson = [NSJSONSerialization JSONObjectWithData:loginData options:0 error:nil];
