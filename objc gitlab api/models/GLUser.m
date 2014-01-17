@@ -31,18 +31,19 @@ NSString * const kKeyAdmin = @"is_admin";
 - (instancetype)initWithJSON:(NSDictionary *)json
 {
     if (self = [super init]) {
+        id null = (id)[NSNull null];
         _userId = [json[kKeyUserId] longLongValue];
         _username = json[kKeyUsername];
         _email = json[kKeyEmail];
         _name = json[kKeyName];
-        _skype = json[kKeySkype];
-        _linkedin = json[kKeyLinkedin];
-        _twitter = json[kKeyTwitter];
-        _provider = json[kKeyProvider];
-        _state = json[kKeyState];
+        _skype = json[kKeySkype] == null ? nil : json[kKeySkype];
+        _linkedin = json[kKeyLinkedin] == null ? nil : json[kKeyLinkedin];
+        _twitter = json[kKeyTwitter]  == null ? nil : json[kKeyTwitter];
+        _provider = json[kKeyProvider] == null ? nil : json[kKeyProvider];
+        _state = json[kKeyState] == null ? nil : json[kKeyState];;
         // TODO: date
-        _bio = json[kKeyBio];
-        _externUid = json[kKeyExternUid];
+        _bio = json[kKeyBio] == null ? nil : json[kKeyBio];
+        _externUid = json[kKeyExternUid] == null ? nil : json[kKeyExternUid];
         _themeId = [json[kKeyThemeId] intValue];
         _colorSchemeId = [json[kKeyColorSchemeId] intValue];
         _admin = [json[kKeyAdmin] boolValue];
@@ -135,6 +136,11 @@ NSString * const kKeyAdmin = @"is_admin";
     NSUInteger userIdHash = _userId;
     
     return usernameHash ^ emailHash ^ userIdHash;
+}
+
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"<%@: %p, ID: %lld, username: %@, email: %@>", NSStringFromClass([self class]), self, _userId, _username, _email];
 }
 
 @end
