@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "GLGitlab.h"
 
 @interface GLGitlabTests : XCTestCase
 
@@ -26,9 +27,21 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testLogin
 {
-    XCTFail(@"No implementation for \"%s\"", __PRETTY_FUNCTION__);
+    GLGitlabSuccessBlock success = ^(id responseObject) {
+        XCTAssertNotNil(responseObject, @"Request failed");
+    };
+    
+    GLGitlabFailureBlock failure = ^(NSError *error) {
+        XCTAssertNil(error, @"Request failed");
+    };
+    
+    [[GLGitlab sharedInstance] loginToHost:@"http://gitlab.indatus.com"
+                                  username:@"jtrespalacios@indatus.com"
+                                  password:@"cyddzcVv"
+                                   success:success
+                                   failure:failure];
 }
 
 @end
