@@ -387,6 +387,22 @@ static GLGitlab *_instance;
 }
 
 
+#pragma mark - Commit Methods
+
+- (GLNetworkOperation *)getAllCommitsForProjectId:(int64_t)projectId
+                                 withSuccessBlock:(GLGitlabSuccessBlock)success
+                                  andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+- (GLNetworkOperation *)getCommitWithSha:(NSString *)sha forProjectId:(int64_t)projectId
+                        withSuccessBlock:(GLGitlabSuccessBlock)success
+                         andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+
 #pragma mark - Private Methods
 
 - (NSData *)urlEncodeParams:(NSDictionary *)params

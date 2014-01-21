@@ -125,6 +125,14 @@ typedef void (^GLGitlabFailureBlock)(NSError *error);
                        withSuccessBlock:(GLGitlabSuccessBlock)success
                         andFailureBlock:(GLGitlabFailureBlock)failure;
 
+#pragma mark - Commit Methods
+
+- (GLNetworkOperation *)getAllCommitsForProjectId:(int64_t)projectId
+                                 withSuccessBlock:(GLGitlabSuccessBlock)success
+                                  andFailureBlock:(GLGitlabFailureBlock)failure;
+- (GLNetworkOperation *)getCommitWithSha:(NSString *)sha forProjectId:(int64_t)projectId
+                        withSuccessBlock:(GLGitlabSuccessBlock)success
+                         andFailureBlock:(GLGitlabFailureBlock)failure;
 
 #pragma mark - Project Methods
 /**
