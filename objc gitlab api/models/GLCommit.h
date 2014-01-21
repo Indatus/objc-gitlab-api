@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GLJsonInit.h"
 
 FOUNDATION_EXPORT NSString * const GLCommitEndPoint;
 
-@interface GLCommit : NSObject
+@interface GLCommit : NSObject <GLJsonInit>
 
 //id
 @property (nonatomic, copy) NSString *sha;

@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GLJsonInit.h"
 
 FOUNDATION_EXPORT NSString *const GLUserEndpoint;
 
 @class GLUser;
 
-@interface GLNote : NSObject
+@interface GLNote : NSObject <GLJsonInit>
 
 // id
 @property (nonatomic, assign) int64_t noteId;

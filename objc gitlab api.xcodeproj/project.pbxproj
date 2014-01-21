@@ -54,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		0CBC8C7C188F042900AE5048 /* GLGitlab_Testing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLGitlab_Testing.h; path = "extended classes/utilities/GLGitlab_Testing.h"; sourceTree = "<group>"; };
+		0CBC8C7D188F13B500AE5048 /* GLJsonInit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLJsonInit.h; sourceTree = "<group>"; };
 		0CF663E71885D494005BC2AC /* GLNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLNote.h; sourceTree = "<group>"; };
 		0CF663E81885D494005BC2AC /* GLNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLNote.m; sourceTree = "<group>"; };
 		0CF663ED1885D984005BC2AC /* GLProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLProject.h; sourceTree = "<group>"; };
@@ -254,6 +255,7 @@
 		5D8590031885D1CA00D04017 /* utilities */ = {
 			isa = PBXGroup;
 			children = (
+				0CBC8C7D188F13B500AE5048 /* GLJsonInit.h */,
 				0CF89580188EE4730076E5BA /* GLConstants.h */,
 				0CF89581188EE4730076E5BA /* GLConstants.m */,
 				5D8590041885D1F000D04017 /* GLGitlab.h */,

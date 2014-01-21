@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GLJsonInit.h"
 
 @class GLUser, GLMilestone;
 
-@interface GLIssue : NSObject
+@interface GLIssue : NSObject <GLJsonInit>
 
 // id
 @property (nonatomic, assign) int64_t issueId;

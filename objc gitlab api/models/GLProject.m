@@ -12,6 +12,9 @@
 #import "GLGitlab.h"
 
 NSString * const GLProjectEndpoint = @"/projects";
+NSString * const GLProjectOwnedProjectsEndPoint = @"/projects/owned";
+NSString * const GLProjectAllProjectsEndPoint = @"/projects/all";
+NSString * const GLProjectGetProjectEndPoint = @"/projects/%d";
 
 NSString * const kKeyProjectId = @"id";
 NSString * const kKeyDescription = @"description";

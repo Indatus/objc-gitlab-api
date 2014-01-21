@@ -7,12 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GLJsonInit.h"
 
 FOUNDATION_EXPORT NSString * const GLMergeRequestEndPoint;
 
 @class GLUser;
 
-@interface GLMergeRequest : NSObject
+@interface GLMergeRequest : NSObject <GLJsonInit>
 
 // id
 @property (nonatomic, assign) int64_t mergeRequestId;
