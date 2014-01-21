@@ -8,9 +8,15 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void (^GLGitlabSuccessBlock)(id responseObject);
+typedef void (^GLGitlabFailureBlock)(NSError *error);
+
 @interface GLGitlab : NSObject
 
 + (GLGitlab *)sharedInstance;
+
+- (NSDateFormatter *)gitLabDateFormatter;
+- (void)loginToHost:(NSString *)host username:(NSString *)username password:(NSString *)password success:(GLGitlabSuccessBlock)successBlock failure:(GLGitlabFailureBlock)failureBlock;
 
 @end
 
