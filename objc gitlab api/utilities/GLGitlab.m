@@ -246,10 +246,9 @@ static GLGitlab *_instance;
     return op;
 }
 
-- (GLNetworkOperation *)updateMergeRequestForProjectId:(int64_t)projectId
-                                      withMergeRequest:(GLMergeRequest *)mergeRequest
-                                          successBlock:(GLGitlabSuccessBlock)success
-                                       andFailureBlock:(GLGitlabFailureBlock)failure
+- (GLNetworkOperation *)updateMergeRequest:(GLMergeRequest *)mergeRequest
+                              successBlock:(GLGitlabSuccessBlock)success
+                           andFailureBlock:(GLGitlabFailureBlock)failure
 {
     NSMutableURLRequest *request;
     request.HTTPMethod = kPutMethod;
@@ -368,7 +367,7 @@ static GLGitlab *_instance;
 }
 
 - (GLNetworkOperation *)getIssueNoteWithId:(int64_t)noteId
-                                forIssueId:(int64_t)issueId
+                                forIssue:(GLIssue *)issue
                           withSuccessBlock:(GLGitlabSuccessBlock)success
                            andFailureBlock:(GLGitlabFailureBlock)failure
 {
@@ -392,7 +391,7 @@ static GLGitlab *_instance;
 }
 
 // POST
-- (GLNetworkOperation *)createNoteForIssueId:(int64_t)issueId
+- (GLNetworkOperation *)createNoteForIssue:(GLIssue *)issue
                                     withBody:(NSString *)body
                                 successBlock:(GLGitlabSuccessBlock)success
                              andFailureBlock:(GLGitlabFailureBlock)failure
@@ -416,7 +415,7 @@ static GLGitlab *_instance;
     return op;
 }
 
-- (GLNetworkOperation *)getAllNotesForMergeRequestId:(int64_t)mergeRequestId
+- (GLNetworkOperation *)getAllNotesForMergeRequest:(GLMergeRequest *)mergeRequest
                                     withSuccessBlock:(GLGitlabSuccessBlock)success
                                      andFailureBlock:(GLGitlabFailureBlock)failure
 {
@@ -440,7 +439,7 @@ static GLGitlab *_instance;
 }
 
 - (GLNetworkOperation *)getNoteWithId:(int64_t)noteId
-                    forMergeRequestId:(int64_t)mergeRequestId
+                    forMergeRequest:(GLMergeRequest *)mergeRequest
                      withSuccessBlock:(GLGitlabSuccessBlock)success
                       andFailureBlock:(GLGitlabFailureBlock)failure
 {
@@ -463,7 +462,7 @@ static GLGitlab *_instance;
     return op;
 }
 
-- (GLNetworkOperation *)createNoteForMergeRequestId:(int64_t)mergeRequestId
+- (GLNetworkOperation *)createNoteForMergeRequest:(GLMergeRequest *)mergeRequest
                                            withBody:(NSString *)body
                                        successBlock:(GLGitlabSuccessBlock)success
                                     andFailureBlock:(GLGitlabFailureBlock)failure
