@@ -9,6 +9,8 @@
 #import "GLGitlab.h"
 #import "GLNetworkOperation.h"
 
+#import "GLUser.h"
+
 static NSString *const kPostMethod = @"post";
 static NSString *const kLoginRoute = @"/session";
 
@@ -24,6 +26,7 @@ static NSString *const kPrivateTokenKey = @"private_token";
 @property (nonatomic, strong) NSURL *hostName;
 @property (nonatomic, strong) NSString *privateToken;
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
+@property (nonatomic, strong) NSOperationQueue  *queue;
 @end
 
 @implementation GLGitlab
@@ -34,6 +37,9 @@ static GLGitlab *_instance;
 {
     if ((self = [super init]))
     {
+        _queue = [[NSOperationQueue alloc] init];
+        _queue.name = @"GitLab Operations";
+        [_queue setSuspended:NO];
         // GitLab Date String: 2012-05-23T08:00:58Z
         _dateFormatter = [NSDateFormatter new];
         [_dateFormatter setDateFormat:@"yyyy-MM-d'T'hh:mm:ssZ"];
@@ -76,7 +82,8 @@ static GLGitlab *_instance;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         self.privateToken = responseObject[kPrivateTokenKey];
-        successBlock(responseObject);
+        GLUser *user = [[GLUser alloc] initWithJSON:responseObject];
+        successBlock(user);
     };
     
     GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
@@ -84,9 +91,10 @@ static GLGitlab *_instance;
     };
     
     
-    __unused GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                          success:localSuccessBlock
-                                                                          failure:localFailureBlock];
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
 }
 
 @end
