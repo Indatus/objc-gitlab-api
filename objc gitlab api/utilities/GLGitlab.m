@@ -10,6 +10,10 @@
 #import "GLNetworkOperation.h"
 
 #import "GLUser.h"
+#import "GLMergeRequest.h"
+#import "GLProject.h"
+#import "GLNote.h"
+#import "GLDiff.h"
 
 static NSString *const kPostMethod = @"post";
 static NSString *const kApiRoutePrefix = @"/api/v3";
@@ -64,6 +68,9 @@ static GLGitlab *_instance;
     return _dateFormatter;
 }
 
+
+#pragma mark - Login Methods
+
 - (GLNetworkOperation *)loginToHost:(NSString *)host username:(NSString *)username password:(NSString *)password success:(GLGitlabSuccessBlock)successBlock failure:(GLGitlabFailureBlock)failureBlock
 {
     self.hostName = [NSURL URLWithString:host];
@@ -100,6 +107,30 @@ static GLGitlab *_instance;
     
     return op;
 }
+
+
+#pragma mark - MergeRequest Methods
+
+- (GLNetworkOperation *)getAllMergeRequests:(GLGitlabSuccessBlock)success failureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+- (GLNetworkOperation *)getMergeRequestsForProject:(GLProject *)project withSuccessBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+- (GLNetworkOperation *)getMergeRequestWithId:(int64_t)mergeRequestId successBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+
+#pragma mark - Notes Methods
+
+
+
 
 #pragma mark - Private Methods
 
