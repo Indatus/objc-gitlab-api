@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <OCMock/OCMock.h>
 #import "GLGitlab.h"
 
 @interface GLGitlabTests : XCTestCase
@@ -40,9 +41,9 @@
         done = YES;
     };
     
-    [[GLGitlab sharedInstance] loginToHost:@""
-                                  username:@""
-                                  password:@""
+    [[GLGitlab sharedInstance] loginToHost:@"http://gitlab.example.com"
+                                  username:@"testuser"
+                                  password:@"password"
                                    success:success
                                    failure:failure];
     
