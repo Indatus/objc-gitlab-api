@@ -341,6 +341,52 @@ static GLGitlab *_instance;
 }
 
 
+#pragma mark - Milestone Methods
+
+- (GLNetworkOperation *)getAllMilestonesForProjectId:(int64_t)projectId
+                                    withSuccessBlock:(GLGitlabSuccessBlock)success
+                                     andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+- (GLNetworkOperation *)getMilestoneWithId:(int64_t)milestoneId
+                              forProjectId:(int64_t)projectId
+                          withSuccessBlock:(GLGitlabSuccessBlock)success
+                           andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+- (GLNetworkOperation *)createMilestone:(GLMilestone *)milestone forProjectId:(int64_t)projectId
+                       withSuccessBlock:(GLGitlabSuccessBlock)success
+                        andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+- (GLNetworkOperation *)updateMilestone:(GLMilestone *)milestone
+                       withSuccessBlock:(GLGitlabSuccessBlock)success
+                        andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+- (GLNetworkOperation *)closeMilestone:(GLMilestone *)milestone
+                      withSuccessBlock:(GLGitlabSuccessBlock)success
+                       andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+- (GLNetworkOperation *)activateMilestone:(GLMilestone *)milestone
+                         withSuccessBlock:(GLGitlabSuccessBlock)success
+                          andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+
 #pragma mark - Private Methods
 
 - (NSData *)urlEncodeParams:(NSDictionary *)params
