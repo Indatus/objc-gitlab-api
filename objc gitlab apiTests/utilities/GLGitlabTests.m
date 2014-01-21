@@ -37,7 +37,7 @@
         XCTAssertNil(error, @"Request failed");
     };
     
-    [[GLGitlab sharedInstance] loginToHost:@"http://gitlab.indatus.com"
+    [[GLGitlab sharedInstance] loginToHost:@""
                                   username:@""
                                   password:@""
                                    success:success
