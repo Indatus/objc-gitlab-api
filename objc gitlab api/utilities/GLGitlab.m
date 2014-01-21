@@ -9,6 +9,7 @@
 #import "GLGitlab.h"
 #import "GLNetworkOperation.h"
 #import "GLJsonInit.h"
+#import "GLProject.h"
 #import "GLUser.h"
 
 static NSString *const kPostMethod = @"post";
@@ -125,6 +126,38 @@ static GLGitlab *_instance;
 {
     return nil;
 }
+
+- (GLNetworkOperation *)getProjectEventsForProject:(GLProject *)project
+                                           success:(GLGitlabSuccessBlock)successBlock
+                                           failure:(GLGitlabFailureBlock)failureBlock
+{
+    return [self getProjectEventsForProjectId:project.projectId
+                                      success:successBlock
+                                      failure:failureBlock];
+}
+
+- (GLNetworkOperation *)getProjectEventsForProjectId:(int64_t)projectId
+                                             success:(GLGitlabSuccessBlock)successBlock
+                                             failure:(GLGitlabFailureBlock)failureBlock
+{
+    return nil;
+}
+
+- (GLNetworkOperation *)createProjectNamed:(NSString *)projectName
+                                   success:(GLGitlabSuccessBlock)successBlock
+                                   failure:(GLGitlabFailureBlock)failureBlock
+{
+    return nil;
+}
+
+- (GLNetworkOperation *)createProjectNamed:(NSString *)projectName
+                                   forUser:(GLUser *)user
+                                   success:(GLGitlabSuccessBlock)successBlock
+                                   failure:(GLGitlabFailureBlock)failureBlock
+{
+    return nil;
+}
+
 
 #pragma mark - Private Methods
 
