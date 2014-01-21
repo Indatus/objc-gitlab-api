@@ -16,6 +16,8 @@
 #import "GLDiff.h"
 
 static NSString *const kPostMethod = @"post";
+static NSString *const kGetMethod = @"get";
+static NSString *const kPutMethod = @"put";
 static NSString *const kApiRoutePrefix = @"/api/v3";
 static NSString *const kLoginRoute = @"/session";
 
@@ -111,17 +113,26 @@ static GLGitlab *_instance;
 
 #pragma mark - MergeRequest Methods
 
-- (GLNetworkOperation *)getAllMergeRequests:(GLGitlabSuccessBlock)success failureBlock:(GLGitlabFailureBlock)failure
+// GET request
+- (GLNetworkOperation *)getMergeRequestsForProjectId:(int64_t)projectId withSuccessBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
 {
     return nil;
 }
 
-- (GLNetworkOperation *)getMergeRequestsForProject:(GLProject *)project withSuccessBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
-{
-    return nil;
-}
-
+// GET request
 - (GLNetworkOperation *)getMergeRequestWithId:(int64_t)mergeRequestId successBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+// POST request
+- (GLNetworkOperation *)createMergeRequestForProjectId:(int64_t)projectId withMergeRequest:(GLMergeRequest *)mergeRequest successBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+// PUT request
+- (GLNetworkOperation *)updateMergeRequestForProjectId:(int64_t)projectId withMergeRequest:(GLMergeRequest *)mergeRequest successBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
 {
     return nil;
 }
@@ -129,6 +140,59 @@ static GLGitlab *_instance;
 
 #pragma mark - Notes Methods
 
+// GET
+- (GLNetworkOperation *)getWallNotesForProjectId:(int64_t)projectId withSuccessBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+// GET
+- (GLNetworkOperation *)getWallNoteWithId:(int64_t)noteId forProjectId:(int64_t)projectId withSuccessBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+// POST
+- (GLNetworkOperation *)createWallNoteForProjectId:(int64_t)projectId withBody:(NSString *)body successBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+// GET
+- (GLNetworkOperation *)getAllNotesForIssueId:(int64_t)issueId withSuccessBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+// GET
+- (GLNetworkOperation *)getIssueNoteWithId:(int64_t)noteId forIssueId:(int64_t)issueId withSuccessBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+// POST
+- (GLNetworkOperation *)createNoteForIssueId:(int64_t)issueId withBody:(NSString *)body successBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+// GET
+- (GLNetworkOperation *)getAllNotesForMergeRequestId:(int64_t)mergeRequestId withSuccessBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+// GET
+- (GLNetworkOperation *)getNoteWithId:(int64_t)noteId forMergeRequestId:(int64_t)mergeRequestId withSuccessBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+// POST
+- (GLNetworkOperation *)createNoteForMergeRequestId:(int64_t)mergeRequestId withBody:(NSString *)body successBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
 
 
 
