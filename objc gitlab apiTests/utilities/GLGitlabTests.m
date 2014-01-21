@@ -29,12 +29,16 @@
 
 - (void)testLogin
 {
+    __block BOOL done = NO;
+    
     GLGitlabSuccessBlock success = ^(id responseObject) {
         XCTAssertNotNil(responseObject, @"Request failed");
+        done = YES;
     };
     
     GLGitlabFailureBlock failure = ^(NSError *error) {
         XCTAssertNil(error, @"Request failed");
+        done = YES;
     };
     
     [[GLGitlab sharedInstance] loginToHost:@""
@@ -42,6 +46,10 @@
                                   password:@""
                                    success:success
                                    failure:failure];
+    
+    while (!done) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+    }
 }
 
 @end
