@@ -159,7 +159,7 @@ NSString * const kKeyAdmin = @"is_admin";
 {
     NSUInteger usernameHash = [_username hash];
     NSUInteger emailHash = [_email hash];
-    NSUInteger userIdHash = _userId;
+    NSUInteger userIdHash = (NSUInteger)_userId;
     
     return usernameHash ^ emailHash ^ userIdHash;
 }

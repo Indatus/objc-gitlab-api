@@ -11,11 +11,17 @@
 typedef void (^GLGitlabSuccessBlock)(id responseObject);
 typedef void (^GLGitlabFailureBlock)(NSError *error);
 
+@class GLNetworkOperation;
+
 @interface GLGitlab : NSObject
 
 + (GLGitlab *)sharedInstance;
 
 - (NSDateFormatter *)gitLabDateFormatter;
-- (void)loginToHost:(NSString *)host username:(NSString *)username password:(NSString *)password success:(GLGitlabSuccessBlock)successBlock failure:(GLGitlabFailureBlock)failureBlock;
+- (GLNetworkOperation *)loginToHost:(NSString *)host
+                           username:(NSString *)username
+                           password:(NSString *)password
+                            success:(GLGitlabSuccessBlock)successBlock
+                            failure:(GLGitlabFailureBlock)failureBlock;
 
 @end

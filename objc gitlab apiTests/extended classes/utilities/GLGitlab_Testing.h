@@ -1,5 +1,5 @@
 //
-//  GLGitlabExtended.h
+//  GLGitlab_Testing.h
 //  objc gitlab api
 //
 //  Created by Jeff Trespalacios on 1/21/14.
@@ -8,8 +8,7 @@
 
 #import "GLGitlab.h"
 
-@interface GLGitlabExtended : GLGitlab
-
+@interface GLGitlab (Testing)
 - (NSString *)privateToken;
-
+- (NSOperationQueue *)queue;
 @end
