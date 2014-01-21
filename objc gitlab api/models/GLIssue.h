@@ -37,5 +37,6 @@
 // created_at
 @property (nonatomic, strong) NSDate *createdAt;
 
+- (instancetype)initWithJSON:(NSDictionary *)json;
 
 @end

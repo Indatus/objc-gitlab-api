@@ -13,7 +13,7 @@
 // diff
 @property (nonatomic, copy) NSString *diff;
 // new_path
-@property (nonatomic, copy) NSString *updatedPath;
+@property (nonatomic, copy) NSString *newPath;
 // old_path
 @property (nonatomic, copy) NSString *oldPath;
 // a_mode
@@ -26,5 +26,7 @@
 @property (nonatomic, getter = isRenamedFile) BOOL renamedFile;
 // deleted_file
 @property (nonatomic, getter = isDeletedFile) BOOL deletedFile;
+
+- (instancetype)initWithJSON:(NSDictionary *)json;
 
 @end
