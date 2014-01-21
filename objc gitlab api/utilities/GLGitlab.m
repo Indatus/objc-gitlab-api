@@ -74,7 +74,7 @@ static GLGitlab *_instance;
     
     request.HTTPMethod = kPostMethod;
     request.HTTPBody = [NSJSONSerialization dataWithJSONObject:params options:0 error:&error];
-    if (&error) {
+    if (error) {
         NSLog(@"Error serializing login params: %@", error.localizedDescription);
         failureBlock(error);
         return;
