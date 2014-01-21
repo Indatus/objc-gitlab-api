@@ -8,6 +8,8 @@
 
 #import "GLNetworkOperation.h"
 
+NSString *const GLNetworkOperationErrorDomain = @"com.indatus.GLNetworkOperationErrorDomain";
+
 @interface GLNetworkOperation ()
 
 @property (nonatomic, copy) GLNetworkOperationSuccessBlock successBlock;
@@ -87,7 +89,15 @@
         _successBlock(responseObject);
     }
     else if (_failureBlock) {
-        _failureBlock(nil, _response.statusCode, _responseData);
+        if (error) {
+            _failureBlock(error, _response.statusCode, _responseData);
+        }
+        else {
+            NSError *error = [[NSError alloc] initWithDomain:GLNetworkOperationErrorDomain
+                                                        code:_response.statusCode
+                                                    userInfo:responseObject];
+            _failureBlock(error, _response.statusCode, _responseData);
+        }
     }
     self.isExecuting = NO;
     self.isFinished = YES;

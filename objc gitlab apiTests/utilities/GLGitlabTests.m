@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import <OCMock/OCMock.h>
 #import "GLGitlab.h"
 
 @interface GLGitlabTests : XCTestCase
@@ -29,19 +30,26 @@
 
 - (void)testLogin
 {
+    __block BOOL done = NO;
     GLGitlabSuccessBlock success = ^(id responseObject) {
         XCTAssertNotNil(responseObject, @"Request failed");
+        done = YES;
     };
     
     GLGitlabFailureBlock failure = ^(NSError *error) {
         XCTAssertNil(error, @"Request failed");
+        done = YES;
     };
     
-    [[GLGitlab sharedInstance] loginToHost:@"http://gitlab.indatus.com"
-                                  username:@""
-                                  password:@""
+    [[GLGitlab sharedInstance] loginToHost:@"http://gitlab.example.com"
+                                  username:@"testuser"
+                                  password:@"password"
                                    success:success
                                    failure:failure];
+    
+    while (!done) {
+        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+    }
 }
 
 @end

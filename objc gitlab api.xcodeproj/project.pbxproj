@@ -7,12 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0CBC8C79188EFD1900AE5048 /* GLGitlabExtended.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CBC8C78188EFD1900AE5048 /* GLGitlabExtended.m */; };
 		0CF663E91885D494005BC2AC /* GLNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF663E81885D494005BC2AC /* GLNote.m */; };
 		0CF663EF1885D984005BC2AC /* GLProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF663EE1885D984005BC2AC /* GLProject.m */; };
 		0CF663F21885DD05005BC2AC /* GLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF663F11885DD05005BC2AC /* GLUser.m */; };
 		0CF6644718896C07005BC2AC /* GLGitlabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF6644618896C07005BC2AC /* GLGitlabTests.m */; };
 		0CF6644B188973DD005BC2AC /* GLUserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF6644A188973DD005BC2AC /* GLUserTests.m */; };
 		0CF89582188EE4730076E5BA /* GLConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF89581188EE4730076E5BA /* GLConstants.m */; };
+		16BD740760F94D9C8BEDEA26 /* libPods-objc gitlab apiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5F56502D425439F8CB577BB /* libPods-objc gitlab apiTests.a */; };
 		5D4954EA1885CFDB00E162BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4954E91885CFDB00E162BB /* Foundation.framework */; };
 		5D4954F81885CFDB00E162BB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4954F71885CFDB00E162BB /* XCTest.framework */; };
 		5D4954F91885CFDB00E162BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4954E91885CFDB00E162BB /* Foundation.framework */; };
@@ -52,6 +54,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0CBC8C77188EFD1900AE5048 /* GLGitlabExtended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLGitlabExtended.h; path = "extended classes/utilities/GLGitlabExtended.h"; sourceTree = "<group>"; };
+		0CBC8C78188EFD1900AE5048 /* GLGitlabExtended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLGitlabExtended.m; path = "extended classes/utilities/GLGitlabExtended.m"; sourceTree = "<group>"; };
 		0CF663E71885D494005BC2AC /* GLNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLNote.h; sourceTree = "<group>"; };
 		0CF663E81885D494005BC2AC /* GLNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLNote.m; sourceTree = "<group>"; };
 		0CF663ED1885D984005BC2AC /* GLProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLProject.h; sourceTree = "<group>"; };
@@ -86,6 +90,8 @@
 		5DDC391218887C9200DF8FD7 /* GLIssue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLIssue.m; sourceTree = "<group>"; };
 		5DDC391418887FEF00DF8FD7 /* GLMilestone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMilestone.h; sourceTree = "<group>"; };
 		5DDC391518887FEF00DF8FD7 /* GLMilestone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMilestone.m; sourceTree = "<group>"; };
+		8D903E125D4844DC94AED1E9 /* Pods-objc gitlab apiTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-objc gitlab apiTests.xcconfig"; path = "Pods/Pods-objc gitlab apiTests.xcconfig"; sourceTree = "<group>"; };
+		B5F56502D425439F8CB577BB /* libPods-objc gitlab apiTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-objc gitlab apiTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,12 +111,39 @@
 				5D4954FE1885CFDB00E162BB /* libobjc gitlab api.a in Frameworks */,
 				5D4954FB1885CFDB00E162BB /* UIKit.framework in Frameworks */,
 				5D4954F91885CFDB00E162BB /* Foundation.framework in Frameworks */,
+				16BD740760F94D9C8BEDEA26 /* libPods-objc gitlab apiTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0CBC8C76188EFCE000AE5048 /* extended classes */ = {
+			isa = PBXGroup;
+			children = (
+				0CBC8C7B188EFE4500AE5048 /* models */,
+				0CBC8C7A188EFDCB00AE5048 /* utilities */,
+			);
+			name = "extended classes";
+			sourceTree = "<group>";
+		};
+		0CBC8C7A188EFDCB00AE5048 /* utilities */ = {
+			isa = PBXGroup;
+			children = (
+				0CBC8C77188EFD1900AE5048 /* GLGitlabExtended.h */,
+				0CBC8C78188EFD1900AE5048 /* GLGitlabExtended.m */,
+			);
+			name = utilities;
+			sourceTree = "<group>";
+		};
+		0CBC8C7B188EFE4500AE5048 /* models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = models;
+			path = "extended classes/models";
+			sourceTree = "<group>";
+		};
 		0CF6644818896C19005BC2AC /* utilities */ = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +167,7 @@
 				5D4954FF1885CFDB00E162BB /* objc gitlab apiTests */,
 				5D4954E81885CFDB00E162BB /* Frameworks */,
 				5D4954E71885CFDB00E162BB /* Products */,
+				8D903E125D4844DC94AED1E9 /* Pods-objc gitlab apiTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -152,6 +186,7 @@
 				5D4954E91885CFDB00E162BB /* Foundation.framework */,
 				5D4954F71885CFDB00E162BB /* XCTest.framework */,
 				5D4954FA1885CFDB00E162BB /* UIKit.framework */,
+				B5F56502D425439F8CB577BB /* libPods-objc gitlab apiTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -177,6 +212,7 @@
 		5D4954FF1885CFDB00E162BB /* objc gitlab apiTests */ = {
 			isa = PBXGroup;
 			children = (
+				0CBC8C76188EFCE000AE5048 /* extended classes */,
 				0CF6644918896C21005BC2AC /* models */,
 				0CF6644818896C19005BC2AC /* utilities */,
 				5D4955001885CFDB00E162BB /* Supporting Files */,
@@ -221,12 +257,12 @@
 		5D8590031885D1CA00D04017 /* utilities */ = {
 			isa = PBXGroup;
 			children = (
+				0CF89580188EE4730076E5BA /* GLConstants.h */,
+				0CF89581188EE4730076E5BA /* GLConstants.m */,
 				5D8590041885D1F000D04017 /* GLGitlab.h */,
 				5D8590051885D1F000D04017 /* GLGitlab.m */,
 				5DDC39071885EC1F00DF8FD7 /* GLNetworkOperation.h */,
 				5DDC39081885EC1F00DF8FD7 /* GLNetworkOperation.m */,
-				0CF89580188EE4730076E5BA /* GLConstants.h */,
-				0CF89581188EE4730076E5BA /* GLConstants.m */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
@@ -255,9 +291,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5D49550C1885CFDB00E162BB /* Build configuration list for PBXNativeTarget "objc gitlab apiTests" */;
 			buildPhases = (
+				AA2203F2ED274DBDA70473F7 /* Check Pods Manifest.lock */,
 				5D4954F21885CFDB00E162BB /* Sources */,
 				5D4954F31885CFDB00E162BB /* Frameworks */,
 				5D4954F41885CFDB00E162BB /* Resources */,
+				43D958556A3A4FB89636B0C0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -307,6 +345,39 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		43D958556A3A4FB89636B0C0 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-objc gitlab apiTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		AA2203F2ED274DBDA70473F7 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		5D4954E21885CFDB00E162BB /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -333,6 +404,7 @@
 			files = (
 				0CF6644718896C07005BC2AC /* GLGitlabTests.m in Sources */,
 				0CF6644B188973DD005BC2AC /* GLUserTests.m in Sources */,
+				0CBC8C79188EFD1900AE5048 /* GLGitlabExtended.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -454,6 +526,7 @@
 		};
 		5D49550D1885CFDB00E162BB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D903E125D4844DC94AED1E9 /* Pods-objc gitlab apiTests.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -475,6 +548,7 @@
 		};
 		5D49550E1885CFDB00E162BB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D903E125D4844DC94AED1E9 /* Pods-objc gitlab apiTests.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
