@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+FOUNDATION_EXPORT NSString *const GLNetworkOperationErrorDomain;;
+
 typedef void (^GLNetworkOperationSuccessBlock)(id responseObject);
 typedef void (^GLNetworkOperationFailureBlock)(NSError *error, NSInteger httpStatus, NSData *responseData);
 

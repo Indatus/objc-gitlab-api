@@ -257,12 +257,12 @@
 		5D8590031885D1CA00D04017 /* utilities */ = {
 			isa = PBXGroup;
 			children = (
+				0CF89580188EE4730076E5BA /* GLConstants.h */,
+				0CF89581188EE4730076E5BA /* GLConstants.m */,
 				5D8590041885D1F000D04017 /* GLGitlab.h */,
 				5D8590051885D1F000D04017 /* GLGitlab.m */,
 				5DDC39071885EC1F00DF8FD7 /* GLNetworkOperation.h */,
 				5DDC39081885EC1F00DF8FD7 /* GLNetworkOperation.m */,
-				0CF89580188EE4730076E5BA /* GLConstants.h */,
-				0CF89581188EE4730076E5BA /* GLConstants.m */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
