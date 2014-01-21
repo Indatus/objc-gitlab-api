@@ -75,7 +75,7 @@ static GLGitlab *_instance;
     NSError *error;
     
     request.HTTPMethod = kPostMethod;
-    request.HTTPBody = [NSJSONSerialization dataWithJSONObject:params options:0 error:&error];
+    request.HTTPBody = [self urlEncodeParams:params];
     if (error) {
         NSLog(@"Error serializing login params: %@", error.localizedDescription);
         failureBlock(error);
@@ -97,6 +97,30 @@ static GLGitlab *_instance;
                                                                  success:localSuccessBlock
                                                                  failure:localFailureBlock];
     [_queue addOperation:op];
+}
+
+#pragma mark - Private Methods
+
+- (NSData *)urlEncodeParams:(NSDictionary *)params
+{
+    NSMutableArray *paramArray = [NSMutableArray array];
+    [params enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *obj, BOOL *stop) {
+        [paramArray addObject:[NSString stringWithFormat:@"%@=%@", key, [self percentEncodeString:obj]]];
+    }];
+    NSString *paramString = [paramArray componentsJoinedByString:@"&"];
+    
+    return [paramString dataUsingEncoding:NSUTF8StringEncoding];
+}
+
+- (NSString *)percentEncodeString:(NSString *)unencodedString
+{
+    NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
+                                          NULL,
+                                          (CFStringRef)unencodedString,
+                                          NULL,
+                                          (CFStringRef)@"!*'();:@&=+$,/?%#[]",
+                                          kCFStringEncodingUTF8 ));
+    return encodedString;
 }
 
 @end
