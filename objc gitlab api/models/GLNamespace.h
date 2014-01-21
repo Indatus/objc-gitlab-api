@@ -21,4 +21,6 @@
 // owner_id
 @property (nonatomic, assign) int64_t ownerId;
 
+- (instancetype)initWithJSON:(NSDictionary *)json;
+
 @end

@@ -10,4 +10,9 @@
 
 @implementation GLNamespace
 
+- (instancetype)initWithJSON:(NSDictionary *)json
+{
+    return nil; // TODO: implement this method
+}
+
 @end
