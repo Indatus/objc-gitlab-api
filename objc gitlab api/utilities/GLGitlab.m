@@ -64,7 +64,7 @@ static GLGitlab *_instance;
     return _dateFormatter;
 }
 
-- (void)loginToHost:(NSString *)host username:(NSString *)username password:(NSString *)password success:(GLGitlabSuccessBlock)successBlock failure:(GLGitlabFailureBlock)failureBlock
+- (GLNetworkOperation *)loginToHost:(NSString *)host username:(NSString *)username password:(NSString *)password success:(GLGitlabSuccessBlock)successBlock failure:(GLGitlabFailureBlock)failureBlock
 {
     self.hostName = [NSURL URLWithString:host];
 
@@ -79,7 +79,7 @@ static GLGitlab *_instance;
     if (error) {
         NSLog(@"Error serializing login params: %@", error.localizedDescription);
         failureBlock(error);
-        return;
+        return nil;
     }
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
@@ -97,6 +97,8 @@ static GLGitlab *_instance;
                                                                  success:localSuccessBlock
                                                                  failure:localFailureBlock];
     [_queue addOperation:op];
+    
+    return op;
 }
 
 #pragma mark - Private Methods

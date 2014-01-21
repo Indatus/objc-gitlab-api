@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import <OCMock/OCMock.h>
 #import "GLGitlab.h"
+#import "GLGitlab_Testing.h"
 
 @interface GLGitlabTests : XCTestCase
 
@@ -40,13 +41,14 @@
         XCTAssertNil(error, @"Request failed");
         done = YES;
     };
-    
-    [[GLGitlab sharedInstance] loginToHost:@"http://gitlab.example.com"
-                                  username:@"testuser"
-                                  password:@"password"
-                                   success:success
-                                   failure:failure];
-    
+    [[[GLGitlab sharedInstance] queue] setSuspended:YES];
+    GLNetworkOperation *op = [[GLGitlab sharedInstance] loginToHost:@"http://gitlab.example.com"
+                                                           username:@"testuser"
+                                                           password:@"password"
+                                                            success:success
+                                                            failure:failure];
+    [[GLGitlab sharedInstance] privateToken];
+
     while (!done) {
         [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
     }

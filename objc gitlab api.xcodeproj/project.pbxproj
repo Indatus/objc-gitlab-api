@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0CBC8C79188EFD1900AE5048 /* GLGitlabExtended.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CBC8C78188EFD1900AE5048 /* GLGitlabExtended.m */; };
 		0CF663E91885D494005BC2AC /* GLNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF663E81885D494005BC2AC /* GLNote.m */; };
 		0CF663EF1885D984005BC2AC /* GLProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF663EE1885D984005BC2AC /* GLProject.m */; };
 		0CF663F21885DD05005BC2AC /* GLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF663F11885DD05005BC2AC /* GLUser.m */; };
@@ -54,8 +53,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		0CBC8C77188EFD1900AE5048 /* GLGitlabExtended.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLGitlabExtended.h; path = "extended classes/utilities/GLGitlabExtended.h"; sourceTree = "<group>"; };
-		0CBC8C78188EFD1900AE5048 /* GLGitlabExtended.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLGitlabExtended.m; path = "extended classes/utilities/GLGitlabExtended.m"; sourceTree = "<group>"; };
+		0CBC8C7C188F042900AE5048 /* GLGitlab_Testing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLGitlab_Testing.h; path = "extended classes/utilities/GLGitlab_Testing.h"; sourceTree = "<group>"; };
 		0CF663E71885D494005BC2AC /* GLNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLNote.h; sourceTree = "<group>"; };
 		0CF663E81885D494005BC2AC /* GLNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLNote.m; sourceTree = "<group>"; };
 		0CF663ED1885D984005BC2AC /* GLProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLProject.h; sourceTree = "<group>"; };
@@ -130,8 +128,7 @@
 		0CBC8C7A188EFDCB00AE5048 /* utilities */ = {
 			isa = PBXGroup;
 			children = (
-				0CBC8C77188EFD1900AE5048 /* GLGitlabExtended.h */,
-				0CBC8C78188EFD1900AE5048 /* GLGitlabExtended.m */,
+				0CBC8C7C188F042900AE5048 /* GLGitlab_Testing.h */,
 			);
 			name = utilities;
 			sourceTree = "<group>";
@@ -404,7 +401,6 @@
 			files = (
 				0CF6644718896C07005BC2AC /* GLGitlabTests.m in Sources */,
 				0CF6644B188973DD005BC2AC /* GLUserTests.m in Sources */,
-				0CBC8C79188EFD1900AE5048 /* GLGitlabExtended.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
