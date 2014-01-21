@@ -8,7 +8,7 @@
 
 #import "GLGitlab.h"
 #import "GLNetworkOperation.h"
-
+#import "GLJsonInit.h"
 #import "GLUser.h"
 
 static NSString *const kPostMethod = @"post";
@@ -68,8 +68,7 @@ static GLGitlab *_instance;
 {
     self.hostName = [NSURL URLWithString:host];
 
-    NSURL *requestUrl = [_hostName URLByAppendingPathComponent:kApiRoutePrefix];
-    requestUrl = [requestUrl URLByAppendingPathComponent:kLoginRoute];
+    NSURL *requestUrl = [self requestUrlForEndPoint:kLoginRoute];
     NSDictionary *params = @{ kLoginUsernameKey: username, kLoginPasswordKey: password };
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requestUrl];
     NSError *error;
@@ -101,6 +100,32 @@ static GLGitlab *_instance;
     return op;
 }
 
+#pragma mark - Project Methods
+- (GLNetworkOperation *)getUsersProjectsSuccess:(GLGitlabSuccessBlock)successBlock
+                                        failure:(GLGitlabFailureBlock)failureBlock
+{
+    return nil;
+}
+
+- (GLNetworkOperation *)getUsersOwnedProjectsSuccess:(GLGitlabSuccessBlock)successBlock
+                                             failure:(GLGitlabFailureBlock)failureBlock
+{
+    return nil;
+}
+
+- (GLNetworkOperation *)getAllProjectsSuccess:(GLGitlabSuccessBlock)successBlock
+                                      failure:(GLGitlabFailureBlock)failureBlock
+{
+    return nil;
+}
+
+- (GLNetworkOperation *)getProjectWithId:(int64_t)projectId
+                                 success:(GLGitlabSuccessBlock)successBlock
+                                 failure:(GLGitlabFailureBlock)failureBlock
+{
+    return nil;
+}
+
 #pragma mark - Private Methods
 
 - (NSData *)urlEncodeParams:(NSDictionary *)params
@@ -123,6 +148,28 @@ static GLGitlab *_instance;
                                           (CFStringRef)@"!*'();:@&=+$,/?%#[]",
                                           kCFStringEncodingUTF8 ));
     return encodedString;
+}
+
+- (NSArray *)processJsonArray:(NSArray *)jsonArray class:(Class)class
+{
+    if (![class conformsToProtocol:@protocol(GLJsonInit)]) {
+        return nil;
+    }
+    
+    NSMutableArray *array = [NSMutableArray array];
+    for (NSDictionary *dictionary in jsonArray) {
+        id object = [[class alloc] initWithJSON:dictionary];
+        [array addObject:object];
+    }
+    
+    return [array copy];
+}
+
+- (NSURL *)requestUrlForEndPoint:(NSString *)endpoint
+{
+    NSURL *url = [_hostName URLByAppendingPathComponent:kApiRoutePrefix];
+    url = [url URLByAppendingPathComponent:endpoint];
+    return url;
 }
 
 @end
