@@ -24,25 +24,84 @@ typedef void (^GLGitlabFailureBlock)(NSError *error);
                             success:(GLGitlabSuccessBlock)successBlock
                             failure:(GLGitlabFailureBlock)failureBlock;
 
-#pragma mark - Merge Request
-- (GLNetworkOperation *)getMergeRequestsForProjectId:(int64_t)projectId withSuccessBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure;
-- (GLNetworkOperation *)getMergeRequestWithId:(int64_t)mergeRequestId successBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure;
-- (GLNetworkOperation *)createMergeRequestForProjectId:(int64_t)projectId withMergeRequest:(GLMergeRequest *)mergeRequest successBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure;
-- (GLNetworkOperation *)updateMergeRequestForProjectId:(int64_t)projectId withMergeRequest:(GLMergeRequest *)mergeRequest successBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure;
+#pragma mark - Merge Request Methods
+- (GLNetworkOperation *)getMergeRequestsForProjectId:(int64_t)projectId
+                                    withSuccessBlock:(GLGitlabSuccessBlock)success
+                                     andFailureBlock:(GLGitlabFailureBlock)failure;
+- (GLNetworkOperation *)getMergeRequestWithId:(int64_t)mergeRequestId
+                                 successBlock:(GLGitlabSuccessBlock)success
+                              andFailureBlock:(GLGitlabFailureBlock)failure;
+- (GLNetworkOperation *)createMergeRequestForProjectId:(int64_t)projectId
+                                      withMergeRequest:(GLMergeRequest *)mergeRequest
+                                          successBlock:(GLGitlabSuccessBlock)success
+                                       andFailureBlock:(GLGitlabFailureBlock)failure;
+- (GLNetworkOperation *)updateMergeRequestForProjectId:(int64_t)projectId
+                                      withMergeRequest:(GLMergeRequest *)mergeRequest
+                                          successBlock:(GLGitlabSuccessBlock)success
+                                       andFailureBlock:(GLGitlabFailureBlock)failure;
 
-#pragma mark - Notes
+#pragma mark - Notes Methods
 // Project/wall notes
-- (GLNetworkOperation *)getWallNotesForProjectId:(int64_t)projectId withSuccessBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure;
-- (GLNetworkOperation *)getWallNoteWithId:(int64_t)noteId forProjectId:(int64_t)projectId withSuccessBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure;
-- (GLNetworkOperation *)createWallNoteForProjectId:(int64_t)projectId withBody:(NSString *)body successBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure;
+- (GLNetworkOperation *)getWallNotesForProjectId:(int64_t)projectId
+                                withSuccessBlock:(GLGitlabSuccessBlock)success
+                                 andFailureBlock:(GLGitlabFailureBlock)failure;
+- (GLNetworkOperation *)getWallNoteWithId:(int64_t)noteId
+                             forProjectId:(int64_t)projectId
+                         withSuccessBlock:(GLGitlabSuccessBlock)success
+                          andFailureBlock:(GLGitlabFailureBlock)failure;
+- (GLNetworkOperation *)createWallNoteForProjectId:(int64_t)projectId
+                                          withBody:(NSString *)body
+                                      successBlock:(GLGitlabSuccessBlock)success
+                                   andFailureBlock:(GLGitlabFailureBlock)failure;
 // Issue notes
-- (GLNetworkOperation *)getAllNotesForIssueId:(int64_t)issueId withSuccessBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure;
-- (GLNetworkOperation *)getIssueNoteWithId:(int64_t)noteId forIssueId:(int64_t)issueId withSuccessBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure;
-- (GLNetworkOperation *)createNoteForIssueId:(int64_t)issueId withBody:(NSString *)body successBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure;
+- (GLNetworkOperation *)getAllNotesForIssueId:(int64_t)issueId
+                             withSuccessBlock:(GLGitlabSuccessBlock)success
+                              andFailureBlock:(GLGitlabFailureBlock)failure;
+- (GLNetworkOperation *)getIssueNoteWithId:(int64_t)noteId
+                                forIssueId:(int64_t)issueId
+                          withSuccessBlock:(GLGitlabSuccessBlock)success
+                           andFailureBlock:(GLGitlabFailureBlock)failure;
+- (GLNetworkOperation *)createNoteForIssueId:(int64_t)issueId
+                                    withBody:(NSString *)body
+                                successBlock:(GLGitlabSuccessBlock)success
+                             andFailureBlock:(GLGitlabFailureBlock)failure;
 // Merge request notes
-- (GLNetworkOperation *)getAllNotesForMergeRequestId:(int64_t)mergeRequestId withSuccessBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure;
-- (GLNetworkOperation *)getNoteWithId:(int64_t)noteId forMergeRequestId:(int64_t)mergeRequestId withSuccessBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure;
-- (GLNetworkOperation *)createNoteForMergeRequestId:(int64_t)mergeRequestId withBody:(NSString *)body successBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure;
+- (GLNetworkOperation *)getAllNotesForMergeRequestId:(int64_t)mergeRequestId
+                                    withSuccessBlock:(GLGitlabSuccessBlock)success
+                                     andFailureBlock:(GLGitlabFailureBlock)failure;
+- (GLNetworkOperation *)getNoteWithId:(int64_t)noteId
+                    forMergeRequestId:(int64_t)mergeRequestId
+                     withSuccessBlock:(GLGitlabSuccessBlock)success
+                      andFailureBlock:(GLGitlabFailureBlock)failure;
+- (GLNetworkOperation *)createNoteForMergeRequestId:(int64_t)mergeRequestId
+                                           withBody:(NSString *)body
+                                       successBlock:(GLGitlabSuccessBlock)success
+                                    andFailureBlock:(GLGitlabFailureBlock)failure;
+
+#pragma mark - Issues Methods
+
+- (GLNetworkOperation *)getAllIssuesWithSuccessBlock:(GLGitlabSuccessBlock)success
+                                     andFailureBlock:(GLGitlabFailureBlock)failure;
+- (GLNetworkOperation *)getAllIssuesForProjectId:(int64_t)projectId
+                                withSuccessBlock:(GLGitlabSuccessBlock)success
+                                 andFailureBlock:(GLGitlabFailureBlock)failure;
+- (GLNetworkOperation *)getIssueWithId:(int64_t)issueId
+                          forProjectId:(int64_t)projectId
+                      withSuccessBlock:(GLGitlabSuccessBlock)success
+                       andFailureBlock:(GLGitlabFailureBlock)failure;
+- (GLNetworkOperation *)createIssue:(GLIssue *)issue
+                       forProjectId:(int64_t)projectId
+                   withSuccessBlock:(GLGitlabSuccessBlock)success
+                    andFailureBlock:(GLGitlabFailureBlock)failure;
+- (GLNetworkOperation *)updateIssue:(GLIssue *)issue
+                   withSuccessBlock:(GLGitlabSuccessBlock)success
+                    andFailureBlock:(GLGitlabFailureBlock)failure;
+- (GLNetworkOperation *)closeIssue:(GLIssue *)issue
+                  withSuccessBlock:(GLGitlabSuccessBlock)success
+                   andFailureBlock:(GLGitlabFailureBlock)failure;
+- (GLNetworkOperation *)reopenIssue:(GLIssue *)issue
+                   withSuccessBlock:(GLGitlabSuccessBlock)success
+                    andFailureBlock:(GLGitlabFailureBlock)failure;
 
 #pragma mark - Project Methods
 /**

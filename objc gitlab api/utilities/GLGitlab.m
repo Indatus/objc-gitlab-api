@@ -173,25 +173,35 @@ static GLGitlab *_instance;
 #pragma mark - MergeRequest Methods
 
 // GET request
-- (GLNetworkOperation *)getMergeRequestsForProjectId:(int64_t)projectId withSuccessBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
+- (GLNetworkOperation *)getMergeRequestsForProjectId:(int64_t)projectId
+                                    withSuccessBlock:(GLGitlabSuccessBlock)success
+                                     andFailureBlock:(GLGitlabFailureBlock)failure
 {
     return nil;
 }
 
 // GET request
-- (GLNetworkOperation *)getMergeRequestWithId:(int64_t)mergeRequestId successBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
+- (GLNetworkOperation *)getMergeRequestWithId:(int64_t)mergeRequestId
+                                 successBlock:(GLGitlabSuccessBlock)success
+                              andFailureBlock:(GLGitlabFailureBlock)failure
 {
     return nil;
 }
 
 // POST request
-- (GLNetworkOperation *)createMergeRequestForProjectId:(int64_t)projectId withMergeRequest:(GLMergeRequest *)mergeRequest successBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
+- (GLNetworkOperation *)createMergeRequestForProjectId:(int64_t)projectId
+                                      withMergeRequest:(GLMergeRequest *)mergeRequest
+                                          successBlock:(GLGitlabSuccessBlock)success
+                                       andFailureBlock:(GLGitlabFailureBlock)failure
 {
     return nil;
 }
 
 // PUT request
-- (GLNetworkOperation *)updateMergeRequestForProjectId:(int64_t)projectId withMergeRequest:(GLMergeRequest *)mergeRequest successBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
+- (GLNetworkOperation *)updateMergeRequestForProjectId:(int64_t)projectId
+                                      withMergeRequest:(GLMergeRequest *)mergeRequest
+                                          successBlock:(GLGitlabSuccessBlock)success
+                                       andFailureBlock:(GLGitlabFailureBlock)failure
 {
     return nil;
 }
@@ -200,55 +210,132 @@ static GLGitlab *_instance;
 #pragma mark - Notes Methods
 
 // GET
-- (GLNetworkOperation *)getWallNotesForProjectId:(int64_t)projectId withSuccessBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
+- (GLNetworkOperation *)getWallNotesForProjectId:(int64_t)projectId
+                                withSuccessBlock:(GLGitlabSuccessBlock)success
+                                 andFailureBlock:(GLGitlabFailureBlock)failure
 {
     return nil;
 }
 
 // GET
-- (GLNetworkOperation *)getWallNoteWithId:(int64_t)noteId forProjectId:(int64_t)projectId withSuccessBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
+- (GLNetworkOperation *)getWallNoteWithId:(int64_t)noteId
+                             forProjectId:(int64_t)projectId
+                         withSuccessBlock:(GLGitlabSuccessBlock)success
+                          andFailureBlock:(GLGitlabFailureBlock)failure
 {
     return nil;
 }
 
 // POST
-- (GLNetworkOperation *)createWallNoteForProjectId:(int64_t)projectId withBody:(NSString *)body successBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
+- (GLNetworkOperation *)createWallNoteForProjectId:(int64_t)projectId
+                                          withBody:(NSString *)body
+                                      successBlock:(GLGitlabSuccessBlock)success
+                                   andFailureBlock:(GLGitlabFailureBlock)failure
 {
     return nil;
 }
 
 // GET
-- (GLNetworkOperation *)getAllNotesForIssueId:(int64_t)issueId withSuccessBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
+- (GLNetworkOperation *)getAllNotesForIssueId:(int64_t)issueId
+                             withSuccessBlock:(GLGitlabSuccessBlock)success
+                              andFailureBlock:(GLGitlabFailureBlock)failure
 {
     return nil;
 }
 
 // GET
-- (GLNetworkOperation *)getIssueNoteWithId:(int64_t)noteId forIssueId:(int64_t)issueId withSuccessBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
+- (GLNetworkOperation *)getIssueNoteWithId:(int64_t)noteId
+                                forIssueId:(int64_t)issueId
+                          withSuccessBlock:(GLGitlabSuccessBlock)success
+                           andFailureBlock:(GLGitlabFailureBlock)failure
 {
     return nil;
 }
 
 // POST
-- (GLNetworkOperation *)createNoteForIssueId:(int64_t)issueId withBody:(NSString *)body successBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
+- (GLNetworkOperation *)createNoteForIssueId:(int64_t)issueId
+                                    withBody:(NSString *)body
+                                successBlock:(GLGitlabSuccessBlock)success
+                             andFailureBlock:(GLGitlabFailureBlock)failure
 {
     return nil;
 }
 
 // GET
-- (GLNetworkOperation *)getAllNotesForMergeRequestId:(int64_t)mergeRequestId withSuccessBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
+- (GLNetworkOperation *)getAllNotesForMergeRequestId:(int64_t)mergeRequestId
+                                    withSuccessBlock:(GLGitlabSuccessBlock)success
+                                     andFailureBlock:(GLGitlabFailureBlock)failure
 {
     return nil;
 }
 
 // GET
-- (GLNetworkOperation *)getNoteWithId:(int64_t)noteId forMergeRequestId:(int64_t)mergeRequestId withSuccessBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
+- (GLNetworkOperation *)getNoteWithId:(int64_t)noteId
+                    forMergeRequestId:(int64_t)mergeRequestId
+                     withSuccessBlock:(GLGitlabSuccessBlock)success
+                      andFailureBlock:(GLGitlabFailureBlock)failure
 {
     return nil;
 }
 
 // POST
-- (GLNetworkOperation *)createNoteForMergeRequestId:(int64_t)mergeRequestId withBody:(NSString *)body successBlock:(GLGitlabSuccessBlock)success andFailureBlock:(GLGitlabFailureBlock)failure
+- (GLNetworkOperation *)createNoteForMergeRequestId:(int64_t)mergeRequestId
+                                           withBody:(NSString *)body
+                                       successBlock:(GLGitlabSuccessBlock)success
+                                    andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+
+#pragma mark - Issues Methods
+
+- (GLNetworkOperation *)getAllIssuesWithSuccessBlock:(GLGitlabSuccessBlock)success
+                                     andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+- (GLNetworkOperation *)getAllIssuesForProjectId:(int64_t)projectId
+                                withSuccessBlock:(GLGitlabSuccessBlock)success
+                                 andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+- (GLNetworkOperation *)getIssueWithId:(int64_t)issueId
+                          forProjectId:(int64_t)projectId
+                      withSuccessBlock:(GLGitlabSuccessBlock)success
+                       andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+- (GLNetworkOperation *)createIssue:(GLIssue *)issue
+                       forProjectId:(int64_t)projectId
+                   withSuccessBlock:(GLGitlabSuccessBlock)success
+                    andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+- (GLNetworkOperation *)updateIssue:(GLIssue *)issue
+                   withSuccessBlock:(GLGitlabSuccessBlock)success
+                    andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+- (GLNetworkOperation *)closeIssue:(GLIssue *)issue
+                  withSuccessBlock:(GLGitlabSuccessBlock)success
+                   andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    return nil;
+}
+
+- (GLNetworkOperation *)reopenIssue:(GLIssue *)issue
+                   withSuccessBlock:(GLGitlabSuccessBlock)success
+                    andFailureBlock:(GLGitlabFailureBlock)failure
 {
     return nil;
 }
