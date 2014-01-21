@@ -83,7 +83,7 @@
     id responseObject = [NSJSONSerialization JSONObjectWithData:_responseData
                                                         options:NSJSONReadingAllowFragments
                                                           error:&error];
-    if (!error && _successBlock) {
+    if (!error && _successBlock && (_response.statusCode == GLResponseSuccess || _response.statusCode == GLResponseCreated)) {
         _successBlock(responseObject);
     }
     else if (error && _failureBlock) {
