@@ -34,4 +34,63 @@ NSString * const kKeyDeletedFile = @"deleted_file";
     return self;
 }
 
+- (BOOL)isEqual:(id)other {
+    if (other == self)
+        return YES;
+    if (!other || ![[other class] isEqual:[self class]])
+        return NO;
+
+    return [self isEqualToDiff:other];
+}
+
+- (BOOL)isEqualToDiff:(GLDiff *)diff {
+    if (self == diff)
+        return YES;
+    if (diff == nil)
+        return NO;
+    if (self.diff != diff.diff && ![self.diff isEqualToString:diff.diff])
+        return NO;
+    if (self.newPath != diff.newPath && ![self.newPath isEqualToString:diff.newPath])
+        return NO;
+    if (self.oldPath != diff.oldPath && ![self.oldPath isEqualToString:diff.oldPath])
+        return NO;
+    if (self.aMode != diff.aMode && ![self.aMode isEqualToString:diff.aMode])
+        return NO;
+    if (self.bMode != diff.bMode && ![self.bMode isEqualToString:diff.bMode])
+        return NO;
+    if (self.newFile != diff.newFile)
+        return NO;
+    if (self.renamedFile != diff.renamedFile)
+        return NO;
+    if (self.deletedFile != diff.deletedFile)
+        return NO;
+    return YES;
+}
+
+- (NSUInteger)hash {
+    NSUInteger hash = [self.diff hash];
+    hash = hash * 31u + [self.newPath hash];
+    hash = hash * 31u + [self.oldPath hash];
+    hash = hash * 31u + [self.aMode hash];
+    hash = hash * 31u + [self.bMode hash];
+    hash = hash * 31u + self.newFile;
+    hash = hash * 31u + self.renamedFile;
+    hash = hash * 31u + self.deletedFile;
+    return hash;
+}
+
+- (NSString *)description {
+    NSMutableString *description = [NSMutableString stringWithFormat:@"<%@: ", NSStringFromClass([self class])];
+    [description appendFormat:@"self.diff=%@", self.diff];
+    [description appendFormat:@", self.newPath=%@", self.newPath];
+    [description appendFormat:@", self.oldPath=%@", self.oldPath];
+    [description appendFormat:@", self.aMode=%@", self.aMode];
+    [description appendFormat:@", self.bMode=%@", self.bMode];
+    [description appendFormat:@", self.newFile=%d", self.newFile];
+    [description appendFormat:@", self.renamedFile=%d", self.renamedFile];
+    [description appendFormat:@", self.deletedFile=%d", self.deletedFile];
+    [description appendString:@">"];
+    return description;
+}
+
 @end

@@ -39,4 +39,12 @@ FOUNDATION_EXPORT NSString * const GLMergeRequestEndPoint;
 
 - (instancetype)initWithJSON:(NSDictionary *)json;
 
+- (BOOL)isEqual:(id)other;
+
+- (BOOL)isEqualToRequest:(GLMergeRequest *)request;
+
+- (NSUInteger)hash;
+
+- (NSString *)description;
+
 @end

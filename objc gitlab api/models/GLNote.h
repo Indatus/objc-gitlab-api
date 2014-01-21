@@ -27,4 +27,12 @@ FOUNDATION_EXPORT NSString *const GLUserEndpoint;
 
 - (instancetype)initWithJSON:(NSDictionary *)json;
 
+- (BOOL)isEqual:(id)other;
+
+- (BOOL)isEqualToNote:(GLNote *)note;
+
+- (NSUInteger)hash;
+
+- (NSString *)description;
+
 @end

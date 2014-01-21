@@ -39,4 +39,12 @@
 
 - (instancetype)initWithJSON:(NSDictionary *)json;
 
+- (BOOL)isEqual:(id)other;
+
+- (BOOL)isEqualToIssue:(GLIssue *)issue;
+
+- (NSUInteger)hash;
+
+- (NSString *)description;
+
 @end

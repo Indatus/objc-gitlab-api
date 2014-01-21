@@ -44,6 +44,13 @@ FOUNDATION_EXPORT NSString *const GLUserEndpoint;
 @property (nonatomic, getter = isAdmin) BOOL admin;
 
 - (instancetype)initWithJSON:(NSDictionary *)json;
-- (BOOL)isEqualToUser:(GLUser *)otherUser;
+
+- (BOOL)isEqual:(id)other;
+
+- (BOOL)isEqualToUser:(GLUser *)user;
+
+- (NSUInteger)hash;
+
+- (NSString *)description;
 
 @end

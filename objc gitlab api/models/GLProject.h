@@ -59,4 +59,12 @@ FOUNDATION_EXPORT NSString *const GLProjectEndpoint;
 
 - (instancetype)initWithJSON:(NSDictionary *)json;
 
+- (BOOL)isEqual:(id)other;
+
+- (BOOL)isEqualToProject:(GLProject *)project;
+
+- (NSUInteger)hash;
+
+- (NSString *)description;
+
 @end

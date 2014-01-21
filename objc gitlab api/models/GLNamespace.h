@@ -27,4 +27,12 @@
 
 - (instancetype)initWithJSON:(NSDictionary *)json;
 
+- (BOOL)isEqual:(id)other;
+
+- (BOOL)isEqualToGlNamespace:(GLNamespace *)glNamespace;
+
+- (NSUInteger)hash;
+
+- (NSString *)description;
+
 @end

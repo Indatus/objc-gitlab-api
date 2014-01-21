@@ -27,4 +27,12 @@ FOUNDATION_EXPORT NSString * const GLCommitEndPoint;
 
 - (instancetype)initWithJSON:(NSDictionary *)json;
 
+- (BOOL)isEqual:(id)other;
+
+- (BOOL)isEqualToCommit:(GLCommit *)commit;
+
+- (NSUInteger)hash;
+
+- (NSString *)description;
+
 @end

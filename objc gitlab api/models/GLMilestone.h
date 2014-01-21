@@ -31,4 +31,12 @@
 
 - (instancetype)initWithJSON:(NSDictionary *)json;
 
+- (BOOL)isEqual:(id)other;
+
+- (BOOL)isEqualToMilestone:(GLMilestone *)milestone;
+
+- (NSUInteger)hash;
+
+- (NSString *)description;
+
 @end
