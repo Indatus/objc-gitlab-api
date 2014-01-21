@@ -74,7 +74,11 @@ static GLGitlab *_instance;
 
 #pragma mark - Login Methods
 
-- (GLNetworkOperation *)loginToHost:(NSString *)host username:(NSString *)username password:(NSString *)password success:(GLGitlabSuccessBlock)successBlock failure:(GLGitlabFailureBlock)failureBlock
+- (GLNetworkOperation *)loginToHost:(NSString *)host
+                           username:(NSString *)username
+                           password:(NSString *)password
+                            success:(GLGitlabSuccessBlock)successBlock
+                            failure:(GLGitlabFailureBlock)failureBlock
 {
     self.hostName = [NSURL URLWithString:host];
 
@@ -172,12 +176,12 @@ static GLGitlab *_instance;
 
 #pragma mark - MergeRequest Methods
 
-// GET request
 - (GLNetworkOperation *)getMergeRequestsForProjectId:(int64_t)projectId
                                     withSuccessBlock:(GLGitlabSuccessBlock)success
                                      andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -195,12 +199,12 @@ static GLGitlab *_instance;
     return op;
 }
 
-// GET request
 - (GLNetworkOperation *)getMergeRequestWithId:(int64_t)mergeRequestId
                                  successBlock:(GLGitlabSuccessBlock)success
                               andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -218,13 +222,13 @@ static GLGitlab *_instance;
     return op;
 }
 
-// POST request
 - (GLNetworkOperation *)createMergeRequestForProjectId:(int64_t)projectId
                                       withMergeRequest:(GLMergeRequest *)mergeRequest
                                           successBlock:(GLGitlabSuccessBlock)success
                                        andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kPostMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -242,13 +246,13 @@ static GLGitlab *_instance;
     return op;
 }
 
-// PUT request
 - (GLNetworkOperation *)updateMergeRequestForProjectId:(int64_t)projectId
                                       withMergeRequest:(GLMergeRequest *)mergeRequest
                                           successBlock:(GLGitlabSuccessBlock)success
                                        andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kPutMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -269,12 +273,12 @@ static GLGitlab *_instance;
 
 #pragma mark - Notes Methods
 
-// GET
 - (GLNetworkOperation *)getWallNotesForProjectId:(int64_t)projectId
                                 withSuccessBlock:(GLGitlabSuccessBlock)success
                                  andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -292,13 +296,13 @@ static GLGitlab *_instance;
     return op;
 }
 
-// GET
 - (GLNetworkOperation *)getWallNoteWithId:(int64_t)noteId
                              forProjectId:(int64_t)projectId
                          withSuccessBlock:(GLGitlabSuccessBlock)success
                           andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -316,13 +320,13 @@ static GLGitlab *_instance;
     return op;
 }
 
-// POST
 - (GLNetworkOperation *)createWallNoteForProjectId:(int64_t)projectId
                                           withBody:(NSString *)body
                                       successBlock:(GLGitlabSuccessBlock)success
                                    andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kPostMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -340,12 +344,12 @@ static GLGitlab *_instance;
     return op;
 }
 
-// GET
 - (GLNetworkOperation *)getAllNotesForIssueId:(int64_t)issueId
                              withSuccessBlock:(GLGitlabSuccessBlock)success
                               andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -363,13 +367,13 @@ static GLGitlab *_instance;
     return op;
 }
 
-// GET
 - (GLNetworkOperation *)getIssueNoteWithId:(int64_t)noteId
                                 forIssueId:(int64_t)issueId
                           withSuccessBlock:(GLGitlabSuccessBlock)success
                            andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -393,7 +397,8 @@ static GLGitlab *_instance;
                                 successBlock:(GLGitlabSuccessBlock)success
                              andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kPostMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -411,12 +416,12 @@ static GLGitlab *_instance;
     return op;
 }
 
-// GET
 - (GLNetworkOperation *)getAllNotesForMergeRequestId:(int64_t)mergeRequestId
                                     withSuccessBlock:(GLGitlabSuccessBlock)success
                                      andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -434,13 +439,13 @@ static GLGitlab *_instance;
     return op;
 }
 
-// GET
 - (GLNetworkOperation *)getNoteWithId:(int64_t)noteId
                     forMergeRequestId:(int64_t)mergeRequestId
                      withSuccessBlock:(GLGitlabSuccessBlock)success
                       andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -458,13 +463,13 @@ static GLGitlab *_instance;
     return op;
 }
 
-// POST
 - (GLNetworkOperation *)createNoteForMergeRequestId:(int64_t)mergeRequestId
                                            withBody:(NSString *)body
                                        successBlock:(GLGitlabSuccessBlock)success
                                     andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kPostMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -488,7 +493,8 @@ static GLGitlab *_instance;
 - (GLNetworkOperation *)getAllIssuesWithSuccessBlock:(GLGitlabSuccessBlock)success
                                      andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -510,7 +516,8 @@ static GLGitlab *_instance;
                                 withSuccessBlock:(GLGitlabSuccessBlock)success
                                  andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -533,7 +540,8 @@ static GLGitlab *_instance;
                       withSuccessBlock:(GLGitlabSuccessBlock)success
                        andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -556,7 +564,8 @@ static GLGitlab *_instance;
                    withSuccessBlock:(GLGitlabSuccessBlock)success
                     andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kPostMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -578,7 +587,8 @@ static GLGitlab *_instance;
                    withSuccessBlock:(GLGitlabSuccessBlock)success
                     andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kPutMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -600,7 +610,8 @@ static GLGitlab *_instance;
                   withSuccessBlock:(GLGitlabSuccessBlock)success
                    andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kPutMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -622,7 +633,8 @@ static GLGitlab *_instance;
                    withSuccessBlock:(GLGitlabSuccessBlock)success
                     andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kPutMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -647,7 +659,8 @@ static GLGitlab *_instance;
                                     withSuccessBlock:(GLGitlabSuccessBlock)success
                                      andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -670,7 +683,8 @@ static GLGitlab *_instance;
                           withSuccessBlock:(GLGitlabSuccessBlock)success
                            andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -692,7 +706,8 @@ static GLGitlab *_instance;
                        withSuccessBlock:(GLGitlabSuccessBlock)success
                         andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kPostMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -714,7 +729,8 @@ static GLGitlab *_instance;
                        withSuccessBlock:(GLGitlabSuccessBlock)success
                         andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kPutMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -736,7 +752,8 @@ static GLGitlab *_instance;
                       withSuccessBlock:(GLGitlabSuccessBlock)success
                        andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kPutMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -758,7 +775,8 @@ static GLGitlab *_instance;
                          withSuccessBlock:(GLGitlabSuccessBlock)success
                           andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kPutMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -783,7 +801,8 @@ static GLGitlab *_instance;
                                  withSuccessBlock:(GLGitlabSuccessBlock)success
                                   andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -804,7 +823,8 @@ static GLGitlab *_instance;
                         withSuccessBlock:(GLGitlabSuccessBlock)success
                          andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURLRequest *request;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
