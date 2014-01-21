@@ -12,6 +12,7 @@
 #import "GLUser.h"
 
 static NSString *const kPostMethod = @"post";
+static NSString *const kApiRoutePrefix = @"/api/v3";
 static NSString *const kLoginRoute = @"/session";
 
 // Request Keys
@@ -67,7 +68,8 @@ static GLGitlab *_instance;
 {
     self.hostName = [NSURL URLWithString:host];
 
-    NSURL *requestUrl = [_hostName URLByAppendingPathComponent:kLoginRoute];
+    NSURL *requestUrl = [_hostName URLByAppendingPathComponent:kApiRoutePrefix];
+    requestUrl = [requestUrl URLByAppendingPathComponent:kLoginRoute];
     NSDictionary *params = @{ kLoginUsernameKey: username, kLoginPasswordKey: password };
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requestUrl];
     NSError *error;
