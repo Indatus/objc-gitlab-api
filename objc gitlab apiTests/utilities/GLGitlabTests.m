@@ -38,8 +38,8 @@
     };
     
     [[GLGitlab sharedInstance] loginToHost:@"http://gitlab.indatus.com"
-                                  username:@"jtrespalacios@indatus.com"
-                                  password:@"cyddzcVv"
+                                  username:@""
+                                  password:@""
                                    success:success
                                    failure:failure];
 }
