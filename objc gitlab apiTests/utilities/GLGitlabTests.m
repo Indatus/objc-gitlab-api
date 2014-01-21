@@ -30,7 +30,6 @@
 - (void)testLogin
 {
     __block BOOL done = NO;
-    
     GLGitlabSuccessBlock success = ^(id responseObject) {
         XCTAssertNotNil(responseObject, @"Request failed");
         done = YES;
