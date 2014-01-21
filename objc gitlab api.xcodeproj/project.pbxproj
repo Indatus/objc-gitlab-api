@@ -12,6 +12,7 @@
 		0CF663F21885DD05005BC2AC /* GLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF663F11885DD05005BC2AC /* GLUser.m */; };
 		0CF6644718896C07005BC2AC /* GLGitlabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF6644618896C07005BC2AC /* GLGitlabTests.m */; };
 		0CF6644B188973DD005BC2AC /* GLUserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF6644A188973DD005BC2AC /* GLUserTests.m */; };
+		0CF89582188EE4730076E5BA /* GLConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF89581188EE4730076E5BA /* GLConstants.m */; };
 		5D4954EA1885CFDB00E162BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4954E91885CFDB00E162BB /* Foundation.framework */; };
 		5D4954F81885CFDB00E162BB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4954F71885CFDB00E162BB /* XCTest.framework */; };
 		5D4954F91885CFDB00E162BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4954E91885CFDB00E162BB /* Foundation.framework */; };
@@ -59,6 +60,8 @@
 		0CF663F11885DD05005BC2AC /* GLUser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLUser.m; sourceTree = "<group>"; };
 		0CF6644618896C07005BC2AC /* GLGitlabTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLGitlabTests.m; path = utilities/GLGitlabTests.m; sourceTree = "<group>"; };
 		0CF6644A188973DD005BC2AC /* GLUserTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLUserTests.m; path = models/GLUserTests.m; sourceTree = "<group>"; };
+		0CF89580188EE4730076E5BA /* GLConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLConstants.h; sourceTree = "<group>"; };
+		0CF89581188EE4730076E5BA /* GLConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLConstants.m; sourceTree = "<group>"; };
 		5D4954E61885CFDB00E162BB /* libobjc gitlab api.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libobjc gitlab api.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5D4954E91885CFDB00E162BB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		5D4954ED1885CFDB00E162BB /* objc gitlab api-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "objc gitlab api-Prefix.pch"; sourceTree = "<group>"; };
@@ -222,6 +225,8 @@
 				5D8590051885D1F000D04017 /* GLGitlab.m */,
 				5DDC39071885EC1F00DF8FD7 /* GLNetworkOperation.h */,
 				5DDC39081885EC1F00DF8FD7 /* GLNetworkOperation.m */,
+				0CF89580188EE4730076E5BA /* GLConstants.h */,
+				0CF89581188EE4730076E5BA /* GLConstants.m */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
@@ -307,6 +312,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CF89582188EE4730076E5BA /* GLConstants.m in Sources */,
 				0CF663EF1885D984005BC2AC /* GLProject.m in Sources */,
 				0CF663F21885DD05005BC2AC /* GLUser.m in Sources */,
 				5DDC391318887C9200DF8FD7 /* GLIssue.m in Sources */,
