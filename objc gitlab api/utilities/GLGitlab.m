@@ -9,6 +9,16 @@
 #import "GLGitlab.h"
 #import "GLNetworkOperation.h"
 
+static NSString *const kPostMethod = @"post";
+static NSString *const kLoginRoute = @"/session";
+
+// Request Keys
+static NSString *const kLoginUsernameKey = @"login";
+static NSString *const kLoginPasswordKey = @"password";
+
+// Response Keys
+static NSString *const kPrivateTokenKey = @"private_token";
+
 @interface GLGitlab ()
 
 @property (nonatomic, strong) NSURL *hostName;
@@ -49,7 +59,34 @@ static GLGitlab *_instance;
 
 - (void)loginToHost:(NSString *)host username:(NSString *)username password:(NSString *)password success:(GLGitlabSuccessBlock)successBlock failure:(GLGitlabFailureBlock)failureBlock
 {
+    self.hostName = [NSURL URLWithString:host];
 
+    NSURL *requestUrl = [_hostName URLByAppendingPathComponent:kLoginRoute];
+    NSDictionary *params = @{ kLoginUsernameKey: username, kLoginPasswordKey: password };
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requestUrl];
+    NSError *error;
+    
+    request.HTTPMethod = kPostMethod;
+    request.HTTPBody = [NSJSONSerialization dataWithJSONObject:params options:0 error:&error];
+    if (&error) {
+        NSLog(@"Error serializing login params: %@", error.localizedDescription);
+        failureBlock(error);
+        return;
+    }
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        self.privateToken = responseObject[kPrivateTokenKey];
+        successBlock(responseObject);
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        failureBlock(error);
+    };
+    
+    
+    __unused GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                          success:localSuccessBlock
+                                                                          failure:localFailureBlock];
 }
 
 @end
