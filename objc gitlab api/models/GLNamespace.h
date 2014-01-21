@@ -10,9 +10,13 @@
 
 @interface GLNamespace : NSObject
 
+// id
 @property (nonatomic, assign) int64_t namespaceId;
+// name
 @property (nonatomic, copy) NSString *name;
+// path
 @property (nonatomic, copy) NSString *path;
+// description
 @property (nonatomic, copy) NSString *description;
 // created_at
 @property (nonatomic, strong) NSDate *createdAt;
