@@ -7,8 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GLJsonInit.h"
 
-@interface GLDiff : NSObject
+@interface GLDiff : NSObject <GLJsonInit>
 
 // diff
 @property (nonatomic, copy) NSString *diff;
