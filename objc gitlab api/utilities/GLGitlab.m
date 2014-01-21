@@ -177,7 +177,22 @@ static GLGitlab *_instance;
                                     withSuccessBlock:(GLGitlabSuccessBlock)success
                                      andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 // GET request
@@ -185,7 +200,22 @@ static GLGitlab *_instance;
                                  successBlock:(GLGitlabSuccessBlock)success
                               andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 // POST request
@@ -194,7 +224,22 @@ static GLGitlab *_instance;
                                           successBlock:(GLGitlabSuccessBlock)success
                                        andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 // PUT request
@@ -203,7 +248,22 @@ static GLGitlab *_instance;
                                           successBlock:(GLGitlabSuccessBlock)success
                                        andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 
@@ -214,7 +274,22 @@ static GLGitlab *_instance;
                                 withSuccessBlock:(GLGitlabSuccessBlock)success
                                  andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 // GET
@@ -223,7 +298,22 @@ static GLGitlab *_instance;
                          withSuccessBlock:(GLGitlabSuccessBlock)success
                           andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 // POST
@@ -232,7 +322,22 @@ static GLGitlab *_instance;
                                       successBlock:(GLGitlabSuccessBlock)success
                                    andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 // GET
@@ -240,7 +345,22 @@ static GLGitlab *_instance;
                              withSuccessBlock:(GLGitlabSuccessBlock)success
                               andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 // GET
@@ -249,7 +369,22 @@ static GLGitlab *_instance;
                           withSuccessBlock:(GLGitlabSuccessBlock)success
                            andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 // POST
@@ -258,7 +393,22 @@ static GLGitlab *_instance;
                                 successBlock:(GLGitlabSuccessBlock)success
                              andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 // GET
@@ -266,7 +416,22 @@ static GLGitlab *_instance;
                                     withSuccessBlock:(GLGitlabSuccessBlock)success
                                      andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 // GET
@@ -275,7 +440,22 @@ static GLGitlab *_instance;
                      withSuccessBlock:(GLGitlabSuccessBlock)success
                       andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 // POST
@@ -284,7 +464,22 @@ static GLGitlab *_instance;
                                        successBlock:(GLGitlabSuccessBlock)success
                                     andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 
@@ -293,14 +488,44 @@ static GLGitlab *_instance;
 - (GLNetworkOperation *)getAllIssuesWithSuccessBlock:(GLGitlabSuccessBlock)success
                                      andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 - (GLNetworkOperation *)getAllIssuesForProjectId:(int64_t)projectId
                                 withSuccessBlock:(GLGitlabSuccessBlock)success
                                  andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 - (GLNetworkOperation *)getIssueWithId:(int64_t)issueId
@@ -308,7 +533,22 @@ static GLGitlab *_instance;
                       withSuccessBlock:(GLGitlabSuccessBlock)success
                        andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 - (GLNetworkOperation *)createIssue:(GLIssue *)issue
@@ -316,28 +556,88 @@ static GLGitlab *_instance;
                    withSuccessBlock:(GLGitlabSuccessBlock)success
                     andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 - (GLNetworkOperation *)updateIssue:(GLIssue *)issue
                    withSuccessBlock:(GLGitlabSuccessBlock)success
                     andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 - (GLNetworkOperation *)closeIssue:(GLIssue *)issue
                   withSuccessBlock:(GLGitlabSuccessBlock)success
                    andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 - (GLNetworkOperation *)reopenIssue:(GLIssue *)issue
                    withSuccessBlock:(GLGitlabSuccessBlock)success
                     andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 
@@ -347,7 +647,22 @@ static GLGitlab *_instance;
                                     withSuccessBlock:(GLGitlabSuccessBlock)success
                                      andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 - (GLNetworkOperation *)getMilestoneWithId:(int64_t)milestoneId
@@ -355,35 +670,110 @@ static GLGitlab *_instance;
                           withSuccessBlock:(GLGitlabSuccessBlock)success
                            andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 - (GLNetworkOperation *)createMilestone:(GLMilestone *)milestone forProjectId:(int64_t)projectId
                        withSuccessBlock:(GLGitlabSuccessBlock)success
                         andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 - (GLNetworkOperation *)updateMilestone:(GLMilestone *)milestone
                        withSuccessBlock:(GLGitlabSuccessBlock)success
                         andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 - (GLNetworkOperation *)closeMilestone:(GLMilestone *)milestone
                       withSuccessBlock:(GLGitlabSuccessBlock)success
                        andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 - (GLNetworkOperation *)activateMilestone:(GLMilestone *)milestone
                          withSuccessBlock:(GLGitlabSuccessBlock)success
                           andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 
@@ -393,13 +783,43 @@ static GLGitlab *_instance;
                                  withSuccessBlock:(GLGitlabSuccessBlock)success
                                   andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 - (GLNetworkOperation *)getCommitWithSha:(NSString *)sha forProjectId:(int64_t)projectId
                         withSuccessBlock:(GLGitlabSuccessBlock)success
                          andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    return nil;
+    NSURLRequest *request;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
 }
 
 
