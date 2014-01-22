@@ -9,6 +9,8 @@
 #import "GLGitlabApi.h"
 #import "GLNetworkOperation.h"
 
+@protocol GLJsonInit;
+
 #pragma mark - Request Methods
 FOUNDATION_EXPORT NSString *const kPostMethod;
 FOUNDATION_EXPORT NSString *const kGetMethod;
@@ -40,8 +42,15 @@ FOUNDATION_EXPORT NSString *const GLProjectGetProjectEndPoint;
 - (GLNetworkOperation *)queueOperationWithRequest:(NSMutableURLRequest *)request
                                           success:(GLNetworkOperationSuccessBlock)success
                                           failure:(GLNetworkOperationFailureBlock)failure;
+
 - (NSData *)urlEncodeParams:(NSDictionary *)params;
-- (NSArray *)processJsonArray:(NSArray *)jsonArray class:(Class)class;
+
+- (NSArray *)processJsonArray:(NSArray *)jsonArray class:(Class<GLJsonInit>)aClass;
+
 - (NSURL *)requestUrlForEndPoint:(NSString *)endpoint;
+
 - (GLNetworkOperationFailureBlock)defaultFailureBlock:(GLGitlabFailureBlock)failureCallback;
+
+- (GLNetworkOperationSuccessBlock)singleObjectSuccessBlockForClass:(Class<GLJsonInit>)aClass
+                                                      successBlock:(GLGitlabSuccessBlock)success;
 @end

@@ -73,15 +73,13 @@ static NSString *const kApiRoutePrefix = @"/api/v3";
     return encodedString;
 }
 
-- (NSArray *)processJsonArray:(NSArray *)jsonArray class:(Class)class
+- (NSArray *)processJsonArray:(NSArray *)jsonArray class:(Class<GLJsonInit>)class
 {
-    if (![class conformsToProtocol:@protocol(GLJsonInit)]) {
-        return nil;
-    }
-    
+
+    Class aClass = (Class)class;
     NSMutableArray *array = [NSMutableArray array];
     for (NSDictionary *dictionary in jsonArray) {
-        id object = [[class alloc] initWithJSON:dictionary];
+        id object = [[aClass alloc] initWithJSON:dictionary];
         [array addObject:object];
     }
     
@@ -158,6 +156,16 @@ static NSString *const kApiRoutePrefix = @"/api/v3";
         }
         
         failureCallback(glError);
+    };
+}
+
+- (GLNetworkOperationSuccessBlock)singleObjectSuccessBlockForClass:(Class <GLJsonInit>)class
+                                                      successBlock:(GLGitlabSuccessBlock)success
+{
+    return ^(NSDictionary *resonseObject) {
+        Class aClass = (Class)class;
+        id object = [[aClass alloc] initWithJSON:resonseObject];
+        success(object);
     };
 }
 
