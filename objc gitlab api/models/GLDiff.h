@@ -14,7 +14,7 @@
 // diff
 @property (nonatomic, copy) NSString *diff;
 // new_path
-@property (nonatomic, copy) NSString *newPath;
+@property (nonatomic, copy) NSString *updatedPath;
 // old_path
 @property (nonatomic, copy) NSString *oldPath;
 // a_mode

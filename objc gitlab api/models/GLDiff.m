@@ -23,7 +23,7 @@ NSString * const kKeyDeletedFile = @"deleted_file";
 {
     if (self = [super init]) {
         _diff = json[kKeyDiff];
-        _newPath = json[kKeyNewPath];
+        _updatedPath = json[kKeyNewPath];
         _oldPath = json[kKeyOldPath];
         _aMode = json[kKeyAMode];
         _bMode = json[kKeyBMode];
@@ -50,7 +50,7 @@ NSString * const kKeyDeletedFile = @"deleted_file";
         return NO;
     if (self.diff != diff.diff && ![self.diff isEqualToString:diff.diff])
         return NO;
-    if (self.newPath != diff.newPath && ![self.newPath isEqualToString:diff.newPath])
+    if (self.updatedPath != diff.updatedPath && ![self.updatedPath isEqualToString:diff.updatedPath])
         return NO;
     if (self.oldPath != diff.oldPath && ![self.oldPath isEqualToString:diff.oldPath])
         return NO;
@@ -69,7 +69,7 @@ NSString * const kKeyDeletedFile = @"deleted_file";
 
 - (NSUInteger)hash {
     NSUInteger hash = [self.diff hash];
-    hash = hash * 31u + [self.newPath hash];
+    hash = hash * 31u + [self.updatedPath hash];
     hash = hash * 31u + [self.oldPath hash];
     hash = hash * 31u + [self.aMode hash];
     hash = hash * 31u + [self.bMode hash];
@@ -82,7 +82,7 @@ NSString * const kKeyDeletedFile = @"deleted_file";
 - (NSString *)description {
     NSMutableString *description = [NSMutableString stringWithFormat:@"<%@: ", NSStringFromClass([self class])];
     [description appendFormat:@"self.diff=%@", self.diff];
-    [description appendFormat:@", self.newPath=%@", self.newPath];
+    [description appendFormat:@", self.updatedPath=%@", self.updatedPath];
     [description appendFormat:@", self.oldPath=%@", self.oldPath];
     [description appendFormat:@", self.aMode=%@", self.aMode];
     [description appendFormat:@", self.bMode=%@", self.bMode];
