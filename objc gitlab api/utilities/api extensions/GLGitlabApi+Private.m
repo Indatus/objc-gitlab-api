@@ -7,6 +7,7 @@
 //
 
 #import "GLGitlabApi+Private.h"
+#import "GLConstants.h"
 #import "GLJsonInit.h"
 
 #pragma mark - Request Methods
@@ -93,4 +94,72 @@ static NSString *const kApiRoutePrefix = @"/api/v3";
     url = [url URLByAppendingPathComponent:endpoint];
     return url;
 }
+
+- (GLNetworkOperationFailureBlock)defaultFailureBlock:(GLGitlabFailureBlock)failureCallback
+{
+    return ^(NSError *error, NSInteger responseCode, NSData *responseData) {
+        GLResponseCodes glResponseCode = responseCode;
+        NSError *glError, *jsonError;
+        NSString *domain;
+        NSDictionary *userInfo;
+        
+        switch (glResponseCode) {
+            case GLResponseSuccess:
+                // Invalid for failure
+                break;
+            case GLResponseCreated:
+                // Invalid for failure
+                break;
+
+            case GLResponseBadRequest:
+                domain = GLGitlabApiBadRequestError;
+                userInfo = [NSJSONSerialization JSONObjectWithData:responseData
+                                                           options:0
+                                                             error:&jsonError];
+                break;
+
+            case GLResponseUnauthorized:
+                domain = GLGitlabApiUnauthorizedError;
+                break;
+                
+            case GLResponseForbidden:
+                domain = GLGitlabApiForbiddenError;
+                break;
+
+            case GLResponseNotFound:
+                domain = GLGitlabApiNotFound;
+                break;
+                
+            case GLResponseMethodNotAllowed:
+                domain = GLGitLabApiMethodNotAllowedError;
+                break;
+
+            case GLResponseConflict:
+                domain = GLGitlabApiConflictError;
+                break;
+
+            case GLResponseServerError:
+                domain = GLGitlabApiServerError;
+                break;
+
+            case GLResponseTimeout:
+                domain = GLGitLabApiTimeoutError;
+                break;
+        }
+        
+        if (jsonError) {
+            NSLog(@"Error parsing json for network request failure: %@\nAdditional Information: %@", jsonError.localizedDescription, jsonError.userInfo);
+        }
+        
+        if (domain) {
+            glError = [[NSError alloc] initWithDomain:domain
+                                                 code:glResponseCode
+                                             userInfo:userInfo];
+        }
+        
+        failureCallback(glError);
+    };
+}
+
 @end
+

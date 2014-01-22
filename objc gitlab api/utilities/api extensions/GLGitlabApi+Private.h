@@ -43,5 +43,5 @@ FOUNDATION_EXPORT NSString *const GLProjectGetProjectEndPoint;
 - (NSData *)urlEncodeParams:(NSDictionary *)params;
 - (NSArray *)processJsonArray:(NSArray *)jsonArray class:(Class)class;
 - (NSURL *)requestUrlForEndPoint:(NSString *)endpoint;
-
+- (GLNetworkOperationFailureBlock)defaultFailureBlock:(GLGitlabFailureBlock)failureCallback;
 @end
