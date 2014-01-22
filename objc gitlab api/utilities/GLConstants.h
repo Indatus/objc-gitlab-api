@@ -8,7 +8,17 @@
 
 #import <Foundation/Foundation.h>
 
-NS_ENUM(int16_t, GLResponseCodes) {
+#pragma mark - Error Constants
+FOUNDATION_EXPORT NSString *const GLGitlabApiBadRequestError;
+FOUNDATION_EXPORT NSString *const GLGitlabApiUnauthorizedError;
+FOUNDATION_EXPORT NSString *const GLGitlabApiForbiddenError;
+FOUNDATION_EXPORT NSString *const GLGitlabApiNotFound;
+FOUNDATION_EXPORT NSString *const GLGitLabApiMethodNotAllowedError;
+FOUNDATION_EXPORT NSString *const GLGitlabApiConflictError;
+FOUNDATION_EXPORT NSString *const GLGitlabApiServerError;
+FOUNDATION_EXPORT NSString *const GLGitLabApiTimeoutError;
+
+typedef NS_ENUM(NSInteger, GLResponseCodes) {
     GLResponseSuccess = 200,
     GLResponseCreated = 201,
     GLResponseBadRequest = 400,
