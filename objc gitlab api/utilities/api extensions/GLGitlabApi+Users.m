@@ -21,13 +21,12 @@
     NSMutableURLRequest *request;
     request.HTTPMethod = kGetMethod;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSArray *responseObject) {
+        NSArray *users = [self processJsonArray:responseObject class:[GLUser class]];
+        successBlock(users);
     };
     
-    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
-        // TODO
-    };
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
                                    success:localSuccessBlock
@@ -41,14 +40,9 @@
     NSMutableURLRequest *request;
     request.HTTPMethod = kGetMethod;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
-    };
-    
-    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
-        // TODO
-    };
-    
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLUser class]
+                                                                                 successBlock:successBlock];
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     return [self queueOperationWithRequest:request
                                    success:localSuccessBlock
                                    failure:localFailureBlock];
@@ -61,13 +55,9 @@
     NSMutableURLRequest *request;
     request.HTTPMethod = kGetMethod;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
-    };
-    
-    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
-        // TODO
-    };
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLUser class]
+                                                                                 successBlock:successBlock];
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
                                    success:localSuccessBlock
@@ -81,10 +71,8 @@
     NSMutableURLRequest *request;
     request.HTTPMethod = kGetMethod;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
-    };
-    
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLUser class]
+                                                                                 successBlock:successBlock];
     GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
         // TODO
     };
@@ -102,12 +90,9 @@
     request.HTTPMethod = kGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
+        successBlock(nil);
     };
-    
-    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
-        // TODO
-    };
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
                                    success:localSuccessBlock
