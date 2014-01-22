@@ -75,8 +75,7 @@ static NSString *const kApiRoutePrefix = @"/api/v3";
 
 - (NSArray *)processJsonArray:(NSArray *)jsonArray class:(Class<GLJsonInit>)class
 {
-
-    Class aClass = (Class)class;
+    Class aClass = (Class)class; // Cast back to a class to gain access to alloc
     NSMutableArray *array = [NSMutableArray array];
     for (NSDictionary *dictionary in jsonArray) {
         id object = [[aClass alloc] initWithJSON:dictionary];
@@ -163,7 +162,7 @@ static NSString *const kApiRoutePrefix = @"/api/v3";
                                                       successBlock:(GLGitlabSuccessBlock)success
 {
     return ^(NSDictionary *resonseObject) {
-        Class aClass = (Class)class;
+        Class aClass = (Class)class; // Cast back to a class to gain access to alloc
         id object = [[aClass alloc] initWithJSON:resonseObject];
         success(object);
     };
