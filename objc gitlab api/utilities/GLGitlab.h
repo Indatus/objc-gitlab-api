@@ -11,7 +11,7 @@
 typedef void (^GLGitlabSuccessBlock)(id responseObject);
 typedef void (^GLGitlabFailureBlock)(NSError *error);
 
-@class GLNetworkOperation, GLUser, GLMergeRequest, GLProject, GLNote, GLDiff, GLCommit, GLNamespace, GLIssue, GLMilestone, GLSnippet;
+@class GLNetworkOperation, GLUser, GLMergeRequest, GLProject, GLNote, GLDiff, GLCommit, GLNamespace, GLIssue, GLMilestone, GLSnippet, GLBranch;
 
 @interface GLGitlab : NSObject
 
@@ -30,13 +30,16 @@ typedef void (^GLGitlabFailureBlock)(NSError *error);
 - (GLNetworkOperation *)getMergeRequestsForProjectId:(int64_t)projectId
                                     withSuccessBlock:(GLGitlabSuccessBlock)success
                                      andFailureBlock:(GLGitlabFailureBlock)failure;
+
 - (GLNetworkOperation *)getMergeRequestWithId:(int64_t)mergeRequestId
                                  successBlock:(GLGitlabSuccessBlock)success
                               andFailureBlock:(GLGitlabFailureBlock)failure;
+
 - (GLNetworkOperation *)createMergeRequestForProjectId:(int64_t)projectId
                                       withMergeRequest:(GLMergeRequest *)mergeRequest
                                           successBlock:(GLGitlabSuccessBlock)success
                                        andFailureBlock:(GLGitlabFailureBlock)failure;
+
 - (GLNetworkOperation *)updateMergeRequest:(GLMergeRequest *)mergeRequest
                               successBlock:(GLGitlabSuccessBlock)success
                            andFailureBlock:(GLGitlabFailureBlock)failure;
@@ -46,10 +49,12 @@ typedef void (^GLGitlabFailureBlock)(NSError *error);
 - (GLNetworkOperation *)getWallNotesForProjectId:(int64_t)projectId
                                 withSuccessBlock:(GLGitlabSuccessBlock)success
                                  andFailureBlock:(GLGitlabFailureBlock)failure;
+
 - (GLNetworkOperation *)getWallNoteWithId:(int64_t)noteId
                              forProjectId:(int64_t)projectId
                          withSuccessBlock:(GLGitlabSuccessBlock)success
                           andFailureBlock:(GLGitlabFailureBlock)failure;
+
 - (GLNetworkOperation *)createWallNoteForProjectId:(int64_t)projectId
                                           withBody:(NSString *)body
                                       successBlock:(GLGitlabSuccessBlock)success
@@ -58,10 +63,12 @@ typedef void (^GLGitlabFailureBlock)(NSError *error);
 - (GLNetworkOperation *)getAllNotesForIssueId:(int64_t)issueId
                              withSuccessBlock:(GLGitlabSuccessBlock)success
                               andFailureBlock:(GLGitlabFailureBlock)failure;
+
 - (GLNetworkOperation *)getIssueNoteWithId:(int64_t)noteId
                                 forIssue:(GLIssue *)issue
                           withSuccessBlock:(GLGitlabSuccessBlock)success
                            andFailureBlock:(GLGitlabFailureBlock)failure;
+
 - (GLNetworkOperation *)createNoteForIssue:(GLIssue *)issue
                                     withBody:(NSString *)body
                                 successBlock:(GLGitlabSuccessBlock)success
@@ -70,10 +77,12 @@ typedef void (^GLGitlabFailureBlock)(NSError *error);
 - (GLNetworkOperation *)getAllNotesForMergeRequest:(GLMergeRequest *)mergeRequest
                                     withSuccessBlock:(GLGitlabSuccessBlock)success
                                      andFailureBlock:(GLGitlabFailureBlock)failure;
+
 - (GLNetworkOperation *)getNoteWithId:(int64_t)noteId
                     forMergeRequest:(GLMergeRequest *)mergeRequest
                      withSuccessBlock:(GLGitlabSuccessBlock)success
                       andFailureBlock:(GLGitlabFailureBlock)failure;
+
 - (GLNetworkOperation *)createNoteForMergeRequest:(GLMergeRequest *)mergeRequest
                                            withBody:(NSString *)body
                                        successBlock:(GLGitlabSuccessBlock)success
@@ -83,23 +92,29 @@ typedef void (^GLGitlabFailureBlock)(NSError *error);
 
 - (GLNetworkOperation *)getAllIssuesWithSuccessBlock:(GLGitlabSuccessBlock)success
                                      andFailureBlock:(GLGitlabFailureBlock)failure;
+
 - (GLNetworkOperation *)getAllIssuesForProjectId:(int64_t)projectId
                                 withSuccessBlock:(GLGitlabSuccessBlock)success
                                  andFailureBlock:(GLGitlabFailureBlock)failure;
+
 - (GLNetworkOperation *)getIssueWithId:(int64_t)issueId
                           forProjectId:(int64_t)projectId
                       withSuccessBlock:(GLGitlabSuccessBlock)success
                        andFailureBlock:(GLGitlabFailureBlock)failure;
+
 - (GLNetworkOperation *)createIssue:(GLIssue *)issue
                        forProjectId:(int64_t)projectId
                    withSuccessBlock:(GLGitlabSuccessBlock)success
                     andFailureBlock:(GLGitlabFailureBlock)failure;
+
 - (GLNetworkOperation *)updateIssue:(GLIssue *)issue
                    withSuccessBlock:(GLGitlabSuccessBlock)success
                     andFailureBlock:(GLGitlabFailureBlock)failure;
+
 - (GLNetworkOperation *)closeIssue:(GLIssue *)issue
                   withSuccessBlock:(GLGitlabSuccessBlock)success
                    andFailureBlock:(GLGitlabFailureBlock)failure;
+
 - (GLNetworkOperation *)reopenIssue:(GLIssue *)issue
                    withSuccessBlock:(GLGitlabSuccessBlock)success
                     andFailureBlock:(GLGitlabFailureBlock)failure;
@@ -109,19 +124,24 @@ typedef void (^GLGitlabFailureBlock)(NSError *error);
 - (GLNetworkOperation *)getAllMilestonesForProjectId:(int64_t)projectId
                                     withSuccessBlock:(GLGitlabSuccessBlock)success
                                      andFailureBlock:(GLGitlabFailureBlock)failure;
+
 - (GLNetworkOperation *)getMilestoneWithId:(int64_t)milestoneId
                               forProjectId:(int64_t)projectId
                           withSuccessBlock:(GLGitlabSuccessBlock)success
                            andFailureBlock:(GLGitlabFailureBlock)failure;
+
 - (GLNetworkOperation *)createMilestone:(GLMilestone *)milestone forProjectId:(int64_t)projectId
                                    withSuccessBlock:(GLGitlabSuccessBlock)success
                                     andFailureBlock:(GLGitlabFailureBlock)failure;
+
 - (GLNetworkOperation *)updateMilestone:(GLMilestone *)milestone
                        withSuccessBlock:(GLGitlabSuccessBlock)success
                         andFailureBlock:(GLGitlabFailureBlock)failure;
+
 - (GLNetworkOperation *)closeMilestone:(GLMilestone *)milestone
                        withSuccessBlock:(GLGitlabSuccessBlock)success
                         andFailureBlock:(GLGitlabFailureBlock)failure;
+
 - (GLNetworkOperation *)activateMilestone:(GLMilestone *)milestone
                        withSuccessBlock:(GLGitlabSuccessBlock)success
                         andFailureBlock:(GLGitlabFailureBlock)failure;
@@ -131,9 +151,14 @@ typedef void (^GLGitlabFailureBlock)(NSError *error);
 - (GLNetworkOperation *)getAllCommitsForProjectId:(int64_t)projectId
                                  withSuccessBlock:(GLGitlabSuccessBlock)success
                                   andFailureBlock:(GLGitlabFailureBlock)failure;
+
 - (GLNetworkOperation *)getCommitWithSha:(NSString *)sha forProjectId:(int64_t)projectId
                         withSuccessBlock:(GLGitlabSuccessBlock)success
                          andFailureBlock:(GLGitlabFailureBlock)failure;
+
+- (GLNetworkOperation *)getCommitDiffWithSha:(NSString *)sha forProjectId:(int64_t)projectId
+                            withSuccessBlock:(GLGitlabSuccessBlock)success
+                             andFailureBlock:(GLGitlabFailureBlock)failure;
 
 #pragma mark - Project Methods
 /**
@@ -261,7 +286,7 @@ typedef void (^GLGitlabFailureBlock)(NSError *error);
                            success:(GLGitlabSuccessBlock)successBlock
                            failure:(GLGitlabFailureBlock)failureBlock;
 
-#pragma mark - Snippets
+#pragma mark - Snippets Methods
 - (GLNetworkOperation *)getSnippetsForProject:(GLProject *)project
                                       success:(GLGitlabSuccessBlock)successBlock
                                       failure:(GLGitlabFailureBlock)failureBlock;
@@ -286,4 +311,26 @@ typedef void (^GLGitlabFailureBlock)(NSError *error);
 - (GLNetworkOperation *)getRawSnippet:(GLSnippet *)snippet
                               success:(GLGitlabSuccessBlock)successBlock
                               failure:(GLGitlabFailureBlock)failureBlock;
+
+#pragma mark - Repository Methods
+- (GLNetworkOperation *)getRepoBranchesForProject:(GLProject *)project
+                                          success:(GLGitlabSuccessBlock)successBlock
+                                          failure:(GLGitlabFailureBlock)failureBlock;
+
+- (GLNetworkOperation *)getBranchNamed:(NSString *)branchName
+                             inProject:(GLProject *)project
+                               success:(GLGitlabSuccessBlock)successBlock
+                               failure:(GLGitlabFailureBlock)failureBlock;
+
+- (GLNetworkOperation *)protectBranch:(GLBranch *)branch
+                              success:(GLGitlabSuccessBlock)successBlock
+                              failure:(GLGitlabFailureBlock)failureBlock;
+
+- (GLNetworkOperation *)unprotectBranch:(GLBranch *)branch
+                                success:(GLGitlabSuccessBlock)successBlock
+                                failure:(GLGitlabFailureBlock)failureBlock;
+
+- (GLNetworkOperation *)getTagsForProject:(GLProject *)project
+                                  success:(GLGitlabSuccessBlock)successBlock
+                                  failure:(GLGitlabFailureBlock)failureBlock;
 @end

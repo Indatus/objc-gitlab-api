@@ -107,12 +107,9 @@ static GLGitlab *_instance;
     };
     
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 
@@ -192,12 +189,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)getMergeRequestWithId:(int64_t)mergeRequestId
@@ -215,12 +209,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)createMergeRequestForProjectId:(int64_t)projectId
@@ -239,12 +230,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)updateMergeRequest:(GLMergeRequest *)mergeRequest
@@ -262,12 +250,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 
@@ -288,12 +273,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)getWallNoteWithId:(int64_t)noteId
@@ -312,12 +294,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)createWallNoteForProjectId:(int64_t)projectId
@@ -336,12 +315,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)getAllNotesForIssueId:(int64_t)issueId
@@ -359,12 +335,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)getIssueNoteWithId:(int64_t)noteId
@@ -383,12 +356,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 // POST
@@ -408,12 +378,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)getAllNotesForMergeRequest:(GLMergeRequest *)mergeRequest
@@ -431,12 +398,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)getNoteWithId:(int64_t)noteId
@@ -455,12 +419,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)createNoteForMergeRequest:(GLMergeRequest *)mergeRequest
@@ -479,12 +440,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 
@@ -504,12 +462,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)getAllIssuesForProjectId:(int64_t)projectId
@@ -527,12 +482,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)getIssueWithId:(int64_t)issueId
@@ -551,12 +503,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)createIssue:(GLIssue *)issue
@@ -575,12 +524,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)updateIssue:(GLIssue *)issue
@@ -598,12 +544,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)closeIssue:(GLIssue *)issue
@@ -621,12 +564,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)reopenIssue:(GLIssue *)issue
@@ -644,12 +584,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 
@@ -670,12 +607,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)getMilestoneWithId:(int64_t)milestoneId
@@ -694,12 +628,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)createMilestone:(GLMilestone *)milestone forProjectId:(int64_t)projectId
@@ -717,12 +648,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)updateMilestone:(GLMilestone *)milestone
@@ -740,12 +668,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)closeMilestone:(GLMilestone *)milestone
@@ -763,12 +688,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)activateMilestone:(GLMilestone *)milestone
@@ -786,12 +708,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 
@@ -812,12 +731,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 - (GLNetworkOperation *)getCommitWithSha:(NSString *)sha forProjectId:(int64_t)projectId
                         withSuccessBlock:(GLGitlabSuccessBlock)success
@@ -834,12 +750,132 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
+}
+
+- (GLNetworkOperation *)getCommitDiffWithSha:(NSString *)sha forProjectId:(int64_t)projectId
+                            withSuccessBlock:(GLGitlabSuccessBlock)success
+                             andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
     
-    return op;
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
+}
+
+#pragma mark - User Methods
+
+- (GLNetworkOperation *)getUsers:(ino64_t)pageNumber
+                       batchSize:(int64_t)batchSize
+                         success:(GLGitlabSuccessBlock)successBlock
+                         failure:(GLGitlabFailureBlock)failureBlock
+{
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
+}
+
+- (GLNetworkOperation *)getUser:(ino64_t)userId
+                        success:(GLGitlabSuccessBlock)successBlock
+                        failure:(GLGitlabFailureBlock)failureBlock
+{
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
+}
+
+- (GLNetworkOperation *)createUser:(GLUser *)user
+                           success:(GLGitlabSuccessBlock)successBlock
+                           failure:(GLGitlabFailureBlock)failureBlock
+{
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
+}
+
+- (GLNetworkOperation *)updateUser:(GLUser *)user
+                           success:(GLGitlabSuccessBlock)successBlock
+                           failure:(GLGitlabFailureBlock)failureBlock
+{
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
+}
+
+- (GLNetworkOperation *)deleteUser:(GLUser *)user
+                           success:(GLGitlabSuccessBlock)successBlock
+                           failure:(GLGitlabFailureBlock)failureBlock
+{
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 #pragma mark - Snippet Methods
@@ -858,12 +894,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)getSnippet:(int64_t)snippetId
@@ -882,12 +915,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)createSnippet:(GLSnippet *)snippet
@@ -905,12 +935,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)updateSnippet:(GLSnippet *)snippet
@@ -928,12 +955,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)deleteSnippet:(GLSnippet *)snippet
@@ -951,12 +975,9 @@ static GLGitlab *_instance;
         // TODO
     };
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
-    [_queue addOperation:op];
-    
-    return op;
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)getRawSnippet:(GLSnippet *)snippet
@@ -974,15 +995,126 @@ static GLGitlab *_instance;
         // TODO
     };
     
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
+}
+
+#pragma mark - Repository Methods
+- (GLNetworkOperation *)getRepoBranchesForProject:(GLProject *)project
+                                          success:(GLGitlabSuccessBlock)successBlock
+                                          failure:(GLGitlabFailureBlock)failureBlock
+{
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
+}
+
+- (GLNetworkOperation *)getBranchNamed:(NSString *)branchName
+                             inProject:(GLProject *)project
+                               success:(GLGitlabSuccessBlock)successBlock
+                               failure:(GLGitlabFailureBlock)failureBlock
+{
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
+}
+
+- (GLNetworkOperation *)protectBranch:(GLBranch *)branch
+                              success:(GLGitlabSuccessBlock)successBlock
+                              failure:(GLGitlabFailureBlock)failureBlock
+{
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
+}
+
+- (GLNetworkOperation *)unprotectBranch:(GLBranch *)branch
+                                success:(GLGitlabSuccessBlock)successBlock
+                                failure:(GLGitlabFailureBlock)failureBlock
+{
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
+}
+
+- (GLNetworkOperation *)getTagsForProject:(GLProject *)project
+                                  success:(GLGitlabSuccessBlock)successBlock
+                                  failure:(GLGitlabFailureBlock)failureBlock
+{
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
+}
+
+#pragma mark - Private Methods
+
+- (GLNetworkOperation *)queueOperationWithRequest:(NSMutableURLRequest *)request
+                                          success:(GLNetworkOperationSuccessBlock)success
+                                          failure:(GLNetworkOperationFailureBlock)failure
+{
     GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:localSuccessBlock
-                                                                 failure:localFailureBlock];
+                                                                 success:success
+                                                                 failure:failure];
     [_queue addOperation:op];
     
     return op;
 }
-
-#pragma mark - Private Methods
 
 - (NSData *)urlEncodeParams:(NSDictionary *)params
 {
