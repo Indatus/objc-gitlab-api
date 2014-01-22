@@ -9,7 +9,7 @@
 #import "GLIssue.h"
 #import "GLMilestone.h"
 #import "GLUser.h"
-#import "GLGitlab.h"
+#import "GLGitlabApi.h"
 
 NSString * const kKeyIssueId = @"id";
 NSString * const kKeyIssueIid = @"iid";
@@ -39,8 +39,8 @@ NSString * const kKeyCreatedAt = @"created_at";
         _assignee = [[GLUser alloc] initWithJSON:json[kKeyAssignee]];
         _author = [[GLUser alloc] initWithJSON:json[kKeyAuthor]];
         _state = json[kKeyState];
-        _updatedAt = [[[GLGitlab sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyUpdatedAt]];
-        _createdAt = [[[GLGitlab sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
+        _updatedAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyUpdatedAt]];
+        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
     }
     return self;
 }

@@ -7,7 +7,7 @@
 //
 
 #import "GLCommit.h"
-#import "GLGitlab.h"
+#import "GLGitlabApi.h"
 
 NSString * const GLCommitEndPoint = @"/commits";
 
@@ -28,7 +28,7 @@ NSString * const kKeyForCreatedAt = @"created_at";
         _shortId = json[kKeyForShortId];
         _authorName = json[kKeyForAuthorName];
         _authorEmail = json[kKeyForAuthorEmail];
-        _createdAt = [[[GLGitlab sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyForCreatedAt]];
+        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyForCreatedAt]];
     }
     return self;
 }

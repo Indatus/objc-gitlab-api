@@ -13,9 +13,9 @@ typedef void (^GLGitlabFailureBlock)(NSError *error);
 
 @class GLNetworkOperation, GLUser, GLMergeRequest, GLProject, GLNote, GLDiff, GLCommit, GLNamespace, GLIssue, GLMilestone, GLSnippet, GLBranch;
 
-@interface GLGitlab : NSObject
+@interface GLGitlabApi : NSObject
 
-+ (GLGitlab *)sharedInstance;
++ (GLGitlabApi *)sharedInstance;
 
 - (NSDateFormatter *)gitLabDateFormatter;
 

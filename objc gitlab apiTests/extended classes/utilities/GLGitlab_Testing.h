@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 Indatus. All rights reserved.
 //
 
-#import "GLGitlab.h"
+#import "GLGitlabApi.h"
 
-@interface GLGitlab (Testing)
+@interface GLGitlabApi (Testing)
 - (NSString *)privateToken;
 - (NSOperationQueue *)queue;
 @end

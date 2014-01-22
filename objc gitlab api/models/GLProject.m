@@ -9,7 +9,7 @@
 #import "GLProject.h"
 #import "GLNamespace.h"
 #import "GLUser.h"
-#import "GLGitlab.h"
+#import "GLGitlabApi.h"
 
 NSString * const GLProjectEndpoint = @"/projects";
 NSString * const GLProjectOwnedProjectsEndPoint = @"/projects/owned";
@@ -62,8 +62,8 @@ NSString * const kKeyNamespace = @"namespace";
         _wallEnabled = [json[kKeyWallEnabled] boolValue];
         _wikiEnabled = [json[kKeyWikiEnabled] boolValue];
         _snippetsEnabled = [json[kKeySnippetsEnabled] boolValue];
-        _createdAt = [[[GLGitlab sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
-        _lastActivityAt = [[[GLGitlab sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyLastActivityAt]];
+        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
+        _lastActivityAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyLastActivityAt]];
         _glNamespace = [[GLNamespace alloc] initWithJSON:json[kKeyNamespace]];
     }
     return self;

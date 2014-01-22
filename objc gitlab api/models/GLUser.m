@@ -7,7 +7,7 @@
 //
 
 #import "GLUser.h"
-#import "GLGitlab.h"
+#import "GLGitlabApi.h"
 
 NSString * const GLUserEndpoint = @"/users";
 
@@ -42,7 +42,7 @@ NSString * const kKeyAdmin = @"is_admin";
         _twitter = json[kKeyTwitter]  == null ? nil : json[kKeyTwitter];
         _provider = json[kKeyProvider] == null ? nil : json[kKeyProvider];
         _state = json[kKeyState] == null ? nil : json[kKeyState];
-        _createdAt = [[[GLGitlab sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
+        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
         _bio = json[kKeyBio] == null ? nil : json[kKeyBio];
         _externUid = json[kKeyExternUid] == null ? nil : json[kKeyExternUid];
         _themeId = [json[kKeyThemeId] intValue];

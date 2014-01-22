@@ -7,7 +7,7 @@
 //
 
 #import "GLSnippet.h"
-#import "GLGitlab.h"
+#import "GLGitlabApi.h"
 #import "GLUser.h"
 
 static NSString * const kSnippetId = @"id";
@@ -23,7 +23,7 @@ static NSString * const kCreatedAt = @"created_at";
 - (instancetype)initWithJSON:(NSDictionary *)json
 {
     if (self = [super init]) {
-        NSDateFormatter *formatter = [[GLGitlab sharedInstance] gitLabDateFormatter];
+        NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
         _snippetId = [json[kSnippetId] longLongValue];
         _title = json[kTitle];
         _file_name = json[kFileName];

@@ -8,7 +8,7 @@
 
 #import "GLNote.h"
 #import "GLUser.h"
-#import "GLGitlab.h"
+#import "GLGitlabApi.h"
 
 NSString * const GLUserEndpoint = @"/notes";
 
@@ -27,7 +27,7 @@ NSString * const kKeyCreatedAt = @"created_at";
         _body = json[kKeyBody];
         _attachment = json[kKeyAttachment];
         _author = [[GLUser alloc] initWithJSON:json[kKeyAuthor]];
-        _createdAt = [[[GLGitlab sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
+        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
     }
     return self;
 }

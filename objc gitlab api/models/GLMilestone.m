@@ -7,7 +7,7 @@
 //
 
 #import "GLMilestone.h"
-#import "GLGitlab.h"
+#import "GLGitlabApi.h"
 
 NSString * const kKeyMilestoneId = @"id";
 NSString * const kKeyMilestoneIid = @"iid";
@@ -29,10 +29,10 @@ NSString * const kKeyCreatedAt = @"created_at";
         _projectId = [json[kKeyProjectId] longLongValue];
         _title = json[kKeyTitle];
         _description = json[kKeyDescription];
-        _dueDate = [[[GLGitlab sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyDueDate]];
+        _dueDate = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyDueDate]];
         _state = json[kKeyState];
-        _updatedAt = [[[GLGitlab sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyUpdatedAt]];
-        _createdAt = [[[GLGitlab sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
+        _updatedAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyUpdatedAt]];
+        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
     }
     return self;
 }

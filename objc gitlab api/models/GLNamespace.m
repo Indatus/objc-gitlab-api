@@ -7,7 +7,7 @@
 //
 
 #import "GLNamespace.h"
-#import "GLGitlab.h"
+#import "GLGitlabApi.h"
 
 NSString * const kKeyNamespaceId = @"id";
 NSString * const kKeyName = @"name";
@@ -26,8 +26,8 @@ NSString * const kKeyOwnerId = @"owner_id";
         _name = json[kKeyName];
         _path = json[kKeyPath];
         _description = json[kKeyDescription];
-        _createdAt = [[[GLGitlab sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
-        _updatedAt = [[[GLGitlab sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyUpdatedAt]];
+        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
+        _updatedAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyUpdatedAt]];
         _ownerId = [json[kKeyOwnerId] longLongValue];
     }
     return self;

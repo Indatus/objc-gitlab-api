@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Indatus. All rights reserved.
 //
 
-#import "GLGitlab.h"
+#import "GLGitlabApi.h"
 #import "GLNetworkOperation.h"
 #import "GLJsonInit.h"
 #import "GLProject.h"
@@ -30,7 +30,7 @@ static NSString *const kLoginPasswordKey = @"password";
 // Response Keys
 static NSString *const kPrivateTokenKey = @"private_token";
 
-@interface GLGitlab ()
+@interface GLGitlabApi ()
 
 @property (nonatomic, strong) NSURL *hostName;
 @property (nonatomic, strong) NSString *privateToken;
@@ -38,9 +38,9 @@ static NSString *const kPrivateTokenKey = @"private_token";
 @property (nonatomic, strong) NSOperationQueue  *queue;
 @end
 
-@implementation GLGitlab
+@implementation GLGitlabApi
 
-static GLGitlab *_instance;
+static GLGitlabApi *_instance;
 
 - (instancetype)init
 {
@@ -57,11 +57,11 @@ static GLGitlab *_instance;
     return self;
 }
 
-+ (GLGitlab *)sharedInstance
++ (GLGitlabApi *)sharedInstance
 {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        _instance = [[GLGitlab alloc] init];
+        _instance = [[GLGitlabApi alloc] init];
     });
     
     return _instance;
@@ -118,26 +118,78 @@ static GLGitlab *_instance;
 - (GLNetworkOperation *)getUsersProjectsSuccess:(GLGitlabSuccessBlock)successBlock
                                         failure:(GLGitlabFailureBlock)failureBlock
 {
-    return nil;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)getUsersOwnedProjectsSuccess:(GLGitlabSuccessBlock)successBlock
                                              failure:(GLGitlabFailureBlock)failureBlock
 {
-    return nil;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)getAllProjectsSuccess:(GLGitlabSuccessBlock)successBlock
                                       failure:(GLGitlabFailureBlock)failureBlock
 {
-    return nil;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)getProjectWithId:(int64_t)projectId
                                  success:(GLGitlabSuccessBlock)successBlock
                                  failure:(GLGitlabFailureBlock)failureBlock
 {
-    return nil;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)getProjectEventsForProject:(GLProject *)project
@@ -153,14 +205,40 @@ static GLGitlab *_instance;
                                              success:(GLGitlabSuccessBlock)successBlock
                                              failure:(GLGitlabFailureBlock)failureBlock
 {
-    return nil;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)createProjectNamed:(NSString *)projectName
                                    success:(GLGitlabSuccessBlock)successBlock
                                    failure:(GLGitlabFailureBlock)failureBlock
 {
-    return nil;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)createProjectNamed:(NSString *)projectName
@@ -168,7 +246,20 @@ static GLGitlab *_instance;
                                    success:(GLGitlabSuccessBlock)successBlock
                                    failure:(GLGitlabFailureBlock)failureBlock
 {
-    return nil;
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    return [self queueOperationWithRequest:request
+                                   success:localSuccessBlock
+                                   failure:localFailureBlock];
 }
 
 
