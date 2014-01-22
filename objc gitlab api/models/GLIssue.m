@@ -11,18 +11,18 @@
 #import "GLUser.h"
 #import "GLGitlabApi.h"
 
-NSString * const kKeyIssueId = @"id";
-NSString * const kKeyIssueIid = @"iid";
-NSString * const kKeyProjectId = @"project_id";
-NSString * const kKeyTitle = @"title";
-NSString * const kKeyDescription = @"description";
-NSString * const kKeyLabels = @"labels";
-NSString * const kKeyMilestone = @"milestone";
-NSString * const kKeyAssignee = @"assignee";
-NSString * const kKeyAuthor = @"author";
-NSString * const kKeyState = @"state";
-NSString * const kKeyUpdatedAt = @"updated_at";
-NSString * const kKeyCreatedAt = @"created_at";
+static NSString * const kKeyIssueId = @"id";
+static NSString * const kKeyIssueIid = @"iid";
+static NSString * const kKeyProjectId = @"project_id";
+static NSString * const kKeyTitle = @"title";
+static NSString * const kKeyDescription = @"description";
+static NSString * const kKeyLabels = @"labels";
+static NSString * const kKeyMilestone = @"milestone";
+static NSString * const kKeyAssignee = @"assignee";
+static NSString * const kKeyAuthor = @"author";
+static NSString * const kKeyState = @"state";
+static NSString * const kKeyUpdatedAt = @"updated_at";
+static NSString * const kKeyCreatedAt = @"created_at";
 
 @implementation GLIssue
 

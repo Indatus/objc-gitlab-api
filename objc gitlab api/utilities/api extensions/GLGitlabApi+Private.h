@@ -9,12 +9,27 @@
 #import "GLGitlabApi.h"
 #import "GLNetworkOperation.h"
 
-#pragma mark - Post Methods
+#pragma mark - Request Methods
 FOUNDATION_EXPORT NSString *const kPostMethod;
 FOUNDATION_EXPORT NSString *const kGetMethod;
 FOUNDATION_EXPORT NSString *const kPutMethod;
 
-#pragma mark - Shared
+#pragma mark - End Points
+
+#pragma mark -- Usser
+FOUNDATION_EXPORT NSString *const GLUserEndpoint;
+
+#pragma mark -- Commit
+FOUNDATION_EXPORT NSString * const GLCommitEndPoint;
+
+#pragma mark -- Merge Request
+FOUNDATION_EXPORT NSString * const GLMergeRequestEndPoint;
+
+#pragma mark -- Project
+FOUNDATION_EXPORT NSString *const GLProjectEndpoint;
+FOUNDATION_EXPORT NSString *const GLProjectOwnedProjectsEndPoint;
+FOUNDATION_EXPORT NSString *const GLProjectAllProjectsEndPoint;
+FOUNDATION_EXPORT NSString *const GLProjectGetProjectEndPoint;
 
 @interface GLGitlabApi (Private)
 

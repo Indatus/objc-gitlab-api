@@ -9,13 +9,13 @@
 #import "GLNamespace.h"
 #import "GLGitlabApi.h"
 
-NSString * const kKeyNamespaceId = @"id";
-NSString * const kKeyName = @"name";
-NSString * const kKeyPath = @"path";
-NSString * const kKeyDescription = @"description";
-NSString * const kKeyCreatedAt = @"created_at";
-NSString * const kKeyUpdatedAt = @"updated_at";
-NSString * const kKeyOwnerId = @"owner_id";
+static NSString * const kKeyNamespaceId = @"id";
+static NSString * const kKeyName = @"name";
+static NSString * const kKeyPath = @"path";
+static NSString * const kKeyDescription = @"description";
+static NSString * const kKeyCreatedAt = @"created_at";
+static NSString * const kKeyUpdatedAt = @"updated_at";
+static NSString * const kKeyOwnerId = @"owner_id";
 
 @implementation GLNamespace
 

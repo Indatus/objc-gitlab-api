@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "GLJsonInit.h"
 
-FOUNDATION_EXPORT NSString * const GLMergeRequestEndPoint;
-
 @class GLUser;
 
 @interface GLMergeRequest : NSObject <GLJsonInit>

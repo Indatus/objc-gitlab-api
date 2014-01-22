@@ -10,13 +10,11 @@
 #import "GLUser.h"
 #import "GLGitlabApi.h"
 
-NSString * const GLUserEndpoint = @"/notes";
-
-NSString * const kKeyNoteId = @"id";
-NSString * const kKeyBody = @"body";
-NSString * const kKeyAttachment = @"attachment";
-NSString * const kKeyAuthor = @"author";
-NSString * const kKeyCreatedAt = @"created_at";
+static NSString * const kKeyNoteId = @"id";
+static NSString * const kKeyBody = @"body";
+static NSString * const kKeyAttachment = @"attachment";
+static NSString * const kKeyAuthor = @"author";
+static NSString * const kKeyCreatedAt = @"created_at";
 
 @implementation GLNote
 

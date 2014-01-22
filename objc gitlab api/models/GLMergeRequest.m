@@ -9,19 +9,17 @@
 #import "GLMergeRequest.h"
 #import "GLUser.h"
 
-NSString * const GLMergeRequestEndPoint = @"/merge_requests";
-
-NSString * const kKeyMergeRequestId = @"id";
-NSString * const kKeyMergeRequestIid = @"iid";
-NSString * const kKeyTitle = @"title";
-NSString * const kKeyState = @"state";
-NSString * const kKeyAuthor = @"author";
-NSString * const kKeyAssignee = @"assignee";
-NSString * const kKeyTargetBranch = @"target_branch";
-NSString * const kKeySourceBranch = @"source_branch";
-NSString * const kKeyProjectId = @"project_id";
-NSString * const kKeyUpvotes = @"upvotes";
-NSString * const kKeyDownvotes = @"downvotes";
+static NSString * const kKeyMergeRequestId = @"id";
+static NSString * const kKeyMergeRequestIid = @"iid";
+static NSString * const kKeyTitle = @"title";
+static NSString * const kKeyState = @"state";
+static NSString * const kKeyAuthor = @"author";
+static NSString * const kKeyAssignee = @"assignee";
+static NSString * const kKeyTargetBranch = @"target_branch";
+static NSString * const kKeySourceBranch = @"source_branch";
+static NSString * const kKeyProjectId = @"project_id";
+static NSString * const kKeyUpvotes = @"upvotes";
+static NSString * const kKeyDownvotes = @"downvotes";
 
 @implementation GLMergeRequest
 

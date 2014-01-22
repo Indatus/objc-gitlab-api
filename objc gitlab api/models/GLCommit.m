@@ -9,14 +9,12 @@
 #import "GLCommit.h"
 #import "GLGitlabApi.h"
 
-NSString * const GLCommitEndPoint = @"/commits";
-
-NSString * const kKeyForSha = @"id";
-NSString * const kKeyForTitle = @"title";
-NSString * const kKeyForShortId = @"short_id";
-NSString * const kKeyForAuthorName = @"author_name";
-NSString * const kKeyForAuthorEmail = @"author_email";
-NSString * const kKeyForCreatedAt = @"created_at";
+static NSString * const kKeyForSha = @"id";
+static NSString * const kKeyForTitle = @"title";
+static NSString * const kKeyForShortId = @"short_id";
+static NSString * const kKeyForAuthorName = @"author_name";
+static NSString * const kKeyForAuthorEmail = @"author_email";
+static NSString * const kKeyForCreatedAt = @"created_at";
 
 @implementation GLCommit
 

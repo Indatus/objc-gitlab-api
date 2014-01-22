@@ -20,6 +20,7 @@
 - (void)setUp
 {
     [super setUp];
+    [[[GLGitlabApi sharedInstance] queue] setSuspended:YES];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 
@@ -41,12 +42,11 @@
         XCTAssertNil(error, @"Request failed");
         done = YES;
     };
-    [[[GLGitlabApi sharedInstance] queue] setSuspended:YES];
     GLNetworkOperation *op = [[GLGitlabApi sharedInstance] loginToHost:@"http://gitlab.example.com"
-                                                           username:@"testuser"
-                                                           password:@"password"
-                                                            success:success
-                                                            failure:failure];
+                                                              username:@"testuser"
+                                                              password:@"password"
+                                                               success:success
+                                                               failure:failure];
     [[GLGitlabApi sharedInstance] privateToken];
 
     while (!done) {

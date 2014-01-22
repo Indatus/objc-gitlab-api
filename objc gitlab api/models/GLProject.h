@@ -9,11 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "GLJsonInit.h"
 
-FOUNDATION_EXPORT NSString *const GLProjectEndpoint;
-FOUNDATION_EXPORT NSString *const GLProjectOwnedProjectsEndPoint;
-FOUNDATION_EXPORT NSString *const GLProjectAllProjectsEndPoint;
-FOUNDATION_EXPORT NSString *const GLProjectGetProjectEndPoint;
-
 @class GLNamespace, GLUser;
 
 @interface GLProject : NSObject <GLJsonInit>

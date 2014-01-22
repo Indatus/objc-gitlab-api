@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "GLJsonInit.h"
 
-FOUNDATION_EXPORT NSString * const GLCommitEndPoint;
-
 @interface GLCommit : NSObject <GLJsonInit>
 
 //id

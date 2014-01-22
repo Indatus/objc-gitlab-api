@@ -9,8 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "GLJsonInit.h"
 
-FOUNDATION_EXPORT NSString *const GLUserEndpoint;
-
 @interface GLUser : NSObject <GLJsonInit>
 
 // id

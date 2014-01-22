@@ -9,15 +9,15 @@
 #import "GLMilestone.h"
 #import "GLGitlabApi.h"
 
-NSString * const kKeyMilestoneId = @"id";
-NSString * const kKeyMilestoneIid = @"iid";
-NSString * const kKeyProjectId = @"project_id";
-NSString * const kKeyTitle = @"title";
-NSString * const kKeyDescription = @"description";
-NSString * const kKeyDueDate = @"due_date";
-NSString * const kKeyState = @"state";
-NSString * const kKeyUpdatedAt = @"updated_at";
-NSString * const kKeyCreatedAt = @"created_at";
+static NSString * const kKeyMilestoneId = @"id";
+static NSString * const kKeyMilestoneIid = @"iid";
+static NSString * const kKeyProjectId = @"project_id";
+static NSString * const kKeyTitle = @"title";
+static NSString * const kKeyDescription = @"description";
+static NSString * const kKeyDueDate = @"due_date";
+static NSString * const kKeyState = @"state";
+static NSString * const kKeyUpdatedAt = @"updated_at";
+static NSString * const kKeyCreatedAt = @"created_at";
 
 @implementation GLMilestone
 

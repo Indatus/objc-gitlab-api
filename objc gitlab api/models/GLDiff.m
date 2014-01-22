@@ -8,14 +8,14 @@
 
 #import "GLDiff.h"
 
-NSString * const kKeyDiff = @"diff";
-NSString * const kKeyNewPath = @"new_path";
-NSString * const kKeyOldPath = @"old_path";
-NSString * const kKeyAMode = @"a_mode";
-NSString * const kKeyBMode = @"b_mode";
-NSString * const kKeyNewFile = @"new_file";
-NSString * const kKeyRenamedFile = @"renamed_file";
-NSString * const kKeyDeletedFile = @"deleted_file";
+static NSString * const kKeyDiff = @"diff";
+static NSString * const kKeyNewPath = @"new_path";
+static NSString * const kKeyOldPath = @"old_path";
+static NSString * const kKeyAMode = @"a_mode";
+static NSString * const kKeyBMode = @"b_mode";
+static NSString * const kKeyNewFile = @"new_file";
+static NSString * const kKeyRenamedFile = @"renamed_file";
+static NSString * const kKeyDeletedFile = @"deleted_file";
 
 @implementation GLDiff
 

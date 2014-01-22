@@ -9,23 +9,21 @@
 #import "GLUser.h"
 #import "GLGitlabApi.h"
 
-NSString * const GLUserEndpoint = @"/users";
-
-NSString * const kKeyUserId = @"id";
-NSString * const kKeyUsername = @"username";
-NSString * const kKeyEmail = @"email";
-NSString * const kKeyName = @"name";
-NSString * const kKeySkype = @"skype";
-NSString * const kKeyLinkedin = @"linkedin";
-NSString * const kKeyTwitter = @"twitter";
-NSString * const kKeyProvider = @"provider";
-NSString * const kKeyState = @"state";
-NSString * const kKeyCreatedAt = @"created_at";
-NSString * const kKeyBio = @"bio";
-NSString * const kKeyExternUid = @"extern_uid";
-NSString * const kKeyThemeId = @"theme_id";
-NSString * const kKeyColorSchemeId = @"color_scheme_id";
-NSString * const kKeyAdmin = @"is_admin";
+static NSString * const kKeyUserId = @"id";
+static NSString * const kKeyUsername = @"username";
+static NSString * const kKeyEmail = @"email";
+static NSString * const kKeyName = @"name";
+static NSString * const kKeySkype = @"skype";
+static NSString * const kKeyLinkedin = @"linkedin";
+static NSString * const kKeyTwitter = @"twitter";
+static NSString * const kKeyProvider = @"provider";
+static NSString * const kKeyState = @"state";
+static NSString * const kKeyCreatedAt = @"created_at";
+static NSString * const kKeyBio = @"bio";
+static NSString * const kKeyExternUid = @"extern_uid";
+static NSString * const kKeyThemeId = @"theme_id";
+static NSString * const kKeyColorSchemeId = @"color_scheme_id";
+static NSString * const kKeyAdmin = @"is_admin";
 
 @implementation GLUser
 
