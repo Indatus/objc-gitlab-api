@@ -36,32 +36,61 @@ static NSString * const kCreatedAt = @"created_at";
     return self;
 }
 
-- (BOOL)isEqual:(id)other
-{
-    if (self == other) {
+
+- (BOOL)isEqual:(id)other {
+    if (other == self)
         return YES;
-    }
-    
-    if (![other isKindOfClass:[self class]]) {
+    if (!other || ![[other class] isEqual:[self class]])
         return NO;
-    }
-    
-    return [self isEqualToSnippet:other];;
+
+    return [self isEqualToSnippet:other];
 }
 
-- (BOOL)isEqualToSnippet:(GLSnippet *)snippet
-{
+- (BOOL)isEqualToSnippet:(GLSnippet *)snippet {
+    if (self == snippet)
+        return YES;
+    if (snippet == nil)
+        return NO;
+    if (self.snippetId != snippet.snippetId)
+        return NO;
+    if (self.title != snippet.title && ![self.title isEqualToString:snippet.title])
+        return NO;
+    if (self.file_name != snippet.file_name && ![self.file_name isEqualToString:snippet.file_name])
+        return NO;
+    if (self.author != snippet.author && ![self.author isEqualToUser:snippet.author])
+        return NO;
+    if (self.expiresAt != snippet.expiresAt && ![self.expiresAt isEqualToDate:snippet.expiresAt])
+        return NO;
+    if (self.updatedAt != snippet.updatedAt && ![self.updatedAt isEqualToDate:snippet.updatedAt])
+        return NO;
+    if (self.createdAt != snippet.createdAt && ![self.createdAt isEqualToDate:snippet.createdAt])
+        return NO;
     return YES;
 }
 
-- (NSUInteger)hash
-{
-    return 0;
+- (NSUInteger)hash {
+    NSUInteger hash = (NSUInteger) self.snippetId;
+    hash = hash * 31u + [self.title hash];
+    hash = hash * 31u + [self.file_name hash];
+    hash = hash * 31u + [self.author hash];
+    hash = hash * 31u + [self.expiresAt hash];
+    hash = hash * 31u + [self.updatedAt hash];
+    hash = hash * 31u + [self.createdAt hash];
+    return hash;
 }
 
-- (NSString *)description
-{
-    return nil;
+- (NSString *)description {
+    NSMutableString *description = [NSMutableString stringWithFormat:@"<%@: ", NSStringFromClass([self class])];
+    [description appendFormat:@"self.snippetId=%qi", self.snippetId];
+    [description appendFormat:@", self.title=%@", self.title];
+    [description appendFormat:@", self.file_name=%@", self.file_name];
+    [description appendFormat:@", self.author=%@", self.author];
+    [description appendFormat:@", self.expiresAt=%@", self.expiresAt];
+    [description appendFormat:@", self.updatedAt=%@", self.updatedAt];
+    [description appendFormat:@", self.createdAt=%@", self.createdAt];
+    [description appendString:@">"];
+    return description;
 }
+
 
 @end

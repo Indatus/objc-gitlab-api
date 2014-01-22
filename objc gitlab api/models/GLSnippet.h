@@ -30,6 +30,12 @@
 
 - (instancetype)initWithJSON:(NSDictionary *)json;
 
-- (BOOL)isEqualToSnippet:(GLUser *)issue;
+- (BOOL)isEqual:(id)other;
+
+- (BOOL)isEqualToSnippet:(GLSnippet *)snippet;
+
+- (NSUInteger)hash;
+
+- (NSString *)description;
 
 @end
