@@ -11,13 +11,15 @@
 typedef void (^GLGitlabSuccessBlock)(id responseObject);
 typedef void (^GLGitlabFailureBlock)(NSError *error);
 
-@class GLNetworkOperation, GLUser, GLMergeRequest, GLProject, GLNote, GLDiff, GLCommit, GLNamespace, GLIssue, GLMilestone;
+@class GLNetworkOperation, GLUser, GLMergeRequest, GLProject, GLNote, GLDiff, GLCommit, GLNamespace, GLIssue, GLMilestone, GLSnippet;
 
 @interface GLGitlab : NSObject
 
 + (GLGitlab *)sharedInstance;
 
 - (NSDateFormatter *)gitLabDateFormatter;
+
+#pragma mark - Session Method
 - (GLNetworkOperation *)loginToHost:(NSString *)host
                            username:(NSString *)username
                            password:(NSString *)password
@@ -236,5 +238,40 @@ typedef void (^GLGitlabFailureBlock)(NSError *error);
                                    success:(GLGitlabSuccessBlock)successBlock
                                    failure:(GLGitlabFailureBlock)failureBlock;
 
+#pragma mark - User Methods
 
+- (GLNetworkOperation *)getUsers:(ino64_t)pageNumber
+                       batchSize:(int64_t)batchSize
+                         success:(GLGitlabSuccessBlock)successBlock
+                         failure:(GLGitlabFailureBlock)failureBlock;
+
+- (GLNetworkOperation *)getUser:(ino64_t)userId
+                        success:(GLGitlabSuccessBlock)successBlock
+                        failure:(GLGitlabFailureBlock)failureBlock;
+
+- (GLNetworkOperation *)createUser:(GLUser *)user
+                           success:(GLGitlabSuccessBlock)successBlock
+                           failure:(GLGitlabFailureBlock)failureBlock;
+
+- (GLNetworkOperation *)updateUser:(GLUser *)user
+                           success:(GLGitlabSuccessBlock)successBlock
+                           failure:(GLGitlabFailureBlock)failureBlock;
+
+- (GLNetworkOperation *)deleteUser:(GLUser *)user
+                           success:(GLGitlabSuccessBlock)successBlock
+                           failure:(GLGitlabFailureBlock)failureBlock;
+
+#pragma mark - Snippets
+- (GLNetworkOperation *)getSnippetsForProject:(GLProject *)project
+                                      success:(GLGitlabSuccessBlock)successBlock
+                                      failure:(GLGitlabFailureBlock)failureBlock;
+
+- (GLNetworkOperation *)getSnippet:(int64_t)snippetId
+                           project:(GLProject *)project
+                           success:(GLGitlabSuccessBlock)successBlock
+                           failure:(GLGitlabFailureBlock)failureBlock;
+
+- (GLNetworkOperation *)createSnippet:(GLSnippet *)snippet
+                              success:(GLGitlabSuccessBlock)successBlock
+                              failure:(GLGitlabFailureBlock)failureBlock;
 @end

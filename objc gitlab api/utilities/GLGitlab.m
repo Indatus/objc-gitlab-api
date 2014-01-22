@@ -15,6 +15,7 @@
 #import "GLProject.h"
 #import "GLNote.h"
 #import "GLDiff.h"
+#import "GLSnippet.h"
 
 static NSString *const kPostMethod = @"post";
 static NSString *const kGetMethod = @"get";
