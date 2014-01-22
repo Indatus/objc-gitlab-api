@@ -64,8 +64,7 @@ static NSString *const kApiRoutePrefix = @"/api/v3";
 
 - (NSString *)percentEncodeString:(NSString *)unencodedString
 {
-    NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
-                                                                                                    NULL,
+    NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(NULL,
                                                                                                     (CFStringRef)unencodedString,
                                                                                                     NULL,
                                                                                                     (CFStringRef)@"!*'();:@&=+$,/?%#[]",
