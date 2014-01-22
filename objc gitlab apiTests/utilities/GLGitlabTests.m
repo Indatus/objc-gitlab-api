@@ -8,7 +8,7 @@
 
 #import <XCTest/XCTest.h>
 #import <OCMock/OCMock.h>
-#import "GLGitlabApi.h"
+#import "GLGitlab.h"
 #import "GLGitlab_Testing.h"
 
 @interface GLGitlabTests : XCTestCase

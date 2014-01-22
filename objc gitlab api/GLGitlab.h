@@ -11,8 +11,19 @@
 #ifndef objc_gitlab_api_GLGitlab_h
     #define objc_gitlab_api_GLGitlab_h
 
-    #import "GLGitlabApi.h"
     #import "GLConstants.h"
+
+    #import "GLGitlabApi.h"
+    #import "GLGitlabApi+Commits.h"
+    #import "GLGitlabApi+Issues.h"
+    #import "GLGitlabApi+MergeRequest.h"
+    #import "GLGitlabApi+Milestones.h"
+    #import "GLGitlabApi+Notes.h"
+    #import "GLGitlabApi+Projects.h"
+    #import "GLGitlabApi+Repositories.h"
+    #import "GLGitlabApi+Session.h"
+    #import "GLGitlabApi+Snippets.h"
+    #import "GLGitlabApi+Users.h"
 
     #import "GLBranch.h"
     #import "GLCommit.h"
