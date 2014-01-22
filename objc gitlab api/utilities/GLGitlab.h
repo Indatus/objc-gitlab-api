@@ -274,4 +274,16 @@ typedef void (^GLGitlabFailureBlock)(NSError *error);
 - (GLNetworkOperation *)createSnippet:(GLSnippet *)snippet
                               success:(GLGitlabSuccessBlock)successBlock
                               failure:(GLGitlabFailureBlock)failureBlock;
+
+- (GLNetworkOperation *)updateSnippet:(GLSnippet *)snippet
+                              success:(GLGitlabSuccessBlock)successBlock
+                              failure:(GLGitlabFailureBlock)failureBlock;
+
+- (GLNetworkOperation *)deleteSnippet:(GLSnippet *)snippet
+                              success:(GLGitlabSuccessBlock)successBlock
+                              failure:(GLGitlabFailureBlock)failureBlock;
+
+- (GLNetworkOperation *)getRawSnippet:(GLSnippet *)snippet
+                              success:(GLGitlabSuccessBlock)successBlock
+                              failure:(GLGitlabFailureBlock)failureBlock;
 @end

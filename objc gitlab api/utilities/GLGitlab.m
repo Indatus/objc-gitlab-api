@@ -842,6 +842,145 @@ static GLGitlab *_instance;
     return op;
 }
 
+#pragma mark - Snippet Methods
+- (GLNetworkOperation *)getSnippetsForProject:(GLProject *)project
+                                      success:(GLGitlabSuccessBlock)successBlock
+                                      failure:(GLGitlabFailureBlock)failureBlock
+{
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
+}
+
+- (GLNetworkOperation *)getSnippet:(int64_t)snippetId
+                           project:(GLProject *)project
+                           success:(GLGitlabSuccessBlock)successBlock
+                           failure:(GLGitlabFailureBlock)failureBlock
+{
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
+}
+
+- (GLNetworkOperation *)createSnippet:(GLSnippet *)snippet
+                              success:(GLGitlabSuccessBlock)successBlock
+                              failure:(GLGitlabFailureBlock)failureBlock
+{
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
+}
+
+- (GLNetworkOperation *)updateSnippet:(GLSnippet *)snippet
+                              success:(GLGitlabSuccessBlock)successBlock
+                              failure:(GLGitlabFailureBlock)failureBlock
+{
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
+}
+
+- (GLNetworkOperation *)deleteSnippet:(GLSnippet *)snippet
+                              success:(GLGitlabSuccessBlock)successBlock
+                              failure:(GLGitlabFailureBlock)failureBlock
+{
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
+}
+
+- (GLNetworkOperation *)getRawSnippet:(GLSnippet *)snippet
+                              success:(GLGitlabSuccessBlock)successBlock
+                              failure:(GLGitlabFailureBlock)failureBlock
+{
+    NSMutableURLRequest *request;
+    request.HTTPMethod = kGetMethod;
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
+        // TODO
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
+        // TODO
+    };
+    
+    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
+                                                                 success:localSuccessBlock
+                                                                 failure:localFailureBlock];
+    [_queue addOperation:op];
+    
+    return op;
+}
 
 #pragma mark - Private Methods
 
