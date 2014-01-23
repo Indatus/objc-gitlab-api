@@ -37,6 +37,35 @@ static NSString * const kKeyCreatedAt = @"created_at";
     return self;
 }
 
+- (NSDictionary *)jsonRepresentation
+{
+    id null = (id)[NSNull null];
+    NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
+    return @{
+             kKeyMilestoneId: @(_milestoneId),
+             kKeyMilestoneIid: @(_milestoneIid),
+             kKeyProjectId: @(_projectId),
+             kKeyTitle: _title,
+             kKeyDescription: _description ?: null,
+             kKeyDueDate: _dueDate ? [formatter stringFromDate:_createdAt] : null,
+             kKeyState: _state ?: null,
+             kKeyUpdatedAt: _updatedAt ? [formatter stringFromDate:_updatedAt] : null,
+             kKeyCreatedAt: _createdAt ? [formatter stringFromDate:_createdAt] : null
+             };
+}
+
+- (NSDictionary *)jsonCreateRepresentation
+{
+    id null = (id)[NSNull null];
+    NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
+    return @{
+             kKeyProjectId: @(_projectId),
+             kKeyTitle: _title,
+             kKeyDescription: _description ?: null,
+             kKeyDueDate: _dueDate ? [formatter stringFromDate:_createdAt] : null
+             };
+}
+
 - (BOOL)isEqual:(id)other {
     if (other == self)
         return YES;
