@@ -43,6 +43,12 @@ static NSString * const kPrivateTokenHeaderKey = @"PRIVATE-TOKEN";
     return paramString;
 }
 
+- (NSString *)urlEncodeParamsForGet:(NSDictionary *)params endpoint:(NSString *)endpoint
+{
+    NSString *paramString = [self urlEncodeParamsForGet:params];
+    return [endpoint stringByAppendingFormat:@"?%@", paramString];
+}
+
 - (NSData *)urlEncodeParams:(NSDictionary *)params
 {
     NSString *paramString = [self urlEncodeParamsForGet:params];

@@ -10,7 +10,12 @@
 #import "GLGitlabApi+Private.h"
 #import "GLUser.h"
 
+// End points
 static NSString * const kUserEndpoint = @"/users";
+
+// Parameter Keys
+static NSString * const kPageParam = @"page";
+static NSString * const kPerPageParam = @"per_page";
 
 @implementation GLGitlabApi (Users)
 #pragma mark - User Methods
@@ -20,7 +25,10 @@ static NSString * const kUserEndpoint = @"/users";
                          success:(GLGitlabSuccessBlock)successBlock
                          failure:(GLGitlabFailureBlock)failureBlock
 {
-    NSMutableURLRequest *request;
+    NSString *endpoint = [self urlEncodeParamsForGet:@{ kPageParam: @(pageNumber), kPerPageParam: @(batchSize) } endpoint:kUserEndpoint];
+    NSURL *url = [self requestUrlForEndPoint:endpoint];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSArray *responseObject) {
