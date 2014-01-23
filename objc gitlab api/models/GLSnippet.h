@@ -28,14 +28,4 @@
 // created_at
 @property (nonatomic, strong) NSDate *createdAt;
 
-- (instancetype)initWithJSON:(NSDictionary *)json;
-
-- (NSDictionary *)jsonRepresentation;
-- (NSDictionary *)jsonCreateRepresentation;
-
-- (BOOL)isEqual:(id)other;
-- (BOOL)isEqualToSnippet:(GLSnippet *)snippet;
-- (NSUInteger)hash;
-- (NSString *)description;
-
 @end

@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "GLJsonProtocol.h"
 
 @class GLCommit;
 
-@interface GLBranch : NSObject
+@interface GLBranch : NSObject <GLJsonProtocol>
 
 // name
 @property (nonatomic, copy) NSString *name;
@@ -18,15 +19,5 @@
 @property (nonatomic, strong) GLCommit *commit;
 // protected
 @property (nonatomic, assign, getter = isProtected) BOOL branchProtected;
-
-- (instancetype)initWithJSON:(NSDictionary *)json;
-
-- (NSDictionary *)jsonRepresentation;
-- (NSDictionary *)jsonCreateRepresentation;
-
-- (BOOL)isEqual:(id)other;
-- (BOOL)isEqualToBranch:(GLBranch *)branch;
-- (NSUInteger)hash;
-- (NSString *)description;
 
 @end

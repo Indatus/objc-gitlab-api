@@ -8,6 +8,7 @@
 
 #import "GLMergeRequest.h"
 #import "GLUser.h"
+#import "GLGitlabApi.h"
 
 static NSString * const kKeyMergeRequestId = @"id";
 static NSString * const kKeyMergeRequestIid = @"iid";
@@ -39,6 +40,24 @@ static NSString * const kKeyDownvotes = @"downvotes";
         _downvotes = [json[kKeyDownvotes] intValue];
     }
     return self;
+}
+
+- (NSDictionary *)jsonRepresentation
+{
+    id null = (id)[NSNull null];
+    return @{
+             kKeyMergeRequestId: @(_mergeRequestId),
+             kKeyMergeRequestIid: @(_mergeRequestIid),
+             kKeyTitle: _title,
+             kKeyState: _state ?: null,
+             kKeyAuthor: [_author jsonRepresentation] ?: null,
+             kKeyAssignee: [_assignee jsonRepresentation] ?: null,
+             kKeyTargetBranch: _targetBranch ?: null,
+             kKeySourceBranch: _sourceBranch ?: null,
+             kKeyProjectId: @(_projectId),
+             kKeyUpvotes: @(_upvotes),
+             kKeyDownvotes: @(_downvotes)
+             };
 }
 
 - (BOOL)isEqual:(id)other {

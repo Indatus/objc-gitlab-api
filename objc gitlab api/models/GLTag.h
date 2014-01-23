@@ -20,14 +20,4 @@
 // protected
 @property (nonatomic, assign, getter = isProtected) BOOL protectedTag;
 
-- (instancetype)initWithJSON:(NSDictionary *)json;
-
-- (NSDictionary *)jsonRepresentation;
-- (NSDictionary *)jsonCreateRepresentation;
-
-- (BOOL)isEqual:(id)other;
-- (BOOL)isEqualToTag:(GLTag *)tag;
-- (NSUInteger)hash;
-- (NSString *)description;
-
 @end

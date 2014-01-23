@@ -28,14 +28,4 @@
 // deleted_file
 @property (nonatomic, getter = isDeletedFile) BOOL deletedFile;
 
-- (instancetype)initWithJSON:(NSDictionary *)json;
-
-- (BOOL)isEqual:(id)other;
-
-- (BOOL)isEqualToDiff:(GLDiff *)diff;
-
-- (NSUInteger)hash;
-
-- (NSString *)description;
-
 @end

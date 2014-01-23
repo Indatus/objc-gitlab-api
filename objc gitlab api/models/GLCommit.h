@@ -24,14 +24,4 @@
 // created_at
 @property (nonatomic, copy) NSDate *createdAt;
 
-- (instancetype)initWithJSON:(NSDictionary *)json;
-
-- (NSDictionary *)jsonRepresentation;
-- (NSDictionary *)jsonCreateRepresentation;
-
-- (BOOL)isEqual:(id)other;
-- (BOOL)isEqualToCommit:(GLCommit *)commit;
-- (NSUInteger)hash;
-- (NSString *)description;
-
 @end

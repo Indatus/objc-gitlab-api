@@ -42,17 +42,4 @@
 // is_admin
 @property (nonatomic, getter = isAdmin) BOOL admin;
 
-- (instancetype)initWithJSON:(NSDictionary *)json;
-
-- (BOOL)isEqual:(id)other;
-
-- (BOOL)isEqualToUser:(GLUser *)user;
-
-- (NSUInteger)hash;
-
-- (NSString *)description;
-
-- (NSDictionary *)jsonRepresentation;
-- (NSDictionary *)jsonCreateRepresentation;
-
 @end

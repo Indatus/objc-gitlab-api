@@ -56,14 +56,4 @@
 // namespace
 @property (nonatomic, strong) GLNamespace *glNamespace;
 
-- (instancetype)initWithJSON:(NSDictionary *)json;
-
-- (NSDictionary *)jsonRepresentation;
-- (NSDictionary *)jsonCreateRepresentation;
-
-- (BOOL)isEqual:(id)other;
-- (BOOL)isEqualToProject:(GLProject *)project;
-- (NSUInteger)hash;
-- (NSString *)description;
-
 @end
