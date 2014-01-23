@@ -21,12 +21,12 @@
 
 - (instancetype)initWithJSON:(NSDictionary *)json;
 
+- (NSDictionary *)jsonRepresentation;
+- (NSDictionary *)jsonCreateRepresentation;
+
 - (BOOL)isEqual:(id)other;
-
 - (BOOL)isEqualToBranch:(GLBranch *)branch;
-
 - (NSUInteger)hash;
-
 - (NSString *)description;
 
 @end

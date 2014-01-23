@@ -10,17 +10,24 @@
 #import "GLGitlabApi+Private.h"
 #import "GLIssue.h"
 
+// Endpoints
+static NSString * const kAllIssuesEndpoint = @"/issues";
+static NSString * const kProjectIssuesEndpoint = @"/projects/%llu/issues";
+static NSString * const kSingleIssueEndpoint = @"/projects/%llu/issues/%llu";
+
 @implementation GLGitlabApi (Issues)
 #pragma mark - Issues Methods
 
 - (GLNetworkOperation *)getAllIssuesWithSuccessBlock:(GLGitlabSuccessBlock)success
                                      andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSMutableURLRequest *request;
+    NSURL * url = [self requestUrlForEndPoint:kAllIssuesEndpoint];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationGetMethod;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSArray *responseObject) {
+        NSArray *issues = [self processJsonArray:responseObject class:[GLIssue class]];
+        success(issues);
     };
     
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
@@ -34,11 +41,13 @@
                                 withSuccessBlock:(GLGitlabSuccessBlock)success
                                  andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSMutableURLRequest *request;
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kProjectIssuesEndpoint, projectId]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationGetMethod;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSArray *responseObject) {
+        NSArray *issues = [self processJsonArray:responseObject class:[GLIssue class]];
+        success(issues);
     };
     
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
@@ -53,12 +62,12 @@
                       withSuccessBlock:(GLGitlabSuccessBlock)success
                        andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSMutableURLRequest *request;
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleIssueEndpoint, projectId, issueId]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationGetMethod;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
-    };
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLIssue class]
+                                                                                 successBlock:success];
     
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
@@ -72,8 +81,10 @@
                    withSuccessBlock:(GLGitlabSuccessBlock)success
                     andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSMutableURLRequest *request;
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kProjectIssuesEndpoint, projectId]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationPostMethod;
+    request.HTTPBody = [self urlEncodeParams:[issue json]]
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO

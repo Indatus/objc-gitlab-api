@@ -38,12 +38,12 @@
 
 - (instancetype)initWithJSON:(NSDictionary *)json;
 
+- (NSDictionary *)jsonRepresentation;
+- (NSDictionary *)jsonCreateRepresentation;
+
 - (BOOL)isEqual:(id)other;
-
 - (BOOL)isEqualToRequest:(GLMergeRequest *)request;
-
 - (NSUInteger)hash;
-
 - (NSString *)description;
 
 @end

@@ -45,6 +45,34 @@ static NSString * const kKeyCreatedAt = @"created_at";
     return self;
 }
 
+- (NSDictionary *)jsonRepresentation
+{
+    id null = (id)[NSNull null];
+    NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
+    return @{
+             kKeyIssueId: @(_issueId),
+             kKeyIssueIid: @(_issueIid),
+             kKeyProjectId: @(_projectId),
+             kKeyTitle: _title ?: null,
+             kKeyDescription: _description ?: null,
+//             kKeyLabels: _labels ?: null, // nsarray? how to deal with this?
+             kKeyMilestone: [_milestone ] ?: null,
+             kKeyProvider: _provider ?: null,
+             kKeyState: _state ?: null,
+             kKeyCreatedAt: _createdAt ? [formatter stringFromDate:_createdAt] : null,
+             kKeyBio: _bio ?: null,
+             kKeyExternUid: _externUid ?: null,
+             kKeyThemeId: @(_themeId),
+             kKeyColorSchemeId: @(_colorSchemeId),
+             kKeyAdmin: @(_admin)
+             };
+}
+
+- (NSDictionary *)jsonCreateRepresentation
+{
+    
+}
+
 - (BOOL)isEqual:(id)other {
     if (other == self)
         return YES;

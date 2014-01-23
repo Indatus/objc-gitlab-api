@@ -26,12 +26,12 @@
 
 - (instancetype)initWithJSON:(NSDictionary *)json;
 
+- (NSDictionary *)jsonRepresentation;
+- (NSDictionary *)jsonCreateRepresentation;
+
 - (BOOL)isEqual:(id)other;
-
 - (BOOL)isEqualToNote:(GLNote *)note;
-
 - (NSUInteger)hash;
-
 - (NSString *)description;
 
 @end
