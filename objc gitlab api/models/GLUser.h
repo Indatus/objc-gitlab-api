@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GLJsonInit.h"
+#import "GLJsonProtocol.h"
 
-@interface GLUser : NSObject <GLJsonInit>
+@interface GLUser : NSObject <GLJsonProtocol>
 
 // id
 @property (nonatomic, assign) int64_t userId;

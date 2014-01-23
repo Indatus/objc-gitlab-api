@@ -9,7 +9,7 @@
 #import "GLGitlabApi.h"
 #import "GLNetworkOperation.h"
 
-@protocol GLJsonInit;
+@protocol GLJsonProtocol;
 
 @interface GLGitlabApi (Private)
 
@@ -68,7 +68,7 @@
  *
  *  @return An array of model objects
  */
-- (NSArray *)processJsonArray:(NSArray *)jsonArray class:(Class<GLJsonInit>)aClass;
+- (NSArray *)processJsonArray:(NSArray *)jsonArray class:(Class<GLJsonProtocol>)aClass;
 
 /**
  *  Retrieves the complete url for the specified endpoint
@@ -81,6 +81,6 @@
 
 - (GLNetworkOperationFailureBlock)defaultFailureBlock:(GLGitlabFailureBlock)failureCallback;
 
-- (GLNetworkOperationSuccessBlock)singleObjectSuccessBlockForClass:(Class<GLJsonInit>)aClass
+- (GLNetworkOperationSuccessBlock)singleObjectSuccessBlockForClass:(Class<GLJsonProtocol>)aClass
                                                       successBlock:(GLGitlabSuccessBlock)success;
 @end

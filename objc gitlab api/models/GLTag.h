@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GLJsonInit.h"
+#import "GLJsonProtocol.h"
 
 @class GLCommit;
 
-@interface GLTag : NSObject <GLJsonInit>
+@interface GLTag : NSObject <GLJsonProtocol>
 
 // name
 @property (nonatomic, copy) NSString *name;

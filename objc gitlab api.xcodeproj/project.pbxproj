@@ -97,7 +97,7 @@
 		0C3731BF18901B370076D45C /* GLGitlabApi+Repositories.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "GLGitlabApi+Repositories.h"; path = "api extensions/GLGitlabApi+Repositories.h"; sourceTree = "<group>"; };
 		0C3731C018901B370076D45C /* GLGitlabApi+Repositories.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GLGitlabApi+Repositories.m"; path = "api extensions/GLGitlabApi+Repositories.m"; sourceTree = "<group>"; };
 		0CBC8C7C188F042900AE5048 /* GLGitlab_Testing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLGitlab_Testing.h; path = "extended classes/utilities/GLGitlab_Testing.h"; sourceTree = "<group>"; };
-		0CBC8C7D188F13B500AE5048 /* GLJsonInit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GLJsonInit.h; path = utilities/GLJsonInit.h; sourceTree = "<group>"; };
+		0CBC8C7D188F13B500AE5048 /* GLJsonProtocol.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = GLJsonProtocol.h; path = utilities/GLJsonProtocol.h; sourceTree = "<group>"; };
 		0CF663E71885D494005BC2AC /* GLNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLNote.h; sourceTree = "<group>"; };
 		0CF663E81885D494005BC2AC /* GLNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLNote.m; sourceTree = "<group>"; };
 		0CF663ED1885D984005BC2AC /* GLProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLProject.h; sourceTree = "<group>"; };
@@ -163,7 +163,7 @@
 		0C373197189012520076D45C /* protocols */ = {
 			isa = PBXGroup;
 			children = (
-				0CBC8C7D188F13B500AE5048 /* GLJsonInit.h */,
+				0CBC8C7D188F13B500AE5048 /* GLJsonProtocol.h */,
 			);
 			name = protocols;
 			sourceTree = "<group>";
