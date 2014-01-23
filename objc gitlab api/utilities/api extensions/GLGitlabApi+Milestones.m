@@ -18,7 +18,7 @@
                                      andFailureBlock:(GLGitlabFailureBlock)failure
 {
     NSMutableURLRequest *request;
-    request.HTTPMethod = kGetMethod;
+    request.HTTPMethod = GLNetworkOperationGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -39,7 +39,7 @@
                            andFailureBlock:(GLGitlabFailureBlock)failure
 {
     NSMutableURLRequest *request;
-    request.HTTPMethod = kGetMethod;
+    request.HTTPMethod = GLNetworkOperationGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -59,7 +59,7 @@
                         andFailureBlock:(GLGitlabFailureBlock)failure
 {
     NSMutableURLRequest *request;
-    request.HTTPMethod = kPostMethod;
+    request.HTTPMethod = GLNetworkOperationPostMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -79,7 +79,7 @@
                         andFailureBlock:(GLGitlabFailureBlock)failure
 {
     NSMutableURLRequest *request;
-    request.HTTPMethod = kPutMethod;
+    request.HTTPMethod = GLNetworkOperationPutMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -99,7 +99,7 @@
                        andFailureBlock:(GLGitlabFailureBlock)failure
 {
     NSMutableURLRequest *request;
-    request.HTTPMethod = kPutMethod;
+    request.HTTPMethod = GLNetworkOperationPutMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -119,7 +119,7 @@
                           andFailureBlock:(GLGitlabFailureBlock)failure
 {
     NSMutableURLRequest *request;
-    request.HTTPMethod = kPutMethod;
+    request.HTTPMethod = GLNetworkOperationPutMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO

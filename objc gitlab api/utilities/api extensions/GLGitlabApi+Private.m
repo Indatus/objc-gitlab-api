@@ -10,29 +10,6 @@
 #import "GLConstants.h"
 #import "GLJsonInit.h"
 
-#pragma mark - Request Methods
-NSString *const kPostMethod = @"post";
-NSString *const kGetMethod = @"get";
-NSString *const kPutMethod = @"put";
-
-#pragma mark - End Points
-
-#pragma mark -- User
-NSString * const GLUserEndpoint = @"/users";
-
-#pragma mark -- Commit
-NSString * const GLCommitEndPoint = @"/commits";
-
-#pragma mark -- Merge Request
-NSString * const GLMergeRequestEndPoint = @"/merge_requests";
-
-#pragma mark -- Project
-NSString * const GLProjectEndpoint = @"/projects";
-NSString * const GLProjectOwnedProjectsEndPoint = @"/projects/owned";
-NSString * const GLProjectAllProjectsEndPoint = @"/projects/all";
-NSString * const GLProjectGetProjectEndPoint = @"/projects/%d";
-
-
 static NSString * const kApiRoutePrefix = @"/api/v3";
 static NSString * const kPrivateTokenHeaderKey = @"PRIVATE-TOKEN";
 
@@ -47,6 +24,7 @@ static NSString * const kPrivateTokenHeaderKey = @"PRIVATE-TOKEN";
     if (self.privateToken) {
         [request addValue:self.privateToken forHTTPHeaderField:kPrivateTokenHeaderKey];
     }
+    
     GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
                                                                  success:success
                                                                  failure:failure];

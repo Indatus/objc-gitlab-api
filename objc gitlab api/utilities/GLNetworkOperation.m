@@ -9,6 +9,10 @@
 #import "GLNetworkOperation.h"
 #import "GLConstants.h"
 
+NSString *const GLNetworkOperationPostMethod = @"post";
+NSString *const GLNetworkOperationGetMethod = @"get";
+NSString *const GLNetworkOperationPutMethod = @"put";
+
 NSString *const GLNetworkOperationErrorDomain = @"com.indatus.GLNetworkOperationErrorDomain";
 
 @interface GLNetworkOperation ()

@@ -10,6 +10,8 @@
 #import "GLGitlabApi+Private.h"
 #import "GLUser.h"
 
+static NSString * const kUserEndpoint = @"/users";
+
 @implementation GLGitlabApi (Users)
 #pragma mark - User Methods
 
@@ -19,7 +21,7 @@
                          failure:(GLGitlabFailureBlock)failureBlock
 {
     NSMutableURLRequest *request;
-    request.HTTPMethod = kGetMethod;
+    request.HTTPMethod = GLNetworkOperationGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSArray *responseObject) {
         NSArray *users = [self processJsonArray:responseObject class:[GLUser class]];
@@ -38,7 +40,7 @@
                         failure:(GLGitlabFailureBlock)failureBlock
 {
     NSMutableURLRequest *request;
-    request.HTTPMethod = kGetMethod;
+    request.HTTPMethod = GLNetworkOperationGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLUser class]
                                                                                  successBlock:successBlock];
@@ -53,7 +55,7 @@
                            failure:(GLGitlabFailureBlock)failureBlock
 {
     NSMutableURLRequest *request;
-    request.HTTPMethod = kGetMethod;
+    request.HTTPMethod = GLNetworkOperationGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLUser class]
                                                                                  successBlock:successBlock];
@@ -69,7 +71,7 @@
                            failure:(GLGitlabFailureBlock)failureBlock
 {
     NSMutableURLRequest *request;
-    request.HTTPMethod = kGetMethod;
+    request.HTTPMethod = GLNetworkOperationGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLUser class]
                                                                                  successBlock:successBlock];
@@ -87,7 +89,7 @@
                            failure:(GLGitlabFailureBlock)failureBlock
 {
     NSMutableURLRequest *request;
-    request.HTTPMethod = kGetMethod;
+    request.HTTPMethod = GLNetworkOperationGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         successBlock(nil);

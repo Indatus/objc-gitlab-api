@@ -35,7 +35,7 @@ static NSString *const kPrivateTokenKey = @"private_token";
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requestUrl];
     NSError *error;
     
-    request.HTTPMethod = kPostMethod;
+    request.HTTPMethod = GLNetworkOperationPostMethod;
     request.HTTPBody = [self urlEncodeParams:params];
     if (error) {
         NSLog(@"Error serializing login params: %@", error.localizedDescription);

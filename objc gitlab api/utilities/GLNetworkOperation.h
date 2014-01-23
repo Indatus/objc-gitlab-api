@@ -8,6 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+FOUNDATION_EXPORT NSString *const GLNetworkOperationPostMethod;
+FOUNDATION_EXPORT NSString *const GLNetworkOperationGetMethod;
+FOUNDATION_EXPORT NSString *const GLNetworkOperationPutMethod;
+
 FOUNDATION_EXPORT NSString *const GLNetworkOperationErrorDomain;;
 
 typedef void (^GLNetworkOperationSuccessBlock)(id responseObject);

@@ -10,6 +10,8 @@
 #import "GLGitlabApi+Private.h"
 #import "GLMergeRequest.h"
 
+static NSString * const kMergeRequestEndPoint = @"/merge_requests";
+
 @implementation GLGitlabApi (MergeRequest)
 #pragma mark - MergeRequest Methods
 
@@ -18,7 +20,7 @@
                                      andFailureBlock:(GLGitlabFailureBlock)failure
 {
     NSMutableURLRequest *request;
-    request.HTTPMethod = kGetMethod;
+    request.HTTPMethod = GLNetworkOperationGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -38,7 +40,7 @@
                               andFailureBlock:(GLGitlabFailureBlock)failure
 {
     NSMutableURLRequest *request;
-    request.HTTPMethod = kGetMethod;
+    request.HTTPMethod = GLNetworkOperationGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -59,7 +61,7 @@
                                        andFailureBlock:(GLGitlabFailureBlock)failure
 {
     NSMutableURLRequest *request;
-    request.HTTPMethod = kPostMethod;
+    request.HTTPMethod = GLNetworkOperationPostMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -79,7 +81,7 @@
                            andFailureBlock:(GLGitlabFailureBlock)failure
 {
     NSMutableURLRequest *request;
-    request.HTTPMethod = kPutMethod;
+    request.HTTPMethod = GLNetworkOperationPutMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO

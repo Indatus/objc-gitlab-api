@@ -9,15 +9,16 @@
 #import "GLGitlabApi+Commits.h"
 #import "GLGitlabApi+Private.h"
 
+static NSString * const kCommitEndPoint = @"/commits";
+
 @implementation GLGitlabApi (Commits)
-#pragma mark - Commit Methods
 
 - (GLNetworkOperation *)getAllCommitsForProjectId:(int64_t)projectId
                                  withSuccessBlock:(GLGitlabSuccessBlock)success
                                   andFailureBlock:(GLGitlabFailureBlock)failure
 {
     NSMutableURLRequest *request;
-    request.HTTPMethod = kGetMethod;
+    request.HTTPMethod = GLNetworkOperationGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -36,7 +37,7 @@
                          andFailureBlock:(GLGitlabFailureBlock)failure
 {
     NSMutableURLRequest *request;
-    request.HTTPMethod = kGetMethod;
+    request.HTTPMethod = GLNetworkOperationGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
@@ -56,7 +57,7 @@
                              andFailureBlock:(GLGitlabFailureBlock)failure
 {
     NSMutableURLRequest *request;
-    request.HTTPMethod = kGetMethod;
+    request.HTTPMethod = GLNetworkOperationGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         // TODO
