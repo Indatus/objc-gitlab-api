@@ -55,22 +55,27 @@ static NSString * const kKeyCreatedAt = @"created_at";
              kKeyProjectId: @(_projectId),
              kKeyTitle: _title ?: null,
              kKeyDescription: _description ?: null,
-//             kKeyLabels: _labels ?: null, // nsarray? how to deal with this?
-             kKeyMilestone: [_milestone ] ?: null,
-             kKeyProvider: _provider ?: null,
+             kKeyLabels: _labels ?: null,
+             kKeyMilestone: @(_milestone.milestoneId) ?: null,
+             kKeyAssignee: @(_assignee.userId) ?: null,
+             kKeyAuthor: [_author jsonRepresentation] ?: null,
              kKeyState: _state ?: null,
-             kKeyCreatedAt: _createdAt ? [formatter stringFromDate:_createdAt] : null,
-             kKeyBio: _bio ?: null,
-             kKeyExternUid: _externUid ?: null,
-             kKeyThemeId: @(_themeId),
-             kKeyColorSchemeId: @(_colorSchemeId),
-             kKeyAdmin: @(_admin)
+             kKeyUpdatedAt: _updatedAt ? [formatter stringFromDate:_updatedAt] : null,
+             kKeyCreatedAt: _createdAt ? [formatter stringFromDate:_createdAt] : null
              };
 }
 
 - (NSDictionary *)jsonCreateRepresentation
 {
-    
+    id null = (id)[NSNull null];
+    return @{
+             kKeyProjectId: @(_projectId),
+             kKeyTitle: _title,
+             kKeyDescription: _description ?: null,
+             kKeyLabels: _labels ?: null,
+             kKeyMilestone: @(_milestone.milestoneId) ?: null,
+             kKeyAssignee: @(_assignee.userId) ?: null
+             };
 }
 
 - (BOOL)isEqual:(id)other {

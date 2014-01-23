@@ -84,11 +84,9 @@ static NSString * const kSingleIssueEndpoint = @"/projects/%llu/issues/%llu";
     NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kProjectIssuesEndpoint, projectId]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationPostMethod;
-    request.HTTPBody = [self urlEncodeParams:[issue json]]
+    request.HTTPBody = [self urlEncodeParams:[issue jsonCreateRepresentation]];
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
-    };
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLIssue class] successBlock:success];
     
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
@@ -101,12 +99,12 @@ static NSString * const kSingleIssueEndpoint = @"/projects/%llu/issues/%llu";
                    withSuccessBlock:(GLGitlabSuccessBlock)success
                     andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSMutableURLRequest *request;
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleIssueEndpoint, issue.projectId, issue.issueId]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationPutMethod;
+    request.HTTPBody = [self urlEncodeParams:[issue jsonRepresentation]];
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
-    };
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLIssue class] successBlock:success];
     
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
@@ -119,12 +117,14 @@ static NSString * const kSingleIssueEndpoint = @"/projects/%llu/issues/%llu";
                   withSuccessBlock:(GLGitlabSuccessBlock)success
                    andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSMutableURLRequest *request;
-    request.HTTPMethod = GLNetworkOperationPutMethod;
+    issue.state = @"closed";
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
-    };
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleIssueEndpoint, issue.projectId, issue.issueId]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = GLNetworkOperationPutMethod;
+    request.HTTPBody = [self urlEncodeParams:[issue jsonRepresentation]];
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLIssue class] successBlock:success];
     
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
@@ -137,12 +137,14 @@ static NSString * const kSingleIssueEndpoint = @"/projects/%llu/issues/%llu";
                    withSuccessBlock:(GLGitlabSuccessBlock)success
                     andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSMutableURLRequest *request;
-    request.HTTPMethod = GLNetworkOperationPutMethod;
+    issue.state = @"open";
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
-    };
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleIssueEndpoint, issue.projectId, issue.issueId]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = GLNetworkOperationPutMethod;
+    request.HTTPBody = [self urlEncodeParams:[issue jsonRepresentation]];
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLIssue class] successBlock:success];
     
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
