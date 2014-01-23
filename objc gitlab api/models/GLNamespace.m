@@ -19,20 +19,6 @@ static NSString * const kKeyOwnerId = @"owner_id";
 
 @implementation GLNamespace
 
-- (instancetype)initWithJSON:(NSDictionary *)json
-{
-    if (self = [super init]) {
-        _namespaceId = [json[kKeyNamespaceId] longLongValue];
-        _name = json[kKeyName];
-        _path = json[kKeyPath];
-        _description = json[kKeyDescription];
-        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
-        _updatedAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyUpdatedAt]];
-        _ownerId = [json[kKeyOwnerId] longLongValue];
-    }
-    return self;
-}
-
 - (BOOL)isEqual:(id)other {
     if (other == self)
         return YES;
@@ -73,6 +59,20 @@ static NSString * const kKeyOwnerId = @"owner_id";
     hash = hash * 31u + [self.updatedAt hash];
     hash = hash * 31u + (NSUInteger) self.ownerId;
     return hash;
+}
+
+- (instancetype)initWithJSON:(NSDictionary *)json
+{
+    if (self = [super init]) {
+        _namespaceId = [json[kKeyNamespaceId] longLongValue];
+        _name = json[kKeyName];
+        _path = json[kKeyPath];
+        _description = json[kKeyDescription];
+        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
+        _updatedAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyUpdatedAt]];
+        _ownerId = [json[kKeyOwnerId] longLongValue];
+    }
+    return self;
 }
 
 - (NSString *)description {

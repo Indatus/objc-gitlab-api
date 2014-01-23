@@ -42,4 +42,6 @@
 // is_admin
 @property (nonatomic, getter = isAdmin) BOOL admin;
 
+- (BOOL)isEqualToUser:(GLUser *)user;
+
 @end

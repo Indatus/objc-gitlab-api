@@ -20,23 +20,6 @@ static NSString * const kCreatedAt = @"created_at";
 
 @implementation GLSnippet
 
-- (instancetype)initWithJSON:(NSDictionary *)json
-{
-    if (self = [super init]) {
-        NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
-        _snippetId = [json[kSnippetId] longLongValue];
-        _title = json[kTitle];
-        _file_name = json[kFileName];
-        _author = [[GLUser alloc] initWithJSON:json[kAuthor]];
-        _expiresAt = json[kExpiresAt] == [NSNull null] ? nil : [formatter dateFromString:json[kExpiresAt]];
-        _updatedAt = [formatter dateFromString:json[kUpdatedAt]];
-        _createdAt = [formatter dateFromString:json[kCreatedAt]];
-    }
-    
-    return self;
-}
-
-
 - (BOOL)isEqual:(id)other {
     if (other == self)
         return YES;
@@ -78,6 +61,23 @@ static NSString * const kCreatedAt = @"created_at";
     hash = hash * 31u + [self.createdAt hash];
     return hash;
 }
+
+- (instancetype)initWithJSON:(NSDictionary *)json
+{
+    if (self = [super init]) {
+        NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
+        _snippetId = [json[kSnippetId] longLongValue];
+        _title = json[kTitle];
+        _file_name = json[kFileName];
+        _author = [[GLUser alloc] initWithJSON:json[kAuthor]];
+        _expiresAt = json[kExpiresAt] == [NSNull null] ? nil : [formatter dateFromString:json[kExpiresAt]];
+        _updatedAt = [formatter dateFromString:json[kUpdatedAt]];
+        _createdAt = [formatter dateFromString:json[kCreatedAt]];
+    }
+    
+    return self;
+}
+
 
 - (NSString *)description {
     NSMutableString *description = [NSMutableString stringWithFormat:@"<%@: ", NSStringFromClass([self class])];

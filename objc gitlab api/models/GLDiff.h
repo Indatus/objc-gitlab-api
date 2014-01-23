@@ -28,4 +28,6 @@
 // deleted_file
 @property (nonatomic, getter = isDeletedFile) BOOL deletedFile;
 
+- (BOOL)isEqualToDiff:(GLDiff *)diff;
+
 @end

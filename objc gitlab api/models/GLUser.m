@@ -26,30 +26,6 @@ static NSString * const kKeyColorSchemeId = @"color_scheme_id";
 static NSString * const kKeyAdmin = @"is_admin";
 
 @implementation GLUser
-
-- (instancetype)initWithJSON:(NSDictionary *)json
-{
-    if (self = [super init]) {
-        id null = (id)[NSNull null];
-        _userId = [json[kKeyUserId] longLongValue];
-        _username = json[kKeyUsername];
-        _email = json[kKeyEmail];
-        _name = json[kKeyName];
-        _skype = json[kKeySkype] == null ? nil : json[kKeySkype];
-        _linkedin = json[kKeyLinkedin] == null ? nil : json[kKeyLinkedin];
-        _twitter = json[kKeyTwitter]  == null ? nil : json[kKeyTwitter];
-        _provider = json[kKeyProvider] == null ? nil : json[kKeyProvider];
-        _state = json[kKeyState] == null ? nil : json[kKeyState];
-        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
-        _bio = json[kKeyBio] == null ? nil : json[kKeyBio];
-        _externUid = json[kKeyExternUid] == null ? nil : json[kKeyExternUid];
-        _themeId = [json[kKeyThemeId] intValue];
-        _colorSchemeId = [json[kKeyColorSchemeId] intValue];
-        _admin = [json[kKeyAdmin] boolValue];
-    }
-    return self;
-}
-
 - (BOOL)isEqual:(id)other {
     if (other == self)
         return YES;
@@ -114,6 +90,30 @@ static NSString * const kKeyAdmin = @"is_admin";
     hash = hash * 31u + self.colorSchemeId;
     hash = hash * 31u + self.admin;
     return hash;
+}
+
+
+- (instancetype)initWithJSON:(NSDictionary *)json
+{
+    if (self = [super init]) {
+        id null = (id)[NSNull null];
+        _userId = [json[kKeyUserId] longLongValue];
+        _username = json[kKeyUsername];
+        _email = json[kKeyEmail];
+        _name = json[kKeyName];
+        _skype = json[kKeySkype] == null ? nil : json[kKeySkype];
+        _linkedin = json[kKeyLinkedin] == null ? nil : json[kKeyLinkedin];
+        _twitter = json[kKeyTwitter]  == null ? nil : json[kKeyTwitter];
+        _provider = json[kKeyProvider] == null ? nil : json[kKeyProvider];
+        _state = json[kKeyState] == null ? nil : json[kKeyState];
+        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
+        _bio = json[kKeyBio] == null ? nil : json[kKeyBio];
+        _externUid = json[kKeyExternUid] == null ? nil : json[kKeyExternUid];
+        _themeId = [json[kKeyThemeId] intValue];
+        _colorSchemeId = [json[kKeyColorSchemeId] intValue];
+        _admin = [json[kKeyAdmin] boolValue];
+    }
+    return self;
 }
 
 - (NSString *)description {

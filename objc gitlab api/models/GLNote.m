@@ -18,18 +18,6 @@ static NSString * const kKeyCreatedAt = @"created_at";
 
 @implementation GLNote
 
-- (instancetype)initWithJSON:(NSDictionary *)json
-{
-    if (self = [super init]) {
-        _noteId = [json[kKeyNoteId] longLongValue];
-        _body = json[kKeyBody];
-        _attachment = json[kKeyAttachment];
-        _author = [[GLUser alloc] initWithJSON:json[kKeyAuthor]];
-        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
-    }
-    return self;
-}
-
 - (BOOL)isEqual:(id)other {
     if (other == self)
         return YES;
@@ -64,6 +52,18 @@ static NSString * const kKeyCreatedAt = @"created_at";
     hash = hash * 31u + [self.author hash];
     hash = hash * 31u + [self.createdAt hash];
     return hash;
+}
+
+- (instancetype)initWithJSON:(NSDictionary *)json
+{
+    if (self = [super init]) {
+        _noteId = [json[kKeyNoteId] longLongValue];
+        _body = json[kKeyBody];
+        _attachment = json[kKeyAttachment];
+        _author = [[GLUser alloc] initWithJSON:json[kKeyAuthor]];
+        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
+    }
+    return self;
 }
 
 - (NSString *)description {

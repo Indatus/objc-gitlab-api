@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "GLJsonProtocol.h"
 
-@class GLUser;
+@class GLUser, GLBranch;
 
 @interface GLMergeRequest : NSObject <GLJsonProtocol>
 
@@ -26,14 +26,16 @@
 // assignee
 @property (nonatomic, strong) GLUser *assignee;
 // target_branch
-@property (nonatomic, copy) NSString *targetBranch;
+@property (nonatomic, copy) GLBranch *targetBranch;
 // source_branch
-@property (nonatomic, copy) NSString *sourceBranch;
+@property (nonatomic, copy) GLBranch *sourceBranch;
 // project_id
 @property (nonatomic, assign) int64_t projectId;
 // upvotes
 @property (nonatomic, assign) int32_t upvotes;
 // downvotes
 @property (nonatomic, assign) int32_t downvotes;
+
+- (BOOL)isEqualToRequest:(GLMergeRequest *)request;
 
 @end

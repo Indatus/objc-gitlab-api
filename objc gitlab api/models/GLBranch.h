@@ -20,4 +20,6 @@
 // protected
 @property (nonatomic, assign, getter = isProtected) BOOL branchProtected;
 
+- (BOOL)isEqualToBranch:(GLBranch *)branch;
+
 @end

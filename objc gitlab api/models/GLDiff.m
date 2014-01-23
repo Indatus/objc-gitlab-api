@@ -19,21 +19,6 @@ static NSString * const kKeyDeletedFile = @"deleted_file";
 
 @implementation GLDiff
 
-- (instancetype)initWithJSON:(NSDictionary *)json
-{
-    if (self = [super init]) {
-        _diff = json[kKeyDiff];
-        _updatedPath = json[kKeyNewPath];
-        _oldPath = json[kKeyOldPath];
-        _aMode = json[kKeyAMode];
-        _bMode = json[kKeyBMode];
-        _newFile = [json[kKeyNewFile] boolValue];
-        _renamedFile = [json[kKeyRenamedFile] boolValue];
-        _deletedFile = [json[kKeyDeletedFile] boolValue];
-    }
-    return self;
-}
-
 - (BOOL)isEqual:(id)other {
     if (other == self)
         return YES;
@@ -77,6 +62,21 @@ static NSString * const kKeyDeletedFile = @"deleted_file";
     hash = hash * 31u + self.renamedFile;
     hash = hash * 31u + self.deletedFile;
     return hash;
+}
+
+- (instancetype)initWithJSON:(NSDictionary *)json
+{
+    if (self = [super init]) {
+        _diff = json[kKeyDiff];
+        _updatedPath = json[kKeyNewPath];
+        _oldPath = json[kKeyOldPath];
+        _aMode = json[kKeyAMode];
+        _bMode = json[kKeyBMode];
+        _newFile = [json[kKeyNewFile] boolValue];
+        _renamedFile = [json[kKeyRenamedFile] boolValue];
+        _deletedFile = [json[kKeyDeletedFile] boolValue];
+    }
+    return self;
 }
 
 - (NSString *)description {

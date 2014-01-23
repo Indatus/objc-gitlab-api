@@ -24,4 +24,6 @@
 // created_at
 @property (nonatomic, copy) NSDate *createdAt;
 
+- (BOOL)isEqualToCommit:(GLCommit *)commit;
+
 @end

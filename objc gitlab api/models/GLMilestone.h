@@ -30,4 +30,6 @@
 // created_at
 @property (nonatomic, strong) NSDate *createdAt;
 
+- (BOOL)isEqualToMilestone:(GLMilestone *)milestone;
+
 @end

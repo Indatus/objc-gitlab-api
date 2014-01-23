@@ -28,4 +28,6 @@
 // created_at
 @property (nonatomic, strong) NSDate *createdAt;
 
+- (BOOL)isEqualToSnippet:(GLSnippet *)snippet;
+
 @end

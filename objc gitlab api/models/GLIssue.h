@@ -38,4 +38,6 @@
 // created_at
 @property (nonatomic, strong) NSDate *createdAt;
 
+- (BOOL)isEqualToIssue:(GLIssue *)issue;
+
 @end

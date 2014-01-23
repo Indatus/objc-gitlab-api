@@ -15,16 +15,6 @@ static NSString * const kProtected = @"protected";
 
 @implementation GLTag
 
-- (instancetype)initWithJSON:(NSDictionary *)json
-{
-    if (self = [super init]) {
-        _name = json[kName];
-        _commit = [[GLCommit alloc] initWithJSON:json[kCommit]];
-        _protectedTag = [json[kProtected] boolValue];
-    }
-
-    return self;
-}
 - (BOOL)isEqual:(id)other {
     if (other == self)
         return YES;
@@ -53,6 +43,17 @@ static NSString * const kProtected = @"protected";
     hash = hash * 31u + [self.commit hash];
     hash = hash * 31u + self.protectedTag;
     return hash;
+}
+
+- (instancetype)initWithJSON:(NSDictionary *)json
+{
+    if (self = [super init]) {
+        _name = json[kName];
+        _commit = [[GLCommit alloc] initWithJSON:json[kCommit]];
+        _protectedTag = [json[kProtected] boolValue];
+    }
+
+    return self;
 }
 
 - (NSString *)description {

@@ -20,4 +20,6 @@
 // protected
 @property (nonatomic, assign, getter = isProtected) BOOL protectedTag;
 
+- (BOOL)isEqualToTag:(GLTag *)tag;
+
 @end

@@ -26,4 +26,6 @@
 // owner_id
 @property (nonatomic, assign) int64_t ownerId;
 
+- (BOOL)isEqualToGlNamespace:(GLNamespace *)glNamespace;
+
 @end

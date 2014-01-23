@@ -21,51 +21,6 @@ static NSString * const kKeyCreatedAt = @"created_at";
 
 @implementation GLMilestone
 
-- (instancetype)initWithJSON:(NSDictionary *)json
-{
-    if (self = [super init]) {
-        _milestoneId = [json[kKeyMilestoneId] longLongValue];
-        _milestoneIid = [json[kKeyMilestoneIid] longLongValue];
-        _projectId = [json[kKeyProjectId] longLongValue];
-        _title = json[kKeyTitle];
-        _description = json[kKeyDescription];
-        _dueDate = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyDueDate]];
-        _state = json[kKeyState];
-        _updatedAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyUpdatedAt]];
-        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
-    }
-    return self;
-}
-
-- (NSDictionary *)jsonRepresentation
-{
-    id null = (id)[NSNull null];
-    NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
-    return @{
-             kKeyMilestoneId: @(_milestoneId),
-             kKeyMilestoneIid: @(_milestoneIid),
-             kKeyProjectId: @(_projectId),
-             kKeyTitle: _title,
-             kKeyDescription: _description ?: null,
-             kKeyDueDate: _dueDate ? [formatter stringFromDate:_createdAt] : null,
-             kKeyState: _state ?: null,
-             kKeyUpdatedAt: _updatedAt ? [formatter stringFromDate:_updatedAt] : null,
-             kKeyCreatedAt: _createdAt ? [formatter stringFromDate:_createdAt] : null
-             };
-}
-
-- (NSDictionary *)jsonCreateRepresentation
-{
-    id null = (id)[NSNull null];
-    NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
-    return @{
-             kKeyProjectId: @(_projectId),
-             kKeyTitle: _title,
-             kKeyDescription: _description ?: null,
-             kKeyDueDate: _dueDate ? [formatter stringFromDate:_createdAt] : null
-             };
-}
-
 - (BOOL)isEqual:(id)other {
     if (other == self)
         return YES;
@@ -112,6 +67,51 @@ static NSString * const kKeyCreatedAt = @"created_at";
     hash = hash * 31u + [self.updatedAt hash];
     hash = hash * 31u + [self.createdAt hash];
     return hash;
+}
+
+- (instancetype)initWithJSON:(NSDictionary *)json
+{
+    if (self = [super init]) {
+        _milestoneId = [json[kKeyMilestoneId] longLongValue];
+        _milestoneIid = [json[kKeyMilestoneIid] longLongValue];
+        _projectId = [json[kKeyProjectId] longLongValue];
+        _title = json[kKeyTitle];
+        _description = json[kKeyDescription];
+        _dueDate = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyDueDate]];
+        _state = json[kKeyState];
+        _updatedAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyUpdatedAt]];
+        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
+    }
+    return self;
+}
+
+- (NSDictionary *)jsonRepresentation
+{
+    id null = (id)[NSNull null];
+    NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
+    return @{
+             kKeyMilestoneId: @(_milestoneId),
+             kKeyMilestoneIid: @(_milestoneIid),
+             kKeyProjectId: @(_projectId),
+             kKeyTitle: _title,
+             kKeyDescription: _description ?: null,
+             kKeyDueDate: _dueDate ? [formatter stringFromDate:_createdAt] : null,
+             kKeyState: _state ?: null,
+             kKeyUpdatedAt: _updatedAt ? [formatter stringFromDate:_updatedAt] : null,
+             kKeyCreatedAt: _createdAt ? [formatter stringFromDate:_createdAt] : null
+             };
+}
+
+- (NSDictionary *)jsonCreateRepresentation
+{
+    id null = (id)[NSNull null];
+    NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
+    return @{
+             kKeyProjectId: @(_projectId),
+             kKeyTitle: _title,
+             kKeyDescription: _description ?: null,
+             kKeyDueDate: _dueDate ? [formatter stringFromDate:_createdAt] : null
+             };
 }
 
 - (NSString *)description {

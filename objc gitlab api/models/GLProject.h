@@ -56,4 +56,6 @@
 // namespace
 @property (nonatomic, strong) GLNamespace *glNamespace;
 
+- (BOOL)isEqualToProject:(GLProject *)project;
+
 @end

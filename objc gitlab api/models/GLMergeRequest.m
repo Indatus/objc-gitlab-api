@@ -9,6 +9,7 @@
 #import "GLMergeRequest.h"
 #import "GLUser.h"
 #import "GLGitlabApi.h"
+#import "GLBranch.h"
 
 static NSString * const kKeyMergeRequestId = @"id";
 static NSString * const kKeyMergeRequestIid = @"iid";
@@ -52,8 +53,8 @@ static NSString * const kKeyDownvotes = @"downvotes";
              kKeyState: _state ?: null,
              kKeyAuthor: [_author jsonRepresentation] ?: null,
              kKeyAssignee: [_assignee jsonRepresentation] ?: null,
-             kKeyTargetBranch: _targetBranch ?: null,
-             kKeySourceBranch: _sourceBranch ?: null,
+             kKeyTargetBranch: _targetBranch.name ?: null,
+             kKeySourceBranch: _sourceBranch.name ?: null,
              kKeyProjectId: @(_projectId),
              kKeyUpvotes: @(_upvotes),
              kKeyDownvotes: @(_downvotes)
@@ -86,9 +87,9 @@ static NSString * const kKeyDownvotes = @"downvotes";
         return NO;
     if (self.assignee != request.assignee && ![self.assignee isEqualToUser:request.assignee])
         return NO;
-    if (self.targetBranch != request.targetBranch && ![self.targetBranch isEqualToString:request.targetBranch])
+    if (self.targetBranch != request.targetBranch && ![self.targetBranch isEqualToBranch:request.targetBranch])
         return NO;
-    if (self.sourceBranch != request.sourceBranch && ![self.sourceBranch isEqualToString:request.sourceBranch])
+    if (self.sourceBranch != request.sourceBranch && ![self.sourceBranch isEqualToBranch:request.sourceBranch])
         return NO;
     if (self.projectId != request.projectId)
         return NO;
@@ -114,21 +115,5 @@ static NSString * const kKeyDownvotes = @"downvotes";
     return hash;
 }
 
-- (NSString *)description {
-    NSMutableString *description = [NSMutableString stringWithFormat:@"<%@: ", NSStringFromClass([self class])];
-    [description appendFormat:@"self.mergeRequestId=%qi", self.mergeRequestId];
-    [description appendFormat:@", self.mergeRequestIid=%qi", self.mergeRequestIid];
-    [description appendFormat:@", self.title=%@", self.title];
-    [description appendFormat:@", self.state=%@", self.state];
-    [description appendFormat:@", self.author=%@", self.author];
-    [description appendFormat:@", self.assignee=%@", self.assignee];
-    [description appendFormat:@", self.targetBranch=%@", self.targetBranch];
-    [description appendFormat:@", self.sourceBranch=%@", self.sourceBranch];
-    [description appendFormat:@", self.projectId=%qi", self.projectId];
-    [description appendFormat:@", self.upvotes=%i", self.upvotes];
-    [description appendFormat:@", self.downvotes=%i", self.downvotes];
-    [description appendString:@">"];
-    return description;
-}
 
 @end

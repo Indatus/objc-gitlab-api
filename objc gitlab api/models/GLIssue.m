@@ -26,6 +26,63 @@ static NSString * const kKeyCreatedAt = @"created_at";
 
 @implementation GLIssue
 
+- (BOOL)isEqual:(id)other {
+    if (other == self)
+        return YES;
+    if (!other || ![[other class] isEqual:[self class]])
+        return NO;
+
+    return [self isEqualToIssue:other];
+}
+
+- (BOOL)isEqualToIssue:(GLIssue *)issue {
+    if (self == issue)
+        return YES;
+    if (issue == nil)
+        return NO;
+    if (self.issueId != issue.issueId)
+        return NO;
+    if (self.issueIid != issue.issueIid)
+        return NO;
+    if (self.projectId != issue.projectId)
+        return NO;
+    if (self.title != issue.title && ![self.title isEqualToString:issue.title])
+        return NO;
+    if (self.description != issue.description && ![self.description isEqualToString:issue.description])
+        return NO;
+    if (self.labels != issue.labels && ![self.labels isEqualToArray:issue.labels])
+        return NO;
+    if (self.milestone != issue.milestone && ![self.milestone isEqualToMilestone:issue.milestone])
+        return NO;
+    if (self.assignee != issue.assignee && ![self.assignee isEqualToUser:issue.assignee])
+        return NO;
+    if (self.author != issue.author && ![self.author isEqualToUser:issue.author])
+        return NO;
+    if (self.state != issue.state && ![self.state isEqualToString:issue.state])
+        return NO;
+    if (self.updatedAt != issue.updatedAt && ![self.updatedAt isEqualToDate:issue.updatedAt])
+        return NO;
+    if (self.createdAt != issue.createdAt && ![self.createdAt isEqualToDate:issue.createdAt])
+        return NO;
+    return YES;
+}
+
+- (NSUInteger)hash {
+    NSUInteger hash = (NSUInteger) self.issueId;
+    hash = hash * 31u + (NSUInteger) self.issueIid;
+    hash = hash * 31u + (NSUInteger) self.projectId;
+    hash = hash * 31u + [self.title hash];
+    hash = hash * 31u + [self.description hash];
+    hash = hash * 31u + [self.labels hash];
+    hash = hash * 31u + [self.milestone hash];
+    hash = hash * 31u + [self.assignee hash];
+    hash = hash * 31u + [self.author hash];
+    hash = hash * 31u + [self.state hash];
+    hash = hash * 31u + [self.updatedAt hash];
+    hash = hash * 31u + [self.createdAt hash];
+    return hash;
+}
+
 - (instancetype)initWithJSON:(NSDictionary *)json
 {
     if (self = [super init]) {
@@ -76,63 +133,6 @@ static NSString * const kKeyCreatedAt = @"created_at";
              kKeyMilestone: @(_milestone.milestoneId) ?: null,
              kKeyAssignee: @(_assignee.userId) ?: null
              };
-}
-
-- (BOOL)isEqual:(id)other {
-    if (other == self)
-        return YES;
-    if (!other || ![[other class] isEqual:[self class]])
-        return NO;
-
-    return [self isEqualToIssue:other];
-}
-
-- (BOOL)isEqualToIssue:(GLIssue *)issue {
-    if (self == issue)
-        return YES;
-    if (issue == nil)
-        return NO;
-    if (self.issueId != issue.issueId)
-        return NO;
-    if (self.issueIid != issue.issueIid)
-        return NO;
-    if (self.projectId != issue.projectId)
-        return NO;
-    if (self.title != issue.title && ![self.title isEqualToString:issue.title])
-        return NO;
-    if (self.description != issue.description && ![self.description isEqualToString:issue.description])
-        return NO;
-    if (self.labels != issue.labels && ![self.labels isEqualToArray:issue.labels])
-        return NO;
-    if (self.milestone != issue.milestone && ![self.milestone isEqual:issue.milestone])
-        return NO;
-    if (self.assignee != issue.assignee && ![self.assignee isEqualToUser:issue.assignee])
-        return NO;
-    if (self.author != issue.author && ![self.author isEqualToUser:issue.author])
-        return NO;
-    if (self.state != issue.state && ![self.state isEqualToString:issue.state])
-        return NO;
-    if (self.updatedAt != issue.updatedAt && ![self.updatedAt isEqualToDate:issue.updatedAt])
-        return NO;
-    if (self.createdAt != issue.createdAt && ![self.createdAt isEqualToDate:issue.createdAt])
-        return NO;
-    return YES;
-}
-
-- (NSUInteger)hash {
-    NSUInteger hash = (NSUInteger) self.issueId;
-    hash = hash * 31u + (NSUInteger) self.issueIid;
-    hash = hash * 31u + (NSUInteger) self.projectId;
-    hash = hash * 31u + [self.title hash];
-    hash = hash * 31u + [self.description hash];
-    hash = hash * 31u + [self.labels hash];
-    hash = hash * 31u + [self.milestone hash];
-    hash = hash * 31u + [self.assignee hash];
-    hash = hash * 31u + [self.author hash];
-    hash = hash * 31u + [self.state hash];
-    hash = hash * 31u + [self.updatedAt hash];
-    hash = hash * 31u + [self.createdAt hash];
-    return hash;
 }
 
 - (NSString *)description {

@@ -18,19 +18,6 @@ static NSString * const kKeyForCreatedAt = @"created_at";
 
 @implementation GLCommit
 
-- (instancetype)initWithJSON:(NSDictionary *)json
-{
-    if (self = [super init]) {
-        _sha = json[kKeyForSha];
-        _title = json[kKeyForTitle];
-        _shortId = json[kKeyForShortId];
-        _authorName = json[kKeyForAuthorName];
-        _authorEmail = json[kKeyForAuthorEmail];
-        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyForCreatedAt]];
-    }
-    return self;
-}
-
 - (BOOL)isEqual:(id)other {
     if (other == self)
         return YES;
@@ -69,6 +56,20 @@ static NSString * const kKeyForCreatedAt = @"created_at";
     hash = hash * 31u + [self.createdAt hash];
     return hash;
 }
+
+- (instancetype)initWithJSON:(NSDictionary *)json
+{
+    if (self = [super init]) {
+        _sha = json[kKeyForSha];
+        _title = json[kKeyForTitle];
+        _shortId = json[kKeyForShortId];
+        _authorName = json[kKeyForAuthorName];
+        _authorEmail = json[kKeyForAuthorEmail];
+        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyForCreatedAt]];
+    }
+    return self;
+}
+
 
 - (NSString *)description {
     NSMutableString *description = [NSMutableString stringWithFormat:@"<%@: ", NSStringFromClass([self class])];

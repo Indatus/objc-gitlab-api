@@ -24,4 +24,6 @@
 // created_at
 @property (nonatomic, strong) NSDate *createdAt;
 
+- (BOOL)isEqualToNote:(GLNote *)note;
+
 @end
