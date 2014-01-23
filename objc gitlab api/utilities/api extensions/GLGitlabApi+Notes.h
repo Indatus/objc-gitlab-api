@@ -26,7 +26,7 @@
                                       successBlock:(GLGitlabSuccessBlock)success
                                    andFailureBlock:(GLGitlabFailureBlock)failure;
 // Issue notes
-- (GLNetworkOperation *)getAllNotesForIssueId:(int64_t)issueId
+- (GLNetworkOperation *)getAllNotesForIssue:(GLIssue *)issue
                              withSuccessBlock:(GLGitlabSuccessBlock)success
                               andFailureBlock:(GLGitlabFailureBlock)failure;
 
