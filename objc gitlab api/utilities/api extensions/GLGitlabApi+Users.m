@@ -10,17 +10,26 @@
 #import "GLGitlabApi+Private.h"
 #import "GLUser.h"
 
+// End points
 static NSString * const kUserEndpoint = @"/users";
+static NSString * const kSingleUserEndpoint = @"/users/%llu";
+
+// Parameter Keys
+static NSString * const kPageParam = @"page";
+static NSString * const kPerPageParam = @"per_page";
 
 @implementation GLGitlabApi (Users)
 #pragma mark - User Methods
 
-- (GLNetworkOperation *)getUsers:(ino64_t)pageNumber
+- (GLNetworkOperation *)getUsers:(int64_t)pageNumber
                        batchSize:(int64_t)batchSize
                          success:(GLGitlabSuccessBlock)successBlock
                          failure:(GLGitlabFailureBlock)failureBlock
 {
-    NSMutableURLRequest *request;
+    NSString *endpoint = [self urlEncodeParamsForGet:@{ kPageParam: @(pageNumber), kPerPageParam: @(batchSize) } endpoint:kUserEndpoint];
+    NSURL *url = [self requestUrlForEndPoint:endpoint];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSArray *responseObject) {
@@ -35,11 +44,12 @@ static NSString * const kUserEndpoint = @"/users";
                                    failure:localFailureBlock];
 }
 
-- (GLNetworkOperation *)getUser:(ino64_t)userId
+- (GLNetworkOperation *)getUser:(int64_t)userId
                         success:(GLGitlabSuccessBlock)successBlock
                         failure:(GLGitlabFailureBlock)failureBlock
 {
-    NSMutableURLRequest *request;
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleUserEndpoint, userId]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLUser class]
@@ -54,8 +64,10 @@ static NSString * const kUserEndpoint = @"/users";
                            success:(GLGitlabSuccessBlock)successBlock
                            failure:(GLGitlabFailureBlock)failureBlock
 {
-    NSMutableURLRequest *request;
-    request.HTTPMethod = GLNetworkOperationGetMethod;
+    NSURL *url = [self requestUrlForEndPoint:kUserEndpoint];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = GLNetworkOperationPostMethod;
+    request.HTTPBody = [self urlEncodeParams:[user jsonCreateRepresentation]];
     
     GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLUser class]
                                                                                  successBlock:successBlock];
@@ -70,14 +82,14 @@ static NSString * const kUserEndpoint = @"/users";
                            success:(GLGitlabSuccessBlock)successBlock
                            failure:(GLGitlabFailureBlock)failureBlock
 {
-    NSMutableURLRequest *request;
-    request.HTTPMethod = GLNetworkOperationGetMethod;
+    NSURL *url = [self requestUrlForEndPoint:kUserEndpoint];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = GLNetworkOperationPutMethod;
+    request.HTTPBody = [self urlEncodeParams:[user jsonRepresentation]];
     
     GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLUser class]
                                                                                  successBlock:successBlock];
-    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
-        // TODO
-    };
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
                                    success:localSuccessBlock
@@ -88,8 +100,9 @@ static NSString * const kUserEndpoint = @"/users";
                            success:(GLGitlabSuccessBlock)successBlock
                            failure:(GLGitlabFailureBlock)failureBlock
 {
-    NSMutableURLRequest *request;
-    request.HTTPMethod = GLNetworkOperationGetMethod;
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleUserEndpoint, user.userId]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = GLNetworkOperationDeleteMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         successBlock(nil);

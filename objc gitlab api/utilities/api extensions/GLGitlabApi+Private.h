@@ -42,6 +42,16 @@
 - (NSString *)urlEncodeParamsForGet:(NSDictionary *)params;
 
 /**
+ *  Encodes params into a query string and appends them to the endpoint
+ *
+ *  @param params   params to be encoded
+ *  @param endpoint endpoint to append query string to
+ *
+ *  @return The URL encoded param string
+ */
+- (NSString *)urlEncodeParamsForGet:(NSDictionary *)params endpoint:(NSString *)endpoint;
+
+/**
  *  Returns the data representation of the params passed in as a url encoded string
  *
  *  @param params Dictionary containing the data to be processed

@@ -11,6 +11,7 @@
 FOUNDATION_EXPORT NSString *const GLNetworkOperationPostMethod;
 FOUNDATION_EXPORT NSString *const GLNetworkOperationGetMethod;
 FOUNDATION_EXPORT NSString *const GLNetworkOperationPutMethod;
+FOUNDATION_EXPORT NSString *const GLNetworkOperationDeleteMethod;
 
 FOUNDATION_EXPORT NSString *const GLNetworkOperationErrorDomain;;
 

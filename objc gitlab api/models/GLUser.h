@@ -52,4 +52,7 @@
 
 - (NSString *)description;
 
+- (NSDictionary *)jsonRepresentation;
+- (NSDictionary *)jsonCreateRepresentation;
+
 @end
