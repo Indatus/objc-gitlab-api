@@ -24,9 +24,7 @@ static NSString * const kCommitEndPoint = @"/commits";
         // TODO
     };
     
-    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
-        // TODO
-    };
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request
                                    success:localSuccessBlock
@@ -43,9 +41,7 @@ static NSString * const kCommitEndPoint = @"/commits";
         // TODO
     };
     
-    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
-        // TODO
-    };
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request
                                    success:localSuccessBlock
@@ -63,9 +59,7 @@ static NSString * const kCommitEndPoint = @"/commits";
         // TODO
     };
     
-    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
-        // TODO
-    };
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request
                                    success:localSuccessBlock

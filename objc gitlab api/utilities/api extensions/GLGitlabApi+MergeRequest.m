@@ -26,9 +26,7 @@ static NSString * const kMergeRequestEndPoint = @"/merge_requests";
         // TODO
     };
     
-    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
-        // TODO
-    };
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request
                                    success:localSuccessBlock
@@ -46,9 +44,7 @@ static NSString * const kMergeRequestEndPoint = @"/merge_requests";
         // TODO
     };
     
-    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
-        // TODO
-    };
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request
                                    success:localSuccessBlock
@@ -67,9 +63,7 @@ static NSString * const kMergeRequestEndPoint = @"/merge_requests";
         // TODO
     };
     
-    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
-        // TODO
-    };
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request
                                    success:localSuccessBlock
@@ -87,9 +81,7 @@ static NSString * const kMergeRequestEndPoint = @"/merge_requests";
         // TODO
     };
     
-    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
-        // TODO
-    };
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request
                                    success:localSuccessBlock
