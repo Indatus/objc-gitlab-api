@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GLJsonInit.h"
+#import "GLJsonProtocol.h"
 
-@interface GLMilestone : NSObject <GLJsonInit>
+@interface GLMilestone : NSObject <GLJsonProtocol>
 
 // id
 @property (nonatomic, assign) int64_t milestoneId;
