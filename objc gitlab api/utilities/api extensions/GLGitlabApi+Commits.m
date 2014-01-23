@@ -8,8 +8,12 @@
 
 #import "GLGitlabApi+Commits.h"
 #import "GLGitlabApi+Private.h"
+#import "GLCommit.h"
+#import "GLDiff.h"
 
-static NSString * const kCommitEndPoint = @"/commits";
+static NSString * const kCommitEndPoint = @"/projects/%llu/repository/commits";
+static NSString * const kSingleCommitEndPoint = @"/projects/%llu/repository/commits/%@";
+static NSString * const kSingleCommitDiffEndPoint = @"/projects/%llu/repository/commits/%@/diff";
 
 @implementation GLGitlabApi (Commits)
 
@@ -17,11 +21,13 @@ static NSString * const kCommitEndPoint = @"/commits";
                                  withSuccessBlock:(GLGitlabSuccessBlock)success
                                   andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSMutableURLRequest *request;
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kCommitEndPoint, projectId]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationGetMethod;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSArray *responseObject) {
+        NSArray *commits = [self processJsonArray:responseObject class:[GLCommit class]];
+        success(commits);
     };
     
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
@@ -35,12 +41,11 @@ static NSString * const kCommitEndPoint = @"/commits";
                         withSuccessBlock:(GLGitlabSuccessBlock)success
                          andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSMutableURLRequest *request;
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleCommitEndPoint, projectId, sha]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationGetMethod;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
-    };
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLCommit class] successBlock:success];
     
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
@@ -54,12 +59,11 @@ static NSString * const kCommitEndPoint = @"/commits";
                             withSuccessBlock:(GLGitlabSuccessBlock)success
                              andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSMutableURLRequest *request;
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleCommitDiffEndPoint, projectId, sha]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationGetMethod;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
-    };
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLDiff class] successBlock:success];
     
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
