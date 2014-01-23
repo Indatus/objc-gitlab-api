@@ -27,4 +27,7 @@
 - (GLNetworkOperation *)updateMergeRequest:(GLMergeRequest *)mergeRequest
                               successBlock:(GLGitlabSuccessBlock)success
                            andFailureBlock:(GLGitlabFailureBlock)failure;
+- (GLNetworkOperation *)createCommentForMergeRequest:(GLMergeRequest *)mergeRequest
+                                    withSuccessBlock:(GLGitlabSuccessBlock)success
+                                     andFailureBlock:(GLGitlabFailureBlock)failure;
 @end
