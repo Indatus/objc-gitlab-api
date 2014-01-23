@@ -53,6 +53,16 @@ FOUNDATION_EXPORT NSString *const GLProjectGetProjectEndPoint;
                                           success:(GLNetworkOperationSuccessBlock)success
                                           failure:(GLNetworkOperationFailureBlock)failure;
 
+
+/**
+ *  Encodes params into a query string that can be appended to a url
+ *
+ *  @param params params to be encoded
+ *
+ *  @return The URL encoded param string
+ */
+- (NSString *)urlEncodeParamsForGet:(NSDictionary *)params;
+
 /**
  *  Returns the data representation of the params passed in as a url encoded string
  *

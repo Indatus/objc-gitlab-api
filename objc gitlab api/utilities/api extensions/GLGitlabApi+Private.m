@@ -55,14 +55,19 @@ static NSString * const kPrivateTokenHeaderKey = @"PRIVATE-TOKEN";
     return op;
 }
 
-- (NSData *)urlEncodeParams:(NSDictionary *)params
+- (NSString *)urlEncodeParamsForGet:(NSDictionary *)params
 {
     NSMutableArray *paramArray = [NSMutableArray array];
     [params enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *obj, BOOL *stop) {
         [paramArray addObject:[NSString stringWithFormat:@"%@=%@", key, [self percentEncodeString:obj]]];
     }];
     NSString *paramString = [paramArray componentsJoinedByString:@"&"];
-    
+    return paramString;
+}
+
+- (NSData *)urlEncodeParams:(NSDictionary *)params
+{
+    NSString *paramString = [self urlEncodeParamsForGet:params];
     return [paramString dataUsingEncoding:NSUTF8StringEncoding];
 }
 
