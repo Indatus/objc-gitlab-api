@@ -16,18 +16,22 @@
                                      andFailureBlock:(GLGitlabFailureBlock)failure;
 
 - (GLNetworkOperation *)getMergeRequestWithId:(int64_t)mergeRequestId
+                                    projectId:(int64_t)projectId
                                  successBlock:(GLGitlabSuccessBlock)success
                               andFailureBlock:(GLGitlabFailureBlock)failure;
 
-- (GLNetworkOperation *)createMergeRequestForProjectId:(int64_t)projectId
-                                      withMergeRequest:(GLMergeRequest *)mergeRequest
-                                          successBlock:(GLGitlabSuccessBlock)success
-                                       andFailureBlock:(GLGitlabFailureBlock)failure;
+- (GLNetworkOperation *)createMergeRequest:(GLMergeRequest *)mergeRequest
+                              forProjectId:(int64_t)projectId
+                          withSuccessBlock:(GLGitlabSuccessBlock)success
+                           andFailureBlock:(GLGitlabFailureBlock)failure;
 
 - (GLNetworkOperation *)updateMergeRequest:(GLMergeRequest *)mergeRequest
                               successBlock:(GLGitlabSuccessBlock)success
                            andFailureBlock:(GLGitlabFailureBlock)failure;
-- (GLNetworkOperation *)createCommentForMergeRequest:(GLMergeRequest *)mergeRequest
-                                    withSuccessBlock:(GLGitlabSuccessBlock)success
-                                     andFailureBlock:(GLGitlabFailureBlock)failure;
+
+- (GLNetworkOperation *)createComment:(NSString *)comment
+                      forMergeRequest:(GLMergeRequest *)mergeRequest
+                     withSuccessBlock:(GLGitlabSuccessBlock)success
+                      andFailureBlock:(GLGitlabFailureBlock)failure;
+
 @end
