@@ -137,4 +137,36 @@ static NSString * const kKeyAdmin = @"is_admin";
     return description;
 }
 
+- (NSDictionary *)jsonRepresentation
+{
+    id null = (id)[NSNull null];
+    NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
+    return @{
+             kKeyUserId: @(_userId),
+             kKeyUsername: _username,
+             kKeyEmail: _email,
+             kKeyName: _name ?: null,
+             kKeySkype: _skype ?: null,
+             kKeyLinkedin: _linkedin ?: null,
+             kKeyTwitter: _twitter ?: null,
+             kKeyProvider: _provider ?: null,
+             kKeyState: _state ?: null,
+             kKeyCreatedAt: _createdAt ? [formatter stringFromDate:_createdAt] : null,
+             kKeyBio: _bio ?: null,
+             kKeyExternUid: _externUid ?: null,
+             kKeyThemeId: @(_themeId),
+             kKeyColorSchemeId: @(_colorSchemeId),
+             kKeyAdmin: @(_admin)
+     };
+}
+
+- (NSDictionary *)jsonCreateRepresentation
+{
+    NSMutableDictionary *data = [[self jsonRepresentation] mutableCopy];
+    
+    [data removeObjectsForKeys:@[kKeyUserId, kKeyCreatedAt, kKeyExternUid, kKeyThemeId, kKeyColorSchemeId]];
+    
+    return [data copy];
+}
+
 @end

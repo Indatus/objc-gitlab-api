@@ -12,12 +12,12 @@
 
 @interface GLGitlabApi (Users)
 
-- (GLNetworkOperation *)getUsers:(ino64_t)pageNumber
+- (GLNetworkOperation *)getUsers:(int64_t)pageNumber
                        batchSize:(int64_t)batchSize
                          success:(GLGitlabSuccessBlock)successBlock
                          failure:(GLGitlabFailureBlock)failureBlock;
 
-- (GLNetworkOperation *)getUser:(ino64_t)userId
+- (GLNetworkOperation *)getUser:(int64_t)userId
                         success:(GLGitlabSuccessBlock)successBlock
                         failure:(GLGitlabFailureBlock)failureBlock;
 
