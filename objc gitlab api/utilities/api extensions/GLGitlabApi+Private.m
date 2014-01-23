@@ -33,7 +33,8 @@ NSString * const GLProjectAllProjectsEndPoint = @"/projects/all";
 NSString * const GLProjectGetProjectEndPoint = @"/projects/%d";
 
 
-static NSString *const kApiRoutePrefix = @"/api/v3";
+static NSString * const kApiRoutePrefix = @"/api/v3";
+static NSString * const kPrivateTokenHeaderKey = @"PRIVATE-TOKEN";
 
 @implementation GLGitlabApi (Private)
 
@@ -43,6 +44,9 @@ static NSString *const kApiRoutePrefix = @"/api/v3";
                                           success:(GLNetworkOperationSuccessBlock)success
                                           failure:(GLNetworkOperationFailureBlock)failure
 {
+    if (self.privateToken) {
+        [request addValue:self.privateToken forHTTPHeaderField:kPrivateTokenHeaderKey];
+    }
     GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
                                                                  success:success
                                                                  failure:failure];
