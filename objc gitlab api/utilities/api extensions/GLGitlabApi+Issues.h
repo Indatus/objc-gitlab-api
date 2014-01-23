@@ -25,7 +25,6 @@
                        andFailureBlock:(GLGitlabFailureBlock)failure;
 
 - (GLNetworkOperation *)createIssue:(GLIssue *)issue
-                       forProjectId:(int64_t)projectId
                    withSuccessBlock:(GLGitlabSuccessBlock)success
                     andFailureBlock:(GLGitlabFailureBlock)failure;
 

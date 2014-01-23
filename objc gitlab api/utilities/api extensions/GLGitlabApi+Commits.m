@@ -30,7 +30,8 @@ static NSString * const kCommitEndPoint = @"/commits";
                                    success:localSuccessBlock
                                    failure:localFailureBlock];
 }
-- (GLNetworkOperation *)getCommitWithSha:(NSString *)sha forProjectId:(int64_t)projectId
+- (GLNetworkOperation *)getCommitWithSha:(NSString *)sha
+                            forProjectId:(int64_t)projectId
                         withSuccessBlock:(GLGitlabSuccessBlock)success
                          andFailureBlock:(GLGitlabFailureBlock)failure
 {
@@ -48,7 +49,8 @@ static NSString * const kCommitEndPoint = @"/commits";
                                    failure:localFailureBlock];
 }
 
-- (GLNetworkOperation *)getCommitDiffWithSha:(NSString *)sha forProjectId:(int64_t)projectId
+- (GLNetworkOperation *)getCommitDiffWithSha:(NSString *)sha
+                                forProjectId:(int64_t)projectId
                             withSuccessBlock:(GLGitlabSuccessBlock)success
                              andFailureBlock:(GLGitlabFailureBlock)failure
 {

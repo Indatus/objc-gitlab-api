@@ -77,11 +77,10 @@ static NSString * const kSingleIssueEndpoint = @"/projects/%llu/issues/%llu";
 }
 
 - (GLNetworkOperation *)createIssue:(GLIssue *)issue
-                       forProjectId:(int64_t)projectId
                    withSuccessBlock:(GLGitlabSuccessBlock)success
                     andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kProjectIssuesEndpoint, projectId]];
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kProjectIssuesEndpoint, issue.projectId]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationPostMethod;
     request.HTTPBody = [self urlEncodeParams:[issue jsonCreateRepresentation]];
