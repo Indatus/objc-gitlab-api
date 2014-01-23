@@ -10,6 +10,10 @@
 #import "GLGitlabApi+Private.h"
 #import "GLMilestone.h"
 
+// Endpoints
+static NSString * const kMilestonesEndpoint = @"/projects/%llu/milestones";
+static NSString * const kSingleMilestoneEndpoint = @"/projects/%llu/milestones/%llu";
+
 @implementation GLGitlabApi (Milestones)
 #pragma mark - Milestone Methods
 
@@ -17,11 +21,13 @@
                                     withSuccessBlock:(GLGitlabSuccessBlock)success
                                      andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSMutableURLRequest *request;
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kMilestonesEndpoint, projectId]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationGetMethod;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSArray *responseObject) {
+        NSArray *milestones = [self processJsonArray:responseObject class:[GLMilestone class]];
+        success(milestones);
     };
     
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
@@ -36,12 +42,11 @@
                           withSuccessBlock:(GLGitlabSuccessBlock)success
                            andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSMutableURLRequest *request;
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleMilestoneEndpoint, projectId, milestoneId]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationGetMethod;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
-    };
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLMilestone class] successBlock:success];
     
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
@@ -50,16 +55,16 @@
                                    failure:localFailureBlock];
 }
 
-- (GLNetworkOperation *)createMilestone:(GLMilestone *)milestone forProjectId:(int64_t)projectId
+- (GLNetworkOperation *)createMilestone:(GLMilestone *)milestone
                        withSuccessBlock:(GLGitlabSuccessBlock)success
                         andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSMutableURLRequest *request;
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleMilestoneEndpoint, milestone.projectId, milestone.milestoneId]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationPostMethod;
+    request.HTTPBody = [self urlEncodeParams:[milestone jsonCreateRepresentation]];
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
-    };
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLMilestone class] successBlock:success];
     
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
@@ -72,12 +77,12 @@
                        withSuccessBlock:(GLGitlabSuccessBlock)success
                         andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSMutableURLRequest *request;
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleMilestoneEndpoint, milestone.projectId, milestone.milestoneId]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationPutMethod;
+    request.HTTPBody = [self urlEncodeParams:[milestone jsonRepresentation]];
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
-    };
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLMilestone class] successBlock:success];
     
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
@@ -90,12 +95,14 @@
                       withSuccessBlock:(GLGitlabSuccessBlock)success
                        andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSMutableURLRequest *request;
-    request.HTTPMethod = GLNetworkOperationPutMethod;
+    milestone.state = @"closed";
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
-    };
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleMilestoneEndpoint, milestone.projectId, milestone.milestoneId]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = GLNetworkOperationPutMethod;
+    request.HTTPBody = [self urlEncodeParams:[milestone jsonRepresentation]];
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLMilestone class] successBlock:success];
     
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
@@ -108,12 +115,14 @@
                          withSuccessBlock:(GLGitlabSuccessBlock)success
                           andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSMutableURLRequest *request;
-    request.HTTPMethod = GLNetworkOperationPutMethod;
+    milestone.state = @"active";
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
-    };
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleMilestoneEndpoint, milestone.projectId, milestone.milestoneId]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = GLNetworkOperationPutMethod;
+    request.HTTPBody = [self urlEncodeParams:[milestone jsonRepresentation]];
+    
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLMilestone class] successBlock:success];
     
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     

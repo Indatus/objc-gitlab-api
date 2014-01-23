@@ -21,7 +21,7 @@ static NSString * const kSingleIssueEndpoint = @"/projects/%llu/issues/%llu";
 - (GLNetworkOperation *)getAllIssuesWithSuccessBlock:(GLGitlabSuccessBlock)success
                                      andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURL * url = [self requestUrlForEndPoint:kAllIssuesEndpoint];
+    NSURL *url = [self requestUrlForEndPoint:kAllIssuesEndpoint];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationGetMethod;
     

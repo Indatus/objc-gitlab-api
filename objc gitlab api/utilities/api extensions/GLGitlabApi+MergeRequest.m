@@ -59,11 +59,10 @@ static NSString * const kParamComment = @"note";
 }
 
 - (GLNetworkOperation *)createMergeRequest:(GLMergeRequest *)mergeRequest
-                              forProjectId:(int64_t)projectId
                           withSuccessBlock:(GLGitlabSuccessBlock)success
                            andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kMergeRequestsEndPoint, projectId]];
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kMergeRequestsEndPoint, mergeRequest.projectId]];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationPostMethod;
     request.HTTPBody = [self urlEncodeParams:[mergeRequest jsonCreateRepresentation]];

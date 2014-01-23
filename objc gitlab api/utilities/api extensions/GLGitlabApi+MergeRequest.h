@@ -21,7 +21,6 @@
                               andFailureBlock:(GLGitlabFailureBlock)failure;
 
 - (GLNetworkOperation *)createMergeRequest:(GLMergeRequest *)mergeRequest
-                              forProjectId:(int64_t)projectId
                           withSuccessBlock:(GLGitlabSuccessBlock)success
                            andFailureBlock:(GLGitlabFailureBlock)failure;
 
