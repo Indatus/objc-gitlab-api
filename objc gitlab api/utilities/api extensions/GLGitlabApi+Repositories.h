@@ -22,10 +22,12 @@
                                failure:(GLGitlabFailureBlock)failureBlock;
 
 - (GLNetworkOperation *)protectBranch:(GLBranch *)branch
+                            inProject:(GLProject *)project
                               success:(GLGitlabSuccessBlock)successBlock
                               failure:(GLGitlabFailureBlock)failureBlock;
 
 - (GLNetworkOperation *)unprotectBranch:(GLBranch *)branch
+                              inProject:(GLProject *)project
                                 success:(GLGitlabSuccessBlock)successBlock
                                 failure:(GLGitlabFailureBlock)failureBlock;
 

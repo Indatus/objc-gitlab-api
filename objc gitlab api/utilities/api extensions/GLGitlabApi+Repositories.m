@@ -12,13 +12,21 @@
 #import "GLBranch.h"
 #import "GLTag.h"
 
+// Endpoints
+static NSString * const kBranchesEndPoint = @"/projects/%llu/repository/branches";
+static NSString * const kSingleBranchEndPoint = @"/projects/%llu/repository/branches/%@";
+static NSString * const kSingleBranchProtectEndPoint = @"/projects/%llu/repository/branches/%@/protect";
+static NSString * const kSingleBranchUnprotectEndPoint = @"/projects/%llu/repository/branches/%@/unprotect";
+static NSString * const kTagsEndPoint = @"/projects/%llu/repository/tags";
+
 @implementation GLGitlabApi (Repositories)
 #pragma mark - Repository Methods
 - (GLNetworkOperation *)getRepoBranchesForProject:(GLProject *)project
                                           success:(GLGitlabSuccessBlock)successBlock
                                           failure:(GLGitlabFailureBlock)failureBlock
 {
-    NSMutableURLRequest *request;
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kBranchesEndPoint, project.projectId]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSArray *responseObject) {
@@ -38,7 +46,8 @@
                                success:(GLGitlabSuccessBlock)successBlock
                                failure:(GLGitlabFailureBlock)failureBlock
 {
-    NSMutableURLRequest *request;
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleBranchEndPoint, project.projectId, branchName]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLBranch class] successBlock:successBlock];
@@ -51,11 +60,13 @@
 }
 
 - (GLNetworkOperation *)protectBranch:(GLBranch *)branch
+                            inProject:(GLProject *)project
                               success:(GLGitlabSuccessBlock)successBlock
                               failure:(GLGitlabFailureBlock)failureBlock
 {
-    NSMutableURLRequest *request;
-    request.HTTPMethod = GLNetworkOperationGetMethod;
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleBranchProtectEndPoint, project.projectId, branch.name]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = GLNetworkOperationPutMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLBranch class] successBlock:successBlock];
     
@@ -67,11 +78,13 @@
 }
 
 - (GLNetworkOperation *)unprotectBranch:(GLBranch *)branch
+                              inProject:(GLProject *)project
                                 success:(GLGitlabSuccessBlock)successBlock
                                 failure:(GLGitlabFailureBlock)failureBlock
 {
-    NSMutableURLRequest *request;
-    request.HTTPMethod = GLNetworkOperationGetMethod;
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleBranchUnprotectEndPoint, project.projectId, branch.name]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = GLNetworkOperationPutMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLBranch class] successBlock:successBlock];
     
@@ -86,7 +99,8 @@
                                   success:(GLGitlabSuccessBlock)successBlock
                                   failure:(GLGitlabFailureBlock)failureBlock
 {
-    NSMutableURLRequest *request;
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kTagsEndPoint, project.projectId]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationGetMethod;
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSArray *responseObject) {
