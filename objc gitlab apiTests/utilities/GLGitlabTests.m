@@ -30,28 +30,28 @@
     [super tearDown];
 }
 
-- (void)testLogin
-{
-    __block BOOL done = NO;
-    GLGitlabSuccessBlock success = ^(id responseObject) {
-        XCTAssertNotNil(responseObject, @"Request failed");
-        done = YES;
-    };
-    
-    GLGitlabFailureBlock failure = ^(NSError *error) {
-        XCTAssertNil(error, @"Request failed");
-        done = YES;
-    };
-    GLNetworkOperation *op = [[GLGitlabApi sharedInstance] loginToHost:@"http://gitlab.example.com"
-                                                              username:@"testuser"
-                                                              password:@"password"
-                                                               success:success
-                                                               failure:failure];
-    [[GLGitlabApi sharedInstance] privateToken];
-
-    while (!done) {
-        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
-    }
-}
+//- (void)testLogin
+//{
+//    __block BOOL done = NO;
+//    GLGitlabSuccessBlock success = ^(id responseObject) {
+//        XCTAssertNotNil(responseObject, @"Request failed");
+//        done = YES;
+//    };
+//    
+//    GLGitlabFailureBlock failure = ^(NSError *error) {
+//        XCTAssertNil(error, @"Request failed");
+//        done = YES;
+//    };
+//    GLNetworkOperation *op = [[GLGitlabApi sharedInstance] loginToHost:@"http://gitlab.example.com"
+//                                                              username:@"testuser"
+//                                                              password:@"password"
+//                                                               success:success
+//                                                               failure:failure];
+//    [[GLGitlabApi sharedInstance] privateToken];
+//
+//    while (!done) {
+//        [[NSRunLoop currentRunLoop] runMode:NSDefaultRunLoopMode beforeDate:[NSDate distantFuture]];
+//    }
+//}
 
 @end
