@@ -8,6 +8,12 @@
 
 #import "GLGitlabApi+Snippets.h"
 #import "GLGitlabApi+Private.h"
+#import "GLSnippet.h"
+
+// Endpoints
+static NSString * const kSnippetsEndPoint = @"/projects/%llu/snippets";
+static NSString * const kSingleSnippetEndPoint = @"/projects/%llu/snippets/%llu";
+static NSString * const kSingleSnippetRawEndPoint = @"/projects/%llu/snippets/%llu/raw";
 
 @implementation GLGitlabApi (Snippets)
 #pragma mark - Snippet Methods
@@ -15,16 +21,16 @@
                                         success:(GLGitlabSuccessBlock)successBlock
                                         failure:(GLGitlabFailureBlock)failureBlock
 {
-    NSMutableURLRequest *request;
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSnippetsEndPoint, projectId]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationGetMethod;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSArray *responseObject) {
+        NSArray *snippets = [self processJsonArray:responseObject class:[GLSnippet class]];
+        successBlock(snippets);
     };
     
-    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
-        // TODO
-    };
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
                                    success:localSuccessBlock
@@ -32,20 +38,17 @@
 }
 
 - (GLNetworkOperation *)getSnippet:(int64_t)snippetId
-                         projectId:(int64_t)projectId
+                      forProjectId:(int64_t)projectId
                            success:(GLGitlabSuccessBlock)successBlock
                            failure:(GLGitlabFailureBlock)failureBlock;
 {
-    NSMutableURLRequest *request;
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleSnippetEndPoint, projectId, snippetId]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationGetMethod;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
-    };
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLSnippet class] successBlock:successBlock];
     
-    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
-        // TODO
-    };
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
                                    success:localSuccessBlock
@@ -53,19 +56,17 @@
 }
 
 - (GLNetworkOperation *)createSnippet:(GLSnippet *)snippet
+                         forProjectId:(int64_t)projectId
                               success:(GLGitlabSuccessBlock)successBlock
                               failure:(GLGitlabFailureBlock)failureBlock
 {
-    NSMutableURLRequest *request;
-    request.HTTPMethod = GLNetworkOperationGetMethod;
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSnippetsEndPoint, projectId]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = GLNetworkOperationPostMethod;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
-    };
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLSnippet class] successBlock:successBlock];
     
-    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
-        // TODO
-    };
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
                                    success:localSuccessBlock
@@ -73,19 +74,17 @@
 }
 
 - (GLNetworkOperation *)updateSnippet:(GLSnippet *)snippet
+                         forProjectId:(int64_t)projectId
                               success:(GLGitlabSuccessBlock)successBlock
                               failure:(GLGitlabFailureBlock)failureBlock
 {
-    NSMutableURLRequest *request;
-    request.HTTPMethod = GLNetworkOperationGetMethod;
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleSnippetEndPoint, projectId, snippet.snippetId]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = GLNetworkOperationPutMethod;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
-    };
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLSnippet class] successBlock:successBlock];
     
-    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
-        // TODO
-    };
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
                                    success:localSuccessBlock
@@ -93,19 +92,17 @@
 }
 
 - (GLNetworkOperation *)deleteSnippet:(GLSnippet *)snippet
+                         forProjectId:(int64_t)projectId
                               success:(GLGitlabSuccessBlock)successBlock
                               failure:(GLGitlabFailureBlock)failureBlock
 {
-    NSMutableURLRequest *request;
-    request.HTTPMethod = GLNetworkOperationGetMethod;
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleSnippetEndPoint, projectId, snippet.snippetId]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = GLNetworkOperationDeleteMethod;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
-    };
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLSnippet class] successBlock:successBlock];
     
-    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
-        // TODO
-    };
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
                                    success:localSuccessBlock
@@ -113,19 +110,17 @@
 }
 
 - (GLNetworkOperation *)getRawSnippet:(GLSnippet *)snippet
+                         forProjectId:(int64_t)projectId
                               success:(GLGitlabSuccessBlock)successBlock
                               failure:(GLGitlabFailureBlock)failureBlock
 {
-    NSMutableURLRequest *request;
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleSnippetRawEndPoint, projectId, snippet.snippetId]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationGetMethod;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
-    };
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[NSString class] successBlock:successBlock];
     
-    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
-        // TODO
-    };
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
                                    success:localSuccessBlock

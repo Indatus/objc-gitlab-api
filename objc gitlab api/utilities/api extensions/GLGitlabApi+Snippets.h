@@ -18,23 +18,27 @@
                                         failure:(GLGitlabFailureBlock)failureBlock;
 
 - (GLNetworkOperation *)getSnippet:(int64_t)snippetId
-                         projectId:(int64_t)projectId
+                      forProjectId:(int64_t)projectId
                            success:(GLGitlabSuccessBlock)successBlock
                            failure:(GLGitlabFailureBlock)failureBlock;
 
 - (GLNetworkOperation *)createSnippet:(GLSnippet *)snippet
+                         forProjectId:(int64_t)projectId
                               success:(GLGitlabSuccessBlock)successBlock
                               failure:(GLGitlabFailureBlock)failureBlock;
 
 - (GLNetworkOperation *)updateSnippet:(GLSnippet *)snippet
+                         forProjectId:(int64_t)projectId
                               success:(GLGitlabSuccessBlock)successBlock
                               failure:(GLGitlabFailureBlock)failureBlock;
 
 - (GLNetworkOperation *)deleteSnippet:(GLSnippet *)snippet
+                         forProjectId:(int64_t)projectId
                               success:(GLGitlabSuccessBlock)successBlock
                               failure:(GLGitlabFailureBlock)failureBlock;
 
 - (GLNetworkOperation *)getRawSnippet:(GLSnippet *)snippet
+                         forProjectId:(int64_t)projectId
                               success:(GLGitlabSuccessBlock)successBlock
                               failure:(GLGitlabFailureBlock)failureBlock;
 @end
