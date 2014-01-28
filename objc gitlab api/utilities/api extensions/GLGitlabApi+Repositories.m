@@ -10,6 +10,7 @@
 #import "GLGitlabApi+Private.h"
 #import "GLProject.h"
 #import "GLBranch.h"
+#import "GLTag.h"
 
 @implementation GLGitlabApi (Repositories)
 #pragma mark - Repository Methods
@@ -20,13 +21,12 @@
     NSMutableURLRequest *request;
     request.HTTPMethod = GLNetworkOperationGetMethod;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSArray *responseObject) {
+        NSArray *branches = [self processJsonArray:responseObject class:[GLBranch class]];
+        successBlock(branches);
     };
     
-    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
-        // TODO
-    };
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
                                    success:localSuccessBlock
@@ -41,13 +41,9 @@
     NSMutableURLRequest *request;
     request.HTTPMethod = GLNetworkOperationGetMethod;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
-    };
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLBranch class] successBlock:successBlock];
     
-    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
-        // TODO
-    };
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
                                    success:localSuccessBlock
@@ -61,13 +57,9 @@
     NSMutableURLRequest *request;
     request.HTTPMethod = GLNetworkOperationGetMethod;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
-    };
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLBranch class] successBlock:successBlock];
     
-    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
-        // TODO
-    };
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
                                    success:localSuccessBlock
@@ -81,13 +73,9 @@
     NSMutableURLRequest *request;
     request.HTTPMethod = GLNetworkOperationGetMethod;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
-    };
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLBranch class] successBlock:successBlock];
     
-    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
-        // TODO
-    };
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
                                    success:localSuccessBlock
@@ -101,13 +89,12 @@
     NSMutableURLRequest *request;
     request.HTTPMethod = GLNetworkOperationGetMethod;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSArray *responseObject) {
+        NSArray *tags = [self processJsonArray:responseObject class:[GLTag class]];
+        successBlock(tags);
     };
     
-    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
-        // TODO
-    };
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
                                    success:localSuccessBlock
