@@ -15,6 +15,7 @@ static NSString * const kProjectEndpoint = @"/projects";
 static NSString * const kProjectOwnedProjectsEndPoint = @"/projects/owned";
 static NSString * const kProjectAllProjectsEndPoint = @"/projects/all";
 static NSString * const kProjectSingleProjectEndPoint = @"/projects/%llu";
+static NSString * const kProjectEndpointForUser = @"/projects/user/%llu";
 
 @implementation GLGitlabApi (Projects)
 #pragma mark - Project Methods
@@ -126,41 +127,64 @@ static NSString * const kProjectSingleProjectEndPoint = @"/projects/%llu";
                                    success:(GLGitlabSuccessBlock)successBlock
                                    failure:(GLGitlabFailureBlock)failureBlock
 {
-    NSMutableURLRequest *request;
-    request.HTTPMethod = GLNetworkOperationGetMethod;
+    GLProject *project = [GLProject new];
+    project.name = projectName;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
-    };
+    return [self createProject:project
+                       success:successBlock
+                       failure:failureBlock];
+}
+
+- (GLNetworkOperation *)createProject:(GLProject *)project
+                              success:(GLGitlabSuccessBlock)successBlock
+                              failure:(GLGitlabFailureBlock)failureBlock
+{
+    NSURL *url = [self requestUrlForEndPoint:kProjectEndpoint];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = GLNetworkOperationPostMethod;
+    request.HTTPBody = [self urlEncodeParams:[project jsonCreateRepresentation]];
     
-    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
-        // TODO
-    };
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLProject class] successBlock:successBlock];
+    
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
                                    success:localSuccessBlock
                                    failure:localFailureBlock];
 }
 
+
 - (GLNetworkOperation *)createProjectNamed:(NSString *)projectName
                                    forUser:(GLUser *)user
                                    success:(GLGitlabSuccessBlock)successBlock
                                    failure:(GLGitlabFailureBlock)failureBlock
 {
-    NSMutableURLRequest *request;
-    request.HTTPMethod = GLNetworkOperationGetMethod;
+    GLProject *project = [GLProject new];
+    project.name = projectName;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
-    };
+    return [self createProject:project
+                       forUser:user
+                       success:successBlock
+                       failure:failureBlock];
+}
+
+- (GLNetworkOperation *)createProject:(GLProject *)project
+                              forUser:(GLUser *)user
+                              success:(GLGitlabSuccessBlock)successBlock
+                              failure:(GLGitlabFailureBlock)failureBlock
+{
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kProjectEndpointForUser, user.userId]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = GLNetworkOperationPostMethod;
+    request.HTTPBody = [self urlEncodeParams:[project jsonCreateRepresentation]];
     
-    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
-        // TODO
-    };
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLProject class] successBlock:successBlock];
+    
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
                                    success:localSuccessBlock
-                                   failure:localFailureBlock];
-}
+                                   failure:localFailureBlock];}
+
 
 @end

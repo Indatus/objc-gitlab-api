@@ -100,10 +100,24 @@
                                    failure:(GLGitlabFailureBlock)failureBlock;
 
 /**
+ *  Creates a project with the specified model
+ *
+ *  @param project      The model of the new project
+ *  @param successBlock parameter will be the newly created Project
+ *  @param failureBlock parameter will be an NSError
+ *
+ *  @return The operation to be executed
+ */
+- (GLNetworkOperation *)createProject:(GLProject *)project
+                              success:(GLGitlabSuccessBlock)successBlock
+                              failure:(GLGitlabFailureBlock)failureBlock;
+
+
+/**
  *  Creates a project for the specified user, can only be used by an admin
  *
  *  @param projectName  The name for the new project
- *  @param user         The user from whom the project will be created
+ *  @param user         The user for whom the project will be created
  *  @param successBlock parameter will be the newly created Project
  *  @param failureBlock parameter will be an NSError
  *
@@ -113,4 +127,19 @@
                                    forUser:(GLUser *)user
                                    success:(GLGitlabSuccessBlock)successBlock
                                    failure:(GLGitlabFailureBlock)failureBlock;
+
+/**
+ *  Creates a project for the specified user, can only be used by an admin
+ *
+ *  @param project      The name for the new project
+ *  @param user         The user for whom the project will be created
+ *  @param successBlock parameter will be the newly created Project
+ *  @param failureBlock parameter will be an NSError
+ *
+ *  @return The operation to be executed
+ */
+- (GLNetworkOperation *)createProject:(GLProject *)project
+                              forUser:(GLUser *)user
+                              success:(GLGitlabSuccessBlock)successBlock
+                              failure:(GLGitlabFailureBlock)failureBlock;
 @end
