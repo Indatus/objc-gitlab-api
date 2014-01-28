@@ -11,10 +11,15 @@
 
 static NSString * const kKeyForSha = @"id";
 static NSString * const kKeyForTitle = @"title";
+static NSString * const kKeyForMessage = @"message";
 static NSString * const kKeyForShortId = @"short_id";
+static NSString * const kKeyForAuthor = @"author";
+static NSString * const kKeyForName = @"name";
+static NSString * const kKeyForEmail = @"email";
 static NSString * const kKeyForAuthorName = @"author_name";
 static NSString * const kKeyForAuthorEmail = @"author_email";
 static NSString * const kKeyForCreatedAt = @"created_at";
+static NSString * const kKeyForCommittedDate = @"committed_date";
 
 @implementation GLCommit
 
@@ -61,11 +66,41 @@ static NSString * const kKeyForCreatedAt = @"created_at";
 {
     if (self = [super init]) {
         _sha = json[kKeyForSha];
-        _title = json[kKeyForTitle];
-        _shortId = json[kKeyForShortId];
-        _authorName = json[kKeyForAuthorName];
-        _authorEmail = json[kKeyForAuthorEmail];
-        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyForCreatedAt]];
+        if (json[kKeyForTitle]) {
+            _title = json[kKeyForTitle];
+        }
+        else if (json[kKeyForMessage]) {
+            _title = json[kKeyForMessage];
+        }
+        
+        if (json[kKeyForShortId]) {
+            _shortId = json[kKeyForShortId];
+        }
+        else if (_sha) {
+            _shortId = [_sha substringToIndex:11];
+        }
+        
+        if (json[kKeyForAuthorName]) {
+            _authorName = json[kKeyForAuthorName];
+            _authorEmail = json[kKeyForAuthorEmail];
+        }
+        else if (json[kKeyForAuthor]) {
+            NSDictionary *authorData = json[kKeyForAuthor];
+            _authorName = authorData[kKeyForName];
+            _authorEmail = authorData[kKeyForEmail];
+        }
+
+        NSString *dateString;
+        if (json[kKeyForCreatedAt]) {
+            dateString = json[kKeyForCreatedAt];
+        }
+        else if (json[kKeyForCommittedDate]) {
+            dateString = json[kKeyForCommittedDate];
+        }
+        
+        if (dateString) {
+             _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:dateString];
+        }
     }
     return self;
 }
