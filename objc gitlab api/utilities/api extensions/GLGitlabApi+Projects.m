@@ -10,12 +10,14 @@
 #import "GLGitlabApi+Private.h"
 #import "GLProject.h"
 #import "GLUser.h"
+#import "GLEvent.h"
 
 static NSString * const kProjectEndpoint = @"/projects";
 static NSString * const kProjectOwnedProjectsEndPoint = @"/projects/owned";
 static NSString * const kProjectAllProjectsEndPoint = @"/projects/all";
 static NSString * const kProjectSingleProjectEndPoint = @"/projects/%llu";
 static NSString * const kProjectEndpointForUser = @"/projects/user/%llu";
+static NSString * const kProjectEventsEndPoint = @"/projects/%llu/events";
 
 @implementation GLGitlabApi (Projects)
 #pragma mark - Project Methods
@@ -107,16 +109,16 @@ static NSString * const kProjectEndpointForUser = @"/projects/user/%llu";
                                              success:(GLGitlabSuccessBlock)successBlock
                                              failure:(GLGitlabFailureBlock)failureBlock
 {
-    NSMutableURLRequest *request;
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kProjectEventsEndPoint, projectId]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationGetMethod;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
-        // TODO
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSArray *responseObject) {
+        NSArray *events = [self processJsonArray:responseObject class:[GLEvent class]];
+        successBlock(events);
     };
     
-    GLNetworkOperationFailureBlock localFailureBlock = ^(NSError *error, NSInteger httpStatus, NSData *responseData) {
-        // TODO
-    };
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
                                    success:localSuccessBlock
