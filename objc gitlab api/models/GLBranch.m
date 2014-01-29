@@ -75,10 +75,4 @@ static NSString * const kProtected = @"protected";
              };
 }
 
-- (NSDictionary *)jsonCreateRepresentation
-{
-    return nil;
-}
-
-
 @end

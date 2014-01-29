@@ -45,39 +45,6 @@ static NSString * const kKeyCreatedAt = @"created_at";
     return self;
 }
 
-- (NSDictionary *)jsonRepresentation
-{
-    id null = (id)[NSNull null];
-    NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
-    return @{
-             kKeyIssueId: @(_issueId),
-             kKeyIssueIid: @(_issueIid),
-             kKeyProjectId: @(_projectId),
-             kKeyTitle: _title ?: null,
-             kKeyDescription: _description ?: null,
-             kKeyLabels: _labels ?: null,
-             kKeyMilestone: @(_milestone.milestoneId) ?: null,
-             kKeyAssignee: @(_assignee.userId) ?: null,
-             kKeyAuthor: [_author jsonRepresentation] ?: null,
-             kKeyState: _state ?: null,
-             kKeyUpdatedAt: _updatedAt ? [formatter stringFromDate:_updatedAt] : null,
-             kKeyCreatedAt: _createdAt ? [formatter stringFromDate:_createdAt] : null
-             };
-}
-
-- (NSDictionary *)jsonCreateRepresentation
-{
-    id null = (id)[NSNull null];
-    return @{
-             kKeyProjectId: @(_projectId),
-             kKeyTitle: _title,
-             kKeyDescription: _description ?: null,
-             kKeyLabels: _labels ?: null,
-             kKeyMilestone: @(_milestone.milestoneId) ?: null,
-             kKeyAssignee: @(_assignee.userId) ?: null
-             };
-}
-
 - (BOOL)isEqual:(id)other {
     if (other == self)
         return YES;
@@ -152,5 +119,39 @@ static NSString * const kKeyCreatedAt = @"created_at";
     [description appendString:@">"];
     return description;
 }
+
+- (NSDictionary *)jsonRepresentation
+{
+    id null = (id)[NSNull null];
+    NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
+    return @{
+             kKeyIssueId: @(_issueId),
+             kKeyIssueIid: @(_issueIid),
+             kKeyProjectId: @(_projectId),
+             kKeyTitle: _title ?: null,
+             kKeyDescription: _description ?: null,
+             kKeyLabels: _labels ?: null,
+             kKeyMilestone: @(_milestone.milestoneId) ?: null,
+             kKeyAssignee: @(_assignee.userId) ?: null,
+             kKeyAuthor: [_author jsonRepresentation] ?: null,
+             kKeyState: _state ?: null,
+             kKeyUpdatedAt: _updatedAt ? [formatter stringFromDate:_updatedAt] : null,
+             kKeyCreatedAt: _createdAt ? [formatter stringFromDate:_createdAt] : null
+             };
+}
+
+- (NSDictionary *)jsonCreateRepresentation
+{
+    id null = (id)[NSNull null];
+    return @{
+             kKeyProjectId: @(_projectId),
+             kKeyTitle: _title,
+             kKeyDescription: _description ?: null,
+             kKeyLabels: _labels ?: null,
+             kKeyMilestone: @(_milestone.milestoneId) ?: null,
+             kKeyAssignee: @(_assignee.userId) ?: null
+             };
+}
+
 
 @end

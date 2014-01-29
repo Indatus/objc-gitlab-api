@@ -35,20 +35,6 @@ static NSString * const kKeyTargetTitle = @"target_title";
     return self;
 }
 
-- (NSDictionary *)jsonRepresentation
-{
-    id null = (id)[NSNull null];
-    return @{
-             kKeyTitle: _title ?: null,
-             kKeyActionName: _actionName ?: null,
-             kKeyTargetId: @(_targetId),
-             kKeyTargetType: _targetType ?: null,
-             kKeyAuthorId: @(_authorId),
-             kKeyData: _data ?: null,
-             kKeyTargetTitle: _targetTitle ?: null
-             };
-}
-
 - (BOOL)isEqual:(id)other
 {
     if (other == self)
@@ -112,5 +98,19 @@ static NSString * const kKeyTargetTitle = @"target_title";
     return description;
 }
 
+
+- (NSDictionary *)jsonRepresentation
+{
+    id null = (id)[NSNull null];
+    return @{
+             kKeyTitle: _title ?: null,
+             kKeyActionName: _actionName ?: null,
+             kKeyTargetId: @(_targetId),
+             kKeyTargetType: _targetType ?: null,
+             kKeyAuthorId: @(_authorId),
+             kKeyData: _data ?: null,
+             kKeyTargetTitle: _targetTitle ?: null
+             };
+}
 
 @end

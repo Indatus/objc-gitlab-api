@@ -35,6 +35,34 @@ static NSString * const kKeyNamespace = @"namespace";
 
 @implementation GLProject
 
+- (instancetype)initWithJSON:(NSDictionary *)json
+{
+    if (self = [super init]) {
+        _projectId = [json[kKeyProjectId] longLongValue];
+        _description = [self checkForNull:json[kKeyDescription]];
+        _defaultBranch = [self checkForNull:json[kKeyDefaultBranch]];
+        _publicProject = [json[kKeyPublicProject] boolValue];
+        _visibilityLevel = [json[kKeyVisibilityLevel] intValue];
+        _sshUrl = [self checkForNull:json[kKeySshUrl]];
+        _httpUrl = [self checkForNull:json[kKeyHttpUrl]];
+        _webUrl = [self checkForNull:json[kKeyWebUrl]];
+        _owner = [[GLUser alloc] initWithJSON:json[kKeyOwner]];
+        _name = [self checkForNull:json[kKeyName]];
+        _nameWithNamespace = [self checkForNull:json[kKeyNameWithNamespace]];
+        _path = [self checkForNull:json[kKeyPath]];
+        _pathWithNamespace = [self checkForNull:json[kKeyPathWithNamespace]];
+        _issuesEnabled = [json[kKeyIssuesEnabled] boolValue];
+        _mergeRequestsEnabled = [json[kKeyMergeRequestsEnabled] boolValue];
+        _wallEnabled = [json[kKeyWallEnabled] boolValue];
+        _wikiEnabled = [json[kKeyWikiEnabled] boolValue];
+        _snippetsEnabled = [json[kKeySnippetsEnabled] boolValue];
+        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
+        _lastActivityAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyLastActivityAt]];
+        _glNamespace = [[GLNamespace alloc] initWithJSON:json[kKeyNamespace]];
+    }
+    return self;
+}
+
 - (BOOL)isEqual:(id)other {
     if (other == self)
         return YES;
@@ -119,34 +147,6 @@ static NSString * const kKeyNamespace = @"namespace";
     return hash;
 }
 
-- (instancetype)initWithJSON:(NSDictionary *)json
-{
-    if (self = [super init]) {
-        _projectId = [json[kKeyProjectId] longLongValue];
-        _description = [self checkForNull:json[kKeyDescription]];
-        _defaultBranch = [self checkForNull:json[kKeyDefaultBranch]];
-        _publicProject = [json[kKeyPublicProject] boolValue];
-        _visibilityLevel = [json[kKeyVisibilityLevel] intValue];
-        _sshUrl = [self checkForNull:json[kKeySshUrl]];
-        _httpUrl = [self checkForNull:json[kKeyHttpUrl]];
-        _webUrl = [self checkForNull:json[kKeyWebUrl]];
-        _owner = [[GLUser alloc] initWithJSON:json[kKeyOwner]];
-        _name = [self checkForNull:json[kKeyName]];
-        _nameWithNamespace = [self checkForNull:json[kKeyNameWithNamespace]];
-        _path = [self checkForNull:json[kKeyPath]];
-        _pathWithNamespace = [self checkForNull:json[kKeyPathWithNamespace]];
-        _issuesEnabled = [json[kKeyIssuesEnabled] boolValue];
-        _mergeRequestsEnabled = [json[kKeyMergeRequestsEnabled] boolValue];
-        _wallEnabled = [json[kKeyWallEnabled] boolValue];
-        _wikiEnabled = [json[kKeyWikiEnabled] boolValue];
-        _snippetsEnabled = [json[kKeySnippetsEnabled] boolValue];
-        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
-        _lastActivityAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyLastActivityAt]];
-        _glNamespace = [[GLNamespace alloc] initWithJSON:json[kKeyNamespace]];
-    }
-    return self;
-}
-
 - (NSString *)description {
     NSMutableString *description = [NSMutableString stringWithFormat:@"<%@: ", NSStringFromClass([self class])];
     [description appendFormat:@"self.projectId=%qi", self.projectId];
@@ -172,6 +172,36 @@ static NSString * const kKeyNamespace = @"namespace";
     [description appendFormat:@", self.glNamespace=%@", self.glNamespace];
     [description appendString:@">"];
     return description;
+}
+
+- (NSDictionary *)jsonRepresentation
+{
+    NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
+    NSNull *null = [NSNull null];
+    
+    return @{
+             kKeyProjectId: @(_projectId),
+             kKeyDescription: _description ?: null,
+             kKeyDefaultBranch: _defaultBranch ?: null,
+             kKeyPublicProject: @(_publicProject),
+             kKeyVisibilityLevel: @(_visibilityLevel),
+             kKeySshUrl: _sshUrl ?: null,
+             kKeyHttpUrl: _httpUrl ?: null,
+             kKeyWebUrl: _webUrl ?: null,
+             kKeyOwner: [_owner jsonRepresentation],
+             kKeyName: _name ?: null,
+             kKeyNameWithNamespace: _nameWithNamespace ?: null,
+             kKeyPath: _path ?: null,
+             kKeyPathWithNamespace: _pathWithNamespace ?: null,
+             kKeyIssuesEnabled: @(_issuesEnabled),
+             kKeyMergeRequestsEnabled: @(_mergeRequestsEnabled),
+             kKeyWallEnabled: @(_wallEnabled),
+             kKeyWikiEnabled: @(_wikiEnabled),
+             kKeySnippetsEnabled: @(_snippetsEnabled),
+             kKeyCreatedAt: [formatter stringFromDate:_createdAt],
+             kKeyLastActivityAt: [formatter stringFromDate:_lastActivityAt],
+             kKeyNamespace: [_glNamespace jsonRepresentation]
+             };
 }
 
 @end

@@ -18,6 +18,18 @@ static NSString * const kKeyCreatedAt = @"created_at";
 
 @implementation GLNote
 
+- (instancetype)initWithJSON:(NSDictionary *)json
+{
+    if (self = [super init]) {
+        _noteId = [json[kKeyNoteId] longLongValue];
+        _body = [self checkForNull:json[kKeyBody]];
+        _attachment = [self checkForNull:json[kKeyAttachment]];
+        _author = [[GLUser alloc] initWithJSON:json[kKeyAuthor]];
+        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
+    }
+    return self;
+}
+
 - (BOOL)isEqual:(id)other {
     if (other == self)
         return YES;
@@ -54,18 +66,6 @@ static NSString * const kKeyCreatedAt = @"created_at";
     return hash;
 }
 
-- (instancetype)initWithJSON:(NSDictionary *)json
-{
-    if (self = [super init]) {
-        _noteId = [json[kKeyNoteId] longLongValue];
-        _body = [self checkForNull:json[kKeyBody]];
-        _attachment = [self checkForNull:json[kKeyAttachment]];
-        _author = [[GLUser alloc] initWithJSON:json[kKeyAuthor]];
-        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
-    }
-    return self;
-}
-
 - (NSString *)description {
     NSMutableString *description = [NSMutableString stringWithFormat:@"<%@: ", NSStringFromClass([self class])];
     [description appendFormat:@"self.noteId=%qi", self.noteId];
@@ -75,6 +75,19 @@ static NSString * const kKeyCreatedAt = @"created_at";
     [description appendFormat:@", self.createdAt=%@", self.createdAt];
     [description appendString:@">"];
     return description;
+}
+
+- (NSDictionary *)jsonRepresentation
+{
+    NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
+    NSNull *null = [NSNull null];
+    return @{
+             kKeyNoteId: @(_noteId),
+             kKeyBody: _body ?: null,
+             kKeyAttachment: _attachment ?: null,
+             kKeyAuthor: [_author jsonRepresentation],
+             kKeyCreatedAt: [formatter stringFromDate:_createdAt]
+             };
 }
 
 @end

@@ -19,6 +19,20 @@ static NSString * const kKeyOwnerId = @"owner_id";
 
 @implementation GLNamespace
 
+- (instancetype)initWithJSON:(NSDictionary *)json
+{
+    if (self = [super init]) {
+        _namespaceId = [json[kKeyNamespaceId] longLongValue];
+        _name = [self checkForNull:json[kKeyName]];
+        _path = [self checkForNull:json[kKeyPath]];
+        _description = [self checkForNull:json[kKeyDescription]];
+        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
+        _updatedAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyUpdatedAt]];
+        _ownerId = [json[kKeyOwnerId] longLongValue];
+    }
+    return self;
+}
+
 - (BOOL)isEqual:(id)other {
     if (other == self)
         return YES;
@@ -61,20 +75,6 @@ static NSString * const kKeyOwnerId = @"owner_id";
     return hash;
 }
 
-- (instancetype)initWithJSON:(NSDictionary *)json
-{
-    if (self = [super init]) {
-        _namespaceId = [json[kKeyNamespaceId] longLongValue];
-        _name = [self checkForNull:json[kKeyName]];
-        _path = [self checkForNull:json[kKeyPath]];
-        _description = [self checkForNull:json[kKeyDescription]];
-        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
-        _updatedAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyUpdatedAt]];
-        _ownerId = [json[kKeyOwnerId] longLongValue];
-    }
-    return self;
-}
-
 - (NSString *)description {
     NSMutableString *description = [NSMutableString stringWithFormat:@"<%@: ", NSStringFromClass([self class])];
     [description appendFormat:@"self.namespaceId=%qi", self.namespaceId];
@@ -86,6 +86,21 @@ static NSString * const kKeyOwnerId = @"owner_id";
     [description appendFormat:@", self.ownerId=%qi", self.ownerId];
     [description appendString:@">"];
     return description;
+}
+
+- (NSDictionary *)jsonRepresentation
+{
+    NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
+    NSNull *null = [NSNull null];
+    return @{
+             kKeyNamespaceId: @(_namespaceId),
+             kKeyName: _name ?: null,
+             kKeyPath: _path ?: null,
+             kKeyDescription: _description ?: null,
+             kKeyCreatedAt: [formatter stringFromDate:_createdAt],
+             kKeyUpdatedAt: [formatter stringFromDate:_updatedAt],
+             kKeyOwnerId: @(_ownerId)
+             };
 }
 
 @end

@@ -21,6 +21,27 @@ static NSString * const kKeyCreatedAt = @"created_at";
 
 @implementation GLMilestone
 
+
+- (instancetype)initWithJSON:(NSDictionary *)json
+{
+    if (self = [super init]) {
+        _milestoneId = [json[kKeyMilestoneId] longLongValue];
+        _milestoneIid = [json[kKeyMilestoneIid] longLongValue];
+        _projectId = [json[kKeyProjectId] longLongValue];
+        _title = [self checkForNull:json[kKeyTitle]];
+        _description = [self checkForNull:json[kKeyDescription]];
+        _state = [self checkForNull:json[kKeyState]];
+        NSString *dueDateString = [self checkForNull:json[kKeyDueDate]];
+        if (dueDateString) {
+            _dueDate = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:dueDateString];
+        }
+        
+        _updatedAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyUpdatedAt]];
+        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
+    }
+    return self;
+}
+
 - (BOOL)isEqual:(id)other {
     if (other == self)
         return YES;
@@ -67,26 +88,6 @@ static NSString * const kKeyCreatedAt = @"created_at";
     hash = hash * 31u + [self.updatedAt hash];
     hash = hash * 31u + [self.createdAt hash];
     return hash;
-}
-
-- (instancetype)initWithJSON:(NSDictionary *)json
-{
-    if (self = [super init]) {
-        _milestoneId = [json[kKeyMilestoneId] longLongValue];
-        _milestoneIid = [json[kKeyMilestoneIid] longLongValue];
-        _projectId = [json[kKeyProjectId] longLongValue];
-        _title = [self checkForNull:json[kKeyTitle]];
-        _description = [self checkForNull:json[kKeyDescription]];
-        _state = [self checkForNull:json[kKeyState]];
-        NSString *dueDateString = [self checkForNull:json[kKeyDueDate]];
-        if (dueDateString) {
-            _dueDate = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:dueDateString];
-        }
-
-        _updatedAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyUpdatedAt]];
-        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
-    }
-    return self;
 }
 
 - (NSDictionary *)jsonRepresentation

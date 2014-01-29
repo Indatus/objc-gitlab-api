@@ -65,5 +65,14 @@ static NSString * const kProtected = @"protected";
     return description;
 }
 
+- (NSDictionary *)jsonRepresentation
+{
+    NSNull *null = [NSNull null];
+    return @{
+             kName: _name ?: null,
+             kCommit: [_commit jsonRepresentation],
+             kProtected: @(_protectedTag)
+             };
+}
 
 @end

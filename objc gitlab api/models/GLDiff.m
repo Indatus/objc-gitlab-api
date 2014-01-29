@@ -108,9 +108,4 @@ static NSString * const kKeyDeletedFile = @"deleted_file";
              };
 }
 
-- (NSDictionary *)jsonCreateRepresentation
-{
-    return nil;
-}
-
 @end

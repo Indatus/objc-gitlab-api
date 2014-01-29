@@ -26,6 +26,29 @@ static NSString * const kKeyColorSchemeId = @"color_scheme_id";
 static NSString * const kKeyAdmin = @"is_admin";
 
 @implementation GLUser
+
+- (instancetype)initWithJSON:(NSDictionary *)json
+{
+    if (self = [super init]) {
+        _userId = [json[kKeyUserId] longLongValue];
+        _username = [self checkForNull:json[kKeyUsername]];
+        _email = [self checkForNull:json[kKeyEmail]];
+        _name = [self checkForNull:json[kKeyName]];
+        _skype = [self checkForNull:json[kKeySkype]];
+        _linkedin = [self checkForNull:json[kKeyLinkedin]];
+        _twitter = [self checkForNull:json[kKeyTwitter]];
+        _provider = [self checkForNull:json[kKeyProvider]];
+        _state = [self checkForNull:json[kKeyState]];
+        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
+        _bio = [self checkForNull:json[kKeyBio]];
+        _externUid = [self checkForNull:json[kKeyExternUid]];
+        _themeId = [json[kKeyThemeId] intValue];
+        _colorSchemeId = [json[kKeyColorSchemeId] intValue];
+        _admin = [json[kKeyAdmin] boolValue];
+    }
+    return self;
+}
+
 - (BOOL)isEqual:(id)other {
     if (other == self)
         return YES;
@@ -92,29 +115,6 @@ static NSString * const kKeyAdmin = @"is_admin";
     return hash;
 }
 
-
-- (instancetype)initWithJSON:(NSDictionary *)json
-{
-    if (self = [super init]) {
-        _userId = [json[kKeyUserId] longLongValue];
-        _username = [self checkForNull:json[kKeyUsername]];
-        _email = [self checkForNull:json[kKeyEmail]];
-        _name = [self checkForNull:json[kKeyName]];
-        _skype = [self checkForNull:json[kKeySkype]];
-        _linkedin = [self checkForNull:json[kKeyLinkedin]];
-        _twitter = [self checkForNull:json[kKeyTwitter]];
-        _provider = [self checkForNull:json[kKeyProvider]];
-        _state = [self checkForNull:json[kKeyState]];
-        _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
-        _bio = [self checkForNull:json[kKeyBio]];
-        _externUid = [self checkForNull:json[kKeyExternUid]];
-        _themeId = [json[kKeyThemeId] intValue];
-        _colorSchemeId = [json[kKeyColorSchemeId] intValue];
-        _admin = [json[kKeyAdmin] boolValue];
-    }
-    return self;
-}
-
 - (NSString *)description {
     NSMutableString *description = [NSMutableString stringWithFormat:@"<%@: ", NSStringFromClass([self class])];
     [description appendFormat:@"self.userId=%qi", self.userId];
@@ -138,8 +138,8 @@ static NSString * const kKeyAdmin = @"is_admin";
 
 - (NSDictionary *)jsonRepresentation
 {
-    id null = (id)[NSNull null];
     NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
+    NSNull *null = (id)[NSNull null];
     return @{
              kKeyUserId: @(_userId),
              kKeyUsername: _username,
@@ -150,7 +150,7 @@ static NSString * const kKeyAdmin = @"is_admin";
              kKeyTwitter: _twitter ?: null,
              kKeyProvider: _provider ?: null,
              kKeyState: _state ?: null,
-             kKeyCreatedAt: _createdAt ? [formatter stringFromDate:_createdAt] : null,
+             kKeyCreatedAt: [formatter stringFromDate:_createdAt] ?: null,
              kKeyBio: _bio ?: null,
              kKeyExternUid: _externUid ?: null,
              kKeyThemeId: @(_themeId),
@@ -161,11 +161,19 @@ static NSString * const kKeyAdmin = @"is_admin";
 
 - (NSDictionary *)jsonCreateRepresentation
 {
-    NSMutableDictionary *data = [[self jsonRepresentation] mutableCopy];
-    
-    [data removeObjectsForKeys:@[kKeyUserId, kKeyCreatedAt, kKeyExternUid, kKeyThemeId, kKeyColorSchemeId]];
-    
-    return [data copy];
+    NSNull *null = [NSNull null];
+    return @{
+             kKeyUsername: _username,
+             kKeyEmail: _email,
+             kKeyName: _name ?: null,
+             kKeySkype: _skype ?: null,
+             kKeyLinkedin: _linkedin ?: null,
+             kKeyTwitter: _twitter ?: null,
+             kKeyProvider: _provider ?: null,
+             kKeyState: _state ?: null,
+             kKeyBio: _bio ?: null,
+             kKeyAdmin: @(_admin)
+             };
 }
 
 @end

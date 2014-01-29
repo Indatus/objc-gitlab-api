@@ -43,24 +43,6 @@ static NSString * const kKeyDownvotes = @"downvotes";
     return self;
 }
 
-- (NSDictionary *)jsonRepresentation
-{
-    id null = (id)[NSNull null];
-    return @{
-             kKeyMergeRequestId: @(_mergeRequestId),
-             kKeyMergeRequestIid: @(_mergeRequestIid),
-             kKeyTitle: _title,
-             kKeyState: _state ?: null,
-             kKeyAuthor: [_author jsonRepresentation] ?: null,
-             kKeyAssignee: [_assignee jsonRepresentation] ?: null,
-             kKeyTargetBranch: _targetBranch.name ?: null,
-             kKeySourceBranch: _sourceBranch.name ?: null,
-             kKeyProjectId: @(_projectId),
-             kKeyUpvotes: @(_upvotes),
-             kKeyDownvotes: @(_downvotes)
-             };
-}
-
 - (BOOL)isEqual:(id)other {
     if (other == self)
         return YES;
@@ -115,5 +97,23 @@ static NSString * const kKeyDownvotes = @"downvotes";
     return hash;
 }
 
+
+- (NSDictionary *)jsonRepresentation
+{
+    id null = (id)[NSNull null];
+    return @{
+             kKeyMergeRequestId: @(_mergeRequestId),
+             kKeyMergeRequestIid: @(_mergeRequestIid),
+             kKeyTitle: _title,
+             kKeyState: _state ?: null,
+             kKeyAuthor: [_author jsonRepresentation] ?: null,
+             kKeyAssignee: [_assignee jsonRepresentation] ?: null,
+             kKeyTargetBranch: _targetBranch.name ?: null,
+             kKeySourceBranch: _sourceBranch.name ?: null,
+             kKeyProjectId: @(_projectId),
+             kKeyUpvotes: @(_upvotes),
+             kKeyDownvotes: @(_downvotes)
+             };
+}
 
 @end

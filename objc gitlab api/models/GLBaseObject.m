@@ -16,15 +16,18 @@
     return nil;
 }
 
+- (NSString *)debugDescription
+{
+    return [NSString stringWithFormat:@"<%@: %p\n%@\n>", NSStringFromClass([self class]), self, [self jsonRepresentation]];
+}
+
 - (NSDictionary *)jsonRepresentation
 {
-    NSAssert(false, @"Over ride in subclasses");
     return nil;
 }
 
 - (NSDictionary *)jsonCreateRepresentation
 {
-    NSAssert(false, @"Over ride in subclasses");
     return nil;
 }
 

@@ -20,6 +20,26 @@ static NSString * const kCreatedAt = @"created_at";
 
 @implementation GLSnippet
 
+- (instancetype)initWithJSON:(NSDictionary *)json
+{
+    if (self = [super init]) {
+        NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
+        _snippetId = [json[kSnippetId] longLongValue];
+        _title = [self checkForNull:json[kTitle]];
+        _file_name = [self checkForNull:json[kFileName]];
+        _author = [[GLUser alloc] initWithJSON:json[kAuthor]];
+        NSString *expiresString = [self checkForNull:json[kExpiresAt]];
+        if (expiresString) {
+            _expiresAt = [formatter dateFromString:expiresString];
+        }
+        
+        _updatedAt = [formatter dateFromString:json[kUpdatedAt]];
+        _createdAt = [formatter dateFromString:json[kCreatedAt]];
+    }
+    
+    return self;
+}
+
 - (BOOL)isEqual:(id)other {
     if (other == self)
         return YES;
@@ -62,27 +82,6 @@ static NSString * const kCreatedAt = @"created_at";
     return hash;
 }
 
-- (instancetype)initWithJSON:(NSDictionary *)json
-{
-    if (self = [super init]) {
-        NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
-        _snippetId = [json[kSnippetId] longLongValue];
-        _title = [self checkForNull:json[kTitle]];
-        _file_name = [self checkForNull:json[kFileName]];
-        _author = [[GLUser alloc] initWithJSON:json[kAuthor]];
-        NSString *expiresString = [self checkForNull:json[kExpiresAt]];
-        if (expiresString) {
-        _expiresAt = [formatter dateFromString:expiresString];
-        }
-
-        _updatedAt = [formatter dateFromString:json[kUpdatedAt]];
-        _createdAt = [formatter dateFromString:json[kCreatedAt]];
-    }
-    
-    return self;
-}
-
-
 - (NSString *)description {
     NSMutableString *description = [NSMutableString stringWithFormat:@"<%@: ", NSStringFromClass([self class])];
     [description appendFormat:@"self.snippetId=%qi", self.snippetId];
@@ -96,5 +95,20 @@ static NSString * const kCreatedAt = @"created_at";
     return description;
 }
 
+- (NSDictionary *)jsonRepresentation
+{
+    NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
+    NSNull *null = [NSNull null];
+    
+    return @{
+             kSnippetId: @(_snippetId),
+             kTitle: _title ?: null,
+             kFileName: _file_name ?: null,
+             kAuthor: [_author jsonRepresentation],
+             kExpiresAt: [formatter stringFromDate:_expiresAt] ?: null,
+             kUpdatedAt: [formatter stringFromDate:_updatedAt],
+             kCreatedAt: [formatter stringFromDate:_createdAt]
+             };
+}
 
 @end

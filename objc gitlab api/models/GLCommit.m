@@ -132,9 +132,4 @@ static NSString * const kKeyForCommittedDate = @"committed_date";
              };
 }
 
-- (NSDictionary *)jsonCreateRepresentation
-{
-    return nil;
-}
-
 @end
