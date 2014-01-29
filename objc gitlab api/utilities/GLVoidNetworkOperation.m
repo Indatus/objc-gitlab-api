@@ -20,16 +20,16 @@
         NSDictionary *userInfo;
         
         if (self.responseData) {
-            NSError *error;
+            NSError *jsonError;
             id object = [NSJSONSerialization JSONObjectWithData:self.responseData
                                                         options:0
-                                                          error:&error];
+                                                          error:&jsonError];
             
-            if (!error && [object isKindOfClass:[NSDictionary class]]) {
+            if (!jsonError && [object isKindOfClass:[NSDictionary class]]) {
                 userInfo = object;
             }
             else {
-                NSLog(@"Error processing response data in void request: %@\n%@", error.localizedDescription, error.userInfo);
+                NSLog(@"Error processing response data in void request: %@\n%@", jsonError.localizedDescription, jsonError.userInfo);
             }
         }
         
