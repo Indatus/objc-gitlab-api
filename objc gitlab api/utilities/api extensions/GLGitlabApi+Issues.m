@@ -33,6 +33,7 @@ static NSString * const kSingleIssueEndpoint = @"/projects/%llu/issues/%llu";
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request
+                                      type:GLNetworkOperationTypeJson
                                    success:localSuccessBlock
                                    failure:localFailureBlock];
 }
@@ -53,6 +54,7 @@ static NSString * const kSingleIssueEndpoint = @"/projects/%llu/issues/%llu";
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request
+                                      type:GLNetworkOperationTypeJson
                                    success:localSuccessBlock
                                    failure:localFailureBlock];
 }
@@ -72,6 +74,7 @@ static NSString * const kSingleIssueEndpoint = @"/projects/%llu/issues/%llu";
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request
+                                      type:GLNetworkOperationTypeJson
                                    success:localSuccessBlock
                                    failure:localFailureBlock];
 }
@@ -90,6 +93,7 @@ static NSString * const kSingleIssueEndpoint = @"/projects/%llu/issues/%llu";
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request
+                                      type:GLNetworkOperationTypeJson
                                    success:localSuccessBlock
                                    failure:localFailureBlock];
 }
@@ -108,6 +112,7 @@ static NSString * const kSingleIssueEndpoint = @"/projects/%llu/issues/%llu";
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request
+                                      type:GLNetworkOperationTypeJson
                                    success:localSuccessBlock
                                    failure:localFailureBlock];
 }
@@ -128,6 +133,7 @@ static NSString * const kSingleIssueEndpoint = @"/projects/%llu/issues/%llu";
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request
+                                      type:GLNetworkOperationTypeJson
                                    success:localSuccessBlock
                                    failure:localFailureBlock];
 }
@@ -148,6 +154,7 @@ static NSString * const kSingleIssueEndpoint = @"/projects/%llu/issues/%llu";
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request
+                                      type:GLNetworkOperationTypeJson
                                    success:localSuccessBlock
                                    failure:localFailureBlock];
 }

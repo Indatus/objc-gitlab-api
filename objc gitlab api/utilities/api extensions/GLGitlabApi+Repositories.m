@@ -37,6 +37,7 @@ static NSString * const kTagsEndPoint = @"/projects/%llu/repository/tags";
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
+                                      type:GLNetworkOperationTypeJson
                                    success:localSuccessBlock
                                    failure:localFailureBlock];
 }
@@ -55,6 +56,7 @@ static NSString * const kTagsEndPoint = @"/projects/%llu/repository/tags";
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
+                                      type:GLNetworkOperationTypeJson
                                    success:localSuccessBlock
                                    failure:localFailureBlock];
 }
@@ -73,6 +75,7 @@ static NSString * const kTagsEndPoint = @"/projects/%llu/repository/tags";
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
+                                      type:GLNetworkOperationTypeJson
                                    success:localSuccessBlock
                                    failure:localFailureBlock];
 }
@@ -91,6 +94,7 @@ static NSString * const kTagsEndPoint = @"/projects/%llu/repository/tags";
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
+                                      type:GLNetworkOperationTypeJson
                                    success:localSuccessBlock
                                    failure:localFailureBlock];
 }
@@ -111,6 +115,7 @@ static NSString * const kTagsEndPoint = @"/projects/%llu/repository/tags";
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
+                                      type:GLNetworkOperationTypeJson
                                    success:localSuccessBlock
                                    failure:localFailureBlock];
 }

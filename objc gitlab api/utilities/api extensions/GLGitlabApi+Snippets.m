@@ -33,6 +33,7 @@ static NSString * const kSingleSnippetRawEndPoint = @"/projects/%llu/snippets/%l
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
+                                      type:GLNetworkOperationTypeJson
                                    success:localSuccessBlock
                                    failure:localFailureBlock];
 }
@@ -51,6 +52,7 @@ static NSString * const kSingleSnippetRawEndPoint = @"/projects/%llu/snippets/%l
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
+                                      type:GLNetworkOperationTypeJson
                                    success:localSuccessBlock
                                    failure:localFailureBlock];
 }
@@ -69,6 +71,7 @@ static NSString * const kSingleSnippetRawEndPoint = @"/projects/%llu/snippets/%l
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
+                                      type:GLNetworkOperationTypeJson
                                    success:localSuccessBlock
                                    failure:localFailureBlock];
 }
@@ -87,6 +90,7 @@ static NSString * const kSingleSnippetRawEndPoint = @"/projects/%llu/snippets/%l
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
+                                      type:GLNetworkOperationTypeJson
                                    success:localSuccessBlock
                                    failure:localFailureBlock];
 }
@@ -105,6 +109,7 @@ static NSString * const kSingleSnippetRawEndPoint = @"/projects/%llu/snippets/%l
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
+                                      type:GLNetworkOperationTypeJson
                                    success:localSuccessBlock
                                    failure:localFailureBlock];
 }
@@ -123,6 +128,7 @@ static NSString * const kSingleSnippetRawEndPoint = @"/projects/%llu/snippets/%l
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
+                                      type:GLNetworkOperationTypeJson
                                    success:localSuccessBlock
                                    failure:localFailureBlock];
 }

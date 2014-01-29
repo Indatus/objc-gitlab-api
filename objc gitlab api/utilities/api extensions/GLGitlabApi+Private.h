@@ -26,6 +26,7 @@
  *  @return The operation that will execute the request
  */
 - (GLNetworkOperation *)queueOperationWithRequest:(NSMutableURLRequest *)request
+                                             type:(GLNetworkOperationType)type
                                           success:(GLNetworkOperationSuccessBlock)success
                                           failure:(GLNetworkOperationFailureBlock)failure;
 

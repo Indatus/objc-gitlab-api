@@ -55,6 +55,7 @@ static NSString *const kPrivateTokenKey = @"private_token";
     
     
     return [self queueOperationWithRequest:request
+                                      type:GLNetworkOperationTypeJson
                                    success:localSuccessBlock
                                    failure:localFailureBlock];
 }

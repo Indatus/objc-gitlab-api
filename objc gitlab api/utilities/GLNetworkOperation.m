@@ -7,6 +7,9 @@
 //
 
 #import "GLNetworkOperation.h"
+#import "GLJsonNetworkOperation.h"
+#import "GLRawNetworkOperation.h"
+#import "GLVoidNetworkOperation.h"
 #import "GLConstants.h"
 
 NSString *const GLNetworkOperationPostMethod = @"post";
@@ -18,18 +21,44 @@ NSString *const GLNetworkOperationErrorDomain = @"com.indatus.GLNetworkOperation
 
 @interface GLNetworkOperation ()
 
-@property (nonatomic, copy) GLNetworkOperationSuccessBlock successBlock;
-@property (nonatomic, copy) GLNetworkOperationFailureBlock failureBlock;
-@property (nonatomic, strong) NSURLConnection *connection;
-@property (nonatomic, strong) NSHTTPURLResponse *response;
-@property (nonatomic, strong) NSMutableData *responseData;
-@property (nonatomic) BOOL isExecuting;
-@property (nonatomic) BOOL isConcurrent;
-@property (nonatomic) BOOL isFinished;
+@property (nonatomic, copy, readwrite) GLNetworkOperationSuccessBlock successBlock;
+@property (nonatomic, copy, readwrite) GLNetworkOperationFailureBlock failureBlock;
+@property (nonatomic, strong, readwrite) NSURLConnection *connection;
+@property (nonatomic, strong, readwrite) NSHTTPURLResponse *response;
+@property (nonatomic, strong, readwrite) NSMutableData *responseData;
 
 @end
 
 @implementation GLNetworkOperation
+
++ (GLNetworkOperation *)operationOfType:(GLNetworkOperationType)type
+                                request:(NSURLRequest *)request
+                                success:(GLNetworkOperationSuccessBlock)success
+                                failure:(GLNetworkOperationFailureBlock)failure;
+{
+    GLNetworkOperation *op;
+    switch (type) {
+        case GLNetworkOperationTypeJson:
+            op = [[GLJsonNetworkOperation alloc] initWithRequest:request
+                                                         success:success
+                                                         failure:failure];
+            break;
+        case GLNetworkOperationTypeRaw:
+            op = [[GLRawNetworkOperation alloc] initWithRequest:request
+                                                        success:success
+                                                        failure:failure];
+            break;
+        case GLNetworkOperationTypeVoid:
+            op = [[GLVoidNetworkOperation alloc] initWithRequest:request
+                                                         success:success
+                                                         failure:failure];
+            break;
+
+    }
+    
+    return op;
+}
+
 
 - (instancetype)initWithRequest:(NSURLRequest *)request success:(GLNetworkOperationSuccessBlock)success failure:(GLNetworkOperationFailureBlock)failure
 {
@@ -42,17 +71,6 @@ NSString *const GLNetworkOperationErrorDomain = @"com.indatus.GLNetworkOperation
     }
     
     return self;
-}
-
-- (instancetype)initWithUrl:(NSURL *)url method:(NSString *)method params:(NSDictionary *)params
-                    success:(GLNetworkOperationSuccessBlock)success failure:(GLNetworkOperationFailureBlock)failure
-{
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = method;
-    request.HTTPBody = [NSJSONSerialization dataWithJSONObject:params
-                                                       options:0
-                                                         error:nil];
-    return [[GLNetworkOperation alloc] initWithRequest:request success:success failure:failure];
 }
 
 - (void)start
@@ -87,26 +105,7 @@ NSString *const GLNetworkOperationErrorDomain = @"com.indatus.GLNetworkOperation
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSError *error;
-    id responseObject = [NSJSONSerialization JSONObjectWithData:_responseData
-                                                        options:NSJSONReadingAllowFragments
-                                                          error:&error];
-    if (!error && _successBlock && (_response.statusCode == GLResponseSuccess || _response.statusCode == GLResponseCreated)) {
-        _successBlock(responseObject);
-    }
-    else if (_failureBlock) {
-        if (error) {
-            _failureBlock(error, _response.statusCode, _responseData);
-        }
-        else {
-            NSError *error = [[NSError alloc] initWithDomain:GLNetworkOperationErrorDomain
-                                                        code:_response.statusCode
-                                                    userInfo:responseObject];
-            _failureBlock(error, _response.statusCode, _responseData);
-        }
-    }
-    self.isExecuting = NO;
-    self.isFinished = YES;
+    NSAssert(false, @"Connection finished loading should be handled in subclass");
 }
 
 - (void)connection:(NSURLConnection*)connection didFailWithError:(NSError*)error

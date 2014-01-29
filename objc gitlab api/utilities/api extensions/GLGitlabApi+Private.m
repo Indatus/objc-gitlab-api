@@ -18,6 +18,7 @@ static NSString * const kPrivateTokenHeaderKey = @"PRIVATE-TOKEN";
 @dynamic privateToken, hostName, queue;
 
 - (GLNetworkOperation *)queueOperationWithRequest:(NSMutableURLRequest *)request
+                                             type:(GLNetworkOperationType)type
                                           success:(GLNetworkOperationSuccessBlock)success
                                           failure:(GLNetworkOperationFailureBlock)failure
 {
@@ -25,9 +26,11 @@ static NSString * const kPrivateTokenHeaderKey = @"PRIVATE-TOKEN";
         [request addValue:self.privateToken forHTTPHeaderField:kPrivateTokenHeaderKey];
     }
     
-    GLNetworkOperation *op = [[GLNetworkOperation alloc] initWithRequest:request
-                                                                 success:success
-                                                                 failure:failure];
+    GLNetworkOperation *op = [GLNetworkOperation operationOfType:type
+                                                         request:request
+                                                         success:success
+                                                         failure:failure];
+
     [self.queue addOperation:op];
     
     return op;

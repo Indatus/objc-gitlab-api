@@ -13,21 +13,32 @@ FOUNDATION_EXPORT NSString *const GLNetworkOperationGetMethod;
 FOUNDATION_EXPORT NSString *const GLNetworkOperationPutMethod;
 FOUNDATION_EXPORT NSString *const GLNetworkOperationDeleteMethod;
 
-FOUNDATION_EXPORT NSString *const GLNetworkOperationErrorDomain;;
+FOUNDATION_EXPORT NSString *const GLNetworkOperationErrorDomain;
+
+typedef NS_ENUM(NSInteger, GLNetworkOperationType) {
+    GLNetworkOperationTypeJson,
+    GLNetworkOperationTypeVoid,
+    GLNetworkOperationTypeRaw
+};
 
 typedef void (^GLNetworkOperationSuccessBlock)(id responseObject);
 typedef void (^GLNetworkOperationFailureBlock)(NSError *error, NSInteger httpStatus, NSData *responseData);
 
 @interface GLNetworkOperation : NSOperation <NSURLConnectionDataDelegate, NSURLConnectionDelegate>
 
-- (instancetype)initWithRequest:(NSURLRequest *)request
-                        success:(GLNetworkOperationSuccessBlock)success
-                        failure:(GLNetworkOperationFailureBlock)failure;
+@property (nonatomic, copy, readonly) GLNetworkOperationSuccessBlock successBlock;
+@property (nonatomic, copy, readonly) GLNetworkOperationFailureBlock failureBlock;
+@property (nonatomic, strong, readonly) NSURLConnection *connection;
+@property (nonatomic, strong, readonly) NSHTTPURLResponse *response;
+@property (nonatomic, strong, readonly) NSMutableData *responseData;
 
-- (instancetype)initWithUrl:(NSURL *)url
-                     method:(NSString *)method
-                     params:(NSDictionary *)params
-                    success:(GLNetworkOperationSuccessBlock)success
-                    failure:(GLNetworkOperationFailureBlock)failure;
+@property (nonatomic) BOOL isExecuting;
+@property (nonatomic) BOOL isConcurrent;
+@property (nonatomic) BOOL isFinished;
+
++ (GLNetworkOperation *)operationOfType:(GLNetworkOperationType)type
+                                request:(NSURLRequest *)request
+                                success:(GLNetworkOperationSuccessBlock)success
+                                failure:(GLNetworkOperationFailureBlock)failure;
 
 @end
