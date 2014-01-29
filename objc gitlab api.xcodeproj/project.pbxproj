@@ -12,6 +12,7 @@
 		0C2242BC1899624F00512648 /* GLJsonNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2242BB1899624F00512648 /* GLJsonNetworkOperation.m */; };
 		0C2242BF189965E600512648 /* GLRawNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2242BE189965E600512648 /* GLRawNetworkOperation.m */; };
 		0C2242C2189965F600512648 /* GLVoidNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2242C1189965F600512648 /* GLVoidNetworkOperation.m */; };
+		0C2242C51899985200512648 /* GLEventTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2242C41899985200512648 /* GLEventTests.m */; };
 		0C37318F188FFD290076D45C /* GLSnippet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C37318E188FFD290076D45C /* GLSnippet.m */; };
 		0C373192189005D90076D45C /* GLBranch.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C373191189005D90076D45C /* GLBranch.m */; };
 		0C37319518900B200076D45C /* GLTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C37319418900B200076D45C /* GLTag.m */; };
@@ -85,6 +86,7 @@
 		0C2242BE189965E600512648 /* GLRawNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLRawNetworkOperation.m; sourceTree = "<group>"; };
 		0C2242C0189965F600512648 /* GLVoidNetworkOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLVoidNetworkOperation.h; sourceTree = "<group>"; };
 		0C2242C1189965F600512648 /* GLVoidNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLVoidNetworkOperation.m; sourceTree = "<group>"; };
+		0C2242C41899985200512648 /* GLEventTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLEventTests.m; path = models/GLEventTests.m; sourceTree = "<group>"; };
 		0C37318D188FFD290076D45C /* GLSnippet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLSnippet.h; sourceTree = "<group>"; };
 		0C37318E188FFD290076D45C /* GLSnippet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLSnippet.m; sourceTree = "<group>"; };
 		0C373190189005D90076D45C /* GLBranch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLBranch.h; sourceTree = "<group>"; };
@@ -182,6 +184,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C2242C318997D1900512648 /* operations */ = {
+			isa = PBXGroup;
+			children = (
+				0C2242BA1899624F00512648 /* GLJsonNetworkOperation.h */,
+				0C2242BB1899624F00512648 /* GLJsonNetworkOperation.m */,
+				0C2242BD189965E600512648 /* GLRawNetworkOperation.h */,
+				0C2242BE189965E600512648 /* GLRawNetworkOperation.m */,
+				0C2242C0189965F600512648 /* GLVoidNetworkOperation.h */,
+				0C2242C1189965F600512648 /* GLVoidNetworkOperation.m */,
+			);
+			name = operations;
+			sourceTree = "<group>";
+		};
 		0C373198189012EF0076D45C /* api extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -247,10 +262,11 @@
 		0CF6644918896C21005BC2AC /* models */ = {
 			isa = PBXGroup;
 			children = (
+				0C2242C41899985200512648 /* GLEventTests.m */,
 				0C2242B81899539400512648 /* GLBaseObjectTests.m */,
-				0C6BBC601897FAB6003C107D /* GLDiffTests.m */,
 				0C6BBC5C1897F500003C107D /* GLBranchTests.m */,
 				0C6BBC5D1897F500003C107D /* GLCommitTests.m */,
+				0C6BBC601897FAB6003C107D /* GLDiffTests.m */,
 				0CF6644A188973DD005BC2AC /* GLUserTests.m */,
 			);
 			name = models;
@@ -371,12 +387,7 @@
 				0CF89581188EE4730076E5BA /* GLConstants.m */,
 				5DDC39071885EC1F00DF8FD7 /* GLNetworkOperation.h */,
 				5DDC39081885EC1F00DF8FD7 /* GLNetworkOperation.m */,
-				0C2242BA1899624F00512648 /* GLJsonNetworkOperation.h */,
-				0C2242BB1899624F00512648 /* GLJsonNetworkOperation.m */,
-				0C2242BD189965E600512648 /* GLRawNetworkOperation.h */,
-				0C2242BE189965E600512648 /* GLRawNetworkOperation.m */,
-				0C2242C0189965F600512648 /* GLVoidNetworkOperation.h */,
-				0C2242C1189965F600512648 /* GLVoidNetworkOperation.m */,
+				0C2242C318997D1900512648 /* operations */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
@@ -539,6 +550,7 @@
 				0C6BBC611897FAB6003C107D /* GLDiffTests.m in Sources */,
 				0C6BBC5E1897F500003C107D /* GLBranchTests.m in Sources */,
 				0C6BBC5F1897F500003C107D /* GLCommitTests.m in Sources */,
+				0C2242C51899985200512648 /* GLEventTests.m in Sources */,
 				0CF6644718896C07005BC2AC /* GLGitlabTests.m in Sources */,
 				0CF6644B188973DD005BC2AC /* GLUserTests.m in Sources */,
 			);

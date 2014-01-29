@@ -15,6 +15,8 @@ static NSString * const kKeyTargetId = @"target_id";
 static NSString * const kKeyTargetType = @"target_type";
 static NSString * const kKeyAuthorId = @"author_id";
 static NSString * const kKeyData = @"data";
+static NSString * const kKeyRepository = @"repository";
+static NSString * const kKeyCommits = @"commits";
 static NSString * const kKeyTargetTitle = @"target_title";
 
 @implementation GLEvent
@@ -23,12 +25,15 @@ static NSString * const kKeyTargetTitle = @"target_title";
 {
     if (self = [super init]) {
         _title = [self checkForNull:json[kKeyTitle]];
-        _projectId = [json[kKeyProjectId] longLongValue];
+        _projectId = [[self checkForNull:json[kKeyProjectId]] longLongValue];
         _actionName = [self checkForNull:json[kKeyActionName]];
-        _targetId = [json[kKeyTargetId] longLongValue];
+        _targetId = [[self checkForNull:json[kKeyTargetId]] longLongValue];
         _targetType = [self checkForNull:json[kKeyTargetType]];
-        _authorId = [json[kKeyAuthorId] longLongValue];
-        _data = [json[kKeyData] dictionaryRepresentation];
+        _authorId = [[self checkForNull:json[kKeyAuthorId]] longLongValue];
+        _data = json[kKeyData];
+        if ((id)_data == [NSNull null]) {
+            _data = nil;
+        }
         _targetTitle = [self checkForNull:json[kKeyTargetTitle]];
     }
     

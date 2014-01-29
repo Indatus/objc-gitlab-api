@@ -28,12 +28,6 @@
 // target_title
 @property (nonatomic, copy) NSString *targetTitle;
 
-- (BOOL)isEqual:(id)other;
-
 - (BOOL)isEqualToEvent:(GLEvent *)event;
-
-- (NSUInteger)hash;
-
-- (NSString *)description;
 
 @end
