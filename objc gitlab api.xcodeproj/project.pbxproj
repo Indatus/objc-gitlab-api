@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0C2242B718994A7100512648 /* GLBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2242B618994A7100512648 /* GLBaseObject.m */; };
+		0C2242B91899539400512648 /* GLBaseObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2242B81899539400512648 /* GLBaseObjectTests.m */; };
 		0C37318F188FFD290076D45C /* GLSnippet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C37318E188FFD290076D45C /* GLSnippet.m */; };
 		0C373192189005D90076D45C /* GLBranch.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C373191189005D90076D45C /* GLBranch.m */; };
 		0C37319518900B200076D45C /* GLTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C37319418900B200076D45C /* GLTag.m */; };
@@ -74,6 +75,7 @@
 /* Begin PBXFileReference section */
 		0C2242B518994A7100512648 /* GLBaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLBaseObject.h; sourceTree = "<group>"; };
 		0C2242B618994A7100512648 /* GLBaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLBaseObject.m; sourceTree = "<group>"; };
+		0C2242B81899539400512648 /* GLBaseObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLBaseObjectTests.m; path = models/GLBaseObjectTests.m; sourceTree = "<group>"; };
 		0C37318D188FFD290076D45C /* GLSnippet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLSnippet.h; sourceTree = "<group>"; };
 		0C37318E188FFD290076D45C /* GLSnippet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLSnippet.m; sourceTree = "<group>"; };
 		0C373190189005D90076D45C /* GLBranch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLBranch.h; sourceTree = "<group>"; };
@@ -236,6 +238,7 @@
 		0CF6644918896C21005BC2AC /* models */ = {
 			isa = PBXGroup;
 			children = (
+				0C2242B81899539400512648 /* GLBaseObjectTests.m */,
 				0C6BBC601897FAB6003C107D /* GLDiffTests.m */,
 				0C6BBC5C1897F500003C107D /* GLBranchTests.m */,
 				0C6BBC5D1897F500003C107D /* GLCommitTests.m */,
@@ -514,6 +517,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C2242B91899539400512648 /* GLBaseObjectTests.m in Sources */,
 				0C6BBC611897FAB6003C107D /* GLDiffTests.m in Sources */,
 				0C6BBC5E1897F500003C107D /* GLBranchTests.m in Sources */,
 				0C6BBC5F1897F500003C107D /* GLCommitTests.m in Sources */,

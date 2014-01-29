@@ -68,10 +68,10 @@ static NSString * const kKeyDeletedFile = @"deleted_file";
 {
     if ((self = [super init])) {
         _diff = [self checkForNull:json[kKeyDiff]];
-        _updatedPath = json[kKeyNewPath];
-        _oldPath = json[kKeyOldPath];
-        _aMode = json[kKeyAMode] ?:nil;
-        _bMode = json[kKeyBMode];
+        _updatedPath = [self checkForNull:json[kKeyNewPath]];
+        _oldPath = [self checkForNull:json[kKeyOldPath]];
+        _aMode = [self checkForNull:json[kKeyAMode]];
+        _bMode = [self checkForNull:json[kKeyBMode]];
         _newFile = [json[kKeyNewFile] boolValue];
         _renamedFile = [json[kKeyRenamedFile] boolValue];
         _deletedFile = [json[kKeyDeletedFile] boolValue];
