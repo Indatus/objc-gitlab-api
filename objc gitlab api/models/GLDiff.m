@@ -19,6 +19,21 @@ static NSString * const kKeyDeletedFile = @"deleted_file";
 
 @implementation GLDiff
 
+- (instancetype)initWithJSON:(NSDictionary *)json
+{
+    if ((self = [super init])) {
+        _diff = [self checkForNull:json[kKeyDiff]];
+        _updatedPath = [self checkForNull:json[kKeyNewPath]];
+        _oldPath = [self checkForNull:json[kKeyOldPath]];
+        _aMode = [self checkForNull:json[kKeyAMode]];
+        _bMode = [self checkForNull:json[kKeyBMode]];
+        _newFile = [json[kKeyNewFile] boolValue];
+        _renamedFile = [json[kKeyRenamedFile] boolValue];
+        _deletedFile = [json[kKeyDeletedFile] boolValue];
+    }
+    return self;
+}
+
 - (BOOL)isEqual:(id)other {
     if (other == self)
         return YES;
@@ -64,21 +79,6 @@ static NSString * const kKeyDeletedFile = @"deleted_file";
     return hash;
 }
 
-- (instancetype)initWithJSON:(NSDictionary *)json
-{
-    if ((self = [super init])) {
-        _diff = [self checkForNull:json[kKeyDiff]];
-        _updatedPath = [self checkForNull:json[kKeyNewPath]];
-        _oldPath = [self checkForNull:json[kKeyOldPath]];
-        _aMode = [self checkForNull:json[kKeyAMode]];
-        _bMode = [self checkForNull:json[kKeyBMode]];
-        _newFile = [json[kKeyNewFile] boolValue];
-        _renamedFile = [json[kKeyRenamedFile] boolValue];
-        _deletedFile = [json[kKeyDeletedFile] boolValue];
-    }
-    return self;
-}
-
 - (NSString *)description {
     NSMutableString *description = [NSMutableString stringWithFormat:@"<%@: ", NSStringFromClass([self class])];
     [description appendFormat:@"self.diff=%@", self.diff];
@@ -91,6 +91,26 @@ static NSString * const kKeyDeletedFile = @"deleted_file";
     [description appendFormat:@", self.deletedFile=%d", self.deletedFile];
     [description appendString:@">"];
     return description;
+}
+
+- (NSDictionary *)jsonRepresentation
+{
+    NSNull *null = [NSNull null];
+    return @{
+             kKeyDiff: _diff ?: null,
+             kKeyNewPath: _updatedPath ?: null,
+             kKeyOldPath: _oldPath ?: null,
+             kKeyAMode: _aMode ?: null,
+             kKeyBMode: _bMode ?: null,
+             kKeyNewFile: @(_newFile),
+             kKeyRenamedFile: @(_newFile),
+             kKeyDeletedFile: @(_deletedFile)
+             };
+}
+
+- (NSDictionary *)jsonCreateRepresentation
+{
+    return nil;
 }
 
 @end
