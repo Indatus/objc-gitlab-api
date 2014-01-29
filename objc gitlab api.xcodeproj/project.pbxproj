@@ -13,6 +13,8 @@
 		0C2242BF189965E600512648 /* GLRawNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2242BE189965E600512648 /* GLRawNetworkOperation.m */; };
 		0C2242C2189965F600512648 /* GLVoidNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2242C1189965F600512648 /* GLVoidNetworkOperation.m */; };
 		0C2242C51899985200512648 /* GLEventTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2242C41899985200512648 /* GLEventTests.m */; };
+		0C2242C71899AA8700512648 /* GLIssueTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2242C61899AA8700512648 /* GLIssueTests.m */; };
+		0C2242C91899AB0D00512648 /* issues.json in Resources */ = {isa = PBXBuildFile; fileRef = 0C2242C81899AB0D00512648 /* issues.json */; };
 		0C37318F188FFD290076D45C /* GLSnippet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C37318E188FFD290076D45C /* GLSnippet.m */; };
 		0C373192189005D90076D45C /* GLBranch.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C373191189005D90076D45C /* GLBranch.m */; };
 		0C37319518900B200076D45C /* GLTag.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C37319418900B200076D45C /* GLTag.m */; };
@@ -87,6 +89,8 @@
 		0C2242C0189965F600512648 /* GLVoidNetworkOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLVoidNetworkOperation.h; sourceTree = "<group>"; };
 		0C2242C1189965F600512648 /* GLVoidNetworkOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLVoidNetworkOperation.m; sourceTree = "<group>"; };
 		0C2242C41899985200512648 /* GLEventTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLEventTests.m; path = models/GLEventTests.m; sourceTree = "<group>"; };
+		0C2242C61899AA8700512648 /* GLIssueTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLIssueTests.m; path = models/GLIssueTests.m; sourceTree = "<group>"; };
+		0C2242C81899AB0D00512648 /* issues.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = issues.json; path = "supporting files/issues.json"; sourceTree = "<group>"; };
 		0C37318D188FFD290076D45C /* GLSnippet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLSnippet.h; sourceTree = "<group>"; };
 		0C37318E188FFD290076D45C /* GLSnippet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLSnippet.m; sourceTree = "<group>"; };
 		0C373190189005D90076D45C /* GLBranch.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLBranch.h; sourceTree = "<group>"; };
@@ -262,11 +266,12 @@
 		0CF6644918896C21005BC2AC /* models */ = {
 			isa = PBXGroup;
 			children = (
-				0C2242C41899985200512648 /* GLEventTests.m */,
 				0C2242B81899539400512648 /* GLBaseObjectTests.m */,
 				0C6BBC5C1897F500003C107D /* GLBranchTests.m */,
 				0C6BBC5D1897F500003C107D /* GLCommitTests.m */,
 				0C6BBC601897FAB6003C107D /* GLDiffTests.m */,
+				0C2242C41899985200512648 /* GLEventTests.m */,
+				0C2242C61899AA8700512648 /* GLIssueTests.m */,
 				0CF6644A188973DD005BC2AC /* GLUserTests.m */,
 			);
 			name = models;
@@ -338,6 +343,7 @@
 			children = (
 				5D4955011885CFDB00E162BB /* objc gitlab apiTests-Info.plist */,
 				5D4955021885CFDB00E162BB /* InfoPlist.strings */,
+				0C2242C81899AB0D00512648 /* issues.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -465,6 +471,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5D4955041885CFDB00E162BB /* InfoPlist.strings in Resources */,
+				0C2242C91899AB0D00512648 /* issues.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +553,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C2242C71899AA8700512648 /* GLIssueTests.m in Sources */,
 				0C2242B91899539400512648 /* GLBaseObjectTests.m in Sources */,
 				0C6BBC611897FAB6003C107D /* GLDiffTests.m in Sources */,
 				0C6BBC5E1897F500003C107D /* GLBranchTests.m in Sources */,
