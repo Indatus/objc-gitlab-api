@@ -123,12 +123,16 @@ static NSString * const kSingleSnippetRawEndPoint = @"/projects/%llu/snippets/%l
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = GLNetworkOperationGetMethod;
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[NSString class] successBlock:successBlock];
+    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSData *responseData) {
+        NSString *string = [[NSString alloc] initWithData:responseData
+                                                 encoding:NSUTF8StringEncoding];
+        successBlock(string);
+    };
     
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
-                                      type:GLNetworkOperationTypeJson
+                                      type:GLNetworkOperationTypeRaw
                                    success:localSuccessBlock
                                    failure:localFailureBlock];
 }
