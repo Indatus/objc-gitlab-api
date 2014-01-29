@@ -31,7 +31,7 @@ static NSString *const branchJson = @"{ \"name\": \"master\", \"commit\": { \"id
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testJsonInit
 {
     NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
     NSData *jsonData = [branchJson dataUsingEncoding:NSUTF8StringEncoding];
