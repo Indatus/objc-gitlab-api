@@ -51,16 +51,16 @@ sudo -u git -H bundle exec rake migrate_inline_notes RAILS_ENV=production\
     }
     GLDiff *knownDiff = [[GLDiff alloc] init];
     knownDiff.diff = @"--- a/doc/update/5.4-to-6.0.html\
-    +++ b/doc/update/5.4-to-6.0.html\
-    @@ -71,6 +71,8 @@\
-    sudo -u git -H bundle exec rake migrate_keys RAILS_ENV=production\
-    sudo -u git -H bundle exec rake migrate_inline_notes RAILS_ENV=production\
-    \
-    +sudo -u git -H bundle exec rake assets:precompile RAILS_ENV=production\
-    +\
-    ```\
-    \
-    ### 6. Update config files";
++++ b/doc/update/5.4-to-6.0.html\
+@@ -71,6 +71,8 @@\
+sudo -u git -H bundle exec rake migrate_keys RAILS_ENV=production\
+sudo -u git -H bundle exec rake migrate_inline_notes RAILS_ENV=production\
+\
++sudo -u git -H bundle exec rake assets:precompile RAILS_ENV=production\
++\
+```\
+\
+### 6. Update config files";
     knownDiff.updatedPath = @"doc/update/5.4-to-6.0.html";
     knownDiff.oldPath = @"doc/update/5.4-to-6.0.html";
     knownDiff.aMode = nil;

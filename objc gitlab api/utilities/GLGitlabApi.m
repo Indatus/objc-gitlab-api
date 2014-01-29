@@ -8,7 +8,6 @@
 
 #import "GLGitlabApi.h"
 #import "GLNetworkOperation.h"
-#import "GLJsonProtocol.h"
 #import "GLProject.h"
 #import "GLUser.h"
 #import "GLMergeRequest.h"

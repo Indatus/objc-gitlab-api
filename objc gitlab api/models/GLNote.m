@@ -58,8 +58,8 @@ static NSString * const kKeyCreatedAt = @"created_at";
 {
     if (self = [super init]) {
         _noteId = [json[kKeyNoteId] longLongValue];
-        _body = json[kKeyBody];
-        _attachment = json[kKeyAttachment];
+        _body = [self checkForNull:json[kKeyBody]];
+        _attachment = [self checkForNull:json[kKeyAttachment]];
         _author = [[GLUser alloc] initWithJSON:json[kKeyAuthor]];
         _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
     }

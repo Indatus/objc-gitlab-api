@@ -18,7 +18,7 @@ static NSString * const kProtected = @"protected";
 - (instancetype)initWithJSON:(NSDictionary *)json
 {
     if (self = [super init]) {
-        _name = json[kName];
+        _name = [self checkForNull:json[kName]];
         _commit = [[GLCommit alloc] initWithJSON:json[kCommit]];
         _branchProtected = [json[kProtected] boolValue];
     }

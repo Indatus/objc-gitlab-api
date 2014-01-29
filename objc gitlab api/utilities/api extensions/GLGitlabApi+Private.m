@@ -8,7 +8,7 @@
 
 #import "GLGitlabApi+Private.h"
 #import "GLConstants.h"
-#import "GLJsonProtocol.h"
+#import "GLBaseObject.h"
 
 static NSString * const kApiRoutePrefix = @"/api/v3";
 static NSString * const kPrivateTokenHeaderKey = @"PRIVATE-TOKEN";
@@ -65,8 +65,12 @@ static NSString * const kPrivateTokenHeaderKey = @"PRIVATE-TOKEN";
     return encodedString;
 }
 
-- (NSArray *)processJsonArray:(NSArray *)jsonArray class:(Class<GLJsonProtocol>)class
+- (NSArray *)processJsonArray:(NSArray *)jsonArray class:(Class)class
 {
+    if (![class isSubclassOfClass:[GLBaseObject class]]) {
+        return nil;
+    }
+    
     Class aClass = (Class)class; // Cast back to a class to gain access to alloc
     NSMutableArray *array = [NSMutableArray array];
     for (NSDictionary *dictionary in jsonArray) {
@@ -150,9 +154,13 @@ static NSString * const kPrivateTokenHeaderKey = @"PRIVATE-TOKEN";
     };
 }
 
-- (GLNetworkOperationSuccessBlock)singleObjectSuccessBlockForClass:(Class <GLJsonProtocol>)class
+- (GLNetworkOperationSuccessBlock)singleObjectSuccessBlockForClass:(Class)class
                                                       successBlock:(GLGitlabSuccessBlock)success
 {
+    if (![class isSubclassOfClass:[GLBaseObject class]]) {
+        return nil;
+    }
+    
     return ^(NSDictionary *resonseObject) {
         Class aClass = (Class)class; // Cast back to a class to gain access to alloc
         id object = [[aClass alloc] initWithJSON:resonseObject];

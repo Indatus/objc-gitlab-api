@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GLJsonProtocol.h"
+#import "GLBaseObject.h"
 
 @class GLNamespace, GLUser;
 
-@interface GLProject : NSObject <GLJsonProtocol>
+@interface GLProject : GLBaseObject
 
 // id
 @property (nonatomic, assign) int64_t projectId;

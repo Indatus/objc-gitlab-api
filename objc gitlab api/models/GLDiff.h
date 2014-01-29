@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GLJsonProtocol.h"
+#import "GLBaseObject.h"
 
-@interface GLDiff : NSObject <GLJsonProtocol>
+@interface GLDiff : GLBaseObject
 
 // diff
 @property (nonatomic, copy) NSString *diff;

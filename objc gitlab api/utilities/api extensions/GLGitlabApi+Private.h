@@ -9,8 +9,6 @@
 #import "GLGitlabApi.h"
 #import "GLNetworkOperation.h"
 
-@protocol GLJsonProtocol;
-
 @interface GLGitlabApi (Private)
 
 @property (nonatomic, strong) NSURL *hostName;
@@ -64,11 +62,11 @@
  *  Processes an array of JSON objects and converts them into an array of model objects
  *
  *  @param jsonArray Array of JSON objects
- *  @param aClass    The class of the model to be parsed
+ *  @param aClass    The class of the model to be parsed, must be a subclass of GLBaseObject
  *
  *  @return An array of model objects
  */
-- (NSArray *)processJsonArray:(NSArray *)jsonArray class:(Class<GLJsonProtocol>)aClass;
+- (NSArray *)processJsonArray:(NSArray *)jsonArray class:(Class)aClass;
 
 /**
  *  Retrieves the complete url for the specified endpoint
@@ -79,8 +77,23 @@
  */
 - (NSURL *)requestUrlForEndPoint:(NSString *)endpoint;
 
+/**
+ *  Method that creates a failure block which calls back to the provided block
+ *
+ *  @param failureCallback The block to be executed as a call back
+ *
+ *  @return A network operation failure block that will call back to the provided block
+ */
 - (GLNetworkOperationFailureBlock)defaultFailureBlock:(GLGitlabFailureBlock)failureCallback;
 
-- (GLNetworkOperationSuccessBlock)singleObjectSuccessBlockForClass:(Class<GLJsonProtocol>)aClass
+/**
+ *  Returns block to process a single JSON object that is a sublcass of GLBaseObject
+ *
+ *  @param aClass  A class that is a subclass of GLBaseObject
+ *  @param success The block to be executed upon a successful request
+ *
+ *  @return A network operation success block that will process a single object and call back the specified success block
+ */
+- (GLNetworkOperationSuccessBlock)singleObjectSuccessBlockForClass:(Class)aClass
                                                       successBlock:(GLGitlabSuccessBlock)success;
 @end

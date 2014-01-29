@@ -65,9 +65,9 @@ static NSString * const kKeyOwnerId = @"owner_id";
 {
     if (self = [super init]) {
         _namespaceId = [json[kKeyNamespaceId] longLongValue];
-        _name = json[kKeyName];
-        _path = json[kKeyPath];
-        _description = json[kKeyDescription];
+        _name = [self checkForNull:json[kKeyName]];
+        _path = [self checkForNull:json[kKeyPath]];
+        _description = [self checkForNull:json[kKeyDescription]];
         _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
         _updatedAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyUpdatedAt]];
         _ownerId = [json[kKeyOwnerId] longLongValue];

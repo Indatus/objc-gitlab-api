@@ -75,10 +75,14 @@ static NSString * const kKeyCreatedAt = @"created_at";
         _milestoneId = [json[kKeyMilestoneId] longLongValue];
         _milestoneIid = [json[kKeyMilestoneIid] longLongValue];
         _projectId = [json[kKeyProjectId] longLongValue];
-        _title = json[kKeyTitle];
-        _description = json[kKeyDescription];
-        _dueDate = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyDueDate]];
-        _state = json[kKeyState];
+        _title = [self checkForNull:json[kKeyTitle]];
+        _description = [self checkForNull:json[kKeyDescription]];
+        _state = [self checkForNull:json[kKeyState]];
+        NSString *dueDateString = [self checkForNull:json[kKeyDueDate]];
+        if (dueDateString) {
+            _dueDate = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:dueDateString];
+        }
+
         _updatedAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyUpdatedAt]];
         _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
     }
@@ -95,7 +99,7 @@ static NSString * const kKeyCreatedAt = @"created_at";
              kKeyProjectId: @(_projectId),
              kKeyTitle: _title,
              kKeyDescription: _description ?: null,
-             kKeyDueDate: _dueDate ? [formatter stringFromDate:_createdAt] : null,
+             kKeyDueDate: _dueDate ? [formatter stringFromDate:_dueDate] : null,
              kKeyState: _state ?: null,
              kKeyUpdatedAt: _updatedAt ? [formatter stringFromDate:_updatedAt] : null,
              kKeyCreatedAt: _createdAt ? [formatter stringFromDate:_createdAt] : null

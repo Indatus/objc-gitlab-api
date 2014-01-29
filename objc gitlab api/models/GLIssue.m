@@ -32,13 +32,13 @@ static NSString * const kKeyCreatedAt = @"created_at";
         _issueId = [json[kKeyIssueId] longLongValue];
         _issueIid = [json[kKeyIssueIid] longLongValue];
         _projectId = [json[kKeyProjectId] longLongValue];
-        _title = json[kKeyTitle];
-        _description = json[kKeyDescription];
+        _title = [self checkForNull:json[kKeyTitle]];
+        _description = [self checkForNull:json[kKeyDescription]];
         _labels = [json[kKeyLabels] array];
         _milestone = [[GLMilestone alloc] initWithJSON:json[kKeyMilestone]];
         _assignee = [[GLUser alloc] initWithJSON:json[kKeyAssignee]];
         _author = [[GLUser alloc] initWithJSON:json[kKeyAuthor]];
-        _state = json[kKeyState];
+        _state = [self checkForNull:json[kKeyState]];
         _updatedAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyUpdatedAt]];
         _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
     }

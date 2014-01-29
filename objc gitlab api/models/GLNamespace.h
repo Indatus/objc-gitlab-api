@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GLJsonProtocol.h"
+#import "GLBaseObject.h"
 
-@interface GLNamespace : NSObject <GLJsonProtocol>
+@interface GLNamespace : GLBaseObject
 
 // id
 @property (nonatomic, assign) int64_t namespaceId;

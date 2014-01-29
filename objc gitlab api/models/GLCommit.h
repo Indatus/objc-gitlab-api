@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GLJsonProtocol.h"
+#import "GLBaseObject.h"
 
-@interface GLCommit : NSObject <GLJsonProtocol>
+@interface GLCommit : GLBaseObject
 
 //id
 @property (nonatomic, copy) NSString *sha;

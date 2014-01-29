@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GLJsonProtocol.h"
+#import "GLBaseObject.h"
 
 @class GLUser;
 
-@interface GLSnippet : NSObject <GLJsonProtocol>
+@interface GLSnippet : GLBaseObject
 
 // id
 @property (nonatomic, assign) int64_t snippetId;

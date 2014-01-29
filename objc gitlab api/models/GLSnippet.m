@@ -67,10 +67,14 @@ static NSString * const kCreatedAt = @"created_at";
     if (self = [super init]) {
         NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
         _snippetId = [json[kSnippetId] longLongValue];
-        _title = json[kTitle];
-        _file_name = json[kFileName];
+        _title = [self checkForNull:json[kTitle]];
+        _file_name = [self checkForNull:json[kFileName]];
         _author = [[GLUser alloc] initWithJSON:json[kAuthor]];
-        _expiresAt = json[kExpiresAt] == [NSNull null] ? nil : [formatter dateFromString:json[kExpiresAt]];
+        NSString *expiresString = [self checkForNull:json[kExpiresAt]];
+        if (expiresString) {
+        _expiresAt = [formatter dateFromString:expiresString];
+        }
+
         _updatedAt = [formatter dateFromString:json[kUpdatedAt]];
         _createdAt = [formatter dateFromString:json[kCreatedAt]];
     }

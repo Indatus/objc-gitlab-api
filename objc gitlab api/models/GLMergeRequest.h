@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GLJsonProtocol.h"
+#import "GLBaseObject.h"
 
 @class GLUser, GLBranch;
 
-@interface GLMergeRequest : NSObject <GLJsonProtocol>
+@interface GLMergeRequest : GLBaseObject
 
 // id
 @property (nonatomic, assign) int64_t mergeRequestId;

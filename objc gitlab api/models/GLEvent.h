@@ -7,9 +7,9 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "GLJsonProtocol.h"
+#import "GLBaseObject.h"
 
-@interface GLEvent : NSObject <GLJsonProtocol>
+@interface GLEvent : GLBaseObject
 
 // title
 @property (nonatomic, copy) NSString *title;

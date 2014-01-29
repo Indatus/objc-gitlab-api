@@ -22,14 +22,14 @@ static NSString * const kKeyTargetTitle = @"target_title";
 - (instancetype)initWithJSON:(NSDictionary *)json
 {
     if (self = [super init]) {
-        _title = json[kKeyTitle];
+        _title = [self checkForNull:json[kKeyTitle]];
         _projectId = [json[kKeyProjectId] longLongValue];
-        _actionName = json[kKeyActionName];
+        _actionName = [self checkForNull:json[kKeyActionName]];
         _targetId = [json[kKeyTargetId] longLongValue];
-        _targetType = json[kKeyTargetType];
+        _targetType = [self checkForNull:json[kKeyTargetType]];
         _authorId = [json[kKeyAuthorId] longLongValue];
         _data = [json[kKeyData] dictionaryRepresentation];
-        _targetTitle = json[kKeyTargetTitle];
+        _targetTitle = [self checkForNull:json[kKeyTargetTitle]];
     }
     
     return self;

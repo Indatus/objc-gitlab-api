@@ -65,37 +65,38 @@ static NSString * const kKeyForCommittedDate = @"committed_date";
 - (instancetype)initWithJSON:(NSDictionary *)json
 {
     if (self = [super init]) {
-        _sha = json[kKeyForSha];
+        _sha = [self checkForNull:json[kKeyForSha]];
+
         if (json[kKeyForTitle]) {
-            _title = json[kKeyForTitle];
+            _title = [self checkForNull:json[kKeyForTitle]];
         }
         else if (json[kKeyForMessage]) {
-            _title = json[kKeyForMessage];
+            _title = [self checkForNull:json[kKeyForMessage]];
         }
         
         if (json[kKeyForShortId]) {
-            _shortId = json[kKeyForShortId];
+            _shortId = [self checkForNull:json[kKeyForShortId]];
         }
         else if (_sha) {
             _shortId = [_sha substringToIndex:11];
         }
         
         if (json[kKeyForAuthorName]) {
-            _authorName = json[kKeyForAuthorName];
-            _authorEmail = json[kKeyForAuthorEmail];
+            _authorName = [self checkForNull:json[kKeyForAuthorName]];
+            _authorEmail = [self checkForNull:json[kKeyForAuthorEmail]];
         }
         else if (json[kKeyForAuthor]) {
             NSDictionary *authorData = json[kKeyForAuthor];
-            _authorName = authorData[kKeyForName];
-            _authorEmail = authorData[kKeyForEmail];
+            _authorName = [self checkForNull:authorData[kKeyForName]];
+            _authorEmail = [self checkForNull:authorData[kKeyForEmail]];
         }
 
         NSString *dateString;
         if (json[kKeyForCreatedAt]) {
-            dateString = json[kKeyForCreatedAt];
+            dateString = [self checkForNull:json[kKeyForCreatedAt]];
         }
         else if (json[kKeyForCommittedDate]) {
-            dateString = json[kKeyForCommittedDate];
+            dateString = [self checkForNull:json[kKeyForCommittedDate]];
         }
         
         if (dateString) {
