@@ -58,7 +58,6 @@
 		0CF6644718896C07005BC2AC /* GLGitlabTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF6644618896C07005BC2AC /* GLGitlabTests.m */; };
 		0CF6644B188973DD005BC2AC /* GLUserTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF6644A188973DD005BC2AC /* GLUserTests.m */; };
 		0CF89582188EE4730076E5BA /* GLConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF89581188EE4730076E5BA /* GLConstants.m */; };
-		16BD740760F94D9C8BEDEA26 /* libPods-objc gitlab apiTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B5F56502D425439F8CB577BB /* libPods-objc gitlab apiTests.a */; };
 		5D4954EA1885CFDB00E162BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4954E91885CFDB00E162BB /* Foundation.framework */; };
 		5D4954F81885CFDB00E162BB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4954F71885CFDB00E162BB /* XCTest.framework */; };
 		5D4954F91885CFDB00E162BB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D4954E91885CFDB00E162BB /* Foundation.framework */; };
@@ -201,8 +200,6 @@
 		5DDC391218887C9200DF8FD7 /* GLIssue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLIssue.m; sourceTree = "<group>"; };
 		5DDC391418887FEF00DF8FD7 /* GLMilestone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLMilestone.h; sourceTree = "<group>"; };
 		5DDC391518887FEF00DF8FD7 /* GLMilestone.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLMilestone.m; sourceTree = "<group>"; };
-		8D903E125D4844DC94AED1E9 /* Pods-objc gitlab apiTests.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-objc gitlab apiTests.xcconfig"; path = "Pods/Pods-objc gitlab apiTests.xcconfig"; sourceTree = "<group>"; };
-		B5F56502D425439F8CB577BB /* libPods-objc gitlab apiTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-objc gitlab apiTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -222,7 +219,6 @@
 				5D4954FE1885CFDB00E162BB /* libobjc gitlab api.a in Frameworks */,
 				5D4954FB1885CFDB00E162BB /* UIKit.framework in Frameworks */,
 				5D4954F91885CFDB00E162BB /* Foundation.framework in Frameworks */,
-				16BD740760F94D9C8BEDEA26 /* libPods-objc gitlab apiTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,7 +337,6 @@
 				5D4954FF1885CFDB00E162BB /* objc gitlab apiTests */,
 				5D4954E81885CFDB00E162BB /* Frameworks */,
 				5D4954E71885CFDB00E162BB /* Products */,
-				8D903E125D4844DC94AED1E9 /* Pods-objc gitlab apiTests.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -360,7 +355,6 @@
 				5D4954E91885CFDB00E162BB /* Foundation.framework */,
 				5D4954F71885CFDB00E162BB /* XCTest.framework */,
 				5D4954FA1885CFDB00E162BB /* UIKit.framework */,
-				B5F56502D425439F8CB577BB /* libPods-objc gitlab apiTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -772,7 +766,6 @@
 		};
 		5D49550D1885CFDB00E162BB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D903E125D4844DC94AED1E9 /* Pods-objc gitlab apiTests.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -794,7 +787,6 @@
 		};
 		5D49550E1885CFDB00E162BB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8D903E125D4844DC94AED1E9 /* Pods-objc gitlab apiTests.xcconfig */;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
 				FRAMEWORK_SEARCH_PATHS = (
