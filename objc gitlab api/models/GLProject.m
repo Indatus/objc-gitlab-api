@@ -39,7 +39,7 @@ static NSString * const kKeyNamespace = @"namespace";
 {
     if (self = [super init]) {
         _projectId = [json[kKeyProjectId] longLongValue];
-        _description = [self checkForNull:json[kKeyDescription]];
+        _projectDescription = [self checkForNull:json[kKeyDescription]];
         _defaultBranch = [self checkForNull:json[kKeyDefaultBranch]];
         _publicProject = [json[kKeyPublicProject] boolValue];
         _visibilityLevel = [json[kKeyVisibilityLevel] intValue];
@@ -79,7 +79,7 @@ static NSString * const kKeyNamespace = @"namespace";
         return NO;
     if (self.projectId != project.projectId)
         return NO;
-    if (self.description != project.description && ![self.description isEqualToString:project.description])
+    if (self.projectDescription != project.projectDescription && ![self.projectDescription isEqualToString:project.projectDescription])
         return NO;
     if (self.defaultBranch != project.defaultBranch && ![self.defaultBranch isEqualToString:project.defaultBranch])
         return NO;
@@ -124,7 +124,7 @@ static NSString * const kKeyNamespace = @"namespace";
 
 - (NSUInteger)hash {
     NSUInteger hash = (NSUInteger) self.projectId;
-    hash = hash * 31u + [self.description hash];
+    hash = hash * 31u + [self.projectDescription hash];
     hash = hash * 31u + [self.defaultBranch hash];
     hash = hash * 31u + self.publicProject;
     hash = hash * 31u + self.visibilityLevel;
@@ -150,7 +150,7 @@ static NSString * const kKeyNamespace = @"namespace";
 - (NSString *)description {
     NSMutableString *description = [NSMutableString stringWithFormat:@"<%@: ", NSStringFromClass([self class])];
     [description appendFormat:@"self.projectId=%qi", self.projectId];
-    [description appendFormat:@", self.description=%@", self.description];
+    [description appendFormat:@", self.projectDescription=%@", self.projectDescription];
     [description appendFormat:@", self.defaultBranch=%@", self.defaultBranch];
     [description appendFormat:@", self.publicProject=%d", self.publicProject];
     [description appendFormat:@", self.visibilityLevel=%i", self.visibilityLevel];
@@ -181,7 +181,7 @@ static NSString * const kKeyNamespace = @"namespace";
     
     return @{
              kKeyProjectId: @(_projectId),
-             kKeyDescription: _description ?: null,
+             kKeyDescription: _projectDescription ?: null,
              kKeyDefaultBranch: _defaultBranch ?: null,
              kKeyPublicProject: @(_publicProject),
              kKeyVisibilityLevel: @(_visibilityLevel),

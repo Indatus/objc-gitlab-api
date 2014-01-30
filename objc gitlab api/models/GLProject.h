@@ -16,7 +16,7 @@
 // id
 @property (nonatomic, assign) int64_t projectId;
 // description
-@property (nonatomic, copy) NSString *description;
+@property (nonatomic, copy) NSString *projectDescription;
 // default branch
 @property (nonatomic, copy) NSString *defaultBranch;
 // public
