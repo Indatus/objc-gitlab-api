@@ -9,7 +9,6 @@
 #import "GLMergeRequest.h"
 #import "GLUser.h"
 #import "GLGitlabApi.h"
-#import "GLBranch.h"
 
 static NSString * const kKeyMergeRequestId = @"id";
 static NSString * const kKeyMergeRequestIid = @"iid";
@@ -34,8 +33,8 @@ static NSString * const kKeyDownvotes = @"downvotes";
         _state = [self checkForNull:json[kKeyState]];
         _author = [[GLUser alloc] initWithJSON:json[kKeyAuthor]];
         _assignee = [[GLUser alloc] initWithJSON:json[kKeyAssignee]];
-        _targetBranch = [[GLBranch alloc] initWithJSON:json[kKeyTargetBranch]];
-        _sourceBranch = [[GLBranch alloc] initWithJSON:json[kKeySourceBranch]];
+        _targetBranch = [self checkForNull:json[kKeyTargetBranch]];
+        _sourceBranch = [self checkForNull:json[kKeySourceBranch]];
         _projectId = [json[kKeyProjectId] longLongValue];
         _upvotes = [json[kKeyUpvotes] intValue];
         _downvotes = [json[kKeyDownvotes] intValue];
@@ -69,9 +68,9 @@ static NSString * const kKeyDownvotes = @"downvotes";
         return NO;
     if (self.assignee != request.assignee && ![self.assignee isEqualToUser:request.assignee])
         return NO;
-    if (self.targetBranch != request.targetBranch && ![self.targetBranch isEqualToBranch:request.targetBranch])
+    if (self.targetBranch != request.targetBranch && ![self.targetBranch isEqualToString:request.targetBranch])
         return NO;
-    if (self.sourceBranch != request.sourceBranch && ![self.sourceBranch isEqualToBranch:request.sourceBranch])
+    if (self.sourceBranch != request.sourceBranch && ![self.sourceBranch isEqualToString:request.sourceBranch])
         return NO;
     if (self.projectId != request.projectId)
         return NO;
@@ -108,8 +107,8 @@ static NSString * const kKeyDownvotes = @"downvotes";
              kKeyState: _state ?: null,
              kKeyAuthor: [_author jsonRepresentation] ?: null,
              kKeyAssignee: [_assignee jsonRepresentation] ?: null,
-             kKeyTargetBranch: _targetBranch.name ?: null,
-             kKeySourceBranch: _sourceBranch.name ?: null,
+             kKeyTargetBranch: _targetBranch ?: null,
+             kKeySourceBranch: _sourceBranch ?: null,
              kKeyProjectId: @(_projectId),
              kKeyUpvotes: @(_upvotes),
              kKeyDownvotes: @(_downvotes)

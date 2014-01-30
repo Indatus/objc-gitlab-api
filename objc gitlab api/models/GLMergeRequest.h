@@ -26,9 +26,9 @@
 // assignee
 @property (nonatomic, strong) GLUser *assignee;
 // target_branch
-@property (nonatomic, copy) GLBranch *targetBranch;
+@property (nonatomic, copy) NSString *targetBranch;
 // source_branch
-@property (nonatomic, copy) GLBranch *sourceBranch;
+@property (nonatomic, copy) NSString *sourceBranch;
 // project_id
 @property (nonatomic, assign) int64_t projectId;
 // upvotes

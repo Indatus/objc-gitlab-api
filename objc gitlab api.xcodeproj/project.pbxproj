@@ -32,6 +32,8 @@
 		0C6BBC5E1897F500003C107D /* GLBranchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BBC5C1897F500003C107D /* GLBranchTests.m */; };
 		0C6BBC5F1897F500003C107D /* GLCommitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BBC5D1897F500003C107D /* GLCommitTests.m */; };
 		0C6BBC611897FAB6003C107D /* GLDiffTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BBC601897FAB6003C107D /* GLDiffTests.m */; };
+		0CC11093189AA99A009CC443 /* GLMergeRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC11092189AA99A009CC443 /* GLMergeRequestTests.m */; };
+		0CC11095189AA9F1009CC443 /* merge_request.json in Resources */ = {isa = PBXBuildFile; fileRef = 0CC11094189AA9F1009CC443 /* merge_request.json */; };
 		0CF663E91885D494005BC2AC /* GLNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF663E81885D494005BC2AC /* GLNote.m */; };
 		0CF663EF1885D984005BC2AC /* GLProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF663EE1885D984005BC2AC /* GLProject.m */; };
 		0CF663F21885DD05005BC2AC /* GLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF663F11885DD05005BC2AC /* GLUser.m */; };
@@ -124,6 +126,8 @@
 		0C6BBC5D1897F500003C107D /* GLCommitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLCommitTests.m; path = models/GLCommitTests.m; sourceTree = "<group>"; };
 		0C6BBC601897FAB6003C107D /* GLDiffTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLDiffTests.m; path = models/GLDiffTests.m; sourceTree = "<group>"; };
 		0CBC8C7C188F042900AE5048 /* GLGitlab_Testing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLGitlab_Testing.h; path = "extended classes/utilities/GLGitlab_Testing.h"; sourceTree = "<group>"; };
+		0CC11092189AA99A009CC443 /* GLMergeRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLMergeRequestTests.m; path = models/GLMergeRequestTests.m; sourceTree = "<group>"; };
+		0CC11094189AA9F1009CC443 /* merge_request.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = merge_request.json; path = "supporting files/merge_request.json"; sourceTree = "<group>"; };
 		0CF663E71885D494005BC2AC /* GLNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLNote.h; sourceTree = "<group>"; };
 		0CF663E81885D494005BC2AC /* GLNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLNote.m; sourceTree = "<group>"; };
 		0CF663ED1885D984005BC2AC /* GLProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLProject.h; sourceTree = "<group>"; };
@@ -272,6 +276,7 @@
 				0C6BBC601897FAB6003C107D /* GLDiffTests.m */,
 				0C2242C41899985200512648 /* GLEventTests.m */,
 				0C2242C61899AA8700512648 /* GLIssueTests.m */,
+				0CC11092189AA99A009CC443 /* GLMergeRequestTests.m */,
 				0CF6644A188973DD005BC2AC /* GLUserTests.m */,
 			);
 			name = models;
@@ -344,6 +349,7 @@
 				5D4955011885CFDB00E162BB /* objc gitlab apiTests-Info.plist */,
 				5D4955021885CFDB00E162BB /* InfoPlist.strings */,
 				0C2242C81899AB0D00512648 /* issues.json */,
+				0CC11094189AA9F1009CC443 /* merge_request.json */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -470,6 +476,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CC11095189AA9F1009CC443 /* merge_request.json in Resources */,
 				5D4955041885CFDB00E162BB /* InfoPlist.strings in Resources */,
 				0C2242C91899AB0D00512648 /* issues.json in Resources */,
 			);
@@ -558,6 +565,7 @@
 				0C6BBC611897FAB6003C107D /* GLDiffTests.m in Sources */,
 				0C6BBC5E1897F500003C107D /* GLBranchTests.m in Sources */,
 				0C6BBC5F1897F500003C107D /* GLCommitTests.m in Sources */,
+				0CC11093189AA99A009CC443 /* GLMergeRequestTests.m in Sources */,
 				0C2242C51899985200512648 /* GLEventTests.m in Sources */,
 				0CF6644718896C07005BC2AC /* GLGitlabTests.m in Sources */,
 				0CF6644B188973DD005BC2AC /* GLUserTests.m in Sources */,
