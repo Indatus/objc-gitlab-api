@@ -37,7 +37,7 @@
     knownNote.author.createdAt = [formatter dateFromString:@"2012-05-23T08:00:58Z"];
     
     
-    XCTAssertEqualObjects(knownNote, testNote, @"Note initalization with json failed");
+    XCTAssertEqualObjects(knownNote, testNote, @"Note initialized from JSON incorrectly");
 }
 
 @end

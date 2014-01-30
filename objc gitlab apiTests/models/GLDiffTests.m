@@ -7,19 +7,8 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "GLTestUtility.h"
 #import "GLDiff.h"
-
-static NSString * const diffJson = @"{ \"diff\": \"--- a/doc/update/5.4-to-6.0.html\
-+++ b/doc/update/5.4-to-6.0.html\
-@@ -71,6 +71,8 @@\
-sudo -u git -H bundle exec rake migrate_keys RAILS_ENV=production\
-sudo -u git -H bundle exec rake migrate_inline_notes RAILS_ENV=production\
-\
-+sudo -u git -H bundle exec rake assets:precompile RAILS_ENV=production\
-+\
-```\
-\
-### 6. Update config files\",    \"new_path\": \"doc/update/5.4-to-6.0.html\", \"old_path\": \"doc/update/5.4-to-6.0.html\", \"a_mode\": null, \"b_mode\": \"100644\", \"new_file\": false, \"renamed_file\": false, \"deleted_file\": false }";
 
 @interface GLDiffTests : XCTestCase
 
@@ -27,40 +16,11 @@ sudo -u git -H bundle exec rake migrate_inline_notes RAILS_ENV=production\
 
 @implementation GLDiffTests
 
-- (void)setUp
+- (void)testDiffJsonInit
 {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
-
-- (void)tearDown
-{
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
-- (void)testJsonInit
-{
-    NSError *error;
-    NSData *jsonData = [diffJson dataUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:jsonData
-                                                             options:0
-                                                               error:&error];
-    if (error) {
-        NSLog(@"Error parsing json: %@", error);
-    }
+    NSDictionary *jsonDict = [GLTestUtility loadJsonFile:@"diff"];
     GLDiff *knownDiff = [[GLDiff alloc] init];
-    knownDiff.diff = @"--- a/doc/update/5.4-to-6.0.html\
-+++ b/doc/update/5.4-to-6.0.html\
-@@ -71,6 +71,8 @@\
-sudo -u git -H bundle exec rake migrate_keys RAILS_ENV=production\
-sudo -u git -H bundle exec rake migrate_inline_notes RAILS_ENV=production\
-\
-+sudo -u git -H bundle exec rake assets:precompile RAILS_ENV=production\
-+\
-```\
-\
-### 6. Update config files";
+    knownDiff.diff = @"--- a/doc/update/5.4-to-6.0.html\n+++ b/doc/update/5.4-to-6.0.html\n@@ -71,6 +71,8 @@\nsudo -u git -H bundle exec rake migrate_keys RAILS_ENV=production\nsudo -u git -H bundle exec rake \nmigrate_inline_notes RAILS_ENV=production\n\n+sudo -u git -H bundle exec rake assets:precompile RAILS_ENV=production\n+\n```\n\n### 6. Update config files";
     knownDiff.updatedPath = @"doc/update/5.4-to-6.0.html";
     knownDiff.oldPath = @"doc/update/5.4-to-6.0.html";
     knownDiff.aMode = nil;
@@ -71,7 +31,7 @@ sudo -u git -H bundle exec rake migrate_inline_notes RAILS_ENV=production\
     
     GLDiff *testDiff = [[GLDiff alloc] initWithJSON:jsonDict];
     
-    XCTAssertEqualObjects(knownDiff, testDiff, @"Diff parsed from JSON incorrectly");
+    XCTAssertEqualObjects(knownDiff, testDiff, @"Diff initialized from JSON incorrectly");
     
 }
 

@@ -17,18 +17,6 @@
 
 @implementation GLNamespaceTests
 
-- (void)setUp
-{
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
-
-- (void)tearDown
-{
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
 - (void)testNamespaceJsonInit
 {
     NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
@@ -44,7 +32,7 @@
     knownNamespace.createdAt = [formatter dateFromString:@"2013-09-30T13:46:02Z"];
     knownNamespace.updatedAt = [formatter dateFromString:@"2013-09-30T13:46:02Z"];
     
-    XCTAssertEqualObjects(knownNamespace, testNamespace, @"Initializing namespace from JSON failed");
+    XCTAssertEqualObjects(knownNamespace, testNamespace, @"Namespace initialized from JSON incorrectly");
 }
 
 @end

@@ -19,18 +19,6 @@
 
 @implementation GLIssueTests
 
-- (void)setUp
-{
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
-
-- (void)tearDown
-{
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
 - (void)testIssueJsonInit
 {
     NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
@@ -96,8 +84,8 @@
     }
     
     XCTAssertNotNil(jsonObject, @"Json object didn't load");
-    XCTAssertEqualObjects(knownIssueOne, testObjects[0], @"Setting up GLIssue from JSON without milestone and assigned failed");
-    XCTAssertEqualObjects(knownIssueTwo, testObjects[1], @"Setting up GLIssue from JSON  with milestone and assigned failed");
+    XCTAssertEqualObjects(knownIssueOne, testObjects[0], @"Issue initialized from JSON incorrectly");
+    XCTAssertEqualObjects(knownIssueTwo, testObjects[1], @"Issue initialized from JSON incorrectly");
 }
 
 @end

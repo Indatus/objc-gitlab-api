@@ -17,18 +17,6 @@
 
 @implementation GLMilestoneTests
 
-- (void)setUp
-{
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
-
-- (void)tearDown
-{
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
 - (void)testMilestoneJsonInit
 {
     NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
@@ -47,7 +35,7 @@
 
     GLMilestone *testMilestone = [[GLMilestone alloc] initWithJSON:milestoneJson];
     
-    XCTAssertEqualObjects(knownMilestone, testMilestone, @"Mileston failed to init with JSON");
+    XCTAssertEqualObjects(knownMilestone, testMilestone, @"Mileston initialized from JSON incorrectly");
 }
 
 @end

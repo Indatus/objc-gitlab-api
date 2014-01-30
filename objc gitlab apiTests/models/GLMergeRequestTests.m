@@ -18,18 +18,6 @@
 
 @implementation GLMergeRequestTests
 
-- (void)setUp
-{
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
-
-- (void)tearDown
-{
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
 - (void)testMergeRequestJsonInit
 {
     NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
@@ -56,7 +44,7 @@
     
     GLMergeRequest *testRequest = [[GLMergeRequest alloc] initWithJSON:mergeRequestJson];
     
-    XCTAssertEqualObjects(knownMergeRequest, testRequest, @"Paring merge request from JSON failed");
+    XCTAssertEqualObjects(knownMergeRequest, testRequest, @"Merge Request initialized from JSON incorrectly");
 }
 
 @end
