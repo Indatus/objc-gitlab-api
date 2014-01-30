@@ -30,7 +30,7 @@
     [super tearDown];
 }
 
-- (void)testExample
+- (void)testIssueJsonInit
 {
     NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
     NSDateFormatter *dueDateFormatter = [[GLGitlabApi sharedInstance] dueDateFormatter];
