@@ -290,7 +290,6 @@
 		0CF6644918896C21005BC2AC /* models */ = {
 			isa = PBXGroup;
 			children = (
-				0CC1109E189AB33D009CC443 /* GLNamespaceTests.m */,
 				0C2242B81899539400512648 /* GLBaseObjectTests.m */,
 				0C6BBC5C1897F500003C107D /* GLBranchTests.m */,
 				0C6BBC5D1897F500003C107D /* GLCommitTests.m */,
@@ -299,6 +298,7 @@
 				0C2242C61899AA8700512648 /* GLIssueTests.m */,
 				0CC11092189AA99A009CC443 /* GLMergeRequestTests.m */,
 				0CC11096189AADF3009CC443 /* GLMilestoneTests.m */,
+				0CC1109E189AB33D009CC443 /* GLNamespaceTests.m */,
 				0CF6644A188973DD005BC2AC /* GLUserTests.m */,
 			);
 			name = models;

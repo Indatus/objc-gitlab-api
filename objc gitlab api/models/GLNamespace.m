@@ -25,7 +25,7 @@ static NSString * const kKeyOwnerId = @"owner_id";
         _namespaceId = [json[kKeyNamespaceId] longLongValue];
         _name = [self checkForNull:json[kKeyName]];
         _path = [self checkForNull:json[kKeyPath]];
-        _description = [self checkForNull:json[kKeyDescription]];
+        _namespaceDescription = [self checkForNull:json[kKeyDescription]];
         _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
         _updatedAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyUpdatedAt]];
         _ownerId = [json[kKeyOwnerId] longLongValue];
@@ -53,7 +53,7 @@ static NSString * const kKeyOwnerId = @"owner_id";
         return NO;
     if (self.path != glNamespace.path && ![self.path isEqualToString:glNamespace.path])
         return NO;
-    if (self.description != glNamespace.description && ![self.description isEqualToString:glNamespace.description])
+    if (self.namespaceDescription != glNamespace.namespaceDescription && ![self.namespaceDescription isEqualToString:glNamespace.namespaceDescription])
         return NO;
     if (self.createdAt != glNamespace.createdAt && ![self.createdAt isEqualToDate:glNamespace.createdAt])
         return NO;
@@ -68,7 +68,7 @@ static NSString * const kKeyOwnerId = @"owner_id";
     NSUInteger hash = (NSUInteger) self.namespaceId;
     hash = hash * 31u + [self.name hash];
     hash = hash * 31u + [self.path hash];
-    hash = hash * 31u + [self.description hash];
+    hash = hash * 31u + [self.namespaceDescription hash];
     hash = hash * 31u + [self.createdAt hash];
     hash = hash * 31u + [self.updatedAt hash];
     hash = hash * 31u + (NSUInteger) self.ownerId;
@@ -80,7 +80,7 @@ static NSString * const kKeyOwnerId = @"owner_id";
     [description appendFormat:@"self.namespaceId=%qi", self.namespaceId];
     [description appendFormat:@", self.name=%@", self.name];
     [description appendFormat:@", self.path=%@", self.path];
-    [description appendFormat:@", self.description=%@", self.description];
+    [description appendFormat:@", self.namespaceDescription=%@", self.namespaceDescription];
     [description appendFormat:@", self.createdAt=%@", self.createdAt];
     [description appendFormat:@", self.updatedAt=%@", self.updatedAt];
     [description appendFormat:@", self.ownerId=%qi", self.ownerId];
@@ -96,7 +96,7 @@ static NSString * const kKeyOwnerId = @"owner_id";
              kKeyNamespaceId: @(_namespaceId),
              kKeyName: _name ?: null,
              kKeyPath: _path ?: null,
-             kKeyDescription: _description ?: null,
+             kKeyDescription: _namespaceDescription ?: null,
              kKeyCreatedAt: [formatter stringFromDate:_createdAt],
              kKeyUpdatedAt: [formatter stringFromDate:_updatedAt],
              kKeyOwnerId: @(_ownerId)

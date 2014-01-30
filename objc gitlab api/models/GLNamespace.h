@@ -18,7 +18,7 @@
 // path
 @property (nonatomic, copy) NSString *path;
 // description
-@property (nonatomic, copy) NSString *description;
+@property (nonatomic, copy) NSString *namespaceDescription;
 // created_at
 @property (nonatomic, strong) NSDate *createdAt;
 // updated_at
