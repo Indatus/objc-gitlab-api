@@ -20,7 +20,7 @@ static NSString * const kProtected = @"protected";
     if (self = [super init]) {
         _name = [self checkForNull:json[kName]];
         _commit = [[GLCommit alloc] initWithJSON:json[kCommit]];
-        _protectedTag = [json[kProtected] boolValue];
+        _protectedTag = [self checkForNull:json[kProtected]] ? [json[kProtected] boolValue] : NO;
     }
     
     return self;
