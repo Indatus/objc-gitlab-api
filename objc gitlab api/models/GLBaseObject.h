@@ -40,6 +40,6 @@
  *
  *  @return Returns nil if value is null otherwise the value
  */
-- (NSString *)checkForNull:(id)value;
+- (id)checkForNull:(id)value;
 
 @end

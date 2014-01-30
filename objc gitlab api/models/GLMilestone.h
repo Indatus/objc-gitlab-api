@@ -20,7 +20,7 @@
 // title
 @property (nonatomic, copy) NSString *title;
 // description
-@property (nonatomic, copy) NSString *description;
+@property (nonatomic, copy) NSString *milestoneDescription;
 // due_date
 @property (nonatomic, strong) NSDate *dueDate;
 // state

@@ -31,7 +31,7 @@
     return nil;
 }
 
-- (NSString *)checkForNull:(id)value
+- (id)checkForNull:(id)value
 {
     return value == [NSNull null] ? nil : value;
 }

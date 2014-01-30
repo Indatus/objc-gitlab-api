@@ -22,7 +22,7 @@
 // title
 @property (nonatomic, copy) NSString *title;
 // description
-@property (nonatomic, copy) NSString *description;
+@property (nonatomic, copy) NSString *issueDescription;
 // labels
 @property (nonatomic, strong) NSArray *labels;
 // milestone

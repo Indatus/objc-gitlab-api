@@ -18,5 +18,6 @@ typedef void (^GLGitlabFailureBlock)(NSError *error);
 + (GLGitlabApi *)sharedInstance;
 
 - (NSDateFormatter *)gitLabDateFormatter;
+- (NSDateFormatter *)dueDateFormatter;
 
 @end

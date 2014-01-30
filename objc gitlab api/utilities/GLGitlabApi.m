@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSURL *hostName;
 @property (nonatomic, strong) NSString *privateToken;
 @property (nonatomic, strong) NSDateFormatter *dateFormatter;
+@property (nonatomic, strong) NSDateFormatter *dueDateFormatter;
 @property (nonatomic, strong) NSOperationQueue  *queue;
 @end
 
@@ -37,7 +38,9 @@ static GLGitlabApi *_instance;
         [_queue setSuspended:NO];
         // GitLab Date String: 2012-05-23T08:00:58Z
         _dateFormatter = [NSDateFormatter new];
-        [_dateFormatter setDateFormat:@"yyyy-MM-d'T'hh:mm:ssZ"];
+        [_dateFormatter setDateFormat:@"yyyy-MM-dd'T'hh:mm:ssZ"];
+        _dueDateFormatter = [NSDateFormatter new];
+        [_dueDateFormatter setDateFormat:@"yyyy-MM-dd"];
     }
     
     return self;
@@ -56,6 +59,11 @@ static GLGitlabApi *_instance;
 - (NSDateFormatter *)gitLabDateFormatter
 {
     return _dateFormatter;
+}
+
+- (NSDateFormatter *)dueDateFormatter
+{
+    return _dueDateFormatter;
 }
 
 @end

@@ -33,11 +33,11 @@ static NSString * const kKeyCreatedAt = @"created_at";
         _issueIid = [json[kKeyIssueIid] longLongValue];
         _projectId = [json[kKeyProjectId] longLongValue];
         _title = [self checkForNull:json[kKeyTitle]];
-        _description = [self checkForNull:json[kKeyDescription]];
-        _labels = [json[kKeyLabels] array];
-        _milestone = [[GLMilestone alloc] initWithJSON:json[kKeyMilestone]];
-        _assignee = [[GLUser alloc] initWithJSON:json[kKeyAssignee]];
-        _author = [[GLUser alloc] initWithJSON:json[kKeyAuthor]];
+        _issueDescription = [self checkForNull:json[kKeyDescription]];
+        _labels = [self checkForNull:json[kKeyLabels]];
+        _milestone = [self checkForNull:json[kKeyMilestone]] ? [[GLMilestone alloc] initWithJSON:json[kKeyMilestone]] : nil;
+        _assignee = [self checkForNull:json[kKeyAssignee]] ? [[GLUser alloc] initWithJSON:json[kKeyAssignee]] : nil;
+        _author = [self checkForNull:json[kKeyAuthor]] ? [[GLUser alloc] initWithJSON:json[kKeyAuthor]] : nil;
         _state = [self checkForNull:json[kKeyState]];
         _updatedAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyUpdatedAt]];
         _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyCreatedAt]];
@@ -67,7 +67,7 @@ static NSString * const kKeyCreatedAt = @"created_at";
         return NO;
     if (self.title != issue.title && ![self.title isEqualToString:issue.title])
         return NO;
-    if (self.description != issue.description && ![self.description isEqualToString:issue.description])
+    if (self.issueDescription != issue.issueDescription && ![self.issueDescription isEqualToString:issue.issueDescription])
         return NO;
     if (self.labels != issue.labels && ![self.labels isEqualToArray:issue.labels])
         return NO;
@@ -91,7 +91,7 @@ static NSString * const kKeyCreatedAt = @"created_at";
     hash = hash * 31u + (NSUInteger) self.issueIid;
     hash = hash * 31u + (NSUInteger) self.projectId;
     hash = hash * 31u + [self.title hash];
-    hash = hash * 31u + [self.description hash];
+    hash = hash * 31u + [self.issueDescription hash];
     hash = hash * 31u + [self.labels hash];
     hash = hash * 31u + [self.milestone hash];
     hash = hash * 31u + [self.assignee hash];
@@ -108,7 +108,7 @@ static NSString * const kKeyCreatedAt = @"created_at";
     [description appendFormat:@", self.issueIid=%qi", self.issueIid];
     [description appendFormat:@", self.projectId=%qi", self.projectId];
     [description appendFormat:@", self.title=%@", self.title];
-    [description appendFormat:@", self.description=%@", self.description];
+    [description appendFormat:@", self.description=%@", self.issueDescription];
     [description appendFormat:@", self.labels=%@", self.labels];
     [description appendFormat:@", self.milestone=%@", self.milestone];
     [description appendFormat:@", self.assignee=%@", self.assignee];
@@ -129,7 +129,7 @@ static NSString * const kKeyCreatedAt = @"created_at";
              kKeyIssueIid: @(_issueIid),
              kKeyProjectId: @(_projectId),
              kKeyTitle: _title ?: null,
-             kKeyDescription: _description ?: null,
+             kKeyDescription: _issueDescription ?: null,
              kKeyLabels: _labels ?: null,
              kKeyMilestone: @(_milestone.milestoneId) ?: null,
              kKeyAssignee: @(_assignee.userId) ?: null,
@@ -146,7 +146,7 @@ static NSString * const kKeyCreatedAt = @"created_at";
     return @{
              kKeyProjectId: @(_projectId),
              kKeyTitle: _title,
-             kKeyDescription: _description ?: null,
+             kKeyDescription: _issueDescription ?: null,
              kKeyLabels: _labels ?: null,
              kKeyMilestone: @(_milestone.milestoneId) ?: null,
              kKeyAssignee: @(_assignee.userId) ?: null

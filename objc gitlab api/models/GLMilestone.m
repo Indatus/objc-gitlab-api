@@ -29,11 +29,11 @@ static NSString * const kKeyCreatedAt = @"created_at";
         _milestoneIid = [json[kKeyMilestoneIid] longLongValue];
         _projectId = [json[kKeyProjectId] longLongValue];
         _title = [self checkForNull:json[kKeyTitle]];
-        _description = [self checkForNull:json[kKeyDescription]];
+        _milestoneDescription = [self checkForNull:json[kKeyDescription]];
         _state = [self checkForNull:json[kKeyState]];
         NSString *dueDateString = [self checkForNull:json[kKeyDueDate]];
         if (dueDateString) {
-            _dueDate = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:dueDateString];
+            _dueDate = [[[GLGitlabApi sharedInstance] dueDateFormatter] dateFromString:dueDateString];
         }
         
         _updatedAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:json[kKeyUpdatedAt]];
@@ -64,7 +64,7 @@ static NSString * const kKeyCreatedAt = @"created_at";
         return NO;
     if (self.title != milestone.title && ![self.title isEqualToString:milestone.title])
         return NO;
-    if (self.description != milestone.description && ![self.description isEqualToString:milestone.description])
+    if (self.milestoneDescription != milestone.milestoneDescription && ![self.milestoneDescription isEqualToString:milestone.milestoneDescription])
         return NO;
     if (self.dueDate != milestone.dueDate && ![self.dueDate isEqualToDate:milestone.dueDate])
         return NO;
@@ -82,7 +82,7 @@ static NSString * const kKeyCreatedAt = @"created_at";
     hash = hash * 31u + (NSUInteger) self.milestoneIid;
     hash = hash * 31u + (NSUInteger) self.projectId;
     hash = hash * 31u + [self.title hash];
-    hash = hash * 31u + [self.description hash];
+    hash = hash * 31u + [self.milestoneDescription hash];
     hash = hash * 31u + [self.dueDate hash];
     hash = hash * 31u + [self.state hash];
     hash = hash * 31u + [self.updatedAt hash];
@@ -99,7 +99,7 @@ static NSString * const kKeyCreatedAt = @"created_at";
              kKeyMilestoneIid: @(_milestoneIid),
              kKeyProjectId: @(_projectId),
              kKeyTitle: _title,
-             kKeyDescription: _description ?: null,
+             kKeyDescription: _milestoneDescription ?: null,
              kKeyDueDate: _dueDate ? [formatter stringFromDate:_dueDate] : null,
              kKeyState: _state ?: null,
              kKeyUpdatedAt: _updatedAt ? [formatter stringFromDate:_updatedAt] : null,
@@ -114,7 +114,7 @@ static NSString * const kKeyCreatedAt = @"created_at";
     return @{
              kKeyProjectId: @(_projectId),
              kKeyTitle: _title,
-             kKeyDescription: _description ?: null,
+             kKeyDescription: _milestoneDescription ?: null,
              kKeyDueDate: _dueDate ? [formatter stringFromDate:_createdAt] : null
              };
 }
@@ -125,7 +125,7 @@ static NSString * const kKeyCreatedAt = @"created_at";
     [description appendFormat:@", self.milestoneIid=%qi", self.milestoneIid];
     [description appendFormat:@", self.projectId=%qi", self.projectId];
     [description appendFormat:@", self.title=%@", self.title];
-    [description appendFormat:@", self.description=%@", self.description];
+    [description appendFormat:@", self.description=%@", self.milestoneDescription];
     [description appendFormat:@", self.dueDate=%@", self.dueDate];
     [description appendFormat:@", self.state=%@", self.state];
     [description appendFormat:@", self.updatedAt=%@", self.updatedAt];
