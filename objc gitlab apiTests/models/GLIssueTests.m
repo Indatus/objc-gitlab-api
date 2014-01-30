@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "GLTestUtility.h"
 #import "GLIssue.h"
 #import "GLUser.h"
 #import "GLMilestone.h"
@@ -34,11 +35,8 @@
 {
     NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
     NSDateFormatter *dueDateFormatter = [[GLGitlabApi sharedInstance] dueDateFormatter];
-    NSString *testDataPath = [[NSBundle bundleForClass:[self class]] pathForResource:@"issues" ofType:@"json"];
-    NSData *testData = [NSData dataWithContentsOfFile:testDataPath];
-    NSArray *jsonObject = [NSJSONSerialization JSONObjectWithData:testData
-                                                          options:0
-                                                            error:nil];
+    NSArray *jsonObject = [GLTestUtility loadJsonFile:@"issues"];
+    
     GLUser *author = [GLUser new];
     author.userId = 1;
     author.username = @"john_smith";

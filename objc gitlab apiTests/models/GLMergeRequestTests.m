@@ -7,6 +7,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "GLTestUtility.h"
 #import "GLMergeRequest.h"
 #import "GLUser.h"
 #import "GLGitlabApi.h"
@@ -32,11 +33,7 @@
 - (void)testMergeRequestJsonInit
 {
     NSDateFormatter *formatter = [[GLGitlabApi sharedInstance] gitLabDateFormatter];
-    NSString *path = [[NSBundle bundleForClass:[self class]] pathForResource:@"merge_request" ofType:@"json"];
-    NSData *data = [NSData dataWithContentsOfFile:path];
-    NSDictionary *mergeRequestJson = [NSJSONSerialization JSONObjectWithData:data
-                                                                     options:0
-                                                                       error:nil];
+    NSDictionary *mergeRequestJson = [GLTestUtility loadJsonFile:@"merge_request"];
     
     GLMergeRequest *knownMergeRequest = [GLMergeRequest new];
     knownMergeRequest.mergeRequestId = 1;
