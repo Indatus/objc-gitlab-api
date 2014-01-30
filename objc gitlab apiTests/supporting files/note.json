@@ -1,0 +1,14 @@
+{
+    "id": 522,
+    "body": "The solution is rather tricky",
+    "attachment":null,
+    "author": {
+        "id": 1,
+        "username": "john_smith",
+        "email": "john@example.com",
+        "name": "John Smith",
+        "state": "active",
+        "created_at": "2012-05-23T08:00:58Z"
+    },
+    "created_at": "2012-11-27T19:16:44Z"
+}
