@@ -52,6 +52,8 @@
 		0CC110B7189AEF58009CC443 /* event.json in Resources */ = {isa = PBXBuildFile; fileRef = 0CC110B6189AEF58009CC443 /* event.json */; };
 		0CC110B9189AF0B9009CC443 /* user.json in Resources */ = {isa = PBXBuildFile; fileRef = 0CC110B8189AF0B9009CC443 /* user.json */; };
 		0CC110BB189AF14D009CC443 /* GLTagTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC110BA189AF14D009CC443 /* GLTagTests.m */; };
+		0CC110BD189FD49A009CC443 /* GLGitlabApi+PrivateTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC110BC189FD49A009CC443 /* GLGitlabApi+PrivateTests.m */; };
+		0CC110BF189FDC79009CC443 /* multiple_users.json in Resources */ = {isa = PBXBuildFile; fileRef = 0CC110BE189FDC79009CC443 /* multiple_users.json */; };
 		0CF663E91885D494005BC2AC /* GLNote.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF663E81885D494005BC2AC /* GLNote.m */; };
 		0CF663EF1885D984005BC2AC /* GLProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF663EE1885D984005BC2AC /* GLProject.m */; };
 		0CF663F21885DD05005BC2AC /* GLUser.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CF663F11885DD05005BC2AC /* GLUser.m */; };
@@ -164,6 +166,8 @@
 		0CC110B6189AEF58009CC443 /* event.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = event.json; path = "supporting files/event.json"; sourceTree = "<group>"; };
 		0CC110B8189AF0B9009CC443 /* user.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = user.json; path = "supporting files/user.json"; sourceTree = "<group>"; };
 		0CC110BA189AF14D009CC443 /* GLTagTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLTagTests.m; path = models/GLTagTests.m; sourceTree = "<group>"; };
+		0CC110BC189FD49A009CC443 /* GLGitlabApi+PrivateTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "GLGitlabApi+PrivateTests.m"; path = "utilities/GLGitlabApi+PrivateTests.m"; sourceTree = "<group>"; };
+		0CC110BE189FDC79009CC443 /* multiple_users.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = multiple_users.json; path = "supporting files/multiple_users.json"; sourceTree = "<group>"; };
 		0CF663E71885D494005BC2AC /* GLNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLNote.h; sourceTree = "<group>"; };
 		0CF663E81885D494005BC2AC /* GLNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLNote.m; sourceTree = "<group>"; };
 		0CF663ED1885D984005BC2AC /* GLProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLProject.h; sourceTree = "<group>"; };
@@ -270,7 +274,6 @@
 		0CBC8C76188EFCE000AE5048 /* extended classes */ = {
 			isa = PBXGroup;
 			children = (
-				0CBC8C7B188EFE4500AE5048 /* models */,
 				0CBC8C7A188EFDCB00AE5048 /* utilities */,
 			);
 			name = "extended classes";
@@ -282,14 +285,6 @@
 				0CBC8C7C188F042900AE5048 /* GLGitlab_Testing.h */,
 			);
 			name = utilities;
-			sourceTree = "<group>";
-		};
-		0CBC8C7B188EFE4500AE5048 /* models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = models;
-			path = "extended classes/models";
 			sourceTree = "<group>";
 		};
 		0CC1109A189AAE7B009CC443 /* test utilities */ = {
@@ -312,6 +307,7 @@
 		0CF6644918896C21005BC2AC /* models */ = {
 			isa = PBXGroup;
 			children = (
+				0CC110BC189FD49A009CC443 /* GLGitlabApi+PrivateTests.m */,
 				0C2242B81899539400512648 /* GLBaseObjectTests.m */,
 				0C6BBC5C1897F500003C107D /* GLBranchTests.m */,
 				0C6BBC5D1897F500003C107D /* GLCommitTests.m */,
@@ -381,8 +377,8 @@
 		5D4954FF1885CFDB00E162BB /* objc gitlab apiTests */ = {
 			isa = PBXGroup;
 			children = (
-				0CC1109A189AAE7B009CC443 /* test utilities */,
 				0CBC8C76188EFCE000AE5048 /* extended classes */,
+				0CC1109A189AAE7B009CC443 /* test utilities */,
 				0CF6644918896C21005BC2AC /* models */,
 				0CF6644818896C19005BC2AC /* utilities */,
 				5D4955001885CFDB00E162BB /* Supporting Files */,
@@ -393,6 +389,7 @@
 		5D4955001885CFDB00E162BB /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				5D4955011885CFDB00E162BB /* objc gitlab apiTests-Info.plist */,
 				0CC110B0189AEBC4009CC443 /* branch.json */,
 				0CC110B2189AECDD009CC443 /* commit.json */,
 				0CC110B4189AED7A009CC443 /* diff.json */,
@@ -400,13 +397,13 @@
 				0C2242C81899AB0D00512648 /* issues.json */,
 				0CC11094189AA9F1009CC443 /* merge_request.json */,
 				0CC11098189AAE1D009CC443 /* milestone.json */,
+				0CC110BE189FDC79009CC443 /* multiple_users.json */,
 				0CC110A0189AB35B009CC443 /* namespace.json */,
 				0CC110A2189ADBF3009CC443 /* note.json */,
 				0CC110A8189ADDBB009CC443 /* project.json */,
 				0CC110AC189AE90E009CC443 /* snippet.json */,
 				0CC110AE189AEAAD009CC443 /* tag.json */,
 				0CC110B8189AF0B9009CC443 /* user.json */,
-				5D4955011885CFDB00E162BB /* objc gitlab apiTests-Info.plist */,
 				5D4955021885CFDB00E162BB /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
@@ -486,11 +483,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 5D49550C1885CFDB00E162BB /* Build configuration list for PBXNativeTarget "objc gitlab apiTests" */;
 			buildPhases = (
-				AA2203F2ED274DBDA70473F7 /* Check Pods Manifest.lock */,
 				5D4954F21885CFDB00E162BB /* Sources */,
 				5D4954F31885CFDB00E162BB /* Frameworks */,
 				5D4954F41885CFDB00E162BB /* Resources */,
-				43D958556A3A4FB89636B0C0 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -545,6 +540,7 @@
 				0C2242C91899AB0D00512648 /* issues.json in Resources */,
 				0CC110A9189ADDBB009CC443 /* project.json in Resources */,
 				0CC110AD189AE90E009CC443 /* snippet.json in Resources */,
+				0CC110BF189FDC79009CC443 /* multiple_users.json in Resources */,
 				0CC110B7189AEF58009CC443 /* event.json in Resources */,
 				0CC110B5189AED7A009CC443 /* diff.json in Resources */,
 				0CC110B3189AECDD009CC443 /* commit.json in Resources */,
@@ -552,39 +548,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		43D958556A3A4FB89636B0C0 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Pods-objc gitlab apiTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		AA2203F2ED274DBDA70473F7 /* Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		5D4954E21885CFDB00E162BB /* Sources */ = {
@@ -640,6 +603,7 @@
 				0CC11093189AA99A009CC443 /* GLMergeRequestTests.m in Sources */,
 				0CC110BB189AF14D009CC443 /* GLTagTests.m in Sources */,
 				0CC110AB189AE8D8009CC443 /* GLSnippetTests.m in Sources */,
+				0CC110BD189FD49A009CC443 /* GLGitlabApi+PrivateTests.m in Sources */,
 				0C2242C51899985200512648 /* GLEventTests.m in Sources */,
 				0CC1109D189AAE9B009CC443 /* GLTestUtility.m in Sources */,
 				0CF6644718896C07005BC2AC /* GLGitlabTests.m in Sources */,
@@ -780,6 +744,12 @@
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = "objc gitlab apiTests/objc gitlab apiTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};
@@ -797,6 +767,12 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "objc gitlab api/objc gitlab api-Prefix.pch";
 				INFOPLIST_FILE = "objc gitlab apiTests/objc gitlab apiTests-Info.plist";
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-framework",
+					XCTest,
+					"-all_load",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = xctest;
 			};

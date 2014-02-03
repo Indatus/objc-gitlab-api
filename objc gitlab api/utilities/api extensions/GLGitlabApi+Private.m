@@ -74,10 +74,9 @@ static NSString * const kPrivateTokenHeaderKey = @"PRIVATE-TOKEN";
         return nil;
     }
     
-    Class aClass = (Class)class; // Cast back to a class to gain access to alloc
     NSMutableArray *array = [NSMutableArray array];
     for (NSDictionary *dictionary in jsonArray) {
-        id object = [[aClass alloc] initWithJSON:dictionary];
+        id object = [[class alloc] initWithJSON:dictionary];
         [array addObject:object];
     }
     
@@ -165,8 +164,7 @@ static NSString * const kPrivateTokenHeaderKey = @"PRIVATE-TOKEN";
     }
     
     return ^(NSDictionary *resonseObject) {
-        Class aClass = (Class)class; // Cast back to a class to gain access to alloc
-        id object = [[aClass alloc] initWithJSON:resonseObject];
+        id object = [[class alloc] initWithJSON:resonseObject];
         success(object);
     };
 }
