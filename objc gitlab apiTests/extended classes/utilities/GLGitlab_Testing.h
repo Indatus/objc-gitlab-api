@@ -9,6 +9,10 @@
 #import "GLGitlabApi.h"
 
 @interface GLGitlabApi (Testing)
-- (NSString *)privateToken;
+
+@property (nonatomic, strong) NSString *privateToken;
+@property (nonatomic, strong) NSURL *hostName;
+
 - (NSOperationQueue *)queue;
+
 @end
