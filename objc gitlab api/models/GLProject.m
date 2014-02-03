@@ -204,4 +204,20 @@ static NSString * const kKeyNamespace = @"namespace";
              };
 }
 
+- (NSDictionary *)jsonCreateRepresentation
+{
+    NSNull *null = [NSNull null];
+    
+    return @{
+             kKeyName: _name,
+             kKeyDescription: _projectDescription ?: null,
+             kKeyIssuesEnabled: @(_issuesEnabled),
+             kKeyWallEnabled: @(_wallEnabled),
+             kKeyMergeRequestsEnabled: @(_mergeRequestsEnabled),
+             kKeyWikiEnabled: @(_wikiEnabled),
+             kKeySnippetsEnabled: @(_snippetsEnabled),
+             kKeyPublicProject: @(_publicProject)
+             };
+}
+
 @end
