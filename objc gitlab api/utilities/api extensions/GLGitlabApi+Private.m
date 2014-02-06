@@ -39,8 +39,13 @@ static NSString * const kPrivateTokenHeaderKey = @"PRIVATE-TOKEN";
 - (NSString *)urlEncodeParamsForGet:(NSDictionary *)params
 {
     NSMutableArray *paramArray = [NSMutableArray array];
-    [params enumerateKeysAndObjectsUsingBlock:^(NSString *key, NSString *obj, BOOL *stop) {
-        [paramArray addObject:[NSString stringWithFormat:@"%@=%@", key, [self percentEncodeString:obj]]];
+    [params enumerateKeysAndObjectsUsingBlock:^(NSString *key, id obj, BOOL *stop) {
+        if ([obj isKindOfClass:[NSString class]]) {
+            [paramArray addObject:[NSString stringWithFormat:@"%@=%@", key, [self percentEncodeString:obj]]];
+        }
+        else {
+            [paramArray addObject:[NSString stringWithFormat:@"%@=%@", key, obj]];
+        }
     }];
     NSString *paramString = [paramArray componentsJoinedByString:@"&"];
     return paramString;
