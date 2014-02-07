@@ -38,7 +38,7 @@ static GLGitlabApi *_instance;
         [_queue setSuspended:NO];
         // GitLab Date String: 2012-05-23T08:00:58Z
         _dateFormatter = [NSDateFormatter new];
-        [_dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ssZ"];
+        [_dateFormatter setDateFormat:@"yyyy-MM-dd'T'HH:mm:ss.SSSZ"];
 //        [_dateFormatter setTimeZone:[NSTimeZone timeZoneForSecondsFromGMT:0]];
         _dueDateFormatter = [NSDateFormatter new];
         [_dueDateFormatter setDateFormat:@"yyyy-MM-dd"];
