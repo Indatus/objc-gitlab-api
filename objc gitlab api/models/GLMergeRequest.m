@@ -32,7 +32,9 @@ static NSString * const kKeyDownvotes = @"downvotes";
         _title = [self checkForNull:json[kKeyTitle]];
         _state = [self checkForNull:json[kKeyState]];
         _author = [[GLUser alloc] initWithJSON:json[kKeyAuthor]];
-        _assignee = [[GLUser alloc] initWithJSON:json[kKeyAssignee]];
+        if ([self checkForNull:json[kKeyAssignee]]) {
+            _assignee = [[GLUser alloc] initWithJSON:json[kKeyAssignee]];
+        }
         _targetBranch = [self checkForNull:json[kKeyTargetBranch]];
         _sourceBranch = [self checkForNull:json[kKeySourceBranch]];
         _projectId = [json[kKeyProjectId] longLongValue];
