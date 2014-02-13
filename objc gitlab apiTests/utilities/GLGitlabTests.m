@@ -19,7 +19,7 @@
 - (void)setUp
 {
     [super setUp];
-    [[[GLGitlabApi sharedInstance] queue] setSuspended:YES];
+//    [[[GLGitlabApi sharedInstance] queue] setSuspended:YES];
     // Put setup code here. This method is called before the invocation of each test method in the class.
 }
 

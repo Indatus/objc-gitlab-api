@@ -32,6 +32,11 @@
 		0C6BBC5E1897F500003C107D /* GLBranchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BBC5C1897F500003C107D /* GLBranchTests.m */; };
 		0C6BBC5F1897F500003C107D /* GLCommitTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BBC5D1897F500003C107D /* GLCommitTests.m */; };
 		0C6BBC611897FAB6003C107D /* GLDiffTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C6BBC601897FAB6003C107D /* GLDiffTests.m */; };
+		0CA9F62418AD394F00A15E9C /* GLFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA9F62318AD394F00A15E9C /* GLFile.m */; };
+		0CA9F62718AD3E3F00A15E9C /* GLGitlabApi+Files.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA9F62618AD3E3F00A15E9C /* GLGitlabApi+Files.m */; };
+		0CA9F62918AD478700A15E9C /* GLFileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CA9F62818AD478700A15E9C /* GLFileTests.m */; };
+		0CA9F62B18AD47F600A15E9C /* tree_file.json in Resources */ = {isa = PBXBuildFile; fileRef = 0CA9F62A18AD47F600A15E9C /* tree_file.json */; };
+		0CA9F62D18AD480000A15E9C /* blob_file.json in Resources */ = {isa = PBXBuildFile; fileRef = 0CA9F62C18AD480000A15E9C /* blob_file.json */; };
 		0CC11093189AA99A009CC443 /* GLMergeRequestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC11092189AA99A009CC443 /* GLMergeRequestTests.m */; };
 		0CC11095189AA9F1009CC443 /* merge_request.json in Resources */ = {isa = PBXBuildFile; fileRef = 0CC11094189AA9F1009CC443 /* merge_request.json */; };
 		0CC11097189AADF3009CC443 /* GLMilestoneTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0CC11096189AADF3009CC443 /* GLMilestoneTests.m */; };
@@ -144,6 +149,13 @@
 		0C6BBC5C1897F500003C107D /* GLBranchTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLBranchTests.m; path = models/GLBranchTests.m; sourceTree = "<group>"; };
 		0C6BBC5D1897F500003C107D /* GLCommitTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLCommitTests.m; path = models/GLCommitTests.m; sourceTree = "<group>"; };
 		0C6BBC601897FAB6003C107D /* GLDiffTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLDiffTests.m; path = models/GLDiffTests.m; sourceTree = "<group>"; };
+		0CA9F62218AD394F00A15E9C /* GLFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLFile.h; sourceTree = "<group>"; };
+		0CA9F62318AD394F00A15E9C /* GLFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLFile.m; sourceTree = "<group>"; };
+		0CA9F62518AD3E3F00A15E9C /* GLGitlabApi+Files.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GLGitlabApi+Files.h"; sourceTree = "<group>"; };
+		0CA9F62618AD3E3F00A15E9C /* GLGitlabApi+Files.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GLGitlabApi+Files.m"; sourceTree = "<group>"; };
+		0CA9F62818AD478700A15E9C /* GLFileTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLFileTests.m; path = models/GLFileTests.m; sourceTree = "<group>"; };
+		0CA9F62A18AD47F600A15E9C /* tree_file.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = tree_file.json; path = "supporting files/tree_file.json"; sourceTree = "<group>"; };
+		0CA9F62C18AD480000A15E9C /* blob_file.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = blob_file.json; sourceTree = "<group>"; };
 		0CBC8C7C188F042900AE5048 /* GLGitlab_Testing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GLGitlab_Testing.h; path = "extended classes/utilities/GLGitlab_Testing.h"; sourceTree = "<group>"; };
 		0CC11092189AA99A009CC443 /* GLMergeRequestTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLMergeRequestTests.m; path = models/GLMergeRequestTests.m; sourceTree = "<group>"; };
 		0CC11094189AA9F1009CC443 /* merge_request.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; name = merge_request.json; path = "supporting files/merge_request.json"; sourceTree = "<group>"; };
@@ -274,6 +286,7 @@
 		0CF6644918896C21005BC2AC /* models */ = {
 			isa = PBXGroup;
 			children = (
+				0CA9F62818AD478700A15E9C /* GLFileTests.m */,
 				0CC110BC189FD49A009CC443 /* GLGitlabApi+PrivateTests.m */,
 				0C2242B81899539400512648 /* GLBaseObjectTests.m */,
 				0C6BBC5C1897F500003C107D /* GLBranchTests.m */,
@@ -357,6 +370,7 @@
 			isa = PBXGroup;
 			children = (
 				5D4955011885CFDB00E162BB /* objc gitlab apiTests-Info.plist */,
+				0CA9F62C18AD480000A15E9C /* blob_file.json */,
 				0CC110B0189AEBC4009CC443 /* branch.json */,
 				0CC110B2189AECDD009CC443 /* commit.json */,
 				0CC110B4189AED7A009CC443 /* diff.json */,
@@ -370,6 +384,7 @@
 				0CC110A8189ADDBB009CC443 /* project.json */,
 				0CC110AC189AE90E009CC443 /* snippet.json */,
 				0CC110AE189AEAAD009CC443 /* tag.json */,
+				0CA9F62A18AD47F600A15E9C /* tree_file.json */,
 				0CC110B8189AF0B9009CC443 /* user.json */,
 				5D4955021885CFDB00E162BB /* InfoPlist.strings */,
 			);
@@ -389,6 +404,8 @@
 				5DDC390F18887AB400DF8FD7 /* GLDiff.m */,
 				5D9B6FA5189820D700DD9951 /* GLEvent.h */,
 				5D9B6FA6189820D700DD9951 /* GLEvent.m */,
+				0CA9F62218AD394F00A15E9C /* GLFile.h */,
+				0CA9F62318AD394F00A15E9C /* GLFile.m */,
 				5DDC391118887C9200DF8FD7 /* GLIssue.h */,
 				5DDC391218887C9200DF8FD7 /* GLIssue.m */,
 				5D8590071885D62900D04017 /* GLMergeRequest.h */,
@@ -419,6 +436,8 @@
 				5D8590051885D1F000D04017 /* GLGitlabApi.m */,
 				0C3731B318901A160076D45C /* GLGitlabApi+Commits.h */,
 				0C3731B418901A160076D45C /* GLGitlabApi+Commits.m */,
+				0CA9F62518AD3E3F00A15E9C /* GLGitlabApi+Files.h */,
+				0CA9F62618AD3E3F00A15E9C /* GLGitlabApi+Files.m */,
 				0C3731AA189019500076D45C /* GLGitlabApi+Issues.h */,
 				0C3731AB189019500076D45C /* GLGitlabApi+Issues.m */,
 				0C3731A4189018960076D45C /* GLGitlabApi+MergeRequest.h */,
@@ -525,7 +544,9 @@
 				0CC11095189AA9F1009CC443 /* merge_request.json in Resources */,
 				0CC110A1189AB35B009CC443 /* namespace.json in Resources */,
 				0CC110AF189AEAAD009CC443 /* tag.json in Resources */,
+				0CA9F62D18AD480000A15E9C /* blob_file.json in Resources */,
 				5D4955041885CFDB00E162BB /* InfoPlist.strings in Resources */,
+				0CA9F62B18AD47F600A15E9C /* tree_file.json in Resources */,
 				0CC110B1189AEBC4009CC443 /* branch.json in Resources */,
 				0CC110A3189ADBF3009CC443 /* note.json in Resources */,
 				0CC11099189AAE1D009CC443 /* milestone.json in Resources */,
@@ -546,6 +567,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0CA9F62718AD3E3F00A15E9C /* GLGitlabApi+Files.m in Sources */,
 				0C2242BC1899624F00512648 /* GLJsonNetworkOperation.m in Sources */,
 				0C3731B818901A610076D45C /* GLGitlabApi+Projects.m in Sources */,
 				0CF89582188EE4730076E5BA /* GLConstants.m in Sources */,
@@ -568,6 +590,7 @@
 				0C3731B518901A160076D45C /* GLGitlabApi+Commits.m in Sources */,
 				0C3731B2189019AD0076D45C /* GLGitlabApi+Milestones.m in Sources */,
 				5DDC391018887AB400DF8FD7 /* GLDiff.m in Sources */,
+				0CA9F62418AD394F00A15E9C /* GLFile.m in Sources */,
 				0C3731A6189018960076D45C /* GLGitlabApi+MergeRequest.m in Sources */,
 				5DDC39091885EC1F00DF8FD7 /* GLNetworkOperation.m in Sources */,
 				5D8590061885D1F000D04017 /* GLGitlabApi.m in Sources */,
@@ -592,6 +615,7 @@
 				0CC1109F189AB33D009CC443 /* GLNamespaceTests.m in Sources */,
 				0CC110A7189ADD72009CC443 /* GLProjectTests.m in Sources */,
 				0C6BBC5F1897F500003C107D /* GLCommitTests.m in Sources */,
+				0CA9F62918AD478700A15E9C /* GLFileTests.m in Sources */,
 				0CC11093189AA99A009CC443 /* GLMergeRequestTests.m in Sources */,
 				0CC110BB189AF14D009CC443 /* GLTagTests.m in Sources */,
 				0CC110AB189AE8D8009CC443 /* GLSnippetTests.m in Sources */,
