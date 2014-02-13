@@ -44,7 +44,7 @@
 
 - (void)testJsonInitBlobFile
 {
-    NSDictionary *json = [GLTestUtility loadJsonFile:@"tree_file"];
+    NSDictionary *json = [GLTestUtility loadJsonFile:@"blob_file"];
     GLFile *testFile = [[GLFile alloc] initWithJSON:json];
     GLFile *knownFile = [GLFile new];
     knownFile.name = @"Rakefile";
