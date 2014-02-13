@@ -18,7 +18,7 @@ static NSString * const kProjectAllProjectsEndPoint = @"/projects/all";
 static NSString * const kProjectSingleProjectEndPoint = @"/projects/%llu";
 static NSString * const kProjectEndpointForUser = @"/projects/user/%llu";
 static NSString * const kProjectEventsEndPoint = @"/projects/%llu/events";
-
+static NSString * const kProjectUsersEndPoint = @"/projects/%llu/members";
 @implementation GLGitlabApi (Projects)
 #pragma mark - Project Methods
 
@@ -107,6 +107,27 @@ static NSString * const kProjectEventsEndPoint = @"/projects/%llu/events";
     return [self getProjectEventsForProjectId:project.projectId
                                       success:successBlock
                                       failure:failureBlock];
+}
+
+- (GLNetworkOperation *)getProjectTeamUsers:(int64_t)projectId
+                                    success:(GLGitlabSuccessBlock)successBlock
+                                    failure:(GLGitlabFailureBlock)failureBlock
+{
+    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kProjectUsersEndPoint, projectId]];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = GLNetworkOperationGetMethod;
+    
+    GLNetworkOperationSuccessBlock localCussessBlock = ^(NSArray *responseObjects) {
+        NSArray *users = [self processJsonArray:responseObjects class:[GLUser class]];
+        successBlock(users);
+    };
+    
+    GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
+    
+    return [self queueOperationWithRequest:request
+                                      type:GLNetworkOperationTypeJson
+                                   success:localCussessBlock
+                                   failure:localFailureBlock];
 }
 
 - (GLNetworkOperation *)getProjectEventsForProjectId:(int64_t)projectId

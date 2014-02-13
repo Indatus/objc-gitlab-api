@@ -87,6 +87,19 @@
                                            failure:(GLGitlabFailureBlock)failureBlock;
 
 /**
+ *  Retrieve all team members for the specified project
+ *
+ *  @param projectId    ID of the project that users should be feched for
+ *  @param successBlock parameter will be an NSArray of GLUsers
+ *  @param failureBlock parameter will be an NSError
+ *
+ *  @return The operation to be executed
+ */
+- (GLNetworkOperation *)getProjectTeamUsers:(int64_t)projectId
+                                    success:(GLGitlabSuccessBlock)successBlock
+                                    failure:(GLGitlabFailureBlock)failureBlock;
+
+/**
  *  Creates a project with the specified name
  *
  *  @param projectName  The name for the new project
@@ -142,4 +155,5 @@
                               forUser:(GLUser *)user
                               success:(GLGitlabSuccessBlock)successBlock
                               failure:(GLGitlabFailureBlock)failureBlock;
+
 @end
