@@ -10,7 +10,8 @@
 #import "GLUser.h"
 #import "GLGitlabApi.h"
 
-static NSString * const kKeyMergeRequestId = @"id";
+static NSString * const kKeyId = @"id";
+static NSString * const kKeyMergeRequestId = @"merge_request_id";
 static NSString * const kKeyMergeRequestIid = @"iid";
 static NSString * const kKeyTitle = @"title";
 static NSString * const kKeyState = @"state";
@@ -27,7 +28,7 @@ static NSString * const kKeyDownvotes = @"downvotes";
 - (instancetype)initWithJSON:(NSDictionary *)json
 {
     if (self = [super init]) {
-        _mergeRequestId = [json[kKeyMergeRequestId] longLongValue];
+        _mergeRequestId = [json[kKeyId] longLongValue];
         _mergeRequestIid = [json[kKeyMergeRequestIid] longLongValue];
         _title = [self checkForNull:json[kKeyTitle]];
         _state = [self checkForNull:json[kKeyState]];
@@ -111,9 +112,21 @@ static NSString * const kKeyDownvotes = @"downvotes";
              kKeyAssignee: [_assignee jsonRepresentation] ?: null,
              kKeyTargetBranch: _targetBranch ?: null,
              kKeySourceBranch: _sourceBranch ?: null,
-             kKeyProjectId: @(_projectId),
+             kKeyId: @(_projectId),
              kKeyUpvotes: @(_upvotes),
              kKeyDownvotes: @(_downvotes)
+             };
+}
+
+- (NSDictionary *)jsonCreateRepresentation
+{
+    id null = (id)[NSNull null];
+    return @{
+             kKeyTitle: _title,
+             kKeyAssignee: [_assignee jsonRepresentation] ?: null,
+             kKeyTargetBranch: _targetBranch ?: null,
+             kKeySourceBranch: _sourceBranch ?: null,
+             kKeyId: @(_projectId)
              };
 }
 
