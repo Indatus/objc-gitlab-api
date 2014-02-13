@@ -11,7 +11,8 @@
 #import "GLUser.h"
 #import "GLGitlabApi.h"
 
-static NSString * const kKeyIssueId = @"id";
+static NSString * const kKeyId = @"id";
+static NSString * const kKeyIssueId = @"issue_id";
 static NSString * const kKeyIssueIid = @"iid";
 static NSString * const kKeyProjectId = @"project_id";
 static NSString * const kKeyTitle = @"title";
@@ -29,7 +30,7 @@ static NSString * const kKeyCreatedAt = @"created_at";
 - (instancetype)initWithJSON:(NSDictionary *)json
 {
     if (self = [super init]) {
-        _issueId = [json[kKeyIssueId] longLongValue];
+        _issueId = [json[kKeyId] longLongValue];
         _issueIid = [json[kKeyIssueIid] longLongValue];
         _projectId = [json[kKeyProjectId] longLongValue];
         _title = [self checkForNull:json[kKeyTitle]];
@@ -144,7 +145,7 @@ static NSString * const kKeyCreatedAt = @"created_at";
 {
     id null = (id)[NSNull null];
     return @{
-             kKeyProjectId: @(_projectId),
+             kKeyId: @(_projectId),
              kKeyTitle: _title,
              kKeyDescription: _issueDescription ?: null,
              kKeyLabels: _labels ?: null,
