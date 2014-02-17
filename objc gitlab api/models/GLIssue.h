@@ -13,11 +13,11 @@
 
 @interface GLIssue : GLBaseObject
 
-// id
+// issue_id / id
 @property (nonatomic, assign) int64_t issueId;
 // iid
 @property (nonatomic, assign) int64_t issueIid;
-// project_id
+// id / project_id
 @property (nonatomic, assign) int64_t projectId;
 // title
 @property (nonatomic, copy) NSString *title;
