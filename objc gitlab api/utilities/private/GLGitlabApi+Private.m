@@ -26,6 +26,10 @@ static NSString * const kPrivateTokenHeaderKey = @"PRIVATE-TOKEN";
         [request addValue:self.privateToken forHTTPHeaderField:kPrivateTokenHeaderKey];
     }
     
+    if (![request.HTTPMethod isEqualToString:GLNetworkOperationGetMethod] && request.HTTPBody.length) {
+        [request addValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    }
+    
     GLNetworkOperation *op = [GLNetworkOperation operationOfType:type
                                                          request:request
                                                          success:success
