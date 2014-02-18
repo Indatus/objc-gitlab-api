@@ -95,6 +95,15 @@ static NSString * const kPrivateTokenHeaderKey = @"PRIVATE-TOKEN";
     return url;
 }
 
+- (NSMutableURLRequest *)requestForEndPoint:(NSString *)endpoint method:(NSString *)method
+{
+    NSURL *url = [self requestUrlForEndPoint:endpoint];
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = method;
+    
+    return request;
+}
+
 - (GLNetworkOperationFailureBlock)defaultFailureBlock:(GLGitlabFailureBlock)failureCallback
 {
     return ^(NSError *error, NSInteger responseCode, NSData *responseData) {
@@ -171,6 +180,19 @@ static NSString * const kPrivateTokenHeaderKey = @"PRIVATE-TOKEN";
     return ^(NSDictionary *resonseObject) {
         id object = [[class alloc] initWithJSON:resonseObject];
         success(object);
+    };
+}
+
+- (GLNetworkOperationSuccessBlock)multipleObjectSuccessBlockForClass:(Class)class
+                                                        successBlock:(GLGitlabSuccessBlock)success
+{
+    if (![class isSubclassOfClass:[GLBaseObject class]]) {
+        return nil;
+    }
+    
+    return ^(NSArray *responseObject) {
+        NSArray *objects = [self processJsonArray:responseObject class:class];
+        success(objects);
     };
 }
 

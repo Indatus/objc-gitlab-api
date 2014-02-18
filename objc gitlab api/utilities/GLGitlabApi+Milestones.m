@@ -21,15 +21,10 @@ static NSString * const kSingleMilestoneEndpoint = @"/projects/%llu/milestones/%
                                     withSuccessBlock:(GLGitlabSuccessBlock)success
                                      andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kMilestonesEndpoint, projectId]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = GLNetworkOperationGetMethod;
+    NSMutableURLRequest *request = [self requestForEndPoint:[NSString stringWithFormat:kMilestonesEndpoint, projectId]
+                                                     method:GLNetworkOperationGetMethod];
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSArray *responseObject) {
-        NSArray *milestones = [self processJsonArray:responseObject class:[GLMilestone class]];
-        success(milestones);
-    };
-    
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self multipleObjectSuccessBlockForClass:[GLMilestone class] successBlock:success];
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request
@@ -43,12 +38,10 @@ static NSString * const kSingleMilestoneEndpoint = @"/projects/%llu/milestones/%
                           withSuccessBlock:(GLGitlabSuccessBlock)success
                            andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleMilestoneEndpoint, projectId, milestoneId]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = GLNetworkOperationGetMethod;
+    NSMutableURLRequest *request = [self requestForEndPoint:[NSString stringWithFormat:kSingleMilestoneEndpoint, projectId, milestoneId]
+                                                     method:GLNetworkOperationGetMethod];
     
     GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLMilestone class] successBlock:success];
-    
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request
@@ -61,13 +54,11 @@ static NSString * const kSingleMilestoneEndpoint = @"/projects/%llu/milestones/%
                        withSuccessBlock:(GLGitlabSuccessBlock)success
                         andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleMilestoneEndpoint, milestone.projectId, milestone.milestoneId]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = GLNetworkOperationPostMethod;
+    NSMutableURLRequest *request = [self requestForEndPoint:[NSString stringWithFormat:kSingleMilestoneEndpoint, milestone.projectId, milestone.milestoneId]
+                                                     method:GLNetworkOperationPostMethod];
     request.HTTPBody = [self urlEncodeParams:[milestone jsonCreateRepresentation]];
     
     GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLMilestone class] successBlock:success];
-    
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request
@@ -80,13 +71,11 @@ static NSString * const kSingleMilestoneEndpoint = @"/projects/%llu/milestones/%
                        withSuccessBlock:(GLGitlabSuccessBlock)success
                         andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleMilestoneEndpoint, milestone.projectId, milestone.milestoneId]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = GLNetworkOperationPutMethod;
+    NSMutableURLRequest *request = [self requestForEndPoint:[NSString stringWithFormat:kSingleMilestoneEndpoint, milestone.projectId, milestone.milestoneId]
+                                                     method:GLNetworkOperationPutMethod];
     request.HTTPBody = [self urlEncodeParams:[milestone jsonRepresentation]];
     
     GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLMilestone class] successBlock:success];
-    
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request
@@ -101,13 +90,11 @@ static NSString * const kSingleMilestoneEndpoint = @"/projects/%llu/milestones/%
 {
     milestone.state = @"closed";
     
-    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleMilestoneEndpoint, milestone.projectId, milestone.milestoneId]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = GLNetworkOperationPutMethod;
+    NSMutableURLRequest *request = [self requestForEndPoint:[NSString stringWithFormat:kSingleMilestoneEndpoint, milestone.projectId, milestone.milestoneId]
+                                                     method:GLNetworkOperationPutMethod];
     request.HTTPBody = [self urlEncodeParams:[milestone jsonRepresentation]];
     
     GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLMilestone class] successBlock:success];
-    
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request
@@ -121,14 +108,12 @@ static NSString * const kSingleMilestoneEndpoint = @"/projects/%llu/milestones/%
                           andFailureBlock:(GLGitlabFailureBlock)failure
 {
     milestone.state = @"active";
-    
-    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleMilestoneEndpoint, milestone.projectId, milestone.milestoneId]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = GLNetworkOperationPutMethod;
+
+    NSMutableURLRequest *request = [self requestForEndPoint:[NSString stringWithFormat:kSingleMilestoneEndpoint, milestone.projectId, milestone.milestoneId]
+                                                     method:GLNetworkOperationPutMethod];
     request.HTTPBody = [self urlEncodeParams:[milestone jsonRepresentation]];
     
     GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLMilestone class] successBlock:success];
-    
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request

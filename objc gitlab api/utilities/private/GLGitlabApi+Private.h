@@ -79,6 +79,16 @@
 - (NSURL *)requestUrlForEndPoint:(NSString *)endpoint;
 
 /**
+ *  Creates the request fior the specified endpoint
+ *
+ *  @param endpoint The endpoint for the request to be made
+ *  @param method   The HTTP Verb for the request
+ *
+ *  @return Request object for url and method
+ */
+- (NSMutableURLRequest *)requestForEndPoint:(NSString *)endpoint method:(NSString *)method;
+
+/**
  *  Method that creates a failure block which calls back to the provided block
  *
  *  @param failureCallback The block to be executed as a call back
@@ -97,4 +107,15 @@
  */
 - (GLNetworkOperationSuccessBlock)singleObjectSuccessBlockForClass:(Class)aClass
                                                       successBlock:(GLGitlabSuccessBlock)success;
+
+/**
+ *  Returns block to process a JSON array of objects that is a subclass of GLBaseObject
+ *
+ *  @param class   A class that is a subclass of GLBaseObject
+ *  @param success The block to be executed upon a successful request
+ *
+ *  @return A network operation success block that will process multiple objects and call back the specified success block
+ */
+- (GLNetworkOperationSuccessBlock)multipleObjectSuccessBlockForClass:(Class)class
+                                                        successBlock:(GLGitlabSuccessBlock)success;
 @end

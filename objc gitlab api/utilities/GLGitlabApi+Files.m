@@ -26,10 +26,8 @@ static NSString * const kRefName = @"ref_name";
                                      withSuccessBlock:(GLGitlabSuccessBlock)success
                                       andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kTreeEndpoint, projectId]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = GLNetworkOperationGetMethod;
-    
+    NSMutableURLRequest *request = [self requestForEndPoint:[NSString stringWithFormat:kTreeEndpoint, projectId]
+                                                     method:GLNetworkOperationGetMethod];
     if (path || branch) {
         NSMutableDictionary *params = [NSMutableDictionary dictionary];
         if (path) {
@@ -43,11 +41,7 @@ static NSString * const kRefName = @"ref_name";
         request.HTTPBody = [self urlEncodeParams:params];
     }
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSArray *responseObject) {
-        NSArray *files = [self processJsonArray:responseObject class:[GLFile class]];
-        success(files);
-    };
-    
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self multipleObjectSuccessBlockForClass:[GLFile class] successBlock:success];
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request
@@ -61,9 +55,8 @@ static NSString * const kRefName = @"ref_name";
                                  withSuccessBlock:(GLGitlabSuccessBlock)success
                                   andFailureBlock:(GLGitlabFailureBlock)failure;
 {
-    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kBlobEndpoint, projectId, sha]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = GLNetworkOperationGetMethod;
+    NSMutableURLRequest *request = [self requestForEndPoint:[NSString stringWithFormat:kBlobEndpoint, projectId, sha]
+                                                     method:GLNetworkOperationGetMethod];
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSData *responseData) {
         success(responseData);

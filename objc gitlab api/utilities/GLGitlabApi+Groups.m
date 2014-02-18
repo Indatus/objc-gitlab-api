@@ -17,15 +17,10 @@ static NSString * const kProjectsKey = @"projects";
 - (GLNetworkOperation *)getUsersGroupsWithSuccessBlock:(GLGitlabSuccessBlock)success
                                        andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURL *url = [self requestUrlForEndPoint:kGroupsEndpoint];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = GLNetworkOperationGetMethod;
+    NSMutableURLRequest *request = [self requestForEndPoint:kGroupsEndpoint
+                                                     method:GLNetworkOperationGetMethod];
 
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSArray *responseObject) {
-        NSArray *groups = [self processJsonArray:responseObject class:[GLGroup class]];
-        success(groups);
-    };
-
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self multipleObjectSuccessBlockForClass:[GLGroup class] successBlock:success];
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
 
     return [self queueOperationWithRequest:request
@@ -38,9 +33,8 @@ static NSString * const kProjectsKey = @"projects";
                            SuccessBlock:(GLGitlabSuccessBlock)success
                         andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kGroupEndpoint, groupId]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = GLNetworkOperationGetMethod;
+    NSMutableURLRequest *request = [self requestForEndPoint:[NSString stringWithFormat:kGroupEndpoint, groupId]
+                                                     method:GLNetworkOperationGetMethod];
     
     GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSDictionary *responseObject) {
         NSArray *projectsJson = responseObject[kProjectsKey];

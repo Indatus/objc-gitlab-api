@@ -29,13 +29,10 @@ static NSString *const kPrivateTokenKey = @"private_token";
                             failure:(GLGitlabFailureBlock)failureBlock
 {
     self.hostName = [NSURL URLWithString:host];
-    
-    NSURL *requestUrl = [self requestUrlForEndPoint:kLoginRoute];
     NSDictionary *params = @{ kLoginUsernameKey: username, kLoginPasswordKey: password };
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:requestUrl];
+    NSMutableURLRequest *request = [self requestForEndPoint:kLoginRoute
+                                                     method:GLNetworkOperationPostMethod];
     NSError *error;
-    
-    request.HTTPMethod = GLNetworkOperationPostMethod;
     request.HTTPBody = [self urlEncodeParams:params];
     if (error) {
         NSLog(@"Error serializing login params: %@", error.localizedDescription);

@@ -24,15 +24,11 @@ static NSString * const kParamComment = @"note";
                                     withSuccessBlock:(GLGitlabSuccessBlock)success
                                      andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kMergeRequestsEndPoint, projectId]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = GLNetworkOperationGetMethod;
+    NSMutableURLRequest *request = [self requestForEndPoint:[NSString stringWithFormat:kMergeRequestsEndPoint, projectId]
+                                                     method:GLNetworkOperationGetMethod];
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSArray *responseObject) {
-        NSArray *mergeRequests = [self processJsonArray:responseObject class:[GLMergeRequest class]];
-        success(mergeRequests);
-    };
-    
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self multipleObjectSuccessBlockForClass:[GLMergeRequest class]
+                                                                                   successBlock:success];
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request
@@ -46,12 +42,10 @@ static NSString * const kParamComment = @"note";
                                  successBlock:(GLGitlabSuccessBlock)success
                               andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleMergeRequestEndPoint, projectId, mergeRequestId]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = GLNetworkOperationGetMethod;
+    NSMutableURLRequest *request = [self requestForEndPoint:[NSString stringWithFormat:kSingleMergeRequestEndPoint, projectId, mergeRequestId]
+                                                     method:GLNetworkOperationGetMethod];
     
     GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLMergeRequest class] successBlock:success];
-    
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request
@@ -64,13 +58,11 @@ static NSString * const kParamComment = @"note";
                           withSuccessBlock:(GLGitlabSuccessBlock)success
                            andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kMergeRequestsEndPoint, mergeRequest.projectId]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = GLNetworkOperationPostMethod;
+    NSMutableURLRequest *request = [self requestForEndPoint:[NSString stringWithFormat:kMergeRequestsEndPoint, mergeRequest.projectId]
+                                                     method:GLNetworkOperationPostMethod];
     request.HTTPBody = [self urlEncodeParams:[mergeRequest jsonCreateRepresentation]];
     
     GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLMergeRequest class] successBlock:success];
-    
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request
@@ -83,13 +75,11 @@ static NSString * const kParamComment = @"note";
                               successBlock:(GLGitlabSuccessBlock)success
                            andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleMergeRequestEndPoint, mergeRequest.projectId, mergeRequest.mergeRequestId]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = GLNetworkOperationPutMethod;
+    NSMutableURLRequest *request = [self requestForEndPoint:[NSString stringWithFormat:kSingleMergeRequestEndPoint, mergeRequest.projectId, mergeRequest.mergeRequestId]
+                                                     method:GLNetworkOperationPutMethod];
     request.HTTPBody = [self urlEncodeParams:[mergeRequest jsonRepresentation]];
     
     GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLMergeRequest class] successBlock:success];
-    
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request
@@ -103,13 +93,11 @@ static NSString * const kParamComment = @"note";
                      withSuccessBlock:(GLGitlabSuccessBlock)success
                       andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kMergeRequestsEndPoint, mergeRequest.projectId]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = GLNetworkOperationPostMethod;
+    NSMutableURLRequest *request = [self requestForEndPoint:[NSString stringWithFormat:kMergeRequestsEndPoint, mergeRequest.projectId]
+                                                     method:GLNetworkOperationPostMethod];
     request.HTTPBody = [self urlEncodeParams:@{kParamComment: comment}];
     
     GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLMergeRequest class] successBlock:success];
-    
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request

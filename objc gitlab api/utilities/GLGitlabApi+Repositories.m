@@ -25,15 +25,10 @@ static NSString * const kTagsEndPoint = @"/projects/%llu/repository/tags";
                                           success:(GLGitlabSuccessBlock)successBlock
                                           failure:(GLGitlabFailureBlock)failureBlock
 {
-    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kBranchesEndPoint, project.projectId]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = GLNetworkOperationGetMethod;
+    NSMutableURLRequest *request = [self requestForEndPoint:[NSString stringWithFormat:kBranchesEndPoint, project.projectId]
+                                                     method:GLNetworkOperationGetMethod];
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSArray *responseObject) {
-        NSArray *branches = [self processJsonArray:responseObject class:[GLBranch class]];
-        successBlock(branches);
-    };
-    
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self multipleObjectSuccessBlockForClass:[GLBranch class] successBlock:successBlock];
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
@@ -47,12 +42,10 @@ static NSString * const kTagsEndPoint = @"/projects/%llu/repository/tags";
                                success:(GLGitlabSuccessBlock)successBlock
                                failure:(GLGitlabFailureBlock)failureBlock
 {
-    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleBranchEndPoint, project.projectId, branchName]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = GLNetworkOperationGetMethod;
+    NSMutableURLRequest *request = [self requestForEndPoint:[NSString stringWithFormat:kSingleBranchEndPoint, project.projectId, branchName]
+                                                     method:GLNetworkOperationGetMethod];
     
     GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLBranch class] successBlock:successBlock];
-    
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
@@ -66,12 +59,10 @@ static NSString * const kTagsEndPoint = @"/projects/%llu/repository/tags";
                               success:(GLGitlabSuccessBlock)successBlock
                               failure:(GLGitlabFailureBlock)failureBlock
 {
-    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleBranchProtectEndPoint, project.projectId, branch.name]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = GLNetworkOperationPutMethod;
+    NSMutableURLRequest *request = [self requestForEndPoint:[NSString stringWithFormat:kSingleBranchProtectEndPoint, project.projectId, branch.name]
+                                                     method:GLNetworkOperationPutMethod];
     
     GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLBranch class] successBlock:successBlock];
-    
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
@@ -85,12 +76,10 @@ static NSString * const kTagsEndPoint = @"/projects/%llu/repository/tags";
                                 success:(GLGitlabSuccessBlock)successBlock
                                 failure:(GLGitlabFailureBlock)failureBlock
 {
-    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kSingleBranchUnprotectEndPoint, project.projectId, branch.name]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = GLNetworkOperationPutMethod;
+    NSMutableURLRequest *request = [self requestForEndPoint:[NSString stringWithFormat:kSingleBranchUnprotectEndPoint, project.projectId, branch.name]
+                                                     method:GLNetworkOperationPutMethod];
     
     GLNetworkOperationSuccessBlock localSuccessBlock = [self singleObjectSuccessBlockForClass:[GLBranch class] successBlock:successBlock];
-    
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
@@ -103,15 +92,10 @@ static NSString * const kTagsEndPoint = @"/projects/%llu/repository/tags";
                                   success:(GLGitlabSuccessBlock)successBlock
                                   failure:(GLGitlabFailureBlock)failureBlock
 {
-    NSURL *url = [self requestUrlForEndPoint:[NSString stringWithFormat:kTagsEndPoint, project.projectId]];
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
-    request.HTTPMethod = GLNetworkOperationGetMethod;
+    NSMutableURLRequest *request = [self requestForEndPoint:[NSString stringWithFormat:kTagsEndPoint, project.projectId]
+                                                     method:GLNetworkOperationGetMethod];
     
-    GLNetworkOperationSuccessBlock localSuccessBlock = ^(NSArray *responseObject) {
-        NSArray *tags = [self processJsonArray:responseObject class:[GLTag class]];
-        successBlock(tags);
-    };
-    
+    GLNetworkOperationSuccessBlock localSuccessBlock = [self multipleObjectSuccessBlockForClass:[GLTag class] successBlock:successBlock];    
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failureBlock];
     
     return [self queueOperationWithRequest:request
