@@ -452,6 +452,8 @@
 				0C3731B418901A160076D45C /* GLGitlabApi+Commits.m */,
 				0CA9F62518AD3E3F00A15E9C /* GLGitlabApi+Files.h */,
 				0CA9F62618AD3E3F00A15E9C /* GLGitlabApi+Files.m */,
+				FD4A36C3C5E3354B9F0AA75C /* GLGitlabApi+Groups.m */,
+				FD4A3940B7FCB69081CFD4C3 /* GLGitlabApi+Groups.h */,
 				0C3731AA189019500076D45C /* GLGitlabApi+Issues.h */,
 				0C3731AB189019500076D45C /* GLGitlabApi+Issues.m */,
 				0C3731A4189018960076D45C /* GLGitlabApi+MergeRequest.h */,
@@ -480,8 +482,6 @@
 				0C2242BE189965E600512648 /* GLRawNetworkOperation.m */,
 				0C2242C0189965F600512648 /* GLVoidNetworkOperation.h */,
 				0C2242C1189965F600512648 /* GLVoidNetworkOperation.m */,
-				FD4A36C3C5E3354B9F0AA75C /* GLGitlabApi+Groups.m */,
-				FD4A3940B7FCB69081CFD4C3 /* GLGitlabApi+Groups.h */,
 			);
 			path = utilities;
 			sourceTree = "<group>";

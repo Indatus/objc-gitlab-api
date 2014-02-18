@@ -75,7 +75,7 @@ static NSString * const kPrivateTokenHeaderKey = @"PRIVATE-TOKEN";
 
 - (NSArray *)processJsonArray:(NSArray *)jsonArray class:(Class)class
 {
-    if (![class isSubclassOfClass:[GLBaseObject class]]) {
+    if (![class isSubclassOfClass:[GLBaseObject class]] || !jsonArray) {
         return nil;
     }
     
