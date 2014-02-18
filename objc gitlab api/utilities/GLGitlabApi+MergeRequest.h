@@ -28,6 +28,10 @@
                               successBlock:(GLGitlabSuccessBlock)success
                            andFailureBlock:(GLGitlabFailureBlock)failure;
 
+- (GLNetworkOperation *)closeMergeRequest:(GLMergeRequest *)mergeRequest
+                              successBlock:(GLGitlabSuccessBlock)success
+                           andFailureBlock:(GLGitlabFailureBlock)failure;
+
 - (GLNetworkOperation *)createComment:(NSString *)comment
                       forMergeRequest:(GLMergeRequest *)mergeRequest
                      withSuccessBlock:(GLGitlabSuccessBlock)success

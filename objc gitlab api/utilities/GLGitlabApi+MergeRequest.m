@@ -88,6 +88,15 @@ static NSString * const kParamComment = @"note";
                                    failure:localFailureBlock];
 }
 
+- (GLNetworkOperation *)closeMergeRequest:(GLMergeRequest *)mergeRequest
+                             successBlock:(GLGitlabSuccessBlock)success
+                          andFailureBlock:(GLGitlabFailureBlock)failure
+{
+    mergeRequest.state = @"closed";
+    return [self updateMergeRequest:mergeRequest successBlock:success andFailureBlock:failure];
+}
+
+
 - (GLNetworkOperation *)createComment:(NSString *)comment
                       forMergeRequest:(GLMergeRequest *)mergeRequest
                      withSuccessBlock:(GLGitlabSuccessBlock)success
