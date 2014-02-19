@@ -17,11 +17,11 @@ pod 'ObjcGitlabApi', '~> 1.0'
 
 <hr/>
 
-All of the calls to the API are executed from the singleton ```GLGitlabApi``` which uses blocks for the callbacks on each request.  Each call returns the operation that it begins so that it maybe cancled if necessary.
+All of the calls to the API are executed from the singleton ```GLGitlabApi``` which uses blocks for the callbacks on each request.  Each call returns the operation that it begins so that it maybe canceled if necessary.
 
 ### Login
 
-Loging in will return the information for the user that the login is requeted for. 
+Logging in will return the information for the user requesting the login. 
 
 ```objc
 [[GLGitlabApi sharedInstance] loginToHost:@"http://gitlab.example.com"
@@ -37,7 +37,7 @@ Loging in will return the information for the user that the login is requeted fo
 
 ### Fetching projects
 
-To get all projects for a user you would use the following method.
+To get all projects for a user you would use the following method:
 
 ```objc
 [[GLGitlabApi sharedInstance] getUsersProjectsSuccess:^(NSArray *projects) {
@@ -48,7 +48,7 @@ To get all projects for a user you would use the following method.
 										}];
 ```
 
-Fetch details about a project
+Fetch details about a project:
 
 ```objc
 [[GLGitlabApi sharedInstance] getProjectWithId:1
@@ -60,7 +60,7 @@ Fetch details about a project
 		                             }];
 ```
 
-The remaining calls in the api follow a similar pattern
+The remaining calls in the api follow a similar pattern.
 
 ### Model Objects
 
