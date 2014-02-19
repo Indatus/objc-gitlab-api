@@ -1,5 +1,7 @@
-objc-gitlab-api : An Objective-C Gitlab Wrapper
-===============================================
+objc-gitlab-api
+===============
+
+### An Objective-C Gitlab Wrapper
 
 ## Installation with CocoaPods
 
