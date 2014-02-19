@@ -59,3 +59,23 @@ Fetch details about a project
 ```
 
 The remaining calls in the api follow a similar pattern
+
+### Model Objects
+
+The library contains a collection of model objects to manage the data passed back and forth between the api and the library.  It includes the following objects:
+
+- GLBranch
+- GLCommit
+- GLDiff
+- GLEvent
+- GLFile
+- GLGroup
+- GLIssue
+- GLMergeRequest
+- GLMilestone
+- GLNamespace
+- GLNote
+- GLProject
+- GLSnippet
+- GLTag
+- GLUser
