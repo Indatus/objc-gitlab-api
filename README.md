@@ -17,11 +17,11 @@ pod 'ObjcGitlabApi', '~> 1.0'
 
 <hr/>
 
-All of the calls to the API are executed from the singleton ```GLGitlabApi``` which uses blocks for the callbacks on each request.  Each call returns the operation that it begins so that it maybe cancled if necessary.
+All of the calls to the API are executed from the singleton ```GLGitlabApi``` which uses blocks for the callbacks on each request.  Each call returns the operation that it begins so that it maybe canceled if necessary.
 
 ### Login
 
-Logging in will return the information for the user that the login is requeted for. 
+Logging in will return the information for the user requesting the login. 
 
 ```objc
 [[GLGitlabApi sharedInstance] loginToHost:@"http://gitlab.example.com"
