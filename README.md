@@ -1,6 +1,8 @@
 objc-gitlab-api
 ===============
 
+[![Build Status](https://travis-ci.org/Indatus/objc-gitlab-api.png?branch=master)](https://travis-ci.org/Indatus/objc-gitlab-api)
+
 ### An Objective-C Gitlab Wrapper
 
 ## Installation with CocoaPods
