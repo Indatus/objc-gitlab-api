@@ -21,7 +21,7 @@ All of the calls to the API are executed from the singleton ```GLGitlabApi``` wh
 
 ### Login
 
-Loging in will return the information for the user that the login is requeted for. 
+Logging in will return the information for the user that the login is requeted for. 
 
 ```objc
 [[GLGitlabApi sharedInstance] loginToHost:@"http://gitlab.example.com"
@@ -37,7 +37,7 @@ Loging in will return the information for the user that the login is requeted fo
 
 ### Fetching projects
 
-To get all projects for a user you would use the following method.
+To get all projects for a user you would use the following method:
 
 ```objc
 [[GLGitlabApi sharedInstance] getUsersProjectsSuccess:^(NSArray *projects) {
@@ -48,7 +48,7 @@ To get all projects for a user you would use the following method.
 										}];
 ```
 
-Fetch details about a project
+Fetch details about a project:
 
 ```objc
 [[GLGitlabApi sharedInstance] getProjectWithId:1
@@ -60,7 +60,7 @@ Fetch details about a project
 		                             }];
 ```
 
-The remaining calls in the api follow a similar pattern
+The remaining calls in the api follow a similar pattern.
 
 ### Model Objects
 
