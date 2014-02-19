@@ -1,3 +1,4 @@
 language: objective-c
 xcode_project: "objc gitlab api.xcodeproj"
 xcode_scheme: "objc gitlab api"
+xcode_sdk: 'iphonesimulator'
