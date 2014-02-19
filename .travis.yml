@@ -1,0 +1,3 @@
+language: objective-c
+xcode_project: "objc gitlab api.xcodeproj"
+xcode_scheme: "objc gitlab apiTests"
