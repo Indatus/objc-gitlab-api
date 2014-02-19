@@ -21,7 +21,7 @@ All of the calls to the API are executed from the singleton ```GLGitlabApi``` wh
 
 Loging in will return the information for the user that the login is requeted for. 
 
-```objective-c
+```Smalltalk
 [[GLGitlabApi sharedInstance] loginToHost:@"http://gitlab.example.com"
 								 username:@"exampleuser"
 				 				 password:@"password"
@@ -37,7 +37,7 @@ Loging in will return the information for the user that the login is requeted fo
 
 To get all projects for a user you would use the following method.
 
-```objective-c
+```Smalltalk
 [[GLGitlabApi sharedInstance] getUsersProjectsSuccess:^(NSArray *projects) {
 											// Process projects
 										}
@@ -48,7 +48,7 @@ To get all projects for a user you would use the following method.
 
 Fetch details about a project
 
-```objective-c
+```Smalltalk
 [[GLGitlabApi sharedInstance] getProjectWithId:1
   	                                   success:^(GLProject *project) {
 		                                 // Perform additional work here
