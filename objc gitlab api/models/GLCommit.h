@@ -11,9 +11,9 @@
 
 @interface GLCommit : GLBaseObject
 
-//id
+// id
 @property (nonatomic, copy) NSString *sha;
-//title
+// title
 @property (nonatomic, copy) NSString *title;
 // short_id
 @property (nonatomic, copy) NSString *shortId;
@@ -23,6 +23,8 @@
 @property (nonatomic, copy) NSString *authorEmail;    
 // created_at
 @property (nonatomic, copy) NSDate *createdAt;
+// parents
+@property (nonatomic, strong) NSArray *parents;
 
 - (BOOL)isEqualToCommit:(GLCommit *)commit;
 

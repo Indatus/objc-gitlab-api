@@ -20,6 +20,7 @@ static NSString * const kKeyForAuthorName = @"author_name";
 static NSString * const kKeyForAuthorEmail = @"author_email";
 static NSString * const kKeyForCreatedAt = @"created_at";
 static NSString * const kKeyForCommittedDate = @"committed_date";
+static NSString * const kKeyForParents = @"parents";
 
 @implementation GLCommit
 
@@ -62,6 +63,10 @@ static NSString * const kKeyForCommittedDate = @"committed_date";
         
         if (dateString) {
             _createdAt = [[[GLGitlabApi sharedInstance] gitLabDateFormatter] dateFromString:dateString];
+        }
+        
+        if (json[kKeyForParents]) {
+            _parents = [self checkForNull:json[kKeyForParents]];
         }
     }
     return self;
