@@ -45,7 +45,7 @@ static NSString * const kRefName = @"ref_name";
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
     
     return [self queueOperationWithRequest:request
-                                      type:GLNetworkOperationTypeRaw
+                                      type:GLNetworkOperationTypeJson
                                    success:localSuccessBlock
                                    failure:localFailureBlock];
 }
