@@ -26,10 +26,9 @@ static NSString * const kRefName = @"ref_name";
                                      withSuccessBlock:(GLGitlabSuccessBlock)success
                                       andFailureBlock:(GLGitlabFailureBlock)failure
 {
-    NSMutableURLRequest *request = [self requestForEndPoint:[NSString stringWithFormat:kTreeEndpoint, projectId]
-                                                     method:GLNetworkOperationGetMethod];
+    NSMutableDictionary *params;
     if (path || branch) {
-        NSMutableDictionary *params = [NSMutableDictionary dictionary];
+        params = [NSMutableDictionary dictionary];
         if (path) {
             params[kPath] = path;
         }
@@ -37,9 +36,17 @@ static NSString * const kRefName = @"ref_name";
         if (branch) {
             params[kRefName] = branch;
         }
-        
-        request.HTTPBody = [self urlEncodeParams:params];
     }
+    
+    NSString *endpoint;
+    if (params) {
+        endpoint = [self urlEncodeParamsForGet:params endpoint:[NSString stringWithFormat:kTreeEndpoint, projectId]];
+    }
+    else {
+        endpoint = [NSString stringWithFormat:kTreeEndpoint, projectId];
+    }
+    
+    NSMutableURLRequest *request = [self requestForEndPoint:endpoint method:GLNetworkOperationGetMethod];
     
     GLNetworkOperationSuccessBlock localSuccessBlock = [self multipleObjectSuccessBlockForClass:[GLFile class] successBlock:success];
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];
