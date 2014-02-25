@@ -95,7 +95,7 @@ static NSString * const kPrivateTokenHeaderKey = @"PRIVATE-TOKEN";
 - (NSURL *)requestUrlForEndPoint:(NSString *)endpoint
 {
     NSURL *url = [self.hostName URLByAppendingPathComponent:kApiRoutePrefix];
-    url = [NSURL URLWithString:endpoint relativeToURL:url];
+    url = [url URLByAppendingPathComponent:endpoint];
     return url;
 }
 
