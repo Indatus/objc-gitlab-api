@@ -33,6 +33,8 @@
  */
 - (NSDictionary *)jsonCreateRepresentation;
 
+- (NSString *)jsonString;
+
 /**
  *  Method to check if a value is null
  *

@@ -31,6 +31,20 @@
     return nil;
 }
 
+- (NSString *)jsonString
+{
+    NSError *error;
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[self jsonRepresentation]
+                                                       options:NSJSONWritingPrettyPrinted
+                                                         error:&error];
+    if (error) {
+        NSLog(@"Error creating JSON string: %@", error);
+        return @"";
+    } else {
+        return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    }
+}
+
 - (id)checkForNull:(id)value
 {
     return value == [NSNull null] ? nil : value;
