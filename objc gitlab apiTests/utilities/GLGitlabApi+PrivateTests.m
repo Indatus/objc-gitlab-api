@@ -68,4 +68,13 @@ static NSString * const kPasswordValue = @"This is a & Password!";
     XCTAssertEqualObjects(knownArray, testArray, @"Parsing of objects using process JSON array failed");
 }
 
+- (void)testCreateGetRequestWithParams
+{
+    [[GLGitlabApi sharedInstance] setHostName:[NSURL URLWithString:@"http://gitlab.com"]];
+    NSMutableURLRequest *request = [[GLGitlabApi sharedInstance] requestForEndPoint:@"/projects/1/repository/tree" params:@{ @"path": @"test", @"ref_name": @"dev" } method:GLNetworkOperationGetMethod];
+    NSURL *knownUrl = [NSURL URLWithString:@"http://gitlab.com/api/v3/projects/1/repository/tree?path=test&ref_name=dev"];
+    XCTAssertEqualObjects([request.HTTPMethod uppercaseString], [GLNetworkOperationGetMethod uppercaseString], @"Request has the wrong http verb");
+    XCTAssertEqualObjects(request.URL, knownUrl, @"URL for get request is incorrect");
+}
+
 @end

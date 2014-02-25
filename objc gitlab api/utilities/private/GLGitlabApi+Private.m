@@ -9,6 +9,7 @@
 #import "GLGitlabApi+Private.h"
 #import "GLConstants.h"
 #import "GLBaseObject.h"
+#import "NSURL+GLAdditions.h"
 
 static NSString * const kApiRoutePrefix = @"/api/v3";
 static NSString * const kPrivateTokenHeaderKey = @"PRIVATE-TOKEN";
@@ -104,6 +105,25 @@ static NSString * const kPrivateTokenHeaderKey = @"PRIVATE-TOKEN";
     NSURL *url = [self requestUrlForEndPoint:endpoint];
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
     request.HTTPMethod = method;
+    
+    return request;
+}
+
+- (NSMutableURLRequest *)requestForEndPoint:(NSString *)endpoint params:(NSDictionary *)params method:(NSString *)method
+{
+    NSURL *url = [self requestUrlForEndPoint:endpoint];
+
+    if (params && [method isEqualToString:GLNetworkOperationGetMethod]) {
+        NSString *queryString = [self urlEncodeParamsForGet:params];
+        url = [url URLByAppendingQueryString:queryString];
+    }
+
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
+    request.HTTPMethod = method;
+    
+    if (params && ![method isEqualToString:GLNetworkOperationGetMethod]) {
+        request.HTTPBody = [self urlEncodeParams:params];
+    }
     
     return request;
 }

@@ -38,15 +38,8 @@ static NSString * const kRefName = @"ref_name";
         }
     }
     
-    NSString *endpoint;
-    if (params) {
-        endpoint = [self urlEncodeParamsForGet:params endpoint:[NSString stringWithFormat:kTreeEndpoint, projectId]];
-    }
-    else {
-        endpoint = [NSString stringWithFormat:kTreeEndpoint, projectId];
-    }
-    
-    NSMutableURLRequest *request = [self requestForEndPoint:endpoint method:GLNetworkOperationGetMethod];
+    NSString *endpoint =  [NSString stringWithFormat:kTreeEndpoint, projectId];
+    NSMutableURLRequest *request = [self requestForEndPoint:endpoint params:params method:GLNetworkOperationGetMethod];
     
     GLNetworkOperationSuccessBlock localSuccessBlock = [self multipleObjectSuccessBlockForClass:[GLFile class] successBlock:success];
     GLNetworkOperationFailureBlock localFailureBlock = [self defaultFailureBlock:failure];

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0C0C7B6F18BCDB1000CCF2DC /* NSURL+GLAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C0C7B6E18BCDB1000CCF2DC /* NSURL+GLAdditions.m */; };
 		0C2242B718994A7100512648 /* GLBaseObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2242B618994A7100512648 /* GLBaseObject.m */; };
 		0C2242B91899539400512648 /* GLBaseObjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2242B81899539400512648 /* GLBaseObjectTests.m */; };
 		0C2242BC1899624F00512648 /* GLJsonNetworkOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0C2242BB1899624F00512648 /* GLJsonNetworkOperation.m */; };
@@ -109,6 +110,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		0C0C7B6D18BCDB1000CCF2DC /* NSURL+GLAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURL+GLAdditions.h"; sourceTree = "<group>"; };
+		0C0C7B6E18BCDB1000CCF2DC /* NSURL+GLAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURL+GLAdditions.m"; sourceTree = "<group>"; };
 		0C2242B518994A7100512648 /* GLBaseObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GLBaseObject.h; sourceTree = "<group>"; };
 		0C2242B618994A7100512648 /* GLBaseObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GLBaseObject.m; sourceTree = "<group>"; };
 		0C2242B81899539400512648 /* GLBaseObjectTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GLBaseObjectTests.m; path = models/GLBaseObjectTests.m; sourceTree = "<group>"; };
@@ -482,6 +485,8 @@
 				0C2242BE189965E600512648 /* GLRawNetworkOperation.m */,
 				0C2242C0189965F600512648 /* GLVoidNetworkOperation.h */,
 				0C2242C1189965F600512648 /* GLVoidNetworkOperation.m */,
+				0C0C7B6D18BCDB1000CCF2DC /* NSURL+GLAdditions.h */,
+				0C0C7B6E18BCDB1000CCF2DC /* NSURL+GLAdditions.m */,
 			);
 			path = utilities;
 			sourceTree = "<group>";
@@ -595,6 +600,7 @@
 				5DDC391318887C9200DF8FD7 /* GLIssue.m in Sources */,
 				0C3731BE18901AEE0076D45C /* GLGitlabApi+Snippets.m in Sources */,
 				5D8590021885D11F00D04017 /* GLCommit.m in Sources */,
+				0C0C7B6F18BCDB1000CCF2DC /* NSURL+GLAdditions.m in Sources */,
 				0C37318F188FFD290076D45C /* GLSnippet.m in Sources */,
 				0C37319518900B200076D45C /* GLTag.m in Sources */,
 				0C2242B718994A7100512648 /* GLBaseObject.m in Sources */,

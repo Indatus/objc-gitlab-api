@@ -79,7 +79,7 @@
 - (NSURL *)requestUrlForEndPoint:(NSString *)endpoint;
 
 /**
- *  Creates the request fior the specified endpoint
+ *  Creates the request for the specified endpoint
  *
  *  @param endpoint The endpoint for the request to be made
  *  @param method   The HTTP Verb for the request
@@ -87,6 +87,17 @@
  *  @return Request object for url and method
  */
 - (NSMutableURLRequest *)requestForEndPoint:(NSString *)endpoint method:(NSString *)method;
+
+/**
+ *  Creates the request for the specified endpoint and parameters
+ *
+ *  @param endpoint The endpoint for the request to be made
+ *  @param params   The parameters for the request to be made
+ *  @param method   The HTTP Verb for the request
+ *
+ *  @return Request object for the specified parameters
+ */
+- (NSMutableURLRequest *)requestForEndPoint:(NSString *)endpoint params:(NSDictionary *)params method:(NSString *)method;
 
 /**
  *  Method that creates a failure block which calls back to the provided block
