@@ -26,8 +26,8 @@ static NSString * const kPerPageParam = @"per_page";
                          success:(GLGitlabSuccessBlock)successBlock
                          failure:(GLGitlabFailureBlock)failureBlock
 {
-    NSString *endpoint = [self urlEncodeParamsForGet:@{ kPageParam: @(pageNumber), kPerPageParam: @(batchSize) } endpoint:kUserEndpoint];
-    NSMutableURLRequest *request = [self requestForEndPoint:endpoint
+    NSMutableURLRequest *request = [self requestForEndPoint:kUserEndpoint
+                                                     params:@{ kPageParam: @(pageNumber), kPerPageParam: @(batchSize) }
                                                      method:GLNetworkOperationGetMethod];
     
     GLNetworkOperationSuccessBlock localSuccessBlock = [self multipleObjectSuccessBlockForClass:[GLUser class] successBlock:successBlock];
