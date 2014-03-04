@@ -80,5 +80,10 @@ static NSString * const kBlobType = @"blob";
     return description;
 }
 
+- (NSString *)nameWithoutExtension
+{
+    NSRange range = [_name rangeOfString:@"." options:NSBackwardsSearch];
+    return [_name substringToIndex:range.location];
+}
 
 @end

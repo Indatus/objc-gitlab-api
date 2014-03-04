@@ -30,4 +30,6 @@ typedef NS_ENUM(NSInteger, GLFileType) {
 
 - (NSString *)description;
 
+- (NSString *)nameWithoutExtension;
+
 @end
