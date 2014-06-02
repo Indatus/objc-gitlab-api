@@ -9,7 +9,7 @@ objc-gitlab-api
 
 <hr/>
 
-To include this library just add the following to your projects Podfile.
+To include this library just add the following to your projects Podfile:
 
 ```
 pod 'ObjcGitlabApi', '~> 1.0'
@@ -19,7 +19,7 @@ pod 'ObjcGitlabApi', '~> 1.0'
 
 <hr/>
 
-All of the calls to the API are executed from the singleton ```GLGitlabApi``` which uses blocks for the callbacks on each request.  Each call returns the operation that it begins so that it maybe canceled if necessary.
+All of the calls to the API are executed from the singleton `GLGitlabApi` which uses blocks for the callbacks on each request.  Each call returns the operation that it begins so that it maybe canceled if necessary.
 
 ### Login
 
@@ -37,7 +37,7 @@ Logging in will return the information for the user requesting the login.
 				  					}];
 ```
 
-### Fetching projects
+### Fetching Projects
 
 To get all projects for a user you would use the following method:
 
